@@ -8,7 +8,7 @@ module.exports = {
                 "theme-black-80": "#333333",
                 "theme-white-80": "#CCCCCC",
                 "theme-white-90": "#F7F7F7",
-                "theme-white-100": "#FFFFFF",
+                "theme-white": "#FFFFFF",
                 "theme-red": "#E65F78",
             },
         },
