@@ -11,4 +11,6 @@ body {
 body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
+
+    @apply text-base text-theme-white-90 min-h-screen flex flex-col;
 }
