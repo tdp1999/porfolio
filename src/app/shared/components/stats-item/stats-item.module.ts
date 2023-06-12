@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PorfolioComponent } from './porfolio.component';
+import { StatsItemComponent } from './stats-item.component';
 
 
 
 @NgModule({
   declarations: [
-    PorfolioComponent
+    StatsItemComponent
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    StatsItemComponent
   ]
 })
-export class PorfolioModule { }
+export class StatsItemModule { }

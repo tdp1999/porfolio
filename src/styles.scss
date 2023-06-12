@@ -12,5 +12,11 @@ body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
 
-    @apply text-base text-theme-white-90 min-h-screen flex flex-col;
+    @apply text-base text-theme-white-90;
 }
+
+// app-root {
+//     display: flex;
+//     flex-direction: column;
+//     min-height: 100%;
+// }
