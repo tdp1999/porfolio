@@ -1,0 +1,33 @@
+.about-block {
+    position: relative;
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        // border: 1px solid #fff;
+        position: relative;
+        box-shadow: 0 0 0 5px #fff;
+        transition: all 0.3s ease-in-out;
+        z-index: 1;
+    }
+
+    &:hover img,
+    &:focus img,
+    &:hover::after,
+    &:focus::after {
+        transform: scale(1.1);
+        // box-shadow: 0 0 0 5px #fff, 0 0 0 10px #000;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 1px solid white;
+        transition: all 0.3s ease-in-out;
+        top: 12px;
+        left: 12px;
+    }
+}

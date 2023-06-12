@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ContactComponent } from './contact/contact.component';
 import { StatsItemModule } from 'src/app/shared/components/stats-item/stats-item.module';
+import { SkillItemModule } from 'src/app/shared/components/skill-item/skill-item.module';
 
 const routes: Routes = [
     {
@@ -17,7 +18,7 @@ const routes: Routes = [
     },
 ];
 
-const components = [ExperienceItemModule, StatsItemModule];
+const components = [ExperienceItemModule, StatsItemModule, SkillItemModule];
 
 @NgModule({
     declarations: [

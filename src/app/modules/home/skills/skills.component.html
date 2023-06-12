@@ -1,1 +1,11 @@
-<p>skills works!</p>
+<div
+    class="flex flex-col items-center gap-20 justify-center h-full bg-theme-black-80"
+>
+    <h2 class="h2--underline">Skills</h2>
+
+    <div class="grid max-w-screen-lg grid-cols-2 gap-12 auto-rows-auto">
+        <ng-container *ngFor="let i of [1, 2, 3, 4]">
+            <app-skill-item></app-skill-item>
+        </ng-container>
+    </div>
+</div>
