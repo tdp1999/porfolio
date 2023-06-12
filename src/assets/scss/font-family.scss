@@ -60,3 +60,7 @@ p,
 .body {
     @apply text-base font-normal;
 }
+
+.caption {
+    @apply text-sm font-light uppercase;
+}

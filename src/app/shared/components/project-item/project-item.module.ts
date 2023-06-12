@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PorfolioItemComponent } from './porfolio-item.component';
+import { ProjectItemComponent } from './project-item.component';
 
 
 
 @NgModule({
   declarations: [
-    PorfolioItemComponent
+    ProjectItemComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    PorfolioItemComponent
+    ProjectItemComponent
   ]
 })
-export class PorfolioItemModule { }
+export class ProjectItemModule { }

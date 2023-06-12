@@ -10,6 +10,9 @@ import { SkillsComponent } from './skills/skills.component';
 import { ContactComponent } from './contact/contact.component';
 import { StatsItemModule } from 'src/app/shared/components/stats-item/stats-item.module';
 import { SkillItemModule } from 'src/app/shared/components/skill-item/skill-item.module';
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectItemModule } from 'src/app/shared/components/project-item/project-item.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
     {
@@ -18,7 +21,13 @@ const routes: Routes = [
     },
 ];
 
-const components = [ExperienceItemModule, StatsItemModule, SkillItemModule];
+const components = [
+    ExperienceItemModule,
+    StatsItemModule,
+    SkillItemModule,
+    ProjectItemModule,
+    FontAwesomeModule,
+];
 
 @NgModule({
     declarations: [
@@ -28,6 +37,7 @@ const components = [ExperienceItemModule, StatsItemModule, SkillItemModule];
         AboutComponent,
         SkillsComponent,
         ContactComponent,
+        ProjectsComponent,
     ],
     imports: [CommonModule, RouterModule.forChild(routes), ...components],
 })
