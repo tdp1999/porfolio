@@ -14,7 +14,7 @@ export const MENU_DATA: Menu[] = [
         label: 'Experience',
         icon: 'fas fa-briefcase',
         route: '/home',
-        fragment: 'experience',
+        fragment: 'experiences',
     },
     {
         id: 3,
@@ -25,10 +25,10 @@ export const MENU_DATA: Menu[] = [
     },
     {
         id: 4,
-        label: 'Portfolio',
+        label: 'Projects',
         icon: 'fas fa-briefcase',
         route: '/home',
-        fragment: 'portfolio',
+        fragment: 'projects',
     },
     {
         id: 5,
