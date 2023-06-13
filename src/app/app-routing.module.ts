@@ -20,7 +20,7 @@ const routes: Routes = [
         RouterModule.forRoot(routes, {
             anchorScrolling: 'enabled',
             onSameUrlNavigation: 'reload',
-            enableTracing: true,
+            // enableTracing: true,
             scrollPositionRestoration: 'enabled',
             scrollOffset: [0, 64],
         }),

@@ -11,31 +11,38 @@ export class AboutComponent implements OnInit {
     personalInformation: Information[] = [
         {
             label: 'Name',
-            value: 'John Doe',
+            value: 'Phuong Tran',
+            templateRef: 'text',
         },
         {
             label: 'Age',
-            value: '25',
+            value: '24',
+            templateRef: 'text',
         },
         {
             label: 'Email',
-            value: 'test@gmail.com',
+            value: 'tdp99.business@gmail.com',
+            templateRef: 'email',
         },
         {
             label: 'Phone',
-            value: '1234567890',
+            value: '+84 783 995 295',
+            templateRef: 'phone',
         },
         {
             label: 'Location',
-            value: 'New York, USA',
+            value: 'Can Tho, HCM City, VN',
+            templateRef: 'text',
         },
         {
             label: 'Languages',
-            value: 'English, Spanish',
+            value: 'Vietnamese, English',
+            templateRef: 'text',
         },
         {
             label: 'Education',
-            value: 'Master',
+            value: 'Bachelor of Computer Science, Can Tho University',
+            templateRef: 'text',
         },
     ];
 
