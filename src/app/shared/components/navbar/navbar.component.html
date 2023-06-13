@@ -46,12 +46,10 @@
 
         <button class="porfolio-button">Resume</button>
 
-        <button (click)="toggleTheme()">
-            <fa-icon
-                [icon]="themeIcon"
-                size="xl"
-                [spin]="true"
-            ></fa-icon>
-        </button>
+        <div class="flex items-center justify-center w-6">
+            <button (click)="toggleTheme()">
+                <fa-icon [icon]="themeIcon" size="xl" [spin]="false"></fa-icon>
+            </button>
+        </div>
     </div>
 </nav>

@@ -9,12 +9,14 @@
 
         <div>
             <p class="mb-8">
-                Welcome! I'm a 24-year-old front-end developer from Can Tho and
-                Ho Chi Minh City, Vietnam. Skilled in Angular and TypeScript, I
-                specialize in creating valuable digital experiences. With
-                dedication, hard work, and a passion for innovation, I strive to
-                deliver exceptional results. Let's collaborate and bring your
-                ideas to life!
+                Hello there! My name is Tran Duc Phuong, and I am an Angular
+                front-end developer based in the beautiful cities of Can Tho and
+                Ho Chi Minh City, Vietnam. I am truly humbled by the opportunity
+                to work in this field, and my main goal is to contribute
+                valuable and meaningful work to the industry. I am constantly
+                striving to learn and grow, and I am excited to collaborate and
+                create impactful digital experiences. Let's embark on this
+                journey together and make a difference!
             </p>
 
             <div class="grid grid-cols-2 auto-rows-auto gap-x-16 gap-y-3">
@@ -32,10 +34,6 @@
                                 </a>
                             </ng-container>
 
-                            <ng-container *ngSwitchDefault>{{
-                                item.value
-                            }}</ng-container>
-
                             <ng-container *ngSwitchCase="'phone'">
                                 <a
                                     href="tel:{{
@@ -47,6 +45,10 @@
                                     {{ item.value }}
                                 </a>
                             </ng-container>
+
+                            <ng-container *ngSwitchDefault>{{
+                                item.value
+                            }}</ng-container>
                         </span>
                     </ng-container>
                 </div>
@@ -55,8 +57,9 @@
     </div>
     <div class="flex gap-10 bg-theme-black-88 p-7">
         <app-stats-item
-            *ngFor="let i of [1, 4, 8]"
-            [value]="i"
+            *ngFor="let info of statsInformation"
+            [value]="info.value"
+            [label]="info.label"
         ></app-stats-item>
     </div>
 </div>

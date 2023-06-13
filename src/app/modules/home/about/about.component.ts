@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Information } from 'src/app/shared/interfaces/information.interface';
+import {
+    Information,
+    StatsInformation,
+} from 'src/app/shared/interfaces/information.interface';
 
 @Component({
     selector: 'app-about',
@@ -11,7 +14,7 @@ export class AboutComponent implements OnInit {
     personalInformation: Information[] = [
         {
             label: 'Name',
-            value: 'Phuong Tran',
+            value: 'Tran Duc Phuong',
             templateRef: 'text',
         },
         {
@@ -30,11 +33,10 @@ export class AboutComponent implements OnInit {
             templateRef: 'phone',
             metadata: {
                 value: '+84783995295',
-            }
-            
+            },
         },
         {
-            label: 'Location',
+            label: 'Locations',
             value: 'Can Tho, HCM City, VN',
             templateRef: 'text',
         },
@@ -47,6 +49,17 @@ export class AboutComponent implements OnInit {
             label: 'Education',
             value: 'Bachelor of Computer Science, Can Tho University',
             templateRef: 'text',
+        },
+    ];
+
+    statsInformation: StatsInformation[] = [
+        {
+            label: 'Years of Experience',
+            value: 2,
+        },
+        {
+            label: 'Projects Completed',
+            value: 5,
         },
     ];
 

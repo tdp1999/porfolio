@@ -20,6 +20,7 @@ export class StatsItemComponent implements AfterViewInit {
     @Input() steps = 100;
 
     @Input() value!: number;
+    @Input() label!: string;
 
     private _cdr = inject(ChangeDetectorRef);
 
