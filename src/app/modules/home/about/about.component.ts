@@ -28,6 +28,10 @@ export class AboutComponent implements OnInit {
             label: 'Phone',
             value: '+84 783 995 295',
             templateRef: 'phone',
+            metadata: {
+                value: '+84783995295',
+            }
+            
         },
         {
             label: 'Location',

@@ -31,9 +31,22 @@
                                     {{ item.value }}
                                 </a>
                             </ng-container>
+
                             <ng-container *ngSwitchDefault>{{
                                 item.value
                             }}</ng-container>
+
+                            <ng-container *ngSwitchCase="'phone'">
+                                <a
+                                    href="tel:{{
+                                        item.metadata
+                                            ? item.metadata['value']
+                                            : ''
+                                    }}"
+                                >
+                                    {{ item.value }}
+                                </a>
+                            </ng-container>
                         </span>
                     </ng-container>
                 </div>

@@ -1,4 +1,4 @@
-<div
+<nav
     #nav
     class="flex items-center justify-between px-40 py-4 bg-theme-black-88"
 >
@@ -45,5 +45,13 @@
         </a>
 
         <button class="porfolio-button">Resume</button>
+
+        <button (click)="toggleTheme()">
+            <fa-icon
+                [icon]="themeIcon"
+                size="xl"
+                [spin]="true"
+            ></fa-icon>
+        </button>
     </div>
-</div>
+</nav>

@@ -9,6 +9,7 @@ import {
     faSquareTwitter,
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { SocialLink } from 'src/app/shared/interfaces/social-link.interface';
 
 @Component({
@@ -48,7 +49,7 @@ export class ContactComponent implements OnInit {
             label: 'Skype',
             icon: faSkype,
             url: '',
-        },
+        }
     ];
 
     constructor() {}

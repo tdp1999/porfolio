@@ -8,12 +8,38 @@ import {
     inject,
 } from '@angular/core';
 import { MENU_DATA } from '../../data/menu.data';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { Theme } from '../../types/theme.type';
+import {
+    animate,
+    state,
+    style,
+    transition,
+    trigger,
+} from '@angular/animations';
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [
+        trigger('iconChangeAnimation', [
+            state(
+                'light',
+                style({ 
+                    transform: 'rotate(0deg)',
+                })
+            ),
+            state(
+                'dark',
+                style({
+                    transform: 'rotate(180deg)',
+                })
+            ),
+            transition('light <=> dark', animate('200ms ease-in')),
+        ]),
+    ],
 })
 export class NavbarComponent {
     @ViewChild('nav', { static: true }) navbar!: ElementRef;
@@ -44,10 +70,22 @@ export class NavbarComponent {
         });
     }
 
+    themeIcon = faSun;
+    currentTheme: Theme = 'light';
+
     private _renderer2 = inject(Renderer2);
 
     scrolled = false;
     items = MENU_DATA;
 
-    constructor() {}
+    toggleTheme() {
+        if (this.currentTheme === 'light') {
+            this.currentTheme = 'dark';
+            this.themeIcon = faMoon;
+            return;
+        }
+
+        this.currentTheme = 'light';
+        this.themeIcon = faSun;
+    }
 }
