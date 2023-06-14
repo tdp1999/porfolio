@@ -5,7 +5,7 @@
 @import "./assets/scss/index";
 
 * {
-    transition: all 0.3s ease-in-out;
+    // transition: all 0.3s ease-in-out;
 }
 
 html,
@@ -17,7 +17,7 @@ body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
 
-    @apply text-base text-theme-white-90;
+    @apply text-base text-theme-black-88 dark:text-theme-white-90;
 }
 
 app-root {

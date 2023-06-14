@@ -17,27 +17,18 @@ import {
     transition,
     trigger,
 } from '@angular/animations';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     animations: [
         trigger('iconChangeAnimation', [
-            state(
-                'light',
-                style({ 
-                    transform: 'rotate(0deg)',
-                })
-            ),
-            state(
-                'dark',
-                style({
-                    transform: 'rotate(180deg)',
-                })
-            ),
-            transition('light <=> dark', animate('200ms ease-in')),
+            state('void', style({ transform: 'rotate(0deg)' })),
+            // state(':leave', style({ color: 'blue' })),
+            transition(':enter', animate('200ms ease-in')),
         ]),
     ],
 })
@@ -70,22 +61,12 @@ export class NavbarComponent {
         });
     }
 
-    themeIcon = faSun;
-    currentTheme: Theme = 'light';
-
     private _renderer2 = inject(Renderer2);
+    public themeService = inject(ThemeService);
+
+    sunIcon = faSun;
+    moonIcon = faMoon;
 
     scrolled = false;
     items = MENU_DATA;
-
-    toggleTheme() {
-        if (this.currentTheme === 'light') {
-            this.currentTheme = 'dark';
-            this.themeIcon = faMoon;
-            return;
-        }
-
-        this.currentTheme = 'light';
-        this.themeIcon = faSun;
-    }
 }

@@ -1,6 +1,6 @@
 <nav
     #nav
-    class="flex items-center justify-between px-40 py-4 bg-theme-black-88"
+    class="flex items-center justify-between px-40 py-4 bg-theme-white-90 dark:bg-theme-black-88"
 >
     <svg
         class="w-12 h-12"
@@ -47,8 +47,26 @@
         <button class="porfolio-button">Resume</button>
 
         <div class="flex items-center justify-center w-6">
-            <button (click)="toggleTheme()">
-                <fa-icon [icon]="themeIcon" size="xl" [spin]="false"></fa-icon>
+            <button
+                *ngIf="themeService.currentTheme$ | async as theme"
+                [@iconChangeAnimation]="theme"
+                (click)="themeService.toggleTheme()"
+            >
+                <ng-container *ngIf="theme === 'light'; else dark">
+                    <fa-icon
+                        [icon]="sunIcon"
+                        size="xl"
+                        [spin]="false"
+                    ></fa-icon>
+                </ng-container>
+
+                <ng-template #dark>
+                    <fa-icon
+                        [icon]="moonIcon"
+                        size="xl"
+                        [spin]="false"
+                    ></fa-icon>
+                </ng-template>
             </button>
         </div>
     </div>
