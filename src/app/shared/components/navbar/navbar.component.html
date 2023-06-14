@@ -1,7 +1,4 @@
-<nav
-    #nav
-    class="flex items-center justify-between px-40 py-4 bg-theme-white-90 dark:bg-theme-black-88"
->
+<nav #nav class="flex items-center justify-between px-40 py-4 theme--bg">
     <svg
         class="w-12 h-12"
         id="sw-js-blob-svg"
@@ -39,7 +36,7 @@
             *ngFor="let item of items"
             [routerLink]="item.route"
             [fragment]="item.fragment"
-            class="flex items-center"
+            class="flex items-center dark:text-theme-white-90"
         >
             {{ item.label }}
         </a>
@@ -56,6 +53,7 @@
                     <fa-icon
                         [icon]="sunIcon"
                         size="xl"
+                        class="text-theme-red"
                         [spin]="false"
                     ></fa-icon>
                 </ng-container>
@@ -63,6 +61,7 @@
                 <ng-template #dark>
                     <fa-icon
                         [icon]="moonIcon"
+                        class="text-theme-white-90"
                         size="xl"
                         [spin]="false"
                     ></fa-icon>

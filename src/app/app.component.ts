@@ -7,7 +7,7 @@ import {
     OnDestroy,
 } from '@angular/core';
 import { ThemeService } from './shared/services/theme.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, map, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -23,14 +23,20 @@ export class AppComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this._themeService.currentTheme$
-            .pipe(takeUntil(this._unsubscribe$))
-            .subscribe((theme) => {
-              // remove all classes
-              // this._renderer2.removeClass(
-              //     this._elementRef.nativeElement,
-                     
-              // )
-                // this._renderer2.addClass(this._elementRef.nativeElement, theme);
+            .pipe(
+                map((value) => value === 'dark'),
+                takeUntil(this._unsubscribe$)
+            )
+            .subscribe((isDark) => {
+                isDark
+                    ? this._renderer2.addClass(
+                          this._elementRef.nativeElement,
+                          'dark'
+                      )
+                    : this._renderer2.removeClass(
+                          this._elementRef.nativeElement,
+                          'dark'
+                      );
             });
     }
 
