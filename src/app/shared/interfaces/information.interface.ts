@@ -1,3 +1,5 @@
+import { ProjectSize, ProjectType } from '../types/software.type';
+
 export interface Information {
     label: string;
     value: string;
@@ -10,6 +12,16 @@ export interface StatsInformation {
     value: number;
 }
 
+export interface Project {
+    name: string;
+    description: string;
+    technologies: string[];
+    startDate: Date;
+    endDate: Date | null;
+    projectType: ProjectType;
+    projectSize: ProjectSize;
+}
+
 export interface Experience {
     company: string;
     position: string;
@@ -19,6 +31,8 @@ export interface Experience {
     technologies: string[];
     location: string;
     clientLocation: string;
+    clientDomain: string;
+    project: Project[];
     responsibilities: string[];
     teamSize: number;
     achievements: string[];

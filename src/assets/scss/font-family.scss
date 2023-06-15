@@ -25,17 +25,6 @@ h2,
     &--light {
         @apply font-light;
     }
-
-    // &--extra-bold {
-    //     @apply font-extrabold;
-    // }
-
-    // &--underline {
-    //     &::after {
-    //         @apply block w-1/3 h-1 bg-theme-red mt-2 mx-auto;
-    //         content: "";
-    //     }
-    // }
 }
 
 h3,
@@ -45,7 +34,7 @@ h3,
 
 h4,
 .h4 {
-    @apply text-2xl font-semibold theme--text;
+    @apply text-2xl font-semibold;
 
     &--light {
         @apply font-light;
