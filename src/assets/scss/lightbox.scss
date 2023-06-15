@@ -1,0 +1,19 @@
+.lightbox {
+    &__bg {
+        &--black {
+            @apply bg-theme-black-88;
+        }
+
+        &--dark {
+            @apply bg-theme-black-80;
+        }
+
+        &--light {
+            @apply bg-theme-white-80;
+        }
+    }
+}
+
+// .cdk-overlay-pane {
+// 	overflow: auto;
+// }
