@@ -12,7 +12,6 @@ export const Experiences: Experience[] = [
         location: 'Can Tho, Vietnam',
         clientLocation: 'Vietnam',
         clientDomain: 'Insurance',
-        // projectType: ['ERP'],
         project: [],
         responsibilities: [
             'Maintained and refactored the codebase',
@@ -28,7 +27,7 @@ export const Experiences: Experience[] = [
     },
     {
         company: 'App Core',
-        position: 'Software Engineer',
+        position: 'Junior Software Engineer',
         startDate: new Date(2022, 0, 1),
         endDate: new Date(2022, 4, 1),
         description:
@@ -57,21 +56,24 @@ export const Experiences: Experience[] = [
         endDate: null,
         description:
             'Worked as a Frontend Developer for multiple projects of several big real estate companies in Singapore. My team is responsible for developing and maintaining the ERP system for clients company using Angular in the frontend and NestJS in the backend.',
-        technologies: ['Angular', 'Bootstrap 4', 'TypeScript', 'NodeJS'],
-        location: 'Can Tho, Vietnam',
-        clientLocation: 'United States',
+        technologies: ['Angular', 'Typescript', 'NgRx', 'Nx'],
+        location: 'HCM City, Vietnam',
+        clientLocation: 'Singapore',
         clientDomain: 'Real Estate',
         project: [],
         responsibilities: [
-            'Get design mockups, review them, and give feedback to the designer.',
-            'From design, build SPA websites with reusable pages and components.',
+            'Review designs, documents, and technical requirements, and provide feedback to the creator if there are any issues.',
+            'Develop UI modules, components, and libraries based on the specifications mentioned in the above documents.',
             'Handle user interactions and integrate APIs from the Backend.',
-            'Participated in the daily meeting with the team and PM to discuss the issues and propose solutions.',
+            'Gather feedback from actual users, discuss it with the team, and propose solutions to any problems.',
+            'Communicate with backend colleagues, QC/Testers, and BAs to resolve issues that arise during feature development.',
+            'Attend daily meetings with the project manager and CEO to provide updates on work progress, discuss work-related problems, and find solutions.',
         ],
-        teamSize: 3,
+        teamSize: [10, 15],
         achievements: [
-            'Get acquainted with the knowledge of Scrum - Kanban strategies, and the process of developing a web application.',
-            'Significantly improve my communication skills, self-learning skills, and the ability to work under pressure.',
+            'Made significant progress in knowledge and skills related to the technologies and frameworks I frequently utilize, particularly Angular and TypeScript.',
+            'Demonstrated significant improvement in self-study skills, self-discipline, and ability to work under pressure and in intense environments.',
+            'Developed a better vision for work and future plans, and cultivated a more positive attitude when facing challenging problems',
         ],
     },
 ];

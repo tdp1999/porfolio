@@ -34,6 +34,6 @@ export interface Experience {
     clientDomain: string;
     project: Project[];
     responsibilities: string[];
-    teamSize: number;
+    teamSize: number | [number, number];
     achievements: string[];
 }
