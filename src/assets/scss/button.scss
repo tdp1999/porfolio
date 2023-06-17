@@ -5,3 +5,7 @@
 .chip {
     @apply caption p-1 border border-theme-black-80 dark:border-theme-white-90 rounded-md;
 }
+
+.link-button {
+    @apply text-theme-red;
+}

@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    EventEmitter,
+    OnInit,
+    Output,
+} from '@angular/core';
 import { Experience } from '../../interfaces/information.interface';
 import { Experiences } from '../../data/experience.data';
 
@@ -9,6 +15,8 @@ import { Experiences } from '../../data/experience.data';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceItemComponent implements OnInit {
+    @Output() actionClick = new EventEmitter();
+
     experiences = Experiences;
 
     constructor() {}

@@ -1,8 +1,10 @@
 import {
+    AfterViewInit,
     ChangeDetectionStrategy,
     Component,
     ElementRef,
     HostListener,
+    OnDestroy,
     Renderer2,
     ViewChild,
     inject,
@@ -18,6 +20,7 @@ import {
     trigger,
 } from '@angular/animations';
 import { ThemeService } from '../../services/theme.service';
+import { Subject, fromEvent, takeUntil, tap, throttleTime } from 'rxjs';
 
 @Component({
     selector: 'app-navbar',
@@ -32,10 +35,63 @@ import { ThemeService } from '../../services/theme.service';
         ]),
     ],
 })
-export class NavbarComponent {
+export class NavbarComponent implements AfterViewInit, OnDestroy {
     @ViewChild('nav', { static: true }) navbar!: ElementRef;
-    @HostListener('window:scroll', ['$event']) onScroll() {
-        requestAnimationFrame(() => {
+    // @HostListener('window:scroll', ['$event']) onScroll() {
+    //     requestAnimationFrame(() => {
+    //         const threshold = 64;
+    //         const scrollOffset =
+    //             window.scrollY ||
+    //             document.documentElement.scrollTop ||
+    //             document.body.scrollTop ||
+    //             0;
+    //         const isTop = scrollOffset < threshold;
+
+    //         if (isTop && this.scrolled) {
+    //             this.scrolled = false;
+    //             this._renderer2.removeClass(
+    //                 this.navbar.nativeElement,
+    //                 'scrolled'
+    //             );
+    //             return;
+    //         }
+
+    //         if (!isTop && !this.scrolled) {
+    //             this.scrolled = true;
+    //             this._renderer2.addClass(this.navbar.nativeElement, 'scrolled');
+    //             return;
+    //         }
+    //     });
+    // }
+
+    public themeService = inject(ThemeService);
+
+    private _renderer2 = inject(Renderer2);
+    private _unsubscribeAll = new Subject<void>();
+
+    sunIcon = faSun;
+    moonIcon = faMoon;
+
+    scrolled = false;
+    items = MENU_DATA;
+
+    ngAfterViewInit(): void {
+        fromEvent(window, 'scroll')
+            .pipe(
+                throttleTime(500),
+                takeUntil(this._unsubscribeAll),
+                tap(() => this.toggleScroll())
+            )
+            .subscribe();
+    }
+
+    ngOnDestroy(): void {
+        this._unsubscribeAll.next();
+        this._unsubscribeAll.complete();
+    }
+
+    toggleScroll() {
+        return requestAnimationFrame(() => {
             const threshold = 64;
             const scrollOffset =
                 window.scrollY ||
@@ -60,13 +116,4 @@ export class NavbarComponent {
             }
         });
     }
-
-    private _renderer2 = inject(Renderer2);
-    public themeService = inject(ThemeService);
-
-    sunIcon = faSun;
-    moonIcon = faMoon;
-
-    scrolled = false;
-    items = MENU_DATA;
 }

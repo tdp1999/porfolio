@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
+import { MATERIAL_CONFIGURATIONS } from './app.token';
 
 const components = [NavbarModule, FooterModule];
 
@@ -17,7 +18,7 @@ const components = [NavbarModule, FooterModule];
         AppRoutingModule,
         ...components,
     ],
-    providers: [],
+    providers: [...MATERIAL_CONFIGURATIONS],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

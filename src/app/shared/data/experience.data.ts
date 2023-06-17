@@ -68,6 +68,12 @@ export const Experiences: Experience[] = [
             'Gather feedback from actual users, discuss it with the team, and propose solutions to any problems.',
             'Communicate with backend colleagues, QC/Testers, and BAs to resolve issues that arise during feature development.',
             'Attend daily meetings with the project manager and CEO to provide updates on work progress, discuss work-related problems, and find solutions.',
+
+            'Utilize Angular and the libraries within the Angular ecosystem to develop CRUD modules, which involve managing user interaction logic and validation of complex and interdependent form clusters (each cluster consists of approximately ten fields).',
+            'Employ HTML, SCSS, and TypeScript to create a module system that is user-friendly, mobile responsive, and easily extensible.',
+            'Implement the front-end permission system for approximately 100 sub-modules within the project.',
+            'Incorporate the Transloco library to implement the translation functionality for the project.',
+            'Develop reusable directives, pipes, and UI components to be utilized throughout the project.',
         ],
         teamSize: [10, 15],
         achievements: [

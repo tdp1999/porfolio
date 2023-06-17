@@ -1,16 +1,31 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Overlay } from '@angular/cdk/overlay';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    OnInit,
+    inject,
+} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
 
 @Component({
-  selector: 'app-skills',
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-skills',
+    templateUrl: './skills.component.html',
+    styleUrls: ['./skills.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent implements OnInit {
+    private _overlay = inject(Overlay);
+    private _dialog = inject(MatDialog);
 
-  constructor() { }
+    ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
+    handleActionClick() {
+        this._dialog.open(LightboxComponent, {
+            scrollStrategy: this._overlay.scrollStrategies.noop(),
+            data: {
+                test: 'hello world',
+            },
+        });
+    }
 }

@@ -2,10 +2,9 @@ import {
     ChangeDetectionStrategy,
     Component,
     OnInit,
-    ViewContainerRef,
     inject,
 } from '@angular/core';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-lightbox',
@@ -13,4 +12,11 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
     styleUrls: ['./lightbox.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LightboxComponent {}
+export class LightboxComponent implements OnInit {
+    private _data = inject(MAT_DIALOG_DATA);
+    private _dialogRef = inject(MatDialogRef<LightboxComponent>);
+
+    ngOnInit(): void {
+        console.log(this._data);
+    }
+}
