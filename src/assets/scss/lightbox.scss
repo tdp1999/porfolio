@@ -1,19 +1,8 @@
-.lightbox {
-    &__bg {
-        &--black {
-            @apply bg-theme-black-88;
-        }
-
-        &--dark {
-            @apply bg-theme-black-80;
-        }
-
-        &--light {
-            @apply bg-theme-white-80;
-        }
-    }
+.default-dialog-class {
+    @apply w-11/12 lg:w-10/12 h-5/6 max-h-[80vh];
+    position: relative !important;
 }
 
-.default-dialog-class {
-    @apply w-11/12 lg:w-10/12;
+.mat-dialog-container {
+    @apply theme--bg theme--text;
 }

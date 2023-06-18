@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule, Routes } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LightboxModule } from 'src/app/shared/components/lightbox/lightbox.module';
 import { ProjectItemModule } from 'src/app/shared/components/project-item/project-item.module';
 import { SkillItemModule } from 'src/app/shared/components/skill-item/skill-item.module';
 import { StatsItemModule } from 'src/app/shared/components/stats-item/stats-item.module';
@@ -14,7 +14,7 @@ import { HeroComponent } from './hero/hero.component';
 import { HomeComponent } from './home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SkillsComponent } from './skills/skills.component';
-import { LightboxModule } from 'src/app/shared/components/lightbox/lightbox.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
     {
@@ -28,9 +28,9 @@ const components = [
     StatsItemModule,
     SkillItemModule,
     ProjectItemModule,
-    FontAwesomeModule,
     MatDialogModule,
     LightboxModule,
+    FontAwesomeModule,
 ];
 
 @NgModule({
