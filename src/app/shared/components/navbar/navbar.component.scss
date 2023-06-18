@@ -8,11 +8,3 @@
     padding-top: 8px;
     padding-bottom: 8px;
 }
-
-.test-hover {
-    @apply after:absolute after:block after:bottom-0 after:w-0 after:h-0.5 after:bg-theme-red after:mr-auto after:transition-width after:duration-300 after:ease-in-out;
-
-    &:hover {
-        @apply after:w-full;
-    }
-}

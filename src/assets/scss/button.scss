@@ -7,5 +7,9 @@
 }
 
 .link-button {
-    @apply text-theme-red;
+    @apply relative text-theme-red after:absolute after:block after:-bottom-1 after:w-0 after:h-[1px] after:bg-theme-red after:mr-auto after:transition-width after:duration-300 after:ease-in-out after:mt-1;
+
+    &:hover {
+        @apply after:w-full;
+    }
 }
