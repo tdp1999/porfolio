@@ -14,6 +14,8 @@ module.exports = {
             },
         },
         transitionProperty: {
+            selected:
+                "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
             height: "height",
             width: "width",
         },

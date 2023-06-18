@@ -4,8 +4,8 @@
 
 @import "./assets/scss/index";
 
-* {
-    transition: all 0.3s ease-in-out;
+*:not(.exclude-animation) {
+    @apply transition-selected duration-300 ease-in-out;
 }
 
 html,

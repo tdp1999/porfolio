@@ -1,6 +1,27 @@
-<div
-    class="flex items-center justify-center py-4 whitespace-pre theme--bg theme--text body"
->
-    Phuong <span class="text-theme-red">Tran</span> -
-    {{ currentYear }}
+<div class="flex items-center justify-between px-40 py-4 theme--bg">
+    <div class="py-4 whitespace-pre theme--bg theme--text body">
+        Phuong <span class="text-theme-red">Tran</span> -
+        {{ currentYear }}
+    </div>
+
+    <button
+        class="flex gap-1 primary-button"
+        [matMenuTriggerFor]="menu"
+        (menuClosed)="menuOpen = false"
+        (menuOpened)="menuOpen = true"
+    >
+        <span>{{ currentLanguage?.label }}</span>
+        <fa-icon
+            [icon]="['fas', menuOpen ? 'chevron-down' : 'chevron-up']"
+            size="sm"
+        ></fa-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+        <ng-container *ngFor="let language of availableLanguage">
+            <button mat-menu-item (click)="selectLanguage(language.id)">
+                {{ language.label }}
+            </button>
+        </ng-container>
+    </mat-menu>
 </div>

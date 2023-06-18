@@ -15,6 +15,7 @@ import { HomeComponent } from './home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SkillsComponent } from './skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslocoModule } from '@ngneat/transloco';
 
 const routes: Routes = [
     {
@@ -31,6 +32,7 @@ const components = [
     MatDialogModule,
     LightboxModule,
     FontAwesomeModule,
+    TranslocoModule,
 ];
 
 @NgModule({

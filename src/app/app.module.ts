@@ -19,11 +19,15 @@ import {
     faSquareTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import {
+    faChevronDown,
+    faChevronUp,
     faClose,
     faCoffee,
     faMoon,
     faSun,
 } from '@fortawesome/free-solid-svg-icons';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslocoRootModule } from './transloco-root.module';
 
 const components = [NavbarModule, FooterModule, FontAwesomeModule];
 
@@ -33,6 +37,8 @@ const components = [NavbarModule, FooterModule, FontAwesomeModule];
         BrowserAnimationsModule,
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
+        TranslocoRootModule,
         ...components,
     ],
     providers: [...MATERIAL_CONFIGURATIONS],
@@ -50,7 +56,9 @@ export class AppModule {
             faClose,
             faMoon,
             faSun,
-            faCoffee
+            faCoffee,
+            faChevronDown,
+            faChevronUp
         );
     }
 }

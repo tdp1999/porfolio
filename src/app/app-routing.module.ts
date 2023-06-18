@@ -12,6 +12,22 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () =>
             import('./modules/home/home.module').then((m) => m.HomeModule),
+        data: {
+            lang: 'en',
+        },
+    },
+    {
+        path: 'vn',
+        pathMatch: 'full',
+        redirectTo: 'trang-chu',
+    },
+    {
+        path: 'trang-chu',
+        loadChildren: () =>
+            import('./modules/home/home.module').then((m) => m.HomeModule),
+        data: {
+            lang: 'vn',
+        },
     },
 ];
 
@@ -20,7 +36,6 @@ const routes: Routes = [
         RouterModule.forRoot(routes, {
             anchorScrolling: 'enabled',
             onSameUrlNavigation: 'reload',
-            // enableTracing: true,
             scrollPositionRestoration: 'enabled',
             scrollOffset: [0, 64],
         }),
