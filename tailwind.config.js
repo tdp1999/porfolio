@@ -13,6 +13,10 @@ module.exports = {
                 "theme-red": "#E65F78",
             },
         },
+        transitionProperty: {
+            height: "height",
+            width: "width",
+        },
     },
     plugins: [],
 };

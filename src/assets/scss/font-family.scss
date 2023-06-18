@@ -15,12 +15,12 @@ h1,
 
 h2,
 .h2 {
-    @apply text-5xl font-extrabold theme--text;
+    @apply text-5xl font-extrabold theme--text after:block after:w-1/3 after:h-1 after:bg-theme-red after:mt-4 after:mx-auto;
 
-    &::after {
-        @apply block w-1/3 h-1 bg-theme-red mt-4 mx-auto;
-        content: "";
-    }
+    // &::after {
+    //     @apply block w-1/3 h-1 bg-theme-red mt-4 mx-auto;
+    //     content: "";
+    // }
 
     &--light {
         @apply font-light;
