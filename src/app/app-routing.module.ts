@@ -18,11 +18,6 @@ const routes: Routes = [
     },
     {
         path: 'vn',
-        pathMatch: 'full',
-        redirectTo: 'trang-chu',
-    },
-    {
-        path: 'trang-chu',
         loadChildren: () =>
             import('./modules/home/home.module').then((m) => m.HomeModule),
         data: {

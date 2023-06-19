@@ -20,8 +20,16 @@ import {
     trigger,
 } from '@angular/animations';
 import { ThemeService } from '../../services/theme.service';
-import { Subject, fromEvent, takeUntil, tap, throttleTime } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+    Subject,
+    filter,
+    fromEvent,
+    map,
+    takeUntil,
+    tap,
+    throttleTime,
+} from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
     selector: 'app-navbar',
@@ -39,6 +47,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NavbarComponent implements AfterViewInit, OnDestroy {
     @ViewChild('nav', { static: true }) navbar!: ElementRef;
 
+    public routePrefix = '';
     public router = inject(Router);
     public route = inject(ActivatedRoute);
     public themeService = inject(ThemeService);
@@ -53,6 +62,25 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     items = MENU_DATA;
 
     ngAfterViewInit(): void {
+        this.router.events
+            .pipe(
+                filter((event) => event instanceof NavigationEnd),
+                map(() => this.route.snapshot),
+                map((event) => {
+                    while (
+                        event.firstChild &&
+                        event.firstChild.routeConfig?.path !== ''
+                    ) {
+                        event = event.firstChild;
+                    }
+                    return event;
+                }),
+                takeUntil(this._unsubscribeAll)
+            )
+            .subscribe((route) => {
+                this.routePrefix = route.routeConfig?.path || '';
+            });
+
         fromEvent(window, 'scroll')
             .pipe(
                 throttleTime(500),
