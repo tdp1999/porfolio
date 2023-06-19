@@ -2,11 +2,13 @@ import {
     ChangeDetectionStrategy,
     Component,
     EventEmitter,
+    Input,
     OnInit,
     Output,
 } from '@angular/core';
 import { Experience } from '../../interfaces/information.interface';
 import { Experiences } from '../../data/experience.data';
+import { DatetimeFormat } from '../../constants/datetime.constant';
 
 @Component({
     selector: 'app-experience-item',
@@ -15,9 +17,11 @@ import { Experiences } from '../../data/experience.data';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceItemComponent implements OnInit {
+    @Input() data?: Experience;
+
     @Output() actionClick = new EventEmitter();
 
-    experiences = Experiences;
+    monthYearFormat = DatetimeFormat.monthYear;
 
     constructor() {}
 

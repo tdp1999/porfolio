@@ -2,12 +2,13 @@ import { Experience } from '../interfaces/information.interface';
 
 export const Experiences: Experience[] = [
     {
+        id: 1,
         company: 'Vitop Mekong',
         position: 'Frontend Developer (Intern & Part-time)',
         startDate: new Date(2021, 4, 1),
         endDate: new Date(2021, 11, 1),
         description:
-            'Worked as a Frontend Developer for the project of a big insurance company, Vietnam branch. My team is responsible for developing and maintaining the web application using Angular',
+            'Worked as a Frontend Developer for the project of a big insurance company, Vietnam branch. My team is responsible for developing and maintaining the web application using Angular.',
         technologies: ['Angular', 'Bootstrap 4', 'TypeScript'],
         location: 'Can Tho, Vietnam',
         clientLocation: 'Vietnam',
@@ -26,12 +27,13 @@ export const Experiences: Experience[] = [
         ],
     },
     {
+        id: 2,
         company: 'App Core',
         position: 'Junior Software Engineer',
         startDate: new Date(2022, 0, 1),
         endDate: new Date(2022, 4, 1),
         description:
-            'Worked as a main Frontend Developer for multiple projects of several client located in Australia. My team is responsible for developing and maintaining the web application using Angular in the frontend and Python in the backend',
+            'Worked as a main Frontend Developer for multiple projects of several client located in Australia. My team is responsible for developing and maintaining the web application using Angular in the frontend and Python in the backend.',
         technologies: ['Angular', 'Bootstrap 4', 'TypeScript', 'Incognito AWS'],
         location: 'Can Tho, Vietnam',
         clientLocation: 'Australia',
@@ -50,6 +52,7 @@ export const Experiences: Experience[] = [
         ],
     },
     {
+        id: 3,
         company: 'Real Estate Doc (Redoc)',
         position: 'Frontend Developer',
         startDate: new Date(2023, 7, 22),

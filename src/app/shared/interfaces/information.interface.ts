@@ -13,6 +13,7 @@ export interface StatsInformation {
 }
 
 export interface Project {
+    id: number;
     name: string;
     description: string;
     technologies: string[];
@@ -23,6 +24,7 @@ export interface Project {
 }
 
 export interface Experience {
+    id: number;
     company: string;
     position: string;
     startDate: Date;

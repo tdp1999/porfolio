@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
+import { Experiences } from 'src/app/shared/data/experience.data';
 
 @Component({
     selector: 'app-skills',
@@ -15,6 +16,8 @@ import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.c
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent implements OnInit {
+    public experiences = Experiences;
+
     private _overlay = inject(Overlay);
     private _dialog = inject(MatDialog);
 

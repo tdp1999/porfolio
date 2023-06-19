@@ -1,13 +1,16 @@
-<div class="p-6 rounded-lg theme--bg theme--text">
-    <h4 class="mb-1 text-theme-red">Job Title</h4>
-    <p class="mb-5">Company Name / 2018 - 2022</p>
-
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque sed quam
-        laborum, quis eos, quidem incidunt voluptas dolorem unde nam
-        consequuntur, minima commodi alias. Doloremque maiores facere officia ab
-        qui.
+<div
+    *ngIf="data"
+    class="p-6 rounded-lg h-full flex flex-col items-start theme--bg theme--text"
+>
+    <h4 class="mb-1 text-theme-red">{{ data.position }}</h4>
+    <p class="mb-5">
+        <span class="font-semibold">{{ data.company }}</span> /
+        {{ data.startDate | date : monthYearFormat }} -
+        {{ (data.endDate | date : monthYearFormat) ?? "Current" }}
     </p>
+
+    <p class="flex-grow">{{ data.description }}</p>
+
     <button class="link-button mt-3" (click)="actionClick.emit()">
         See more
     </button>
