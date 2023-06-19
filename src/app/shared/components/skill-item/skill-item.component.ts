@@ -2,9 +2,11 @@ import {
     ChangeDetectionStrategy,
     Component,
     EventEmitter,
+    Input,
     OnInit,
     Output,
 } from '@angular/core';
+import { Experience } from '../../interfaces/information.interface';
 
 @Component({
     selector: 'app-skill-item',

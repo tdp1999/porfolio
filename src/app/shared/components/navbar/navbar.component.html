@@ -38,6 +38,7 @@
             *ngFor="let item of items"
             [routerLink]="item.route"
             [fragment]="item.fragment"
+            [relativeTo]="route"
             class="relative flex items-center dark:text-theme-white-90 hover-animation"
         >
             {{ item.label }}

@@ -15,10 +15,13 @@ import { TranslocoService } from '@ngneat/transloco';
 })
 export class HomeComponent implements OnInit {
     private _activatedRoute = inject(ActivatedRoute);
-    private _routeData = this._activatedRoute.snapshot.data as { lang: string };
+    private _routeData = this._activatedRoute.snapshot.data as {
+        lang: string;
+    };
     private _translocoService = inject(TranslocoService);
 
     ngOnInit(): void {
+        // console.log('HomeComponent: ', this._routeData);
         this._translocoService.setActiveLang(this._routeData.lang);
     }
 }

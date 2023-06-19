@@ -21,6 +21,7 @@ import {
 } from '@angular/animations';
 import { ThemeService } from '../../services/theme.service';
 import { Subject, fromEvent, takeUntil, tap, throttleTime } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-navbar',
@@ -37,33 +38,9 @@ import { Subject, fromEvent, takeUntil, tap, throttleTime } from 'rxjs';
 })
 export class NavbarComponent implements AfterViewInit, OnDestroy {
     @ViewChild('nav', { static: true }) navbar!: ElementRef;
-    // @HostListener('window:scroll', ['$event']) onScroll() {
-    //     requestAnimationFrame(() => {
-    //         const threshold = 64;
-    //         const scrollOffset =
-    //             window.scrollY ||
-    //             document.documentElement.scrollTop ||
-    //             document.body.scrollTop ||
-    //             0;
-    //         const isTop = scrollOffset < threshold;
 
-    //         if (isTop && this.scrolled) {
-    //             this.scrolled = false;
-    //             this._renderer2.removeClass(
-    //                 this.navbar.nativeElement,
-    //                 'scrolled'
-    //             );
-    //             return;
-    //         }
-
-    //         if (!isTop && !this.scrolled) {
-    //             this.scrolled = true;
-    //             this._renderer2.addClass(this.navbar.nativeElement, 'scrolled');
-    //             return;
-    //         }
-    //     });
-    // }
-
+    public router = inject(Router);
+    public route = inject(ActivatedRoute);
     public themeService = inject(ThemeService);
 
     private _renderer2 = inject(Renderer2);
