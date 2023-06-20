@@ -19,13 +19,8 @@ export class LightboxComponent implements OnInit {
     private _data: LightboxData = inject(MAT_DIALOG_DATA);
     private _dialogRef = inject(MatDialogRef<LightboxComponent>);
 
-    private _matIconRegistry = inject(MatIconRegistry);
-
     faClose = faClose;
 
     ngOnInit(): void {
-        this._matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
-
-        console.log(this._data);
     }
 }

@@ -16,6 +16,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { SkillsComponent } from './skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslocoModule } from '@ngneat/transloco';
+import { CarouselModule } from 'src/app/shared/components/carousel/carousel.module';
 
 const routes: Routes = [
     {
@@ -33,6 +34,7 @@ const components = [
     LightboxModule,
     FontAwesomeModule,
     TranslocoModule,
+    CarouselModule
 ];
 
 @NgModule({

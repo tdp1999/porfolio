@@ -20,6 +20,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import {
     faChevronDown,
+    faChevronLeft,
+    faChevronRight,
     faChevronUp,
     faClose,
     faCoffee,
@@ -58,7 +60,9 @@ export class AppModule {
             faSun,
             faCoffee,
             faChevronDown,
-            faChevronUp
+            faChevronUp,
+            faChevronLeft,
+            faChevronRight
         );
     }
 }
