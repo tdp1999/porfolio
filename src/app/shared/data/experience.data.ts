@@ -25,6 +25,12 @@ export const Experiences: Experience[] = [
             "Successfully help the team to deliver 3 projects on time that meet the customer's requirements.",
             'Successfully accustomed to the Angular framework and some other web technologies such as Bootstrap 4, SwiperJS, etc.',
         ],
+        image: {
+            url: 'assets/images/carousel/carousel-1.jpg',
+            description: 'Art',
+            tags: ['art', 'painting', 'drawing'],
+            alt: 'Art',
+        },
     },
     {
         id: 2,
@@ -51,6 +57,12 @@ export const Experiences: Experience[] = [
             'Get acquainted with the knowledge of Scrum - Kanban strategies, and the process of developing a web application.',
             'Significantly improve my communication skills, self-learning skills, and the ability to work under pressure.',
         ],
+        image: {
+            url: 'assets/images/carousel/carousel-1.jpg',
+            description: 'Art',
+            tags: ['art', 'painting', 'drawing'],
+            alt: 'Art',
+        },
     },
     {
         id: 3,
@@ -85,5 +97,11 @@ export const Experiences: Experience[] = [
             'Demonstrated significant improvement in self-study skills, self-discipline, and ability to work under pressure and in intense environments.',
             'Developed a better vision for work and future plans, and cultivated a more positive attitude when facing challenging problems',
         ],
+        image: {
+            url: 'assets/images/carousel/carousel-1.jpg',
+            description: 'Art',
+            tags: ['art', 'painting', 'drawing'],
+            alt: 'Art',
+        },
     },
 ];

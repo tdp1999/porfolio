@@ -10,7 +10,8 @@ module.exports = {
                 "theme-white-80": "#CCCCCC",
                 "theme-white-90": "#F7F7F7",
                 "theme-white": "#FFFFFF",
-                "theme-red": "#E65F78",
+                "theme-primary": "#5A96E3",
+                // "theme-primary": "#E65F78",
             },
         },
         transitionProperty: {

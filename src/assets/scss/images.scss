@@ -17,7 +17,6 @@
     &:hover::after,
     &:focus::after {
         transform: scale(1.1);
-        // box-shadow: 0 0 0 5px #fff, 0 0 0 10px #000;
     }
 
     &::after {
@@ -29,5 +28,12 @@
         transition: all 0.3s ease-in-out;
         top: 12px;
         left: 12px;
+    }
+}
+
+.scale-item {
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
     }
 }

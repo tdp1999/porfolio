@@ -2,6 +2,7 @@ import {
     ChangeDetectionStrategy,
     Component,
     OnInit,
+    ViewContainerRef,
     inject,
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -16,11 +17,12 @@ import { MatIconRegistry } from '@angular/material/icon';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LightboxComponent implements OnInit {
-    private _data: LightboxData = inject(MAT_DIALOG_DATA);
+    public data: LightboxData = inject(MAT_DIALOG_DATA);
     private _dialogRef = inject(MatDialogRef<LightboxComponent>);
 
     faClose = faClose;
 
     ngOnInit(): void {
+        console.log('Data: ', this.data);
     }
 }

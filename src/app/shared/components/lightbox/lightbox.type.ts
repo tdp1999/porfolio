@@ -1,3 +1,8 @@
+import { TemplateRef } from '@angular/core';
+import { Image } from '../../interfaces/image.interface';
+
 export interface LightboxData {
-    test: string;
+    image: Image;
+    detailTmpl: TemplateRef<any>;
+    data: any;
 }

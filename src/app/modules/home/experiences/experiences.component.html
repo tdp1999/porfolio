@@ -14,9 +14,14 @@
             <app-experience-item
                 [ngClass]="[first ? 'col-start-2' : 'col-span-1']"
                 class="col-span-2"
-                (actionClick)="handleActionClick()"
+                (actionClick)="handleActionClick(experience)"
                 [data]="experience"
             ></app-experience-item>
         </ng-container>
     </div>
 </div>
+
+<ng-template #detail let-detail>
+    <p>A piece from detail</p>
+    <p>{{ detail.company }}</p>
+</ng-template>

@@ -1,4 +1,5 @@
 import { ProjectSize, ProjectType } from '../types/software.type';
+import { Image } from './image.interface';
 
 export interface Information {
     label: string;
@@ -38,4 +39,5 @@ export interface Experience {
     responsibilities: string[];
     teamSize: number | [number, number];
     achievements: string[];
+    image: Image;
 }

@@ -3,11 +3,14 @@ import {
     ChangeDetectionStrategy,
     Component,
     OnInit,
+    TemplateRef,
+    ViewChild,
     inject,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
 import { Experiences } from 'src/app/shared/data/experience.data';
+import { Skills } from 'src/app/shared/data/skill.data';
 
 @Component({
     selector: 'app-skills',
@@ -16,7 +19,7 @@ import { Experiences } from 'src/app/shared/data/experience.data';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent implements OnInit {
-    public experiences = Experiences;
+    public skills = Skills;
 
     private _overlay = inject(Overlay);
     private _dialog = inject(MatDialog);
@@ -27,7 +30,7 @@ export class SkillsComponent implements OnInit {
         this._dialog.open(LightboxComponent, {
             scrollStrategy: this._overlay.scrollStrategies.noop(),
             data: {
-                test: 'hello world',
+                test: 'test',
             },
         });
     }

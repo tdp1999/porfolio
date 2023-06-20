@@ -4,8 +4,11 @@
     <h2 class="">Skills</h2>
 
     <div class="grid max-w-screen-lg grid-cols-2 gap-12 auto-rows-auto">
-        <ng-container *ngFor="let i of [1, 2, 3, 4]">
-            <app-skill-item (actionClick)="handleActionClick()"></app-skill-item>
+        <ng-container *ngFor="let skill of skills">
+            <app-skill-item
+                [skill]="skill"
+                (actionClick)="handleActionClick()"
+            ></app-skill-item>
         </ng-container>
     </div>
 </div>

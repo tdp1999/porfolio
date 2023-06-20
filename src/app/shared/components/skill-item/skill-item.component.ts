@@ -6,7 +6,7 @@ import {
     OnInit,
     Output,
 } from '@angular/core';
-import { Experience } from '../../interfaces/information.interface';
+import { Skill } from '../../interfaces/skill.interface';
 
 @Component({
     selector: 'app-skill-item',
@@ -14,10 +14,7 @@ import { Experience } from '../../interfaces/information.interface';
     styleUrls: ['./skill-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SkillItemComponent implements OnInit {
+export class SkillItemComponent {
+    @Input() skill!: Skill;
     @Output() actionClick = new EventEmitter();
-
-    constructor() {}
-
-    ngOnInit(): void {}
 }

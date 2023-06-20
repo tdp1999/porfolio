@@ -1,5 +1,5 @@
 .primary-button {
-    @apply bg-theme-red text-white py-2 px-4 rounded;
+    @apply bg-theme-primary text-white py-2 px-4 rounded;
 }
 
 .chip {
@@ -7,7 +7,7 @@
 }
 
 .link-button {
-    @apply relative text-theme-red after:absolute after:block after:-bottom-1 after:w-0 after:h-[1px] after:bg-theme-red after:mr-auto after:transition-width after:duration-300 after:ease-in-out after:mt-1;
+    @apply relative text-theme-primary after:absolute after:block after:-bottom-1 after:w-0 after:h-[1px] after:bg-theme-primary after:mr-auto after:transition-width after:duration-300 after:ease-in-out after:mt-1;
 
     &:hover {
         @apply after:w-full;
