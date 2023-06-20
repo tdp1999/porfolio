@@ -1,7 +1,6 @@
 import { Project } from '../interfaces/information.interface';
 
 export const Projects: Project[] = [
-    // dummy data only
     {
         id: 1,
         name: 'Project 1',

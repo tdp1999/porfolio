@@ -43,6 +43,7 @@ export const Experiences: Experience[] = [
             'Get design mockups, review them, and give feedback to the designer.',
             'From design, build SPA websites with reusable pages and components.',
             'Handle user interactions and integrate APIs from the Backend.',
+            'Maintain and support multiple projects.',
             'Participated in the daily meeting with the team and PM to discuss the issues and propose solutions.',
         ],
         teamSize: 7,
