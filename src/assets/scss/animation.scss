@@ -1,7 +1,14 @@
-.hover-animation {
+.animation--border-b {
     @apply after:absolute after:block after:bottom-0 after:w-0 after:h-0.5 after:bg-theme-primary after:mr-auto after:transition-width after:duration-300 after:ease-in-out;
 
     &:hover {
         @apply after:w-full;
+    }
+}
+
+.animation--scale {
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
     }
 }

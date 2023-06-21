@@ -12,7 +12,12 @@
     <button class="primary-button">Write Message</button>
 
     <div class="flex gap-4">
-        <a *ngFor="let link of socialLink" [href]="link.url" target="_blank">
+        <a
+            *ngFor="let link of socialLink"
+            [href]="link.url"
+            target="_blank"
+            class="animation--scale"
+        >
             <fa-icon [icon]="link.icon" class="theme--text" size="xl"></fa-icon>
         </a>
     </div>

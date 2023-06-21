@@ -38,7 +38,7 @@
             *ngFor="let item of items"
             [routerLink]="[item.route, routePrefix]"
             [fragment]="item.fragment"
-            class="relative flex items-center dark:text-theme-white-90 hover-animation"
+            class="relative flex items-center dark:text-theme-white-90 animation--border-b"
         >
             {{ item.label }}
         </a>
