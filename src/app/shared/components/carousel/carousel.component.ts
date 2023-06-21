@@ -56,4 +56,8 @@ export class CarouselComponent implements OnInit {
                 ? 0
                 : this.currentIndex + 1;
     }
+
+    gotoSlide(index: number) {
+        this.currentIndex = index;
+    }
 }

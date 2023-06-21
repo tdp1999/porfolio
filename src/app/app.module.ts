@@ -1,12 +1,7 @@
-import { NgModule, inject } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FooterModule } from './shared/components/footer/footer.module';
-import { NavbarModule } from './shared/components/navbar/navbar.module';
-import { MATERIAL_CONFIGURATIONS } from './app.token';
 import {
     FaIconLibrary,
     FontAwesomeModule,
@@ -18,17 +13,23 @@ import {
     faSquareGithub,
     faSquareTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import {
     faChevronDown,
     faChevronLeft,
     faChevronRight,
     faChevronUp,
+    faCircle as faCircleSolid,
     faClose,
     faCoffee,
     faMoon,
     faSun,
 } from '@fortawesome/free-solid-svg-icons';
-import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { MATERIAL_CONFIGURATIONS } from './app.token';
+import { FooterModule } from './shared/components/footer/footer.module';
+import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { TranslocoRootModule } from './transloco-root.module';
 
 const components = [NavbarModule, FooterModule, FontAwesomeModule];
@@ -62,7 +63,9 @@ export class AppModule {
             faChevronDown,
             faChevronUp,
             faChevronLeft,
-            faChevronRight
+            faChevronRight,
+            faCircleSolid,
+            faCircle
         );
     }
 }
