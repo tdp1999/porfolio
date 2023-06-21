@@ -29,7 +29,13 @@ import {
     tap,
     throttleTime,
 } from 'rxjs';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import {
+    ActivatedRoute,
+    IsActiveMatchOptions,
+    NavigationEnd,
+    Router,
+} from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
     selector: 'app-navbar',
@@ -47,6 +53,13 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 export class NavbarComponent implements AfterViewInit, OnDestroy {
     @ViewChild('nav', { static: true }) navbar!: ElementRef;
 
+    public linkActiveOptions: IsActiveMatchOptions = {
+        matrixParams: 'exact',
+        queryParams: 'exact',
+        paths: 'exact',
+        fragment: 'exact',
+    };
+
     public routePrefix = '';
     public router = inject(Router);
     public route = inject(ActivatedRoute);
@@ -54,6 +67,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
 
     private _renderer2 = inject(Renderer2);
     private _unsubscribeAll = new Subject<void>();
+    private _document = inject(DOCUMENT);    
 
     sunIcon = faSun;
     moonIcon = faMoon;

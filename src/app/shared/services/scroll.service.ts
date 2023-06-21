@@ -11,4 +11,31 @@ export class ScrollService {
 
         element && element.scrollIntoView({ behavior: 'smooth' });
     }
+
+    toggleScrolling() {
+        // return requestAnimationFrame(() => {
+        //     const threshold = 64;
+        //     const scrollOffset =
+        //         window.scrollY ||
+        //         document.documentElement.scrollTop ||
+        //         document.body.scrollTop ||
+        //         0;
+        //     const isTop = scrollOffset < threshold;
+
+        //     if (isTop && this.scrolled) {
+        //         this.scrolled = false;
+        //         this._renderer2.removeClass(
+        //             this.navbar.nativeElement,
+        //             'scrolled'
+        //         );
+        //         return;
+        //     }
+
+        //     if (!isTop && !this.scrolled) {
+        //         this.scrolled = true;
+        //         this._renderer2.addClass(this.navbar.nativeElement, 'scrolled');
+        //         return;
+        //     }
+        // });
+    }
 }

@@ -13,3 +13,7 @@
         @apply after:w-full;
     }
 }
+
+.link-active {
+    @apply after:w-full #{!important};
+}

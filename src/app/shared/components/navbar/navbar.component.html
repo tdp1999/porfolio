@@ -37,6 +37,8 @@
         <a
             *ngFor="let item of items"
             [routerLink]="[item.route, routePrefix]"
+            routerLinkActive="link-active"
+            [routerLinkActiveOptions]="linkActiveOptions"
             [fragment]="item.fragment"
             class="relative flex items-center dark:text-theme-white-90 animation--border-b"
         >
