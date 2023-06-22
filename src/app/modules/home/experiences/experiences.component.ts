@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
+import { DatetimeFormat } from 'src/app/shared/constants/datetime.constant';
 import { Experiences } from 'src/app/shared/data/experience.data';
 import { Experience } from 'src/app/shared/interfaces/information.interface';
 
@@ -20,6 +21,8 @@ import { Experience } from 'src/app/shared/interfaces/information.interface';
 export class ExperiencesComponent implements OnInit {
     @ViewChild('detail', { static: true }) detail!: TemplateRef<any>;
 
+    public step = 0;
+    public monthYearFormat = DatetimeFormat.monthYear;
     public experiences = Experiences.sort(
         (a, b) => b.startDate.getTime() - a.startDate.getTime()
     );
@@ -41,5 +44,17 @@ export class ExperiencesComponent implements OnInit {
                 detailTmpl: this.detail,
             },
         });
+    }
+
+    setStep(index: number) {
+        this.step = index;
+    }
+
+    nextStep() {
+        this.step++;
+    }
+
+    prevStep() {
+        this.step--;
     }
 }

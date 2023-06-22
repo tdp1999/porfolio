@@ -11,6 +11,7 @@ module.exports = {
                 "theme-white-90": "#F7F7F7",
                 "theme-white": "#FFFFFF",
                 "theme-primary": "#5A96E3",
+                "theme-accent": "#FF9657",
                 // "theme-primary": "#E65F78",
             },
         },

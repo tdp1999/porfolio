@@ -4,6 +4,12 @@
 
 @import "./assets/scss/index";
 
+.exclude-animation {
+    & * {
+        transition: none !important;
+    }
+}
+
 *:not(.exclude-animation) {
     @apply transition-selected duration-300 ease-in-out;
 }

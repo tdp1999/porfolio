@@ -21,7 +21,58 @@
     </div>
 </div>
 
-<ng-template #detail let-detail>
-    <p>A piece from detail</p>
-    <p>{{ detail.company }}</p>
+<ng-template #detail let-d>
+    <h3>{{ d.company }}</h3>
+
+    <div>
+        Position: {{ d.position }} /
+        {{ d.startDate | date : monthYearFormat }} -
+        {{ (d.endDate | date : monthYearFormat) ?? "Current" }}
+    </div>
+
+    <div>Location: {{ d.location }}</div>
+
+    <mat-accordion multi togglePosition="before" class="exclude-animation">
+        <mat-expansion-panel
+            class="theme--bg theme--text"
+            [expanded]="step === 0"
+            (opened)="setStep(0)"
+        >
+            <mat-expansion-panel-header>
+                <mat-panel-title class="font-bold theme--text">
+                    Personal data
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            Hello world
+        </mat-expansion-panel>
+
+        <mat-expansion-panel
+            class="theme--bg theme--text"
+            [expanded]="step === 1"
+            (opened)="setStep(1)"
+        >
+            <mat-expansion-panel-header class="">
+                <mat-panel-title class="font-bold theme--text">
+                    Destination
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            Hello world
+        </mat-expansion-panel>
+
+        <mat-expansion-panel
+            class="theme--bg theme--text"
+            [expanded]="step === 2"
+            (opened)="setStep(2)"
+        >
+            <mat-expansion-panel-header class="">
+                <mat-panel-title class="font-bold theme--text">
+                    Day of the trip
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            Hello world
+        </mat-expansion-panel>
+    </mat-accordion>
 </ng-template>
