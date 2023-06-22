@@ -19,11 +19,7 @@ export class ScrollService {
         threshold = 64
     ) {
         return requestAnimationFrame(() => {
-            const scrollOffset =
-                window.scrollY ||
-                document.documentElement.scrollTop ||
-                document.body.scrollTop ||
-                0;
+            const scrollOffset = this.getScrollOffset(document, window);
             const hasScrolledClass = element.classList.contains('scrolled');
 
             if (scrollOffset < threshold && !hasScrolledClass) return;
@@ -33,5 +29,18 @@ export class ScrollService {
                 ? this._renderer2.removeClass(element, 'scrolled')
                 : this._renderer2.addClass(element, 'scrolled');
         });
+    }
+
+    getScrollOffset(document: Document, window: Window) {
+        return (
+            window.scrollY ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop ||
+            0
+        );
+    }
+
+    getElementOffsetTop(element: Element) {
+        return element.getBoundingClientRect().top;
     }
 }
