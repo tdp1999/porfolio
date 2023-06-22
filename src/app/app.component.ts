@@ -9,11 +9,16 @@ import {
 import { ThemeService } from './shared/services/theme.service';
 import { Subject, map, takeUntil } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
+import { ScrollService } from './shared/services/scroll.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
+
+    // Renderer2 can only be injected into the constructor of a directive or component.
+    // So we need provide the service in the component decorator.
+    providers: [ScrollService],
 })
 export class AppComponent implements OnInit, OnDestroy {
     private _renderer2 = inject(Renderer2);

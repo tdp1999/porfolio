@@ -12,30 +12,26 @@ export class ScrollService {
         element && element.scrollIntoView({ behavior: 'smooth' });
     }
 
-    toggleScrolling() {
-        // return requestAnimationFrame(() => {
-        //     const threshold = 64;
-        //     const scrollOffset =
-        //         window.scrollY ||
-        //         document.documentElement.scrollTop ||
-        //         document.body.scrollTop ||
-        //         0;
-        //     const isTop = scrollOffset < threshold;
+    toggleScrolling(
+        document: Document,
+        window: Window,
+        element: Element,
+        threshold = 64
+    ) {
+        return requestAnimationFrame(() => {
+            const scrollOffset =
+                window.scrollY ||
+                document.documentElement.scrollTop ||
+                document.body.scrollTop ||
+                0;
+            const hasScrolledClass = element.classList.contains('scrolled');
 
-        //     if (isTop && this.scrolled) {
-        //         this.scrolled = false;
-        //         this._renderer2.removeClass(
-        //             this.navbar.nativeElement,
-        //             'scrolled'
-        //         );
-        //         return;
-        //     }
+            if (scrollOffset < threshold && !hasScrolledClass) return;
+            if (scrollOffset >= threshold && hasScrolledClass) return;
 
-        //     if (!isTop && !this.scrolled) {
-        //         this.scrolled = true;
-        //         this._renderer2.addClass(this.navbar.nativeElement, 'scrolled');
-        //         return;
-        //     }
-        // });
+            scrollOffset < threshold
+                ? this._renderer2.removeClass(element, 'scrolled')
+                : this._renderer2.addClass(element, 'scrolled');
+        });
     }
 }

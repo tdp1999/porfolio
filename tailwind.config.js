@@ -19,6 +19,7 @@ module.exports = {
                 "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
             height: "height",
             width: "width",
+            spacing: "margin, padding",
         },
     },
     plugins: [],
