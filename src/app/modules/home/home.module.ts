@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslocoModule } from '@ngneat/transloco';
 import { CarouselModule } from 'src/app/shared/components/carousel/carousel.module';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ScrollspyModule } from 'src/app/shared/directives/scrollspy/scrollspy.module';
 
 const routes: Routes = [
     {
@@ -37,6 +38,7 @@ const components = [
     TranslocoModule,
     CarouselModule,
     MatExpansionModule,
+    ScrollspyModule
 ];
 @NgModule({
     declarations: [

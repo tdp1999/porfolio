@@ -24,31 +24,6 @@ const routes: Routes = [
             lang: 'vn',
         },
     },
-
-    // {
-    //     path: '',
-    //     pathMatch: 'full',
-    //     redirectTo: '/en/home',
-    // },
-    // {
-    //     path: ':lang',
-    //     children: [
-    //         {
-    //             path: 'home',
-    //             loadChildren: () =>
-    //                 import('./modules/home/home.module').then(
-    //                     (m) => m.HomeModule
-    //                 ),
-    //         },
-    //         {
-    //             path: 'trang-chu',
-    //             loadChildren: () =>
-    //                 import('./modules/home/home.module').then(
-    //                     (m) => m.HomeModule
-    //                 ),
-    //         },
-    //     ],
-    // },
 ];
 
 @NgModule({

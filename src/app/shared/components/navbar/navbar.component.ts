@@ -9,6 +9,7 @@ import { DOCUMENT } from '@angular/common';
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     ElementRef,
     OnDestroy,
@@ -66,6 +67,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     public themeService = inject(ThemeService);
 
     private _document = inject(DOCUMENT);
+    private _cdr = inject(ChangeDetectorRef);
     private _scrollService = inject(ScrollService);
     private _unsubscribeAll = new Subject<void>();
 
@@ -76,6 +78,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     items = MENU_DATA;
 
     ngAfterViewInit(): void {
+        // Add active class to navbar links
         this.router.events
             .pipe(
                 filter((event) => event instanceof NavigationEnd),
@@ -93,16 +96,18 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
             )
             .subscribe((route) => {
                 this.routePrefix = route.routeConfig?.path || '';
+                this._cdr.markForCheck();
             });
 
-        fromEvent(window, 'scroll')
+        // Padding navbar animation on scroll
+        this._scrollService.windowScroll$
             .pipe(
                 takeUntil(this._unsubscribeAll),
                 tap(() =>
-                    this._scrollService.toggleScrolling(
+                    this._scrollService.toggleScrolledClass(
                         this._document,
                         window,
-                        this.navbar.nativeElement,
+                        this.navbar.nativeElement
                     )
                 )
             )

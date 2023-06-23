@@ -1,4 +1,5 @@
 import { Injectable, Renderer2, inject } from '@angular/core';
+import { fromEvent, share } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -6,13 +7,15 @@ import { Injectable, Renderer2, inject } from '@angular/core';
 export class ScrollService {
     private _renderer2 = inject(Renderer2);
 
+    public windowScroll$ = fromEvent(window, 'scroll').pipe(share());
+
     scrollToFragment(fragmentId: string) {
         const element = this._renderer2.selectRootElement('#' + fragmentId);
 
         element && element.scrollIntoView({ behavior: 'smooth' });
     }
 
-    toggleScrolling(
+    toggleScrolledClass(
         document: Document,
         window: Window,
         element: Element,
@@ -40,7 +43,36 @@ export class ScrollService {
         );
     }
 
-    getElementOffsetTop(element: Element) {
+    getElementOffsetTop(element: Element): number {
         return element.getBoundingClientRect().top;
+    }
+
+    isElementInsideViewport(element: Element): boolean {
+        const rect = element.getBoundingClientRect();
+        const windowHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+        const windowWidth =
+            window.innerWidth || document.documentElement.clientWidth;
+        const vertInView =
+            rect.top <= windowHeight && rect.top + rect.height >= 0;
+        const horInView =
+            rect.left <= windowWidth && rect.left + rect.width >= 0;
+        return vertInView && horInView;
+    }
+
+    getVisibleHeight(element: Element): number {
+        const rect = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const visibleHeight =
+            Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+        return Math.max(visibleHeight, 0);
+    }
+
+    elementWithMaxVisibleHeight(elements: Element[]): Element {
+        return elements.reduce((max, element) => {
+            return this.getVisibleHeight(max) > this.getVisibleHeight(element)
+                ? max
+                : element;
+        }, elements[0]);
     }
 }
