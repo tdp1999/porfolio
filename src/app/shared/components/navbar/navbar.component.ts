@@ -37,6 +37,7 @@ import {
 import { MENU_DATA } from '../../data/menu.data';
 import { ThemeService } from '../../services/theme.service';
 import { ScrollService } from './../../services/scroll.service';
+import { ACTIVE_SECTION } from '../../tokens/active-section.token';
 
 @Component({
     selector: 'app-navbar',
@@ -112,6 +113,20 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
                 )
             )
             .subscribe();
+
+        // Add active class while scrolling
+        this._scrollService.activeSection$
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe((sectionId) => {
+                const activeLink = this.items.find(
+                    (item) => item.fragment === sectionId
+                );
+                if (activeLink) {
+                    this.items.forEach((item) => (item.active = false));
+                    activeLink.active = true;
+                    this._cdr.markForCheck();
+                }
+            });
     }
 
     ngOnDestroy(): void {

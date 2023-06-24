@@ -19,6 +19,8 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { CarouselModule } from 'src/app/shared/components/carousel/carousel.module';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ScrollspyModule } from 'src/app/shared/directives/scrollspy/scrollspy.module';
+import { ScrollspyDirective } from 'src/app/shared/directives/scrollspy/scrollspy.directive';
+import { ACTIVE_SECTION } from 'src/app/shared/tokens/active-section.token';
 
 const routes: Routes = [
     {
@@ -38,7 +40,7 @@ const components = [
     TranslocoModule,
     CarouselModule,
     MatExpansionModule,
-    ScrollspyModule
+    ScrollspyModule,
 ];
 @NgModule({
     declarations: [

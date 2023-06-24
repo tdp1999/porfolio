@@ -1,4 +1,7 @@
-<nav #nav class="flex items-center justify-between px-40 py-4 theme--bg border-b !transition-spacing">
+<nav
+    #nav
+    class="flex items-center justify-between px-40 py-4 theme--bg border-b !transition-spacing"
+>
     <a routerLink="/">
         <svg
             class="w-12 h-12"
@@ -41,6 +44,7 @@
             [routerLinkActiveOptions]="linkActiveOptions"
             [fragment]="item.fragment"
             class="relative flex items-center dark:text-theme-white-90 animation--border-b"
+            [ngClass]="{ 'link-active': item.active }"
         >
             {{ item.label }}
         </a>

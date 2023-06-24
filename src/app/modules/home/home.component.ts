@@ -14,7 +14,6 @@ import { TranslocoService } from '@ngneat/transloco';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-    private _router = inject(Router);
     private _activatedRoute = inject(ActivatedRoute);
     private _routeData = this._activatedRoute.snapshot.data as {
         lang: string;
@@ -23,17 +22,6 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this._translocoService.setActiveLang(this._routeData.lang);
-    }
-
-    onSectionChange(sectionId: string) {
-        const currentFragment = this._activatedRoute.snapshot.fragment;
-        if (currentFragment !== sectionId) {
-            this._router.navigate([], {
-                fragment: sectionId,
-                relativeTo: this._activatedRoute,
-                queryParamsHandling: 'preserve',
-                replaceUrl: true,
-            });
-        }
+        console.log(this._routeData.lang);
     }
 }

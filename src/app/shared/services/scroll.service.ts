@@ -1,13 +1,19 @@
 import { Injectable, Renderer2, inject } from '@angular/core';
-import { fromEvent, share } from 'rxjs';
+import { BehaviorSubject, fromEvent, share } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ScrollService {
     private _renderer2 = inject(Renderer2);
+    private _sectionChange = new BehaviorSubject<string>('');
 
     public windowScroll$ = fromEvent(window, 'scroll').pipe(share());
+    public activeSection$ = this._sectionChange.asObservable();
+
+    setActiveSection(section: string) {
+        this._sectionChange.next(section);
+    }
 
     scrollToFragment(fragmentId: string) {
         const element = this._renderer2.selectRootElement('#' + fragmentId);

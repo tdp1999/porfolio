@@ -3,6 +3,7 @@ export interface Menu {
     label: string;
     icon?: string;
     route?: string;
+    active?: boolean;
     fragment?: string;
     children?: Menu[];
 }
