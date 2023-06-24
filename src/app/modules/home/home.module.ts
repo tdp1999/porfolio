@@ -21,6 +21,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ScrollspyModule } from 'src/app/shared/directives/scrollspy/scrollspy.module';
 import { ScrollspyDirective } from 'src/app/shared/directives/scrollspy/scrollspy.directive';
 import { ACTIVE_SECTION } from 'src/app/shared/tokens/active-section.token';
+import { TimelineModule } from 'src/app/shared/components/timeline/timeline.module';
 
 const routes: Routes = [
     {
@@ -41,6 +42,7 @@ const components = [
     CarouselModule,
     MatExpansionModule,
     ScrollspyModule,
+    TimelineModule,
 ];
 @NgModule({
     declarations: [

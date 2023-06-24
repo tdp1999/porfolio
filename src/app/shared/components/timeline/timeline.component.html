@@ -1,0 +1,136 @@
+<div
+    class="flex flex-col items-center justify-center h-full gap-20 p-20 theme--bg-secondary theme--text"
+>
+    <div class="grid w-full grid-cols-6 grid-rows-1">
+        <div
+            class="relative flex flex-col items-center justify-between py-8 after:bg-theme-primary after:absolute after:top-4 after:bottom-4 after:w-0.5 timeline-container"
+        >
+            <div
+                *ngFor="
+                    let point of milestones;
+                    let first = first;
+                    let last = last;
+                    let index = index
+                "
+                class="relative flex justify-center w-full"
+                [ngClass]="{
+                    'before:absolute before:h-[1px] before:bg-theme-primary before:right-0 before:left-1/2 before:top-1/2 before:-translate-y-1/2':
+                        currentMilestone === index
+                }"
+            >
+                <button
+                    class="milestone"
+                    [ngClass]="{
+                        'after:!bg-theme-accent': currentMilestone === index
+                    }"
+                    matTooltip="Test"
+                    matTooltipPosition="right"
+                    (click)="selectMilestone(index)"
+                ></button>
+            </div>
+        </div>
+
+        <div class="col-span-5 p-4 border rounded-lg border-theme-primary">
+            {{ currentMilestone }}
+
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+            reprehenderit aliquid ducimus sunt facilis ut iusto doloribus itaque
+            blanditiis. Quas natus asperiores doloribus? Hic assumenda minima
+            suscipit vero, quod impedit. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Placeat praesentium sed consectetur nisi non
+            minima hic in quae ipsam eos quam numquam delectus nam perspiciatis
+            corporis dignissimos, labore quas quia error veniam expedita dicta.
+            Deleniti illum incidunt modi quia veritatis! Modi accusantium error
+            temporibus quam dolorem debitis laudantium quasi laborum, iure,
+            deleniti architecto, iste sit iusto! Laboriosam, quo consequuntur.
+            Magni delectus culpa corporis at, ad sint eius a doloremque qui
+            minima excepturi nihil nostrum placeat consequuntur esse ex
+            repellendus, dolorem accusantium assumenda! Quis asperiores nulla a
+            impedit officiis et, iste nobis, sapiente deleniti aliquam doloribus
+            qui modi distinctio velit eos.s
+        </div>
+    </div>
+    <!-- <div>
+
+        <h2 class="">Timeline</h2>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+            reprehenderit aliquid ducimus sunt facilis ut iusto doloribus itaque
+            blanditiis. Quas natus asperiores doloribus? Hic assumenda minima
+            suscipit vero, quod impedit. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Placeat praesentium sed consectetur nisi non
+            minima hic in quae ipsam eos quam numquam delectus nam perspiciatis
+            corporis dignissimos, labore quas quia error veniam expedita dicta.
+            Deleniti illum incidunt modi quia veritatis! Modi accusantium error
+            temporibus quam dolorem debitis laudantium quasi laborum, iure,
+            deleniti architecto, iste sit iusto! Laboriosam, quo consequuntur.
+            Magni delectus culpa corporis at, ad sint eius a doloremque qui
+            minima excepturi nihil nostrum placeat consequuntur esse ex
+            repellendus, dolorem accusantium assumenda! Quis asperiores nulla a
+            impedit officiis et, iste nobis, sapiente deleniti aliquam doloribus
+            qui modi distinctio velit eos.
+        </div>
+    </div>
+
+    <div>
+        <h2 class="">Timeline</h2>
+
+        <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius
+            laudantium error vitae quas esse, adipisci natus non, aliquam
+            repudiandae quam cumque! Alias autem distinctio perspiciatis
+            deserunt quia iusto tenetur nulla nihil, incidunt molestias culpa
+            nam fuga quod velit necessitatibus optio, facilis modi non laborum
+            perferendis tempore eius! Neque blanditiis explicabo maiores quo
+            porro libero, aut similique necessitatibus expedita voluptatum magni
+            excepturi consectetur est. Sapiente soluta veritatis consequatur
+            illo necessitatibus voluptatibus repudiandae aspernatur voluptatum?
+            Iure delectus reiciendis omnis nostrum officiis consequatur officia.
+            Vero consequuntur voluptatem, possimus itaque totam porro eligendi,
+            maiores commodi recusandae esse facere consectetur nisi temporibus
+            repellendus fugiat quos praesentium pariatur sunt vel veniam? Ipsa
+            facilis, laborum repellat vitae quia, ad nostrum placeat deleniti
+            incidunt qui doloremque pariatur itaque? Ipsam illum reprehenderit
+            provident eum. Cum, consequuntur fugit quam nisi harum illum
+            sapiente quasi vitae nesciunt explicabo blanditiis iure eius aliquid
+            debitis alias ea vero totam corrupti! Neque magnam cum illum quaerat
+            distinctio eos nulla vel, veniam repudiandae non iusto error
+            provident ut quo, maxime molestias nostrum, alias veritatis
+            recusandae laudantium quisquam aliquam. Consequuntur ipsum autem
+            vero eius veniam quibusdam modi at sint odit. Numquam, placeat!
+            Expedita maxime, id ipsa architecto cumque atque nemo aspernatur
+            tenetur eum? Consectetur, veniam quam.
+        </div>
+    </div>
+
+    <div>
+        <h2 class="">Timeline</h2>
+
+        <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius
+            laudantium error vitae quas esse, adipisci natus non, aliquam
+            repudiandae quam cumque! Alias autem distinctio perspiciatis
+            deserunt quia iusto tenetur nulla nihil, incidunt molestias culpa
+            nam fuga quod velit necessitatibus optio, facilis modi non laborum
+            perferendis tempore eius! Neque blanditiis explicabo maiores quo
+            porro libero, aut similique necessitatibus expedita voluptatum magni
+            excepturi consectetur est. Sapiente soluta veritatis consequatur
+            illo necessitatibus voluptatibus repudiandae aspernatur voluptatum?
+            Iure delectus reiciendis omnis nostrum officiis consequatur officia.
+            Vero consequuntur voluptatem, possimus itaque totam porro eligendi,
+            maiores commodi recusandae esse facere consectetur nisi temporibus
+            repellendus fugiat quos praesentium pariatur sunt vel veniam? Ipsa
+            facilis, laborum repellat vitae quia, ad nostrum placeat deleniti
+            incidunt qui doloremque pariatur itaque? Ipsam illum reprehenderit
+            provident eum. Cum, consequuntur fugit quam nisi harum illum
+            sapiente quasi vitae nesciunt explicabo blanditiis iure eius aliquid
+            debitis alias ea vero totam corrupti! Neque magnam cum illum quaerat
+            distinctio eos nulla vel, veniam repudiandae non iusto error
+            provident ut quo, maxime molestias nostrum, alias veritatis
+            recusandae laudantium quisquam aliquam. Consequuntur ipsum autem
+            vero eius veniam quibusdam modi at sint odit. Numquam, placeat!
+            Expedita maxime, id ipsa architecto cumque atque nemo aspernatur
+            tenetur eum? Consectetur, veniam quam.
+        </div>
+    </div> -->
+</div>
