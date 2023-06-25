@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    ElementRef,
+    OnInit,
+    inject,
+} from '@angular/core';
 import {
     Information,
     StatsInformation,
@@ -11,6 +17,7 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent implements OnInit {
+    public elementRef = inject(ElementRef);
     personalInformation: Information[] = [
         {
             label: 'Name',
