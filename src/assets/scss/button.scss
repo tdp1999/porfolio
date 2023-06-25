@@ -1,21 +1,23 @@
 .primary-button {
-    @apply bg-theme-primary text-white py-2 px-4 rounded;
+    @apply bg-theme-primary text-white py-2 px-4 rounded drop-shadow-sm hover:opacity-80;
 }
 
 .tab-button {
-    @apply bg-transparent text-theme-primary border-2 border-theme-primary rounded-lg p-1;
+    @apply bg-transparent text-theme-primary border-2 border-theme-primary rounded-lg py-1 px-2 drop-shadow-sm;
     @apply hover:text-theme-white-90 hover:bg-theme-primary;
+
     &.active {
         @apply text-theme-white-90 bg-theme-primary;
     }
 }
 
 .chip {
-    @apply caption p-1 border border-theme-black-80 dark:border-theme-white-90 rounded-md;
+    @apply caption p-1 border border-theme-black-80 dark:border-theme-white-90 rounded-md  drop-shadow-sm;
 }
 
 .link-button {
-    @apply relative text-theme-primary after:absolute after:block after:-bottom-1 after:w-0 after:h-[1px] after:bg-theme-primary after:mr-auto after:transition-width after:duration-300 after:ease-in-out after:mt-1;
+    @apply relative text-theme-primary drop-shadow-sm;
+    @apply after:absolute after:block after:-bottom-1 after:w-0 after:h-[1px] after:bg-theme-primary after:mr-auto after:transition-width after:duration-300 after:ease-in-out after:mt-1;
 
     &:hover {
         @apply after:w-full;
