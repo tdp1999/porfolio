@@ -27,7 +27,6 @@ export class ExperiencesComponent implements OnInit {
     private _dialog = inject(MatDialog);
     private _datePipe = inject(DatePipe);
 
-    public step = 0;
     public monthYearFormat = DatetimeFormat.monthYear;
     public experiences = Experiences.sort(
         (a, b) => a.startDate.getTime() - b.startDate.getTime()
@@ -56,17 +55,5 @@ export class ExperiencesComponent implements OnInit {
                 detailTmpl: this.detail,
             },
         });
-    }
-
-    setStep(index: number) {
-        this.step = index;
-    }
-
-    nextStep() {
-        this.step++;
-    }
-
-    prevStep() {
-        this.step--;
     }
 }

@@ -10,7 +10,8 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
 import { Experiences } from 'src/app/shared/data/experience.data';
-import { Skills } from 'src/app/shared/data/skill.data';
+import { SkillTypes, Skills } from 'src/app/shared/data/skill.data';
+import { SkillType } from 'src/app/shared/types/skill.type';
 
 @Component({
     selector: 'app-skills',
@@ -20,6 +21,9 @@ import { Skills } from 'src/app/shared/data/skill.data';
 })
 export class SkillsComponent implements OnInit {
     public skills = Skills;
+    public navPosition: 'right' | 'left' = 'left';
+    public currentType: SkillType = 'technical';
+    public skillTypes = SkillTypes;
 
     private _overlay = inject(Overlay);
     private _dialog = inject(MatDialog);
@@ -33,5 +37,13 @@ export class SkillsComponent implements OnInit {
                 test: 'test',
             },
         });
+    }
+
+    toggleNavPosition() {
+        this.navPosition = this.navPosition === 'left' ? 'right' : 'left';
+    }
+
+    goTo(type: SkillType) {
+        this.currentType = type;
     }
 }

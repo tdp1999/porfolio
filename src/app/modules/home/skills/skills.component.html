@@ -1,14 +1,90 @@
 <div
-    class="flex flex-col items-center justify-center h-full gap-20 p-20 theme--bg-secondary"
+    class="flex flex-col items-center justify-center h-full gap-20 p-20 theme--bg-secondary theme--text"
 >
     <h2 class="">Skills</h2>
 
-    <div class="grid max-w-screen-lg grid-cols-2 gap-12 auto-rows-auto">
-        <ng-container *ngFor="let skill of skills">
-            <app-skill-item
-                [skill]="skill"
-                (actionClick)="handleActionClick()"
-            ></app-skill-item>
-        </ng-container>
+    <div
+        class="grid items-center w-full h-full max-w-screen-lg grid-cols-12 grid-rows-1 gap-12"
+    >
+        <div
+            class="col-span-3"
+            [ngClass]="{ 'order-last': navPosition === 'right' }"
+        >
+            <!-- Vertial Navigation -->
+            <div class="flex flex-col gap-2">
+                <button
+                    *ngFor="let skill of skillTypes"
+                    class="tab-button"
+                    [ngClass]="{ active: currentType === skill.id }"
+                    (click)="goTo(skill.id)"
+                >
+                    {{ skill.name | uppercase }}
+                </button>
+            </div>
+        </div>
+
+        <div class="col-span-9">
+            <mat-accordion
+                displayMode="flat"
+                togglePosition="before"
+                class="exclude-animation"
+            >
+                <mat-expansion-panel
+                    *ngFor="
+                        let skill of skills;
+                        let first = first;
+                        let last = last;
+                        let index = index
+                    "
+                    class="theme--bg theme--text"
+                    [expanded]="!!first"
+                >
+                    <mat-expansion-panel-header>
+                        <mat-panel-title
+                            class="flex items-center gap-1 font-bold theme--text"
+                        >
+                            <span>{{ skill.name }}</span>
+                            <fa-icon
+                                *ngIf="skill.experience > 2"
+                                [icon]="['far', 'circle-check']"
+                                [ngClass]="{ 'text-theme-primary': first }"
+                                matTooltip="More than 2 years of experiences"
+                            ></fa-icon>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div class="overflow-y-auto h-80">
+                        <p>
+                            {{ skill.description }} Lorem ipsum, dolor sit amet
+                            consectetur adipisicing elit. Corrupti iusto, natus
+                            a recusandae expedita, suscipit, quos eum rerum
+                            similique laboriosam distinctio corporis. Architecto
+                            dolores animi, ea optio culpa accusamus distinctio!
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Tempora ipsam nulla distinctio hic neque,
+                            tenetur reiciendis debitis veritatis nostrum ad
+                            omnis dolore doloremque porro dolor suscipit nemo
+                            dicta repellendus perspiciatis corrupti officia fuga
+                            molestias illo tempore mollitia. Iste, nesciunt
+                            assumenda!
+                        </p>
+
+                        <div>Listing subskills here...</div>
+
+                        <div>
+                            <span>Library used: </span>
+                            <ng-container
+                                *ngFor="let library of skill.libraries"
+                                >{{ library }}</ng-container
+                            >
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
     </div>
+
+    <button class="primary-button" (click)="toggleNavPosition()">
+        Change Nav Position
+    </button>
 </div>

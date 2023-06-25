@@ -13,12 +13,13 @@ import {
     faSquareGithub,
     faSquareTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import { faCircle, faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import {
     faChevronDown,
     faChevronLeft,
     faChevronRight,
     faChevronUp,
+    faCircleCheck as faCircleCheckSolid,
     faCircle as faCircleSolid,
     faClose,
     faCoffee,
@@ -65,7 +66,9 @@ export class AppModule {
             faChevronLeft,
             faChevronRight,
             faCircleSolid,
-            faCircle
+            faCircle,
+            faCircleCheck,
+            faCircleCheckSolid
         );
     }
 }

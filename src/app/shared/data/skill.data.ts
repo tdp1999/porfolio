@@ -5,13 +5,30 @@ import {
     faHtml5,
     faJsSquare,
 } from '@fortawesome/free-brands-svg-icons';
-import { Skill } from '../interfaces/skill.interface';
+import { Skill, SkillType } from '../interfaces/skill.interface';
+
+export const SkillTypes: SkillType[] = [
+    {
+        id: 'technical',
+        name: 'Technicals',
+    },
+    {
+        id: 'tool',
+        name: 'Tool & Technologies',
+    },
+    {
+        id: 'soft',
+        name: 'Additional Skills',
+    },
+];
 
 export const Skills: Skill[] = [
     {
         id: 1,
         name: 'Angular',
         icon: faAngular,
+        type: 'technical',
+        // yoe: 2,
         description:
             'Angular is a TypeScript-based open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations.',
         level: 'Intermediate',
@@ -29,6 +46,8 @@ export const Skills: Skill[] = [
         id: 2,
         name: 'Javascript / Typescript',
         icon: faJsSquare,
+        type: 'technical',
+        // yoe: 2,
         description:
             'TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language.',
         level: 'Intermediate',
@@ -46,6 +65,8 @@ export const Skills: Skill[] = [
         id: 3,
         name: 'HTML',
         icon: faHtml5,
+        type: 'technical',
+        // yoe: 4,
         description:
             'Hypertext Markup Language is the standard markup language for documents designed to be displayed in a web browser.',
         level: 'Intermediate',
@@ -68,6 +89,8 @@ export const Skills: Skill[] = [
         id: 4,
         name: 'CSS',
         icon: faCss3Alt,
+        type: 'technical',
+        // yoe: 4,
         description:
             'Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.',
         level: 'Advanced',
