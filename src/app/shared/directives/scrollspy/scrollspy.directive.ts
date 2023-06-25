@@ -36,7 +36,7 @@ export class ScrollspyDirective implements OnInit, OnDestroy {
 
     ngOnInit() {
         this._scrollService.windowScroll$
-            .pipe(debounceTime(200), takeUntil(this._unsubscribeAll$))
+            .pipe(debounceTime(100), takeUntil(this._unsubscribeAll$))
             .subscribe((event: Event) => {
                 // Get all sections that spied by Scrollspy directive
                 const children = Array.from(
