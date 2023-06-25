@@ -3,7 +3,7 @@
 >
     <h2 class="">Experiences</h2>
 
-    <div class="grid max-w-screen-lg grid-cols-4 gap-12 auto-rows-auto">
+    <!-- <div class="grid max-w-screen-lg grid-cols-4 gap-12 auto-rows-auto">
         <ng-container
             *ngFor="
                 let experience of experiences;
@@ -18,7 +18,14 @@
                 [data]="experience"
             ></app-experience-item>
         </ng-container>
-    </div>
+    </div> -->
+
+    <app-timeline
+        [milestones]="milestones"
+        [contentTemplate]="detail"
+        [defaultPoint]="milestones.length - 1"
+        class="w-full"
+    ></app-timeline>
 </div>
 
 <ng-template #detail let-d>
@@ -31,6 +38,15 @@
     </div>
 
     <div>Location: {{ d.location }}</div>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque,
+        expedita? Facere, perspiciatis voluptatum! Nesciunt inventore iste eos,
+        quas officiis repudiandae maxime totam modi fugiat assumenda distinctio
+        similique maiores rem natus consequatur facilis, iure perspiciatis nihil
+        autem placeat magnam at! Sequi odit dignissimos quam sed molestias,
+        libero exercitationem possimus perferendis asperiores.
+    </div>
 
     <mat-accordion multi togglePosition="before" class="exclude-animation">
         <mat-expansion-panel

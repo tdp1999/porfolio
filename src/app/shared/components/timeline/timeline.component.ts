@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+    TemplateRef,
+} from '@angular/core';
+import { Milestone } from './timeline.interface';
 
 @Component({
     selector: 'app-timeline',
@@ -7,13 +14,17 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TimelineComponent implements OnInit {
-    milestones = [1, 2, 3, 4];
+    @Input() milestones: Milestone[] = [];
+    @Input() contentTemplate: TemplateRef<any> | undefined;
+    @Input() defaultPoint: number = 0;
 
     currentMilestone = 0;
 
     constructor() {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.currentMilestone = this.defaultPoint;
+    }
 
     selectMilestone(index: number): void {
         this.currentMilestone = index;
