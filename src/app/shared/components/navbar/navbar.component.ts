@@ -96,8 +96,10 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe((route) => {
-                this.routePrefix = route.routeConfig?.path || '';
-                this._cdr.markForCheck();
+                if (!route.routeConfig?.data?.['noAnchor']) {
+                    this.routePrefix = route.routeConfig?.path || '';
+                    this._cdr.markForCheck();
+                }
             });
 
         // Padding navbar animation on scroll

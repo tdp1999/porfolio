@@ -24,6 +24,14 @@ const routes: Routes = [
             lang: 'vn',
         },
     },
+    {
+        path: '**',
+        loadChildren: () =>
+            import('./modules/p404/p404.module').then((m) => m.P404Module),
+        data: {
+            noAnchor: true,
+        },
+    },
 ];
 
 @NgModule({
