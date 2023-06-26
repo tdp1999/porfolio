@@ -65,7 +65,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     items = MENU_DATA;
 
     ngAfterViewInit(): void {
-        // Add active class to navbar links
+        // Add active class to navbar links when click on nav item
         this.router.events
             .pipe(
                 filter((event) => event instanceof NavigationEnd),
@@ -94,7 +94,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
                 takeUntil(this._unsubscribeAll),
                 tap(() =>
                     this._scrollService.toggleScrolledClass(
-                        this._document,
+                        this._document.body.firstElementChild ?? this._document,
                         window,
                         this.navbar.nativeElement
                     )

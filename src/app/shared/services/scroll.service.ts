@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { Injectable, Renderer2, inject } from '@angular/core';
 import { BehaviorSubject, fromEvent, share } from 'rxjs';
 
@@ -7,8 +8,12 @@ import { BehaviorSubject, fromEvent, share } from 'rxjs';
 export class ScrollService {
     private _renderer2 = inject(Renderer2);
     private _sectionChange = new BehaviorSubject<string>('');
+    private _document = inject(DOCUMENT);
 
-    public windowScroll$ = fromEvent(window, 'scroll').pipe(share());
+    public windowScroll$ = fromEvent(
+        this._document.body.firstElementChild ?? window,
+        'scroll'
+    ).pipe(share());
     public activeSection$ = this._sectionChange.asObservable();
 
     setActiveSection(section: string) {
@@ -22,14 +27,16 @@ export class ScrollService {
     }
 
     toggleScrolledClass(
-        document: Document,
+        scrollTarget: Document | Element,
         window: Window,
         element: Element,
         threshold = 64
     ) {
         return requestAnimationFrame(() => {
-            const scrollOffset = this.getScrollOffset(document, window);
+            const scrollOffset = this.getScrollOffset(scrollTarget, window);
             const hasScrolledClass = element.classList.contains('scrolled');
+
+            console.log(scrollOffset);
 
             if (scrollOffset < threshold && !hasScrolledClass) return;
             if (scrollOffset >= threshold && hasScrolledClass) return;
@@ -40,13 +47,16 @@ export class ScrollService {
         });
     }
 
-    getScrollOffset(document: Document, window: Window) {
-        return (
-            window.scrollY ||
-            document.documentElement.scrollTop ||
-            document.body.scrollTop ||
-            0
-        );
+    getScrollOffset(document: Document | Element, window: Window) {
+        if (document instanceof Document)
+            return (
+                window.scrollY ||
+                document.documentElement.scrollTop ||
+                document.body.scrollTop ||
+                0
+            );
+
+        return document.scrollTop;
     }
 
     getElementOffsetTop(element: Element): number {
