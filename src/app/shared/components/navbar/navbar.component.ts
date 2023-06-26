@@ -1,10 +1,3 @@
-import {
-    animate,
-    state,
-    style,
-    transition,
-    trigger,
-} from '@angular/animations';
 import { DOCUMENT } from '@angular/common';
 import {
     AfterViewInit,
@@ -13,7 +6,6 @@ import {
     Component,
     ElementRef,
     OnDestroy,
-    Renderer2,
     ViewChild,
     inject,
 } from '@angular/core';
@@ -24,20 +16,12 @@ import {
     Router,
 } from '@angular/router';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import {
-    Subject,
-    debounceTime,
-    filter,
-    fromEvent,
-    map,
-    takeUntil,
-    tap,
-    throttleTime,
-} from 'rxjs';
+import { Subject, filter, map, takeUntil, tap } from 'rxjs';
 import { MENU_DATA } from '../../data/menu.data';
 import { ThemeService } from '../../services/theme.service';
 import { ScrollService } from './../../services/scroll.service';
-import { ACTIVE_SECTION } from '../../tokens/active-section.token';
+import { HttpClient } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-navbar',
@@ -71,6 +55,8 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     private _cdr = inject(ChangeDetectorRef);
     private _scrollService = inject(ScrollService);
     private _unsubscribeAll = new Subject<void>();
+    private _http = inject(HttpClient);
+    private _sanitizer = inject(DomSanitizer);
 
     sunIcon = faSun;
     moonIcon = faMoon;
@@ -128,6 +114,23 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
                     activeLink.active = true;
                     this._cdr.markForCheck();
                 }
+            });
+    }
+
+    viewCV() {
+        const pdfPath = 'assets/files/CVen.pdf';
+        // const pdfUrl = this._sanitizer.bypassSecurityTrustResourceUrl(pdfPath);
+        // window.open(pdfPath, '_blank');
+
+        this._http
+            .get(pdfPath, {
+                responseType: 'blob',
+            })
+            .subscribe((res) => {
+                console.log('file', res);
+                const file = new Blob([res], { type: 'application/pdf' });
+                const fileURL = URL.createObjectURL(file);
+                window.open(fileURL, '_blank');
             });
     }
 

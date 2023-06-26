@@ -21,7 +21,7 @@ import { SkillType } from 'src/app/shared/types/skill.type';
 })
 export class SkillsComponent implements OnInit {
     public skills = Skills;
-    public navPosition: 'right' | 'left' = 'left';
+    public navPosition: 'right' | 'left' = 'right';
     public currentType: SkillType = 'technical';
     public skillTypes = SkillTypes;
 
