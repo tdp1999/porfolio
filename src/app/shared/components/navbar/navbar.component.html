@@ -50,7 +50,13 @@
             {{ item.label }}
         </a>
 
-        <button class="primary-button" (click)="viewCV()">Resume</button>
+        <a
+            [href]="cvUrl"
+            class="primary-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Resume</a
+        >
 
         <div class="flex items-center justify-center w-6">
             <button

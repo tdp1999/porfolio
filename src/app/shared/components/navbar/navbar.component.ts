@@ -17,11 +17,22 @@ import {
     Router,
 } from '@angular/router';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { Subject, debounceTime, filter, map, takeUntil, tap } from 'rxjs';
+import {
+    Subject,
+    debounceTime,
+    distinctUntilChanged,
+    filter,
+    map,
+    takeUntil,
+    tap,
+} from 'rxjs';
 import { MENU_DATA } from '../../data/menu.data';
 import { Menu } from '../../interfaces/menu.interface';
 import { ThemeService } from '../../services/theme.service';
 import { ScrollService } from './../../services/scroll.service';
+import { TranslocoService } from '@ngneat/transloco';
+import { CVURL } from '../../constants/url.constant';
+import { Language } from '../../types/language.type';
 
 @Component({
     selector: 'app-navbar',
@@ -51,12 +62,13 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     public route = inject(ActivatedRoute);
     public themeService = inject(ThemeService);
     public currentActivatedRoute = this.route;
+    public cvUrl = CVURL.en;
 
     private _document = inject(DOCUMENT);
     private _cdr = inject(ChangeDetectorRef);
     private _scrollService = inject(ScrollService);
+    private _translocoService = inject(TranslocoService);
     private _unsubscribeAll = new Subject<void>();
-    private _http = inject(HttpClient);
 
     sunIcon = faSun;
     moonIcon = faMoon;
@@ -65,6 +77,17 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     items = MENU_DATA;
 
     ngAfterViewInit(): void {
+        this._translocoService.langChanges$
+            .pipe(
+                debounceTime(300),
+                distinctUntilChanged(),
+                takeUntil(this._unsubscribeAll)
+            )
+            .subscribe((lang) => {
+                this.cvUrl = CVURL[lang as Language];
+                this._cdr.markForCheck();
+            });
+
         // Remove active class on route change
         this.router.events
             .pipe(
@@ -112,25 +135,6 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
                 this._cdr.markForCheck();
             });
     }
-
-    viewCV() {
-        const pdfPath = 'assets/files/CVen.pdf';
-        // const pdfUrl = this._sanitizer.bypassSecurityTrustResourceUrl(pdfPath);
-        // window.open(pdfPath, '_blank');
-
-        this._http
-            .get(pdfPath, {
-                responseType: 'blob',
-            })
-            .subscribe((res) => {
-                // console.log('file', res);
-                const file = new Blob([res], { type: 'application/pdf' });
-                const fileURL = URL.createObjectURL(file);
-                window.open(fileURL, '_blank');
-            });
-    }
-
-    getRouterLink(item: Menu) {}
 
     ngOnDestroy(): void {
         this._unsubscribeAll.next();
