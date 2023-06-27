@@ -9,25 +9,27 @@
         'app-contact'
     ]"
 >
-    <app-hero id="hero"></app-hero>
+    <app-hero data-section id="hero"></app-hero>
 
     <!-- <div class="border"></div> -->
 
-    <app-about id="about"></app-about>
+    <app-about data-section id="about"></app-about>
 
     <!-- <div class="border"></div> -->
 
-    <app-experiences id="experiences"></app-experiences>
+    <app-experiences data-section id="experiences"></app-experiences>
 
     <!-- <div class="border"></div> -->
 
-    <app-skills id="skills"></app-skills>
+    <app-skills data-section id="skills"></app-skills>
 
     <!-- <div class="border"></div> -->
 
-    <app-projects id="projects"></app-projects>
+    <app-projects data-section id="projects"></app-projects>
 
     <!-- <div class="border"></div> -->
 
-    <app-contact id="contact"></app-contact>
+    <app-contact data-section id="contact"></app-contact>
+
+    <button class="button-primary h-[100px]" (click)="scrollToSection('about')"></button>
 </div>

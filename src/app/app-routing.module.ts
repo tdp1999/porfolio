@@ -32,10 +32,10 @@ const routes: Routes = [
             noAnchor: true,
         },
     },
-    // {
-    //     path: '**',
-    //     redirectTo: 'not-found',
-    // },
+    {
+        path: '**',
+        redirectTo: 'not-found',
+    },
 ];
 
 @NgModule({

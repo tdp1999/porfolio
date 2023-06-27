@@ -1,4 +1,5 @@
 import { DOCUMENT } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -13,16 +14,14 @@ import {
     ActivatedRoute,
     IsActiveMatchOptions,
     NavigationEnd,
-    Router,
+    Router
 } from '@angular/router';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { Subject, filter, map, takeUntil, tap } from 'rxjs';
 import { MENU_DATA } from '../../data/menu.data';
+import { Menu } from '../../interfaces/menu.interface';
 import { ThemeService } from '../../services/theme.service';
 import { ScrollService } from './../../services/scroll.service';
-import { HttpClient } from '@angular/common/http';
-import { DomSanitizer } from '@angular/platform-browser';
-import { Menu } from '../../interfaces/menu.interface';
 
 @Component({
     selector: 'app-navbar',
@@ -51,13 +50,13 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     public router = inject(Router);
     public route = inject(ActivatedRoute);
     public themeService = inject(ThemeService);
+    public currentActivatedRoute = this.route;
 
     private _document = inject(DOCUMENT);
     private _cdr = inject(ChangeDetectorRef);
     private _scrollService = inject(ScrollService);
     private _unsubscribeAll = new Subject<void>();
     private _http = inject(HttpClient);
-    private _sanitizer = inject(DomSanitizer);
 
     sunIcon = faSun;
     moonIcon = faMoon;
@@ -66,29 +65,6 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     items = MENU_DATA;
 
     ngAfterViewInit(): void {
-        // Add active class to navbar links when click on nav item
-        // this.router.events
-        //     .pipe(
-        //         filter((event) => event instanceof NavigationEnd),
-        //         map(() => this.route.snapshot),
-        //         map((event) => {
-        //             while (
-        //                 event.firstChild &&
-        //                 event.firstChild.routeConfig?.path !== ''
-        //             ) {
-        //                 event = event.firstChild;
-        //             }
-        //             return event;
-        //         }),
-        //         takeUntil(this._unsubscribeAll)
-        //     )
-        //     .subscribe((route) => {
-        //         if (!route.routeConfig?.data?.['noAnchor']) {
-        //             this.routePrefix = route.routeConfig?.path || '';
-        //             this._cdr.markForCheck();
-        //         }
-        //     });
-
         // Padding navbar animation on scroll
         this._scrollService.windowScroll$
             .pipe(
@@ -107,7 +83,6 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
         this._scrollService.activeSection$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((sectionId) => {
-                console.log('Emit: ', sectionId);
                 this.items = this.items.map((item) => {
                     item.fragment === sectionId
                         ? (item.active = true)

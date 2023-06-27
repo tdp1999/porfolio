@@ -40,6 +40,7 @@
         <a
             *ngFor="let item of items"
             [routerLink]="[item.route]"
+            [relativeTo]="currentActivatedRoute"
             routerLinkActive="link-active"
             [routerLinkActiveOptions]="linkActiveOptions"
             [fragment]="item.fragment"
