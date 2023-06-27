@@ -23,7 +23,11 @@ import {
     faCircle as faCircleSolid,
     faClose,
     faCoffee,
+    faEarthAsia,
+    faEnvelope,
+    faLocationDot,
     faMoon,
+    faPhone,
     faSun,
 } from '@fortawesome/free-solid-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
@@ -68,7 +72,11 @@ export class AppModule {
             faCircleSolid,
             faCircle,
             faCircleCheck,
-            faCircleCheckSolid
+            faCircleCheckSolid,
+            faEarthAsia,
+            faPhone,
+            faEnvelope,
+            faLocationDot
         );
     }
 }

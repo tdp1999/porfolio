@@ -1,5 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-contact-form',
@@ -10,10 +10,15 @@ export class ContactFormComponent {
     private _fb = inject(FormBuilder);
 
     public form = this._fb.group({
-        test: ['', Validators.required],
+        name: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        company: [''],
+        message: ['', Validators.required],
     });
 
     submit() {
+        this.form.markAllAsTouched();
         console.log(this.form.value);
+        if (this.form.invalid) return;
     }
 }

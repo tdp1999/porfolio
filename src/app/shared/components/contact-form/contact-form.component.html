@@ -1,9 +1,47 @@
-<form [formGroup]="form">
-    <mat-form-field>
-        <mat-label>Test</mat-label>
-        <input matInput placeholder="Test" formControlName="test" required />
-        <mat-error *ngIf="form.get('test')?.hasError('required')">
-            Name is <strong>required</strong>
+<form [formGroup]="form" class="text-end">
+    <mat-form-field class="w-full mb-4">
+        <mat-label>Your name</mat-label>
+        <input matInput placeholder="Your name..." formControlName="name" />
+        <mat-error *ngIf="form.get('name')?.hasError('required')">
+            Your name is <strong>required</strong>!
         </mat-error>
     </mat-form-field>
+
+    <mat-form-field class="w-full mb-4">
+        <mat-label>Your email</mat-label>
+        <input matInput placeholder="Your email..." formControlName="email" />
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+            Your email is <strong>required</strong>!
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">
+            Your email is <strong>invalid</strong>!
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-full mb-4">
+        <mat-label>Company (Optional)</mat-label>
+        <input
+            matInput
+            placeholder="Your company..."
+            formControlName="company"
+        />
+        <mat-error *ngIf="form.get('company')?.hasError('required')">
+            Your company is <strong>required</strong>!
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-full mb-4">
+        <mat-label>Message</mat-label>
+        <textarea
+            matInput
+            placeholder="Your message..."
+            formControlName="message"
+        >
+        </textarea>
+        <mat-error *ngIf="form.get('message')?.hasError('required')">
+            Your message is <strong>required</strong>!
+        </mat-error>
+    </mat-form-field>
+
+    <button class="primary-button" (click)="submit()">Send Message</button>
 </form>
