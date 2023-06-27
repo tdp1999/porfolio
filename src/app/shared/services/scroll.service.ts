@@ -7,7 +7,7 @@ import { BehaviorSubject, fromEvent, share } from 'rxjs';
 })
 export class ScrollService {
     private _renderer2 = inject(Renderer2);
-    private _sectionChange = new BehaviorSubject<string>('');
+    private _sectionChange = new BehaviorSubject<string | null>(null);
     private _document = inject(DOCUMENT);
 
     public windowScroll$ = fromEvent(
@@ -16,7 +16,7 @@ export class ScrollService {
     ).pipe(share());
     public activeSection$ = this._sectionChange.asObservable();
 
-    setActiveSection(section: string) {
+    setActiveSection(section: string | null) {
         this._sectionChange.next(section);
     }
 
@@ -35,8 +35,6 @@ export class ScrollService {
         return requestAnimationFrame(() => {
             const scrollOffset = this.getScrollOffset(scrollTarget, window);
             const hasScrolledClass = element.classList.contains('scrolled');
-
-            console.log(scrollOffset);
 
             if (scrollOffset < threshold && !hasScrolledClass) return;
             if (scrollOffset >= threshold && hasScrolledClass) return;

@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Test</mat-label>
+        <input matInput placeholder="Test" formControlName="test" required />
+        <mat-error *ngIf="form.get('test')?.hasError('required')">
+            Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+</form>

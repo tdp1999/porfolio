@@ -23,6 +23,7 @@ import { ScrollspyDirective } from 'src/app/shared/directives/scrollspy/scrollsp
 import { ACTIVE_SECTION } from 'src/app/shared/tokens/active-section.token';
 import { TimelineModule } from 'src/app/shared/components/timeline/timeline.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ContactFormModule } from 'src/app/shared/components/contact-form/contact-form.module';
 
 const routes: Routes = [
     {
@@ -45,6 +46,7 @@ const components = [
     ScrollspyModule,
     TimelineModule,
     MatTooltipModule,
+    ContactFormModule,
 ];
 @NgModule({
     declarations: [

@@ -22,7 +22,5 @@ export class LightboxComponent implements OnInit {
 
     faClose = faClose;
 
-    ngOnInit(): void {
-        console.log('Data: ', this.data);
-    }
+    ngOnInit(): void {}
 }

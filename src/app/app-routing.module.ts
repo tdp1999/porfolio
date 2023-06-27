@@ -4,11 +4,6 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
     {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'home',
-    },
-    {
         path: 'home',
         loadChildren: () =>
             import('./modules/home/home.module').then((m) => m.HomeModule),
@@ -25,12 +20,21 @@ const routes: Routes = [
         },
     },
     {
-        path: '**',
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home',
+    },
+    {
+        path: 'not-found',
         loadChildren: () =>
             import('./modules/p404/p404.module').then((m) => m.P404Module),
         data: {
             noAnchor: true,
         },
+    },
+    {
+        path: '**',
+        redirectTo: 'not-found',
     },
 ];
 

@@ -66,27 +66,27 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         // Add active class to navbar links when click on nav item
-        this.router.events
-            .pipe(
-                filter((event) => event instanceof NavigationEnd),
-                map(() => this.route.snapshot),
-                map((event) => {
-                    while (
-                        event.firstChild &&
-                        event.firstChild.routeConfig?.path !== ''
-                    ) {
-                        event = event.firstChild;
-                    }
-                    return event;
-                }),
-                takeUntil(this._unsubscribeAll)
-            )
-            .subscribe((route) => {
-                if (!route.routeConfig?.data?.['noAnchor']) {
-                    this.routePrefix = route.routeConfig?.path || '';
-                    this._cdr.markForCheck();
-                }
-            });
+        // this.router.events
+        //     .pipe(
+        //         filter((event) => event instanceof NavigationEnd),
+        //         map(() => this.route.snapshot),
+        //         map((event) => {
+        //             while (
+        //                 event.firstChild &&
+        //                 event.firstChild.routeConfig?.path !== ''
+        //             ) {
+        //                 event = event.firstChild;
+        //             }
+        //             return event;
+        //         }),
+        //         takeUntil(this._unsubscribeAll)
+        //     )
+        //     .subscribe((route) => {
+        //         if (!route.routeConfig?.data?.['noAnchor']) {
+        //             this.routePrefix = route.routeConfig?.path || '';
+        //             this._cdr.markForCheck();
+        //         }
+        //     });
 
         // Padding navbar animation on scroll
         this._scrollService.windowScroll$
@@ -106,14 +106,14 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
         this._scrollService.activeSection$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((sectionId) => {
-                const activeLink = this.items.find(
-                    (item) => item.fragment === sectionId
-                );
-                if (activeLink) {
-                    this.items.forEach((item) => (item.active = false));
-                    activeLink.active = true;
-                    this._cdr.markForCheck();
-                }
+                console.log('Emit: ', sectionId);
+                this.items = this.items.map((item) => {
+                    item.fragment === sectionId
+                        ? (item.active = true)
+                        : (item.active = false);
+                    return item;
+                });
+                this._cdr.markForCheck();
             });
     }
 
@@ -127,7 +127,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
                 responseType: 'blob',
             })
             .subscribe((res) => {
-                console.log('file', res);
+                // console.log('file', res);
                 const file = new Blob([res], { type: 'application/pdf' });
                 const fileURL = URL.createObjectURL(file);
                 window.open(fileURL, '_blank');

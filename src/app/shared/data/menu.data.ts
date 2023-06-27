@@ -8,6 +8,7 @@ export const MENU_DATA: Menu[] = [
         icon: 'fas fa-info-circle',
         route: '/',
         fragment: 'about',
+        active: false,
     },
     {
         id: 2,
@@ -15,6 +16,7 @@ export const MENU_DATA: Menu[] = [
         icon: 'fas fa-briefcase',
         route: '/',
         fragment: 'experiences',
+        active: false,
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ export const MENU_DATA: Menu[] = [
         icon: 'fas fa-laptop-code',
         route: '/',
         fragment: 'skills',
+        active: false,
     },
     {
         id: 4,
@@ -29,6 +32,7 @@ export const MENU_DATA: Menu[] = [
         icon: 'fas fa-briefcase',
         route: '/',
         fragment: 'projects',
+        active: false,
     },
     {
         id: 5,
@@ -36,5 +40,6 @@ export const MENU_DATA: Menu[] = [
         icon: 'fas fa-id-card',
         route: '/',
         fragment: 'contact',
+        active: false,
     },
 ];

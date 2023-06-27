@@ -3,6 +3,10 @@
     position: relative !important;
 }
 
+.contact-form-dialog {
+    @apply w-5/6 lg:w-[680px];
+}
+
 .mat-dialog-container {
     @apply theme--bg theme--text;
 }

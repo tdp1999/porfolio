@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this._translocoService.setActiveLang(this._routeData.lang);
-        console.log(this.about);
 
         this._intersectionObserver = new IntersectionObserver(
             this.handleIntersection,
@@ -52,7 +51,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     ) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                console.log('Intersecting:', entry.target);
+                // console.log('Intersecting:', entry.target);
             }
         });
     }

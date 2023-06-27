@@ -25,7 +25,7 @@ export class ScrollspyDirective implements OnInit, OnDestroy {
     }
     private _spiedTags: string[] = [];
 
-    @Output() sectionChange = new EventEmitter<string>();
+    @Output() sectionChange = new EventEmitter<string | null>();
 
     private _activeSection!: string;
     private _unsubscribeAll$ = new Subject<void>();
@@ -62,11 +62,17 @@ export class ScrollspyDirective implements OnInit, OnDestroy {
                         sectionsInView
                     )?.id;
 
-                if (!currentSection) return;
+                if (!currentSection) {
+                    this.sectionChange.emit(null);
+                    this._scrollService.setActiveSection(null);
+                    return;
+                }
+
                 if (currentSection !== this._activeSection) {
                     this._activeSection = currentSection;
                     this.sectionChange.emit(this._activeSection);
                     this._scrollService.setActiveSection(this._activeSection);
+                    return;
                 }
             });
     }
