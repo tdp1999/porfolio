@@ -15,7 +15,14 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
 import { AboutComponent } from './about/about.component';
-import { Subject, distinctUntilChanged, filter, takeUntil, tap } from 'rxjs';
+import {
+    Subject,
+    delay,
+    distinctUntilChanged,
+    filter,
+    takeUntil,
+    tap,
+} from 'rxjs';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
 import { DOCUMENT } from '@angular/common';
 
@@ -27,8 +34,6 @@ import { DOCUMENT } from '@angular/common';
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     @ViewChild(AboutComponent, { static: true }) about!: AboutComponent;
-    @ViewChildren(AboutComponent, { read: ElementRef })
-    sections!: QueryList<ElementRef>;
 
     private _route = inject(ActivatedRoute);
     private _routeData = this._route.snapshot.data as {
@@ -61,17 +66,13 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
             .pipe(
                 distinctUntilChanged(),
                 filter((fragment) => !!fragment),
-                tap((fragment) => this.scrollToSection(fragment ?? '')),
+                delay(100),
+                tap((fragment) =>
+                    this._scrollService.scrollToFragment(fragment ?? '')
+                ),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe();
-    }
-
-    scrollToSection(id: string) {
-        console.log('Scrolling to:', id);
-        this._document.querySelector(`[id="${id}"]`)?.scrollIntoView({
-            behavior: 'smooth',
-        });
     }
 
     ngOnDestroy(): void {

@@ -12,6 +12,7 @@
 
 *:not(.exclude-animation) {
     @apply transition-selected duration-300 ease-in-out;
+    @apply scroll-mt-10;
 }
 
 html {

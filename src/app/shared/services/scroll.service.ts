@@ -21,9 +21,11 @@ export class ScrollService {
     }
 
     scrollToFragment(fragmentId: string) {
-        const element = this._renderer2.selectRootElement('#' + fragmentId);
-
-        element && element.scrollIntoView({ behavior: 'smooth' });
+        this._document.querySelector(`[id="${fragmentId}"]`)?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest',
+        });
     }
 
     toggleScrolledClass(
