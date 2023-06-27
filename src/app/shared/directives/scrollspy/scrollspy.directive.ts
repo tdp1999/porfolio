@@ -62,18 +62,11 @@ export class ScrollspyDirective implements OnInit, OnDestroy {
                         sectionsInView
                     )?.id;
 
-                if (!currentSection) {
-                    this.sectionChange.emit(null);
-                    this._scrollService.setActiveSection(null);
-                    return;
-                }
-
-                if (currentSection !== this._activeSection) {
-                    this._activeSection = currentSection;
-                    this.sectionChange.emit(this._activeSection);
-                    this._scrollService.setActiveSection(this._activeSection);
-                    return;
-                }
+                this._activeSection = currentSection;
+                this.sectionChange.emit(this._activeSection ?? null);
+                this._scrollService.setActiveSection(
+                    this._activeSection ?? null
+                );
             });
     }
 
