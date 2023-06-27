@@ -39,7 +39,7 @@
     <div class="flex gap-7">
         <a
             *ngFor="let item of items"
-            [routerLink]="[item.route, routePrefix]"
+            [routerLink]="[item.route]"
             routerLinkActive="link-active"
             [routerLinkActiveOptions]="linkActiveOptions"
             [fragment]="item.fragment"

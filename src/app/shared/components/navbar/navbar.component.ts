@@ -22,6 +22,7 @@ import { ThemeService } from '../../services/theme.service';
 import { ScrollService } from './../../services/scroll.service';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Menu } from '../../interfaces/menu.interface';
 
 @Component({
     selector: 'app-navbar',
@@ -46,7 +47,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
         fragment: 'exact',
     };
 
-    public routePrefix = '';
+    public routePrefix = null;
     public router = inject(Router);
     public route = inject(ActivatedRoute);
     public themeService = inject(ThemeService);
@@ -133,6 +134,8 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
                 window.open(fileURL, '_blank');
             });
     }
+
+    getRouterLink(item: Menu) {}
 
     ngOnDestroy(): void {
         this._unsubscribeAll.next();
