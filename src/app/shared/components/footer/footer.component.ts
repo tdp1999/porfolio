@@ -63,8 +63,10 @@ export class FooterComponent implements OnInit, OnDestroy {
     selectLanguage(lang: string): void {
         if (lang === this.currentLanguage?.id) return;
 
-        this._router.navigate([lang === 'en' ? '/' : `/${lang}`], {
-            replaceUrl: true,
-        });
+        this._translocoService.setActiveLang(lang);
+
+        // this._router.navigate([lang === 'en' ? '/' : `/${lang}`], {
+        //     replaceUrl: true,
+        // });
     }
 }

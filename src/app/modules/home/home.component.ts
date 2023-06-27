@@ -48,16 +48,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
     ngOnInit(): void {
         this._translocoService.setActiveLang(this._routeData.lang);
-
-        // this._intersectionObserver = new IntersectionObserver(
-        //     this.handleIntersection,
-        //     {
-        //         root: null,
-        //         rootMargin: '0px',
-        //         threshold: 0.5,
-        //     }
-        // );
-        // this._intersectionObserver.observe(this.about.elementRef.nativeElement);
     }
 
     ngAfterViewInit(): void {
@@ -76,7 +66,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngOnDestroy(): void {
-        this._intersectionObserver.disconnect();
+        // this._intersectionObserver.disconnect();
 
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();

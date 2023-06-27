@@ -14,10 +14,10 @@ import {
     ActivatedRoute,
     IsActiveMatchOptions,
     NavigationEnd,
-    Router
+    Router,
 } from '@angular/router';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { Subject, filter, map, takeUntil, tap } from 'rxjs';
+import { Subject, debounceTime, filter, map, takeUntil, tap } from 'rxjs';
 import { MENU_DATA } from '../../data/menu.data';
 import { Menu } from '../../interfaces/menu.interface';
 import { ThemeService } from '../../services/theme.service';
@@ -65,6 +65,25 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     items = MENU_DATA;
 
     ngAfterViewInit(): void {
+        // Remove active class on route change
+        this.router.events
+            .pipe(
+                filter(
+                    (event): event is NavigationEnd =>
+                        event instanceof NavigationEnd
+                ),
+                debounceTime(100),
+                takeUntil(this._unsubscribeAll)
+            )
+            .subscribe((event: NavigationEnd) => {
+                if (event.urlAfterRedirects.includes('not-found'))
+                    this.items = this.items.map((item) => {
+                        item.active = false;
+                        return item;
+                    });
+                this._cdr.markForCheck();
+            });
+
         // Padding navbar animation on scroll
         this._scrollService.windowScroll$
             .pipe(

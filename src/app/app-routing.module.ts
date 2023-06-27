@@ -11,14 +11,14 @@ const routes: Routes = [
             lang: 'en',
         },
     },
-    {
-        path: 'vn',
-        loadChildren: () =>
-            import('./modules/home/home.module').then((m) => m.HomeModule),
-        data: {
-            lang: 'vn',
-        },
-    },
+    // {
+    //     path: 'vn',
+    //     loadChildren: () =>
+    //         import('./modules/home/home.module').then((m) => m.HomeModule),
+    //     data: {
+    //         lang: 'vn',
+    //     },
+    // },
     {
         path: '',
         pathMatch: 'full',
