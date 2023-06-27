@@ -14,7 +14,7 @@ export class ScrollService {
         this._document.body.firstElementChild ?? window,
         'scroll'
     ).pipe(share());
-    public activeSection$ = this._sectionChange.asObservable();
+    public activeSection$ = this._sectionChange.asObservable().pipe(share());
 
     setActiveSection(section: string | null) {
         this._sectionChange.next(section);
