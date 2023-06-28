@@ -5,62 +5,62 @@
     (ngSubmit)="submit()"
 >
     <mat-form-field class="w-full mb-4">
-        <mat-label>Your name</mat-label>
+        <mat-label>{{ "contact-form.name.label" | transloco }}</mat-label>
         <input
             matInput
-            placeholder="Your name..."
+            [placeholder]="'contact-form.name.placeholder' | transloco"
             formControlName="name"
             type="text"
             name="name"
         />
         <mat-error *ngIf="form.get('name')?.hasError('required')">
-            Your name is <strong>required</strong>!
+            {{ "contact-form.name.required" | transloco }}
         </mat-error>
     </mat-form-field>
 
     <mat-form-field class="w-full mb-4">
-        <mat-label>Your email</mat-label>
+        <mat-label>{{ "contact-form.email.label" | transloco }}</mat-label>
         <input
             matInput
-            placeholder="Your email..."
+            [placeholder]="'contact-form.email.placeholder' | transloco"
             formControlName="email"
             type="email"
             name="email"
         />
         <mat-error *ngIf="form.get('email')?.hasError('required')">
-            Your email is <strong>required</strong>!
+            {{ "contact-form.email.required" | transloco }}
         </mat-error>
         <mat-error *ngIf="form.get('email')?.hasError('email')">
-            Your email is <strong>invalid</strong>!
+            {{ "contact-form.email.invalid" | transloco }}
         </mat-error>
     </mat-form-field>
 
     <mat-form-field class="w-full mb-4">
-        <mat-label>Company (Optional)</mat-label>
+        <mat-label>{{ "contact-form.company.label" | transloco }} </mat-label>
         <input
             matInput
-            placeholder="Your company..."
+            [placeholder]="'contact-form.company.placeholder' | transloco"
             formControlName="company"
             type="text"
             name="company"
         />
         <mat-error *ngIf="form.get('company')?.hasError('required')">
-            Your company is <strong>required</strong>!
+            {{ "contact-form.company.required" | transloco }}
         </mat-error>
     </mat-form-field>
 
     <mat-form-field class="w-full mb-4">
-        <mat-label>Message</mat-label>
+        <mat-label>{{ "contact-form.message.label" | transloco }}</mat-label>
         <textarea
             matInput
-            placeholder="Your message..."
+            [placeholder]="'contact-form.message.placeholder' | transloco"
             formControlName="message"
             type="text"
             name="message"
         >
         </textarea>
         <mat-error *ngIf="form.get('message')?.hasError('required')">
-            Your message is <strong>required</strong>!
+            {{ "contact-form.message.required" | transloco }}
         </mat-error>
     </mat-form-field>
 

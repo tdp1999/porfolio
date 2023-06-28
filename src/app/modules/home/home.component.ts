@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     private _intersectionObserver!: IntersectionObserver;
 
     ngOnInit(): void {
-        this._translocoService.setActiveLang(this._routeData.lang);
+        // this._translocoService.setActiveLang(this._routeData.lang);
     }
 
     ngAfterViewInit(): void {

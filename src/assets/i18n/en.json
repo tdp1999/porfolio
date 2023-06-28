@@ -1,5 +1,33 @@
 {
     "hello": "World",
-    "contact": "Contact",
-    "skills": "Skills"
+    "skills": "Skills",
+    "contact": {
+        "title": "Contact",
+        "description": "Thank you for visiting my portfolio! I am currently employed full-time as a middle front-end developer for <a href='https://redoc.co/' target='_blank' rel='noopener noreferrer' class='link-primary'>Redoc.co</a>, but I am always open to new opportunities and challenges. <br><br>If you have an exciting project or part-time opportunity related to my field, I would love to hear from you. I am passionate about expanding my skill set and contributing to valuable projects. Feel free to reach out and let's discuss how we can collaborate to create something great together!",
+        "address-1": "District 8, Ho Chi Minh City",
+        "address-2": "Ninh Kieu District, Can Tho City"
+    },
+    "contact-form": {
+        "name": {
+            "label": "Name",
+            "placeholder": "Enter your name",
+            "required": "Please enter your name!"
+        },
+        "email": {
+            "label": "Email",
+            "placeholder": "Enter your email",
+            "required": "Please enter your email!",
+            "invalid": "Please enter a valid email!"
+        },
+        "company": {
+            "label": "Company (Optional)",
+            "placeholder": "Enter your company",
+            "required": "Please enter your company!"
+        },
+        "message": {
+            "label": "Message",
+            "placeholder": "Enter your message",
+            "required": "Please enter your message!"
+        }
+    }
 }

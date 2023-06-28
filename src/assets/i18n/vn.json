@@ -1,5 +1,34 @@
 {
     "hello": "Xin chào",
-    "contact": "Liên hệ",
-    "skills": "Kỹ năng"
+    "skills": "Kỹ năng",
+    "contact": {
+        "title": "Liên hệ",
+        "description": "Cảm ơn bạn đã ghé thăm website của mình. Hiện tại, mình đang có một công việc toàn thời gian tại <a href='https://redoc.co/' target='_blank' rel='noopener noreferrer' class='link-primary'>Redoc.co</a>, nhưng mình luôn đón nhận những cơ hội mới.<br><br>Nếu bạn đang tìm kiếm một thành viên chăm chỉ, chuyên nghiệp và có đam mê, hãy liên hệ với mình. Mình rất mong muốn được tham gia vào các dự án thú vị và hợp tác cùng với các đồng nghiệp tài năng.<br><br>Hãy để lại tin nhắn cho mình với thông tin chi tiết về dự án, cơ hội công việc hoặc mọi thứ bạn muốn mình biết. Mình sẽ phản hồi lại sớm nhất có thể.",
+        "address-1": "Quận 8, TPHCM",
+        "address-2": "Ninh Kiều, TP. Cần Thơ"
+    },
+    "contact-form": {
+        "name": {
+            "label": "Tên",
+            "placeholder": "Nhập tên của bạn",
+            "required": "Vui lòng nhập tên của bạn"
+        },
+        "email": {
+            "label": "Email",
+            "placeholder": "Nhập email của bạn",
+            "required": "Vui lòng nhập email của bạn",
+            "invalid": "Email không hợp lệ"
+        },
+        "company": {
+            "label": "Công ty",
+            "placeholder": "Nhập tên công ty của bạn",
+            "required": "Vui lòng nhập tên công ty của bạn"
+        },
+        "message": {
+            "label": "Tin nhắn",
+            "placeholder": "Nhập tin nhắn của bạn",
+            "required": "Vui lòng nhập tin nhắn của bạn"
+        },
+        "submit": "Gửi"
+    }
 }

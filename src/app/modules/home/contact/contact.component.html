@@ -1,33 +1,38 @@
 <div
     class="relative flex flex-col items-center justify-center h-full gap-20 p-20 theme--bg-secondary"
 >
-    <div class="grid grid-cols-2 grid-rows-1 w-full max-w-screen-lg gap-12">
+    <div class="grid grid-cols-2 grid-rows-1 w-full max-w-screen-lg gap-16">
         <!-- <img
             class="absolute inset-0 w-full h-full"
             src="assets/images/illustrators/simple-bg.svg"
             alt="background"
         /> -->
         <div class="flex flex-col items-start gap-10 flex-grow">
-            <h2 class="h2--start">{{ "contact" | transloco }}</h2>
+            <h2 class="h2--start">{{ "contact.title" | transloco }}</h2>
 
-            <p class="block max-w-screen-sm">
-                I am currently seeking employment, so if you have a job or
-                project offer, or if you need more information, please do not
-                hesitate to contact me.
-            </p>
+            <div class="max-w-screen-sm">
+                <p
+                    innerHTML="{{ 'contact.description' | transloco }}"
+                    class=""
+                ></p>
+                <!-- {{ "contact.description" | transloco }} -->
+            </div>
 
             <div class="flex flex-col gap-4 items-start">
-                <div class="flex gap-2 items-center justify-center">
+                <div class="flex gap-3 justify-center">
                     <fa-icon [icon]="['fas', 'location-dot']"></fa-icon>
-                    <div>545 Mavis Island Chicago, IL 99191</div>
+                    <div>
+                        <div>{{ "contact.address-1" | transloco }}</div>
+                        <div>{{ "contact.address-2" | transloco }}</div>
+                    </div>
                 </div>
 
-                <div class="flex gap-2 items-center justify-center">
+                <div class="flex gap-3 items-center justify-center">
                     <fa-icon [icon]="['fas', 'phone']"></fa-icon>
                     <a href="tel:+84783995295">+84 783995295</a>
                 </div>
 
-                <div class="flex gap-2 items-center justify-center">
+                <div class="flex gap-3 items-center justify-center">
                     <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
                     <a href="mailto:tdp99.business@gmail.com"
                         >tdp99.business@gmail.com</a

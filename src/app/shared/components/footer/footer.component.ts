@@ -15,8 +15,12 @@ import {
     debounceTime,
     distinct,
     distinctUntilChanged,
+    startWith,
     takeUntil,
+    tap,
 } from 'rxjs';
+
+const LANGUAGE_KEY = 'lang';
 
 @Component({
     selector: 'app-footer',
@@ -40,13 +44,17 @@ export class FooterComponent implements OnInit, OnDestroy {
     public currentLanguage?: LangDefinition;
 
     ngOnInit(): void {
+        this.loadReferredLanguage();
+
         this._translocoService.langChanges$
             .pipe(
+                tap((lang) => console.log('lang: ', lang)),
                 debounceTime(300),
                 distinctUntilChanged(),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe((lang) => {
+                console.log('lang: ', lang);
                 this.currentLanguage = this.availableLanguage.find(
                     (langDef) => langDef.id === lang
                 );
@@ -60,13 +68,15 @@ export class FooterComponent implements OnInit, OnDestroy {
         this._unsubscribeAll.complete();
     }
 
+    loadReferredLanguage(): void {
+        const lang = localStorage.getItem(LANGUAGE_KEY);
+        this._translocoService.setActiveLang(lang ?? 'en');
+    }
+
     selectLanguage(lang: string): void {
         if (lang === this.currentLanguage?.id) return;
 
         this._translocoService.setActiveLang(lang);
-
-        // this._router.navigate([lang === 'en' ? '/' : `/${lang}`], {
-        //     replaceUrl: true,
-        // });
+        localStorage.setItem(LANGUAGE_KEY, lang);
     }
 }
