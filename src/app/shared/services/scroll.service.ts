@@ -6,9 +6,10 @@ import { BehaviorSubject, fromEvent, share } from 'rxjs';
     providedIn: 'root',
 })
 export class ScrollService {
-    private _renderer2 = inject(Renderer2);
-    private _sectionChange = new BehaviorSubject<string | null>(null);
     private _document = inject(DOCUMENT);
+    private _renderer2 = inject(Renderer2);
+
+    private _sectionChange = new BehaviorSubject<string | null>(null);
 
     public windowScroll$ = fromEvent(
         this._document.body.firstElementChild ?? window,

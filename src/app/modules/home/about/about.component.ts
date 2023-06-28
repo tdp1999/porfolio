@@ -9,6 +9,7 @@ import {
     Information,
     StatsInformation,
 } from 'src/app/shared/interfaces/information.interface';
+import { IntersectionObserveService } from 'src/app/shared/services/intersection-observe.service';
 
 @Component({
     selector: 'app-about',
@@ -70,7 +71,7 @@ export class AboutComponent implements OnInit {
         },
     ];
 
-    constructor() {}
+    private _intersectionService = inject(IntersectionObserveService);
 
     ngOnInit(): void {}
 }
