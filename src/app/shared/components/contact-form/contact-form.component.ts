@@ -1,5 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import {
+    FormBuilder,
+    FormGroup,
+    FormGroupDirective,
+    NgForm,
+    Validators,
+} from '@angular/forms';
 import { NetlifyService } from '../../services/netlify.service';
 import { ContactFormData } from '../../interfaces/contact-form.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,6 +16,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     styleUrls: ['./contact-form.component.scss'],
 })
 export class ContactFormComponent {
+    @ViewChild(FormGroupDirective)
+    formRef!: FormGroupDirective;
+
     private _fb = inject(FormBuilder);
     private _snackbar = inject(MatSnackBar);
     private _netlifyService = inject(NetlifyService);
@@ -23,17 +32,15 @@ export class ContactFormComponent {
 
     submit() {
         this.form.markAllAsTouched();
-        console.log(this.form.value);
         if (this.form.invalid) return;
 
         this._netlifyService
             .submitForm(this.form.value as ContactFormData)
             .subscribe({
                 next: () => {
-                    console.log('Success!');
-                    this.form.reset();
+                    this.formRef.resetForm();
                     this._snackbar.open(
-                        'Your message has been sent!',
+                        'Your message has been sent! Thank you!',
                         'Dismiss',
                         {
                             duration: 3000,
