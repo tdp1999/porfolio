@@ -5,6 +5,5 @@
 }
 
 .scrolled {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    @apply xl:py-2 py-1;
 }

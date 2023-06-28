@@ -1,6 +1,6 @@
 <nav
     #nav
-    class="flex items-center justify-between px-40 py-4 theme--bg border-b !transition-spacing drop-shadow-md"
+    class="flex items-center justify-between px-20 xl:px-40 xl:py-4 py-2 theme--bg border-b !transition-spacing drop-shadow-md"
 >
     <a routerLink="/">
         <svg
@@ -36,7 +36,7 @@
         </svg>
     </a>
 
-    <div class="flex gap-7">
+    <div class="hidden md:flex gap-7">
         <a
             *ngFor="let item of items"
             [routerLink]="[item.route]"
@@ -83,4 +83,12 @@
             </button>
         </div>
     </div>
+
+    <button class="md:hidden primary-button" (click)="toggleMenu()">
+        <fa-icon
+            [icon]="['fas', 'bars']"
+            size="lg"
+            class="bg-theme-primary text-theme-white-90"
+        ></fa-icon>
+    </button>
 </nav>

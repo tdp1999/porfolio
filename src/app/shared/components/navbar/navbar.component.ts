@@ -33,6 +33,7 @@ import { ScrollService } from './../../services/scroll.service';
 import { TranslocoService } from '@ngneat/transloco';
 import { CVURL } from '../../constants/url.constant';
 import { Language } from '../../types/language.type';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
     selector: 'app-navbar',
@@ -66,6 +67,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
 
     private _document = inject(DOCUMENT);
     private _cdr = inject(ChangeDetectorRef);
+    private _menuService = inject(MenuService);
     private _scrollService = inject(ScrollService);
     private _translocoService = inject(TranslocoService);
     private _unsubscribeAll = new Subject<void>();
@@ -134,6 +136,10 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
                 });
                 this._cdr.markForCheck();
             });
+    }
+
+    toggleMenu() {
+        this._menuService.toggleMenu();
     }
 
     ngOnDestroy(): void {

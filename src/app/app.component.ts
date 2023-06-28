@@ -5,11 +5,14 @@ import {
     inject,
     OnInit,
     OnDestroy,
+    ViewChild,
 } from '@angular/core';
 import { ThemeService } from './shared/services/theme.service';
 import { Subject, map, takeUntil } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { ScrollService } from './shared/services/scroll.service';
+import { MenuService } from './shared/services/menu.service';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
     selector: 'app-root',
@@ -21,10 +24,13 @@ import { ScrollService } from './shared/services/scroll.service';
     providers: [ScrollService],
 })
 export class AppComponent implements OnInit, OnDestroy {
+    @ViewChild(MatDrawer, { static: true }) drawer!: MatDrawer;
+
     private _renderer2 = inject(Renderer2);
     private _elementRef = inject(ElementRef);
     private _themeService = inject(ThemeService);
     private _document = inject(DOCUMENT);
+    private _menuService = inject(MenuService);
 
     private _unsubscribe$ = new Subject<void>();
 
@@ -38,6 +44,12 @@ export class AppComponent implements OnInit, OnDestroy {
                 isDark
                     ? this._renderer2.addClass(this._document.body, 'dark')
                     : this._renderer2.removeClass(this._document.body, 'dark');
+            });
+
+        this._menuService.menuState$
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe(() => {
+                this.drawer.toggle();
             });
     }
 

@@ -1,11 +1,13 @@
 <div
-    class="flex flex-col items-center gap-20 justify-center h-full theme--bg-secondary p-20"
+    class="flex flex-col items-center gap-12 xl:gap-20 px-20 py-12 xl:py-20 justify-center h-full theme--bg-secondary"
 >
     <h2 class="">Projects</h2>
 
     <div class="grid max-w-screen-lg grid-cols-2 gap-12 auto-rows-auto">
         <ng-container *ngFor="let i of [1, 2, 3, 4]">
-            <app-project-item (linkClicked)="handleLinkClicked(i)"></app-project-item>
+            <app-project-item
+                (linkClicked)="handleLinkClicked(i)"
+            ></app-project-item>
         </ng-container>
     </div>
 </div>

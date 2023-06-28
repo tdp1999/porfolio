@@ -15,6 +15,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faCircle, faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import {
+    faBars,
     faChevronDown,
     faChevronLeft,
     faChevronRight,
@@ -36,8 +37,14 @@ import { MATERIAL_CONFIGURATIONS } from './app.token';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { TranslocoRootModule } from './transloco-root.module';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
-const components = [NavbarModule, FooterModule, FontAwesomeModule];
+const components = [
+    NavbarModule,
+    FooterModule,
+    FontAwesomeModule,
+    MatSidenavModule,
+];
 
 @NgModule({
     declarations: [AppComponent],
@@ -76,7 +83,8 @@ export class AppModule {
             faEarthAsia,
             faPhone,
             faEnvelope,
-            faLocationDot
+            faLocationDot,
+            faBars
         );
     }
 }

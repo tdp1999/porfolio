@@ -3,7 +3,7 @@
 >
     <div class="grid w-full h-full grid-cols-6 grid-rows-1">
         <div
-            class="relative flex flex-col items-center justify-between py-8 after:bg-theme-primary after:absolute after:top-4 after:bottom-4 after:w-0.5 timeline-container"
+            class="relative flex flex-col items-start xl:items-center justify-between py-8 after:bg-theme-primary after:absolute after:top-4 after:bottom-4 after:w-0.5 xl:after:translate-x-0 after:-translate-x-1/2 timeline-container"
         >
             <div
                 *ngFor="
@@ -12,9 +12,9 @@
                     let last = last;
                     let index = index
                 "
-                class="relative flex justify-center w-full"
+                class="relative flex justify-start xl:justify-center w-full"
                 [ngClass]="{
-                    'before:absolute before:h-[1px] before:bg-theme-primary before:right-0 before:left-1/2 before:top-1/2 before:-translate-y-1/2':
+                    'before:absolute before:h-[1px] before:bg-theme-primary before:right-0 xl:before:left-1/2 before:left-0 before:top-1/2 before:-translate-y-1/2':
                         currentMilestone === index
                 }"
             >
