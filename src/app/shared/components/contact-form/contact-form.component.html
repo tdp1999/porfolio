@@ -1,7 +1,18 @@
-<form [formGroup]="form" class="text-end">
+<form
+    [formGroup]="form"
+    class="text-end"
+    name="contactForm"
+    (ngSubmit)="submit()"
+>
     <mat-form-field class="w-full mb-4">
         <mat-label>Your name</mat-label>
-        <input matInput placeholder="Your name..." formControlName="name" />
+        <input
+            matInput
+            placeholder="Your name..."
+            formControlName="name"
+            type="text"
+            name="name"
+        />
         <mat-error *ngIf="form.get('name')?.hasError('required')">
             Your name is <strong>required</strong>!
         </mat-error>
@@ -9,7 +20,13 @@
 
     <mat-form-field class="w-full mb-4">
         <mat-label>Your email</mat-label>
-        <input matInput placeholder="Your email..." formControlName="email" />
+        <input
+            matInput
+            placeholder="Your email..."
+            formControlName="email"
+            type="email"
+            name="email"
+        />
         <mat-error *ngIf="form.get('email')?.hasError('required')">
             Your email is <strong>required</strong>!
         </mat-error>
@@ -24,6 +41,8 @@
             matInput
             placeholder="Your company..."
             formControlName="company"
+            type="text"
+            name="company"
         />
         <mat-error *ngIf="form.get('company')?.hasError('required')">
             Your company is <strong>required</strong>!
@@ -36,6 +55,8 @@
             matInput
             placeholder="Your message..."
             formControlName="message"
+            type="text"
+            name="message"
         >
         </textarea>
         <mat-error *ngIf="form.get('message')?.hasError('required')">
@@ -43,5 +64,5 @@
         </mat-error>
     </mat-form-field>
 
-    <button class="primary-button" (click)="submit()">Send Message</button>
+    <button class="primary-button" type="submit">Send Message</button>
 </form>
