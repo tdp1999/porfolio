@@ -19,12 +19,15 @@ import {
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import {
     Subject,
+    asyncScheduler,
     debounceTime,
     distinctUntilChanged,
     filter,
+    fromEvent,
     map,
     takeUntil,
     tap,
+    throttleTime,
 } from 'rxjs';
 import { MENU_DATA } from '../../data/menu.data';
 import { Menu } from '../../interfaces/menu.interface';
@@ -58,12 +61,12 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
         fragment: 'exact',
     };
 
+    public cvUrl = CVURL.en;
     public routePrefix = null;
     public router = inject(Router);
     public route = inject(ActivatedRoute);
     public themeService = inject(ThemeService);
     public currentActivatedRoute = this.route;
-    public cvUrl = CVURL.en;
 
     private _document = inject(DOCUMENT);
     private _cdr = inject(ChangeDetectorRef);
@@ -111,18 +114,24 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
             });
 
         // Padding navbar animation on scroll
-        this._scrollService.windowScroll$
-            .pipe(
-                takeUntil(this._unsubscribeAll),
-                tap(() =>
-                    this._scrollService.toggleScrolledClass(
-                        this._document.body.firstElementChild ?? this._document,
-                        window,
-                        this.navbar.nativeElement
+        const scrollableElement =
+            this._document.querySelector('[id="content"]');
+        if (scrollableElement) {
+            this._scrollService
+                .observeElementScroll(scrollableElement)
+                .pipe(
+                    takeUntil(this._unsubscribeAll),
+                    debounceTime(150),
+                    tap(() =>
+                        this._scrollService.toggleScrolledClass(
+                            scrollableElement,
+                            window,
+                            this.navbar.nativeElement
+                        )
                     )
                 )
-            )
-            .subscribe();
+                .subscribe();
+        }
 
         // Add active class while scrolling
         this._scrollService.activeSection$

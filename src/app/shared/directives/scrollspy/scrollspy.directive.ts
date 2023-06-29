@@ -1,4 +1,5 @@
 import {
+    AfterViewInit,
     Directive,
     ElementRef,
     EventEmitter,
@@ -16,7 +17,7 @@ import { Subject, debounceTime, takeUntil } from 'rxjs';
 @Directive({
     selector: '[appScrollspy]',
 })
-export class ScrollspyDirective implements OnInit, OnDestroy {
+export class ScrollspyDirective implements AfterViewInit, OnDestroy {
     @Input() get spiedTags(): string[] {
         return this._spiedTags;
     }
@@ -34,8 +35,14 @@ export class ScrollspyDirective implements OnInit, OnDestroy {
     private _elementRef = inject(ElementRef);
     private _scrollService = inject(ScrollService);
 
-    ngOnInit() {
-        this._scrollService.windowScroll$
+    ngAfterViewInit() {
+        const scrollableElement =
+            this._document.querySelector('[id="content"]');
+
+        if (!scrollableElement) return;
+
+        this._scrollService
+            .observeElementScroll(scrollableElement)
             .pipe(debounceTime(100), takeUntil(this._unsubscribeAll$))
             .subscribe((event: Event) => {
                 // Get all sections that spied by Scrollspy directive

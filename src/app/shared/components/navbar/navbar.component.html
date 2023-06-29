@@ -3,10 +3,10 @@
     class="flex items-center justify-between px-20 xl:px-40 xl:py-4 py-2 theme--bg border-b !transition-spacing drop-shadow-md"
 >
     <a class="w-14" routerLink="/">
-        <img src="assets/images/logo.png" alt="Logo">
+        <img src="assets/images/logo.png" alt="Logo" />
     </a>
 
-    <div class="hidden md:flex gap-7">
+    <div class="items-center hidden lg:flex gap-7">
         <a
             *ngFor="let item of items"
             [routerLink]="[item.route]"
@@ -14,7 +14,7 @@
             routerLinkActive="link-active"
             [routerLinkActiveOptions]="linkActiveOptions"
             [fragment]="item.fragment"
-            class="relative flex items-center dark:text-theme-white-90 animation--border-b"
+            class="relative flex items-center h-full leading-normal dark:text-theme-white-90 animation--border-b lg:leading-8"
             [ngClass]="{ 'link-active': item.active }"
         >
             {{ item.label }}
@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <button class="md:hidden primary-button" (click)="toggleMenu()">
+    <button class="lg:hidden primary-button" (click)="toggleMenu()">
         <fa-icon
             [icon]="['fas', 'bars']"
             size="lg"

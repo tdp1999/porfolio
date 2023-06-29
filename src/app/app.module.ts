@@ -38,12 +38,14 @@ import { FooterModule } from './shared/components/footer/footer.module';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { TranslocoRootModule } from './transloco-root.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 const components = [
     NavbarModule,
     FooterModule,
     FontAwesomeModule,
     MatSidenavModule,
+    MatListModule,
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Injectable, Renderer2, inject } from '@angular/core';
-import { BehaviorSubject, fromEvent, share } from 'rxjs';
+import { BehaviorSubject, debounceTime, fromEvent, share } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -15,6 +15,12 @@ export class ScrollService {
         this._document.body.firstElementChild ?? window,
         'scroll'
     ).pipe(share());
+
+    public contentScroll$ = fromEvent(
+        this._document.querySelector('mat-drawer-content') ?? window,
+        'scroll'
+    ).pipe(share());
+
     public activeSection$ = this._sectionChange.asObservable().pipe(share());
 
     setActiveSection(section: string | null) {
@@ -27,6 +33,10 @@ export class ScrollService {
             block: 'start',
             inline: 'nearest',
         });
+    }
+
+    observeElementScroll(el: Element) {
+        return fromEvent(el, 'scroll').pipe(share());
     }
 
     toggleScrolledClass(
