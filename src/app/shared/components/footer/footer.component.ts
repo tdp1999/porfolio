@@ -48,13 +48,11 @@ export class FooterComponent implements OnInit, OnDestroy {
 
         this._translocoService.langChanges$
             .pipe(
-                tap((lang) => console.log('lang: ', lang)),
                 debounceTime(300),
                 distinctUntilChanged(),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe((lang) => {
-                console.log('lang: ', lang);
                 this.currentLanguage = this.availableLanguage.find(
                     (langDef) => langDef.id === lang
                 );

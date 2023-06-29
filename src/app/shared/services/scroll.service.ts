@@ -18,7 +18,6 @@ export class ScrollService {
     public activeSection$ = this._sectionChange.asObservable().pipe(share());
 
     setActiveSection(section: string | null) {
-        console.log('Active section: ', section);
         this._sectionChange.next(section);
     }
 
