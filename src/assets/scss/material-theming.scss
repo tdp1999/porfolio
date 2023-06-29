@@ -2,11 +2,90 @@
 
 @include mat.core();
 
-$my-app-primary: mat.define-palette(mat.$indigo-palette);
-$my-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$my-app-warn: mat.define-palette(mat.$red-palette);
+$primary-pallete: (
+    50: #e6f2fc,
+    100: #c2def7,
+    200: #9ec9f3,
+    300: #7db4ec,
+    400: #68a4e8,
+    500: #5a95e3,
+    600: #5488d5,
+    700: #4c76c2,
+    800: #4565af,
+    900: #39488f,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+    ),
+);
 
-$my-app-theme: mat.define-light-theme(
+$accent-pallete: (
+    50: #faf0e1,
+    100: #f3d9b5,
+    200: #ebc086,
+    300: #e3a85a,
+    400: #de973f,
+    500: #da8628,
+    600: #d57c25,
+    700: #cf6e22,
+    800: #c8601d,
+    900: #bd4916,
+    A100: #ffffff,
+    A200: #fff3e6,
+    A400: #ffdfb3,
+    A700: #ffd499,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+    ),
+);
+
+$warning-palette: (
+    50: #f9e3ed,
+    100: #f1b8d2,
+    200: #ea8ab3,
+    300: #e35a95,
+    400: #de347e,
+    500: #db0067,
+    600: #ca0063,
+    700: #b4005d,
+    800: #9f0058,
+    900: #79004f,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+    ),
+);
+
+$my-app-primary: mat.define-palette($primary-pallete, 500);
+$my-app-accent: mat.define-palette($accent-pallete, A200, A100, A400);
+$my-app-warn: mat.define-palette(mat.$red-palette, 500);
+
+$light-theme: mat.define-light-theme(
     (
         color: (
             primary: $my-app-primary,
@@ -16,4 +95,18 @@ $my-app-theme: mat.define-light-theme(
     )
 );
 
-@include mat.all-component-themes($my-app-theme);
+$dark-theme: mat.define-dark-theme(
+    (
+        color: (
+            primary: $my-app-primary,
+            accent: $my-app-accent,
+            warn: $my-app-warn,
+        ),
+    )
+);
+
+@include mat.all-component-themes($light-theme);
+
+body.dark {
+    @include mat.all-component-colors($dark-theme);
+}

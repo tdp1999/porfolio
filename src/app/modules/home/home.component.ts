@@ -46,21 +46,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     private _unsubscribeAll = new Subject<void>();
     private _scrollService = inject(ScrollService);
     private _translocoService = inject(TranslocoService);
-    private _intersectionObserver!: IntersectionObserver;
 
     ngOnInit(): void {}
 
     ngAfterViewInit(): void {
-        // this._renderer2.addClass(
-        //     this.about.elementRef.nativeElement,
-        //     'animation--in'
-        // );
-        // this._intersectionObserver = new IntersectionObserver(
-        //     (entries) => this.handleIntersection(entries),
-        //     { root: null, threshold: 0.5 }
-        // );
-        // this._intersectionObserver.observe(this.about.elementRef.nativeElement);
-
         // Scroll into section when fragment changes
         this._route.fragment
             .pipe(
@@ -76,24 +65,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngOnDestroy(): void {
-        this._intersectionObserver.disconnect();
-
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
-    }
-
-    handleIntersection(entries: IntersectionObserverEntry[]): void {
-        entries.forEach((entry: IntersectionObserverEntry) => {
-            console.log('Entry: ', entry);
-            if (entry.isIntersecting) {
-                // Apply animations or manipulate the section element
-                const section = entry.target as HTMLElement;
-                section.classList.add('animate');
-            } else {
-                // Remove animations or reset section styles
-                const section = entry.target as HTMLElement;
-                // section.classList.remove('animate');
-            }
-        });
     }
 }

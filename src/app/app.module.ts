@@ -60,7 +60,6 @@ const components = [
     bootstrap: [AppComponent],
 })
 export class AppModule {
-    // public faLibrary = inject(FaIconLibrary);
     constructor(public faLibrary: FaIconLibrary) {
         faLibrary.addIcons(
             faLinkedin,
