@@ -93,7 +93,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
                 this._cdr.markForCheck();
             });
 
-        // Remove active class on route change
+        // Remove active class on route changes
         this.router.events
             .pipe(
                 filter(
