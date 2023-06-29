@@ -13,6 +13,7 @@ import { DOCUMENT } from '@angular/common';
 import { ScrollService } from './shared/services/scroll.service';
 import { MenuService } from './shared/services/menu.service';
 import { MatDrawer } from '@angular/material/sidenav';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-root',
@@ -31,10 +32,12 @@ export class AppComponent implements OnInit, OnDestroy {
     private _themeService = inject(ThemeService);
     private _document = inject(DOCUMENT);
     private _menuService = inject(MenuService);
+    private _titleService = inject(Title);
 
     private _unsubscribe$ = new Subject<void>();
 
     ngOnInit(): void {
+        this._titleService.setTitle('Phuong Tran | Portfolio');
         this._themeService.currentTheme$
             .pipe(
                 map((value) => value === 'dark'),
