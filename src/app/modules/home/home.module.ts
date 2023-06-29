@@ -24,6 +24,7 @@ import { ACTIVE_SECTION } from 'src/app/shared/tokens/active-section.token';
 import { TimelineModule } from 'src/app/shared/components/timeline/timeline.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ContactFormModule } from 'src/app/shared/components/contact-form/contact-form.module';
+import { MatDividerModule } from '@angular/material/divider';
 
 const routes: Routes = [
     {
@@ -47,6 +48,7 @@ const components = [
     TimelineModule,
     MatTooltipModule,
     ContactFormModule,
+    MatDividerModule,
 ];
 @NgModule({
     declarations: [

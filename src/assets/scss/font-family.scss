@@ -61,3 +61,22 @@ p,
 .caption-value {
     @apply text-sm font-normal theme--text;
 }
+
+.subtitle {
+    @apply text-sm font-medium theme--text;
+}
+
+.list-title {
+    @apply text-sm font-semibold theme--text;
+}
+
+ul,
+ol,
+.ul,
+.ol {
+    @apply list-disc list-inside flex flex-col gap-1 text-sm;
+}
+
+strong {
+    @apply font-semibold;
+}

@@ -56,4 +56,9 @@ export class ExperiencesComponent implements OnInit {
             },
         });
     }
+
+    openMetadataDialog(item: Experience) {
+        // this._dialog.
+        console.log('Open Meta data dialog', item);
+    }
 }
