@@ -1,6 +1,6 @@
 <form
     [formGroup]="form"
-    class="text-end grid grid-cols-2 lg:grid-cols-1 auto-rows-auto gap-y-1 gap-x-4 md:gap-8 lg:gap-4"
+    class="text-end grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 auto-rows-auto gap-y-1 gap-x-4 md:gap-8 lg:gap-4"
     name="contactForm"
     (ngSubmit)="submit()"
 >
@@ -35,7 +35,7 @@
         </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="w-full col-span-2 lg:col-auto">
+    <mat-form-field class="w-full col-auto sm:col-span-2 lg:col-auto">
         <mat-label>{{ "contact-form.company.label" | transloco }} </mat-label>
         <input
             matInput
@@ -49,7 +49,7 @@
         </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="w-full col-span-2 lg:col-auto">
+    <mat-form-field class="w-full col-auto sm:col-span-2 lg:col-auto">
         <mat-label>{{ "contact-form.message.label" | transloco }}</mat-label>
         <textarea
             matInput
@@ -64,7 +64,7 @@
         </mat-error>
     </mat-form-field>
 
-    <div class="col-span-2 lg:col-auto">
+    <div class="col-auto sm:col-span-2 lg:col-auto">
         <button class="primary-button" type="submit">Send Message</button>
     </div>
 </form>
