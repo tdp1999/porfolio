@@ -1,18 +1,25 @@
-<div class="flex flex-col h-full gap-4 p-6 rounded-lg theme--bg theme--text">
-    <div class="w-full h-52 bg-theme-white-80 rounded-xl"></div>
-    <button class="flex" (click)="linkClicked.emit()">
-        <h4 class="text-theme-primary">Project Name</h4>
-    </button>
-    <p class="flex-grow">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque sed quam
-        laborum, quis eos, quidem incidunt voluptas dolorem unde nam
-        consequuntur, minima commodi alias. Doloremque maiores facere officia ab
-        qui.
-    </p>
+<div
+    class="flex flex-row lg:flex-col h-full gap-8 lg:gap-4 p-6 rounded-lg theme--bg theme--text"
+>
+    <div
+        class="w-full h-full basis-2/5 lg:basis-auto lg:h-52 bg-theme-white-80 rounded-xl"
+    ></div>
 
-    <div class="flex gap-2">
-        <span class="chip"> HTML </span>
-        <span class="chip"> CSS </span>
-        <span class="chip"> JS </span>
+    <div class="flex flex-col gap-4 basis-3/5 lg:basis-auto">
+        <button class="flex" (click)="linkClicked.emit()">
+            <h4 class="text-theme-primary">Project Name</h4>
+        </button>
+        <p class="flex-grow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque sed
+            quam laborum, quis eos, quidem incidunt voluptas dolorem unde nam
+            consequuntur, minima commodi alias. Doloremque maiores facere
+            officia ab qui.
+        </p>
+
+        <div class="flex gap-2">
+            <span class="chip"> HTML </span>
+            <span class="chip"> CSS </span>
+            <span class="chip"> JS </span>
+        </div>
     </div>
 </div>

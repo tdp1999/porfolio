@@ -3,7 +3,7 @@
 }
 
 .tab-button {
-    @apply bg-transparent text-theme-primary border-2 border-theme-primary rounded-lg py-1 px-2 drop-shadow-sm;
+    @apply bg-transparent text-theme-primary border-2 border-theme-primary rounded-lg py-1 px-2 drop-shadow-sm tracking-tighter lg:tracking-normal;
     @apply hover:text-theme-white-90 hover:bg-theme-primary;
 
     &.active {

@@ -3,7 +3,9 @@
 >
     <h2 class="">Projects</h2>
 
-    <div class="grid max-w-screen-lg grid-cols-2 gap-12 auto-rows-auto">
+    <div
+        class="grid max-w-screen-lg grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 auto-rows-auto"
+    >
         <ng-container *ngFor="let i of [1, 2, 3, 4]">
             <app-project-item
                 (linkClicked)="handleLinkClicked(i)"
