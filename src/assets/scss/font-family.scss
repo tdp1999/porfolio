@@ -2,7 +2,7 @@
 
 h1,
 .h1 {
-    @apply text-5xl md:text-6xl lg:text-7xl leading-normal font-semibold theme--text;
+    @apply mb-2 tracking-tight sm:tracking-normal text-5xl md:text-6xl lg:text-7xl sm:leading-normal font-semibold theme--text;
 
     &--light {
         @apply font-light;
