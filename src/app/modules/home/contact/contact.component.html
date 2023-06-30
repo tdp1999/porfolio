@@ -1,45 +1,34 @@
 <div
-    class="relative flex flex-col items-center justify-center h-full gap-12 xl:gap-20 px-20 py-12 xl:py-20 theme--bg-secondary theme--text"
+    class="relative flex flex-col items-center justify-center h-full gap-8 md:gap-12 xl:gap-20 px-12 md:px-20 py-8 md:py-12 xl:py-20 theme--bg-secondary theme--text"
 >
     <div
-        class="grid lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 auto-rows-auto w-full max-w-screen-lg gap-12 lg:gap-16"
+        class="grid lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 auto-rows-auto w-full max-w-screen-lg gap-8 md:gap-12 lg:gap-16"
     >
-        <!-- <img
-            class="absolute inset-0 w-full h-full"
-            src="assets/images/illustrators/simple-bg.svg"
-            alt="background"
-        /> -->
         <div class="flex flex-col items-start gap-5 lg:gap-10 flex-grow">
             <h2 class="h2--start">{{ "contact.title" | transloco }}</h2>
 
             <p innerHTML="{{ 'contact.description' | transloco }}" class=""></p>
-            <!-- <div class="">
-                <p
-                    innerHTML="{{ 'contact.description' | transloco }}"
-                    class=""
-                ></p>
-            </div> -->
 
-            <div class="flex flex-col gap-4 items-start">
+            <div class="flex flex-col gap-2 md:gap-4 items-start">
                 <div class="flex gap-3 justify-center">
                     <fa-icon [icon]="['fas', 'location-dot']"></fa-icon>
-                    <div>
-                        <div>{{ "contact.address-1" | transloco }}</div>
-                        <div>{{ "contact.address-2" | transloco }}</div>
-                    </div>
+                    <span>
+                        <p>{{ "contact.address-1" | transloco }}</p>
+                        <p>{{ "contact.address-2" | transloco }}</p>
+                    </span>
                 </div>
 
-                <div class="flex gap-3 items-center justify-center">
+                <p class="flex gap-3 items-center justify-center">
                     <fa-icon [icon]="['fas', 'phone']"></fa-icon>
                     <a href="tel:+84783995295">+84 783995295</a>
-                </div>
+                </p>
 
-                <div class="flex gap-3 items-center justify-center">
+                <p class="flex gap-3 items-center justify-center">
                     <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
                     <a href="mailto:tdp99.business@gmail.com"
                         >tdp99.business@gmail.com</a
                     >
-                </div>
+                </p>
             </div>
 
             <div class="flex gap-4">
