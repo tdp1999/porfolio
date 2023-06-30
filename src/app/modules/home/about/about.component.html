@@ -1,10 +1,10 @@
 <div
-    class="flex flex-col items-center justify-center h-full gap-12 xl:gap-20 px-20 py-12 xl:py-20 theme--bg-secondary"
+    class="flex flex-col items-center justify-center h-full gap-8 md:gap-12 xl:gap-20 px-12 md:px-20 py-8 md:py-12 xl:py-20 theme--bg-secondary"
 >
     <h2 class="">About Me</h2>
 
     <div
-        class="flex flex-col lg:flex-row items-center justify-center max-w-screen-lg gap-12"
+        class="flex flex-col lg:flex-row items-center justify-center max-w-screen-lg gap-8 md:gap-12"
     >
         <div
             class="flex-auto flex-shrink-0 lg:w-64 lg:h-64 w-full h-80 about-block"
@@ -17,7 +17,7 @@
         </div>
 
         <div>
-            <p class="mb-8">
+            <p class="mb-4 md:mb-8">
                 Hello there! My name is Tran Duc Phuong, and I am an Angular
                 front-end developer based in the beautiful cities of Can Tho and
                 Ho Chi Minh City, Vietnam. I am truly humbled by the opportunity
@@ -28,7 +28,9 @@
                 journey together and make a difference!
             </p>
 
-            <div class="grid grid-cols-2 auto-rows-auto gap-x-16 gap-y-3">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 auto-rows-auto md:gap-x-16 gap-y-3"
+            >
                 <div *ngFor="let item of personalInformation" class="flex">
                     <span
                         class="flex-grow-0 flex-shrink-0 font-semibold basis-32 caption"
