@@ -1,5 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -15,6 +17,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faCircle, faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import {
+    faAnglesDown,
     faBars,
     faChevronDown,
     faChevronLeft,
@@ -37,8 +40,6 @@ import { MATERIAL_CONFIGURATIONS } from './app.token';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { TranslocoRootModule } from './transloco-root.module';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
 
 const components = [
     NavbarModule,
@@ -85,7 +86,8 @@ export class AppModule {
             faPhone,
             faEnvelope,
             faLocationDot,
-            faBars
+            faBars,
+            faAnglesDown
         );
     }
 }

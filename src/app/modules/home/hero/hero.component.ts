@@ -1,7 +1,9 @@
 import {
     ChangeDetectionStrategy,
     Component,
+    EventEmitter,
     OnInit,
+    Output,
     inject,
 } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
@@ -12,6 +14,6 @@ import { TranslocoService } from '@ngneat/transloco';
     styleUrls: ['./hero.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeroComponent implements OnInit {
-    ngOnInit(): void {}
+export class HeroComponent {
+    @Output() scrollTo = new EventEmitter<string>();
 }

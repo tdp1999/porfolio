@@ -64,6 +64,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
             .subscribe();
     }
 
+    scrollTo(fragment: string) {
+        this._scrollService.scrollToFragment(fragment);
+    }
+
     ngOnDestroy(): void {
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
