@@ -8,6 +8,7 @@ import {
     inject,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
 import { Milestone } from 'src/app/shared/components/timeline/timeline.interface';
 import { DatetimeFormat } from 'src/app/shared/constants/datetime.constant';
@@ -58,7 +59,9 @@ export class ExperiencesComponent implements OnInit {
     }
 
     openMetadataDialog(item: Experience) {
-        // this._dialog.
-        console.log('Open Meta data dialog', item);
+        this._dialog.open(DescriptionListComponent, {
+            data: item,
+            panelClass: 'description-list-dialog',
+        });
     }
 }

@@ -25,6 +25,7 @@ import { TimelineModule } from 'src/app/shared/components/timeline/timeline.modu
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ContactFormModule } from 'src/app/shared/components/contact-form/contact-form.module';
 import { MatDividerModule } from '@angular/material/divider';
+import { DescriptionListModule } from 'src/app/shared/components/description-list/description-list.module';
 
 const routes: Routes = [
     {
@@ -49,6 +50,7 @@ const components = [
     MatTooltipModule,
     ContactFormModule,
     MatDividerModule,
+    DescriptionListModule,
 ];
 @NgModule({
     declarations: [
