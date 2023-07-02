@@ -9,7 +9,9 @@ import {
     FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import {
+    faGitAlt,
     faLinkedin,
+    faNodeJs,
     faSkype,
     faSquareFacebook,
     faSquareGithub,
@@ -87,7 +89,9 @@ export class AppModule {
             faEnvelope,
             faLocationDot,
             faBars,
-            faAnglesDown
+            faAnglesDown,
+            faGitAlt,
+            faNodeJs
         );
     }
 }

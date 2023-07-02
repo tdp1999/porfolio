@@ -1,8 +1,9 @@
 <div
-    class="flex flex-col h-full items-start gap-4 p-6 rounded-lg theme--bg theme--text"
+    class="flex flex-col items-start h-full gap-4 p-6 rounded-lg theme--bg theme--text"
 >
-    <div class="w-20 h-20 flex items-center rounded-xl">
+    <div class="flex items-center w-20 h-20 rounded-xl">
         <fa-icon
+            *ngIf="skill.icon"
             [icon]="skill.icon"
             class="animation--scale"
             size="5x"

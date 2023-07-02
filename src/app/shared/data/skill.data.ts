@@ -2,42 +2,30 @@ import {
     faAngular,
     faCss3,
     faCss3Alt,
+    faGitAlt,
     faHtml5,
     faJsSquare,
+    faNodeJs,
 } from '@fortawesome/free-brands-svg-icons';
 import { Skill, SkillType } from '../interfaces/skill.interface';
 
-export const SkillTypes: SkillType[] = [
-    {
-        id: 'technical',
-        name: 'Technicals',
-    },
-    {
-        id: 'tool',
-        name: 'Tool & Technologies',
-    },
-    {
-        id: 'soft',
-        name: 'Additional Skills',
-    },
-];
-
-export const Skills: Skill[] = [
+export const TechnicalSkills: Skill[] = [
     {
         id: 1,
         name: 'Angular',
         icon: faAngular,
         type: 'technical',
-        // yoe: 2,
+        // 'Angular là framework frontend chính mà mình sử dụng, cả trong project của công ty và những project cá nhân. Có thể nói, trong 1.5 năm trở lại đây, hầu như tuần nào mình cũng code Angular, hoặc học về Angular.',
         description:
-            'Angular is a TypeScript-based open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations.',
+            "I have been primarily using Angular as the main frontend framework for both corporate and personal projects. Over the past 1.5 years, it's safe to say that almost every week I have either been coding with Angular or deepening my understanding of it.",
         level: 'Intermediate',
         experience: 2,
         subSkills: [
-            'Implementing Basic & Reusable Building Block: Components, Directives, Services, etc ',
+            'Implementing Basic & Reusable Building Block: Components, Directives, Pipes, etc ',
             'Form Manipulation: Reactive Forms, Template Driven Forms',
             'Dependency Injection Apply in Practice',
             'Routing & Navigation',
+            'Handle HTTP Request (RESTful API) with HttpClient',
             'Understanding Data Sharing Between Components Using Binding, Service, DI and Store (NgRx)',
         ],
         libraries: ['RxJS', 'NgRx', 'Angular Material'],
@@ -47,16 +35,13 @@ export const Skills: Skill[] = [
         name: 'Javascript / Typescript',
         icon: faJsSquare,
         type: 'technical',
-        // yoe: 2,
-        description:
-            'TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language.',
+        // Angular được xây dựng toàn bộ dựa typescript, do vậy việc sử dụng typescript với mình là điều bắt buộc.
         level: 'Intermediate',
-        experience: 2,
+        experience: 0,
         subSkills: [
-            'Using TypeScript Basic Types',
-            'Interface and Type Alias',
+            'DOM Manipulation',
+            'Interface, Type Alias and Enum',
             'Using Generics',
-            'Using Utility Types',
             'Creating and Using Custom Decorators',
         ],
         libraries: ['Lodash', 'class-transformer'],
@@ -66,47 +51,213 @@ export const Skills: Skill[] = [
         name: 'HTML',
         icon: faHtml5,
         type: 'technical',
-        // yoe: 4,
-        description:
-            'Hypertext Markup Language is the standard markup language for documents designed to be displayed in a web browser.',
         level: 'Intermediate',
-        experience: 2.5,
+        experience: 0,
         subSkills: [
-            'Angular 2+',
-            'Angular Universal',
-            'Angular Material',
-            'Angular Flex Layout',
+            'HTML Semantics',
+            'Search Engine Optimization (SEO)',
+            'Web Accessibility',
         ],
-        libraries: [
-            'RxJS',
-            'NgRx',
-            'Angular Fire',
-            'Angular Material',
-            'Angular Flex Layout',
-        ],
+        libraries: [],
     },
     {
         id: 4,
         name: 'CSS',
         icon: faCss3Alt,
         type: 'technical',
-        // yoe: 4,
-        description:
-            'Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.',
         level: 'Advanced',
+        experience: 0,
+        subSkills: ['SCSS', 'CSS Methodologies: BEM', 'Responsive'],
+        libraries: ['Tailwind', 'Bootstrap', 'Angular Material'],
+    },
+    {
+        id: 11,
+        name: 'NodeJS (ExpressJS, NestJS), MongoDB, PostgreSQL',
+        icon: faNodeJs,
+        type: 'technical',
+        level: 'Intermediate',
+        experience: 0,
+        subSkills: [],
+        libraries: [],
+        hideDetail: true,
+    },
+];
+
+export const ToolSkills: Skill[] = [
+    {
+        id: 5,
+        name: 'Git',
+        icon: faGitAlt,
+        type: 'tool',
+        description:
+            'I use git in most of my personal and corporate projects. With the company, I use git to manage source code, while with personal projects, I use git to manage source code, and deploy code to the host.',
+        level: 'Not Rated',
         experience: 2.5,
         subSkills: [
-            'Angular 2+',
-            'Angular Universal',
-            'Angular Material',
-            'Angular Flex Layout',
+            'Git Basic Command: Add, Commit, Push, Pull, Fetch, Merge, Rebase, etc',
+            'Git Branching and Merging Strategies',
+            'Git Flow',
+            'Git Hooks',
+            'Deployment',
         ],
-        libraries: [
-            'RxJS',
-            'NgRx',
-            'Angular Fire',
-            'Angular Material',
-            'Angular Flex Layout',
+        libraries: ['Github', 'Gitlab', 'Bitbucket'],
+        hideDetail: true,
+    },
+    {
+        id: 6,
+        name: 'Figma / Adobe XD',
+        icon: null,
+        type: 'tool',
+        description:
+            'Figma is a vector graphics editor and prototyping tool which is primarily web-based, with additional offline features enabled by desktop applications for macOS and Windows.',
+        level: 'Not Rated',
+        experience: 2.5,
+        subSkills: [
+            'UI Design',
+            'Prototyping',
+            'Collaboration',
+            'Handoff',
+            'Design System',
         ],
+        libraries: [],
+        hideDetail: true,
+    },
+    {
+        id: 7,
+        name: 'Postman',
+        icon: null,
+        type: 'tool',
+        description:
+            'Postman is a popular API client that makes it easy for developers to create, share, test and document APIs.',
+        level: 'Not Rated',
+        experience: 2.5,
+        subSkills: [
+            'API Testing',
+            'API Documentation',
+            'API Mocking',
+            'API Monitoring',
+        ],
+        libraries: [],
+        hideDetail: true,
+    },
+    {
+        id: 8,
+        name: 'Jira',
+        icon: null,
+        type: 'tool',
+        description:
+            'Jira is a proprietary issue tracking product developed by Atlassian that allows bug tracking and agile project management.',
+        level: 'Not Rated',
+        experience: 1,
+        subSkills: [
+            'Project Management',
+            'Issue Tracking',
+            'Bug Tracking',
+            'Agile Development',
+        ],
+        libraries: [],
+        hideDetail: true,
+    },
+    {
+        id: 9,
+        name: 'Notion',
+        icon: null,
+        type: 'tool',
+        description:
+            'Notion is an application that provides components such as notes, databases, kanban boards, wikis, calendars and reminders.',
+        level: 'Not Rated',
+        experience: 2.5,
+        subSkills: [
+            'Note Taking',
+            'Project Management',
+            'Knowledge Management',
+            'Collaboration',
+        ],
+        libraries: [],
+        hideDetail: true,
+    },
+];
+
+export const SoftSkills: Skill[] = [
+    {
+        id: 10,
+        name: 'English',
+        icon: null,
+        type: 'soft',
+        shortDescription: '(TOEIC 970, Good Conversational English)',
+        description:
+            'For over two years, I have been utilizing English as my primary working language. I am comfortable communicating in English, both in written and spoken form, and I have a good grasp of reading and understanding English documents.',
+        level: 'Not Rated',
+        experience: 0,
+        subSkills: [],
+        libraries: [],
+        certificates: [
+            {
+                name: 'TOEIC 970 (2022)',
+                url: 'assets/images/TOEIC-certificate.jpg',
+            },
+            {
+                name: 'English Communication for Work (2023)',
+                url: 'assets/images/art.jpg',
+            },
+        ],
+    },
+    {
+        id: 11,
+        name: 'Scrum / Kanban - Agile',
+        icon: null,
+        type: 'soft',
+        shortDescription: '(As a Member)',
+        description:
+            'I have been working in an Agile environment for over 1.5 years. I have a good understanding of the Agile process and have applied it in my work.',
+        level: 'Not Rated',
+        experience: 0,
+        subSkills: [],
+        libraries: [],
+        hideDetail: true,
+    },
+    {
+        id: 12,
+        name: 'Self Learning',
+        icon: null,
+        type: 'soft',
+        description:
+            'Self-learning is one of the most important skills that I have developed over the years. I am confident that I can learn any new technology or skill quickly.',
+        level: 'Not Rated',
+        experience: 0,
+        subSkills: [],
+        libraries: [],
+        hideDetail: true,
+    },
+    {
+        id: 13,
+        name: 'Problem Solving',
+        icon: null,
+        type: 'soft',
+        description:
+            'Problem-solving is one of the most important skills that I have developed over the years. I am confident that I can solve any problem that arises in my work.',
+        level: 'Not Rated',
+        experience: 0,
+        subSkills: [],
+        libraries: [],
+        hideDetail: true,
+    },
+];
+
+export const SkillTypes: SkillType[] = [
+    {
+        id: 'technical',
+        name: 'Technicals',
+        data: TechnicalSkills,
+    },
+    {
+        id: 'tool',
+        name: 'Tool & Technologies',
+        data: ToolSkills,
+    },
+    {
+        id: 'soft',
+        name: 'Additional Skills',
+        data: SoftSkills,
     },
 ];

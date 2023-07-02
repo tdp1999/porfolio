@@ -1,4 +1,8 @@
-import { ProjectSize, ProjectType } from '../types/software.type';
+import {
+    ProjectCategory,
+    ProjectSize,
+    ProjectType,
+} from '../types/software.type';
 import { Image } from './image.interface';
 
 export interface Information {
@@ -6,6 +10,12 @@ export interface Information {
     value: string;
     templateRef: 'email' | 'phone' | 'link' | 'text';
     metadata?: Record<string, string>;
+}
+
+export interface Link {
+    url: string;
+    title: string;
+    hide?: boolean;
 }
 
 export interface StatsInformation {
@@ -20,8 +30,17 @@ export interface Project {
     technologies: string[];
     startDate: Date;
     endDate: Date | null;
+    projectCategory: ProjectCategory;
     projectType: ProjectType;
     projectSize: ProjectSize;
+    mainFunctionality: string[];
+    clientDomain?: string;
+    clientLocation?: string;
+    tags?: string[];
+    thumbnail: Image;
+    images?: Image[] | null;
+    demoLink?: Link;
+    sourceCodeLink?: Link;
 }
 
 export interface Experience {

@@ -1,10 +1,10 @@
 <div
-    class="flex flex-col items-center justify-center h-full gap-8 md:gap-12 xl:gap-20 px-10 sm:px-12 md:px-20 py-8 md:py-12 xl:py-20 theme--bg-secondary theme--text"
+    class="flex flex-col items-center justify-center h-full gap-8 px-10 py-8 md:gap-12 xl:gap-20 sm:px-12 md:px-20 md:py-12 xl:py-20 theme--bg-secondary theme--text"
 >
     <h2 class="">{{ "skills" | transloco }}</h2>
 
     <div
-        class="grid items-center w-full h-full max-w-screen-lg grid-cols-1 md:grid-cols-12 auto-rows-auto md:grid-rows-1 gap-8 lg:gap-12"
+        class="grid items-center w-full h-full max-w-screen-lg grid-cols-1 gap-8 md:grid-cols-12 auto-rows-auto md:grid-rows-1 lg:gap-12"
     >
         <div
             class="col-auto md:col-span-3"
@@ -12,36 +12,45 @@
         >
             <!-- Vertial Navigation -->
             <div
-                class="grid grid-cols-6 sm:grid-cols-4 auto-rows-auto md:flex md:flex-col gap-2"
+                class="grid grid-cols-6 gap-2 sm:grid-cols-4 auto-rows-auto md:flex md:flex-col"
             >
-                <button
-                    *ngFor="let skill of skillTypes"
-                    class="tab-button col-start-2 col-end-6 sm:col-end-4 md:col-start-auto md:col-auto"
-                    [ngClass]="{ active: currentType === skill.id }"
-                    (click)="goTo(skill.id)"
-                >
-                    {{ skill.name | uppercase }}
-                </button>
+                <ng-container *ngIf="currentType$ | async as currentType">
+                    <button
+                        *ngFor="let skill of skillTypes"
+                        class="col-start-2 col-end-6 tab-button sm:col-end-4 md:col-start-auto md:col-auto"
+                        [ngClass]="{ active: currentType === skill.id }"
+                        (click)="goTo(skill.id)"
+                    >
+                        {{ skill.name | uppercase }}
+                    </button>
+                </ng-container>
             </div>
         </div>
 
-        <div class="col-auto md:col-span-9">
+        <div
+            class="relative col-auto md:col-span-9 min-h-[512px] flex items-center"
+        >
             <mat-accordion
                 displayMode="flat"
                 togglePosition="after"
                 class="exclude-animation"
+                *ngIf="skillData$ | async as currentSkill"
             >
                 <mat-expansion-panel
                     *ngFor="
-                        let skill of skills;
+                        let skill of currentSkill;
                         let first = first;
                         let last = last;
                         let index = index
                     "
                     class="theme--bg theme--text"
-                    [expanded]="!!first"
+                    [expanded]="!!first && !skill.hideDetail"
+                    [disabled]="skill.hideDetail"
                 >
-                    <mat-expansion-panel-header>
+                    <mat-expansion-panel-header
+                        [ngClass]="{ 'cursor-default': skill.hideDetail }"
+                        [style]="{ color: 'unset' }"
+                    >
                         <mat-panel-title
                             class="flex items-center gap-1 font-bold theme--text"
                         >
@@ -49,31 +58,49 @@
                             <fa-icon
                                 *ngIf="skill.experience > 2"
                                 [icon]="['far', 'circle-check']"
-                                [ngClass]="{ 'text-theme-primary': first }"
                                 matTooltip="More than 2 years of experiences"
                             ></fa-icon>
                         </mat-panel-title>
+
+                        <mat-panel-description
+                            *ngIf="skill.shortDescription"
+                            class="justify-end subtitle"
+                        >
+                            {{ skill.shortDescription }}
+                        </mat-panel-description>
                     </mat-expansion-panel-header>
 
-                    <div class="overflow-y-auto h-80">
-                        <p>
-                            {{ skill.description }} Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Corrupti iusto, natus
-                            a recusandae expedita, suscipit, quos eum rerum
-                            similique laboriosam distinctio corporis. Architecto
-                            dolores animi, ea optio culpa accusamus distinctio!
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Tempora ipsam nulla distinctio hic neque,
-                            tenetur reiciendis debitis veritatis nostrum ad
-                            omnis dolore doloremque porro dolor suscipit nemo
-                            dicta repellendus perspiciatis corrupti officia fuga
-                            molestias illo tempore mollitia. Iste, nesciunt
-                            assumenda!
+                    <div class="overflow-y-auto h-60">
+                        <p *ngIf="skill.experience">
+                            Year of Experiences: {{ skill.experience }}
                         </p>
 
-                        <div>Listing subskills here...</div>
+                        <p *ngIf="skill.description">
+                            {{ skill.description }}
+                        </p>
 
-                        <div>
+                        <div
+                            *ngIf="
+                                skill.subSkills && skill.subSkills.length > 0
+                            "
+                        >
+                            Listing subskills here...
+                        </div>
+
+                        <div
+                            *ngIf="
+                                skill.certificates &&
+                                skill.certificates.length > 0
+                            "
+                        >
+                            Listing certificates here...
+                        </div>
+
+                        <div
+                            *ngIf="
+                                skill.libraries && skill.libraries.length > 0
+                            "
+                        >
                             <span>Library used: </span>
                             <ng-container
                                 *ngFor="let library of skill.libraries"
@@ -85,8 +112,4 @@
             </mat-accordion>
         </div>
     </div>
-
-    <!-- <button class="primary-button" (click)="toggleNavPosition()">
-        Change Nav Position
-    </button> -->
 </div>

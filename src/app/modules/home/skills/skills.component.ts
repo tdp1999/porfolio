@@ -12,10 +12,11 @@ import {
     inject,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
 import { Experiences } from 'src/app/shared/data/experience.data';
-import { SkillTypes, Skills } from 'src/app/shared/data/skill.data';
+import { SkillTypes, TechnicalSkills } from 'src/app/shared/data/skill.data';
+import { Skill } from 'src/app/shared/interfaces/skill.interface';
 import { SkillType } from 'src/app/shared/types/skill.type';
 
 @Component({
@@ -25,10 +26,14 @@ import { SkillType } from 'src/app/shared/types/skill.type';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsComponent implements AfterViewInit, OnDestroy {
-    public skills = Skills;
-    public navPosition: 'right' | 'left' = 'right';
-    public currentType: SkillType = 'technical';
     public skillTypes = SkillTypes;
+    public navPosition: 'right' | 'left' = 'right';
+
+    private _currentType = new BehaviorSubject<SkillType>('technical');
+    public currentType$ = this._currentType.asObservable();
+
+    private _skillData = new BehaviorSubject<Skill[]>(this.skillTypes[0].data);
+    public skillData$ = this._skillData.asObservable();
 
     private _cdr = inject(ChangeDetectorRef);
     private _overlay = inject(Overlay);
@@ -67,6 +72,9 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
     }
 
     goTo(type: SkillType) {
-        this.currentType = type;
+        this._currentType.next(type);
+
+        const skill = this.skillTypes.find((item) => item.id === type);
+        this._skillData.next(skill?.data ?? []);
     }
 }
