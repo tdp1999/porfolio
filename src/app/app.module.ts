@@ -1,3 +1,4 @@
+import { MatDividerModule } from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
@@ -42,13 +43,19 @@ import { MATERIAL_CONFIGURATIONS } from './app.token';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { TranslocoRootModule } from './transloco-root.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { NavListModule } from './shared/components/nav-list/nav-list.module';
 
 const components = [
     NavbarModule,
     FooterModule,
     FontAwesomeModule,
     MatSidenavModule,
-    MatListModule,
+    MatDividerModule,
+    MatIconModule,
+    MatButtonModule,
+    NavListModule,
 ];
 
 @NgModule({

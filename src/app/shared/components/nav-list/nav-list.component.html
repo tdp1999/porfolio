@@ -1,0 +1,30 @@
+<mat-nav-list
+    class="!flex flex-col lg:flex-row items-start lg:items-center gap-5 !py-5 lg:!py-0"
+>
+    <ng-container *ngFor="let item of items">
+        <a
+            [routerLink]="[item.route]"
+            [relativeTo]="currentActivatedRoute"
+            routerLinkActive="link-active"
+            [routerLinkActiveOptions]="linkActiveOptions"
+            [fragment]="item.fragment"
+            class="relative flex items-center ml-5 leading-6 dark:text-theme-white-90 animation--border-b lg:leading-8"
+            [ngClass]="{ 'link-active': item.active }"
+            (click)="drawer?.toggle()"
+        >
+            {{ item.label }}
+        </a>
+
+        <ng-container *ngIf="isNotLg$ | async as isNotLg">
+            <mat-divider class="w-full"></mat-divider>
+        </ng-container>
+    </ng-container>
+
+    <a
+        [href]="cvUrl"
+        class="ml-5 lg:ml-0 primary-button"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Resume</a
+    >
+</mat-nav-list>

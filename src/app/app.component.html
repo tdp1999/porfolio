@@ -5,28 +5,15 @@
         class="w-80 exclude-animation"
         #drawer
     >
-        <mat-nav-list class="!flex flex-col items-start gap-5 !p-5">
-            <a
-                *ngFor="let item of items"
-                [routerLink]="[item.route]"
-                [relativeTo]="currentActivatedRoute"
-                routerLinkActive="link-active"
-                [routerLinkActiveOptions]="linkActiveOptions"
-                [fragment]="item.fragment"
-                class="relative flex items-center dark:text-theme-white-90 animation--border-b lg:leading-8"
-                [ngClass]="{ 'link-active': item.active }"
-            >
-                {{ item.label }}
-            </a>
+        <div class="flex justify-end my-5 mr-5">
+            <button (click)="drawer.toggle()" mat-icon-button>
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
 
-            <a
-                [href]="cvUrl"
-                class="primary-button"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Resume</a
-            >
-        </mat-nav-list>
+        <mat-divider class="w-full"></mat-divider>
+
+        <app-nav-list [drawer]="drawer"></app-nav-list>
     </mat-drawer>
 
     <mat-drawer-content id="content">
@@ -37,9 +24,3 @@
         <app-footer></app-footer>
     </mat-drawer-content>
 </mat-drawer-container>
-
-<!-- <app-navbar></app-navbar>
-
-<router-outlet></router-outlet>
-
-<app-footer></app-footer> -->

@@ -7,26 +7,7 @@
     </a>
 
     <div class="items-center hidden lg:flex gap-7">
-        <a
-            *ngFor="let item of items"
-            [routerLink]="[item.route]"
-            [relativeTo]="currentActivatedRoute"
-            routerLinkActive="link-active"
-            [routerLinkActiveOptions]="linkActiveOptions"
-            [fragment]="item.fragment"
-            class="relative flex items-center h-full leading-normal dark:text-theme-white-90 animation--border-b lg:leading-8"
-            [ngClass]="{ 'link-active': item.active }"
-        >
-            {{ item.label }}
-        </a>
-
-        <a
-            [href]="cvUrl"
-            class="primary-button"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Resume</a
-        >
+        <app-nav-list [navbar]="navbar"></app-nav-list>
 
         <div class="flex items-center justify-center w-6">
             <button
@@ -35,7 +16,7 @@
             >
                 <ng-container *ngIf="theme === 'light'; else dark">
                     <fa-icon
-                        [icon]="sunIcon"
+                        [icon]="['fas', 'sun']"
                         size="xl"
                         class="text-theme-primary"
                         [spin]="false"
@@ -44,7 +25,7 @@
 
                 <ng-template #dark>
                     <fa-icon
-                        [icon]="moonIcon"
+                        [icon]="['fas', 'moon']"
                         class="text-theme-white-90"
                         size="xl"
                         [spin]="false"
@@ -54,7 +35,7 @@
         </div>
     </div>
 
-    <button class="lg:hidden primary-button" (click)="toggleMenu()">
+    <button class="lg:hidden primary-button" (click)="menuService.toggleMenu()">
         <fa-icon
             [icon]="['fas', 'bars']"
             size="lg"
