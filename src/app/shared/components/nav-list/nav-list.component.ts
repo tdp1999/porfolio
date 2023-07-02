@@ -17,7 +17,7 @@ import {
     Router,
 } from '@angular/router';
 import { CVURL } from '../../constants/url.constant';
-import { TranslocoService } from '@ngneat/transloco';
+import { LangDefinition, TranslocoService } from '@ngneat/transloco';
 import {
     Subject,
     debounceTime,
@@ -32,13 +32,16 @@ import { ScrollService } from '../../services/scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MENU_DATA } from '../../data/menu.data';
+import { ThemeService } from '../../services/theme.service';
+
+const LANGUAGE_KEY = 'lang';
 
 @Component({
     selector: 'app-nav-list',
     templateUrl: './nav-list.component.html',
     styleUrls: ['./nav-list.component.scss'],
 })
-export class NavListComponent implements AfterViewInit, OnDestroy {
+export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() drawer?: MatDrawer;
     @Input() navbar?: ElementRef;
 
@@ -49,21 +52,48 @@ export class NavListComponent implements AfterViewInit, OnDestroy {
         fragment: 'exact',
     };
 
-    public cvUrl = CVURL.en;
-    public router = inject(Router);
-    public items: Menu[] = MENU_DATA;
-    public route = inject(ActivatedRoute);
-    public currentActivatedRoute = this.route;
-    public breakpointObserver = inject(BreakpointObserver);
-    public isNotLg$ = this.breakpointObserver
-        .observe('(max-width: 1023.98px)')
-        .pipe(map((state) => state.matches));
-
     private _document = inject(DOCUMENT);
     private _cdr = inject(ChangeDetectorRef);
     private _unsubscribeAll = new Subject<void>();
     private _scrollService = inject(ScrollService);
     private _translocoService = inject(TranslocoService);
+
+    public cvUrl = CVURL.en;
+    public router = inject(Router);
+    public items: Menu[] = MENU_DATA;
+    public languageMenuOpen: boolean = false;
+    public themeMenuOpen: boolean = false;
+    public route = inject(ActivatedRoute);
+    public currentActivatedRoute = this.route;
+    public themeService = inject(ThemeService);
+    public breakpointObserver = inject(BreakpointObserver);
+    public isNotLg$ = this.breakpointObserver
+        .observe('(max-width: 1023.98px)')
+        .pipe(map((state) => state.matches));
+
+    public currentLanguage?: LangDefinition;
+    public availableLanguage: LangDefinition[] =
+        this._translocoService.getAvailableLangs() as LangDefinition[];
+
+    public availableTheme = ['light', 'dark'];
+
+    ngOnInit(): void {
+        this.loadReferredLanguage();
+
+        this._translocoService.langChanges$
+            .pipe(
+                debounceTime(300),
+                distinctUntilChanged(),
+                takeUntil(this._unsubscribeAll)
+            )
+            .subscribe((lang) => {
+                this.currentLanguage = this.availableLanguage.find(
+                    (langDef) => langDef.id === lang
+                );
+
+                this._cdr.markForCheck();
+            });
+    }
 
     ngAfterViewInit(): void {
         this._translocoService.langChanges$
@@ -135,5 +165,25 @@ export class NavListComponent implements AfterViewInit, OnDestroy {
     ngOnDestroy(): void {
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
+    }
+
+    loadReferredLanguage(): void {
+        const lang = localStorage.getItem(LANGUAGE_KEY);
+        this._translocoService.setActiveLang(lang ?? 'en');
+    }
+
+    selectLanguage(lang: string): void {
+        this.drawer?.close();
+        if (lang === this.currentLanguage?.id) return;
+
+        this._translocoService.setActiveLang(lang);
+        localStorage.setItem(LANGUAGE_KEY, lang);
+    }
+
+    selectTheme(theme: string, currentTheme: string): void {
+        this.drawer?.close();
+
+        if (currentTheme === theme) return;
+        this.themeService.toggleTheme();
     }
 }

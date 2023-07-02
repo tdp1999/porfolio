@@ -5,15 +5,20 @@
         class="w-80 exclude-animation"
         #drawer
     >
-        <div class="flex justify-end my-5 mr-5">
-            <button (click)="drawer.toggle()" mat-icon-button>
-                <mat-icon>close</mat-icon>
-            </button>
+        <div class="flex flex-col h-full py-5">
+            <div class="flex justify-end mb-5 mr-5">
+                <button (click)="drawer.toggle()" mat-icon-button>
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+
+            <mat-divider class="w-full"></mat-divider>
+
+            <app-nav-list
+                class="flex flex-col h-full grow"
+                [drawer]="drawer"
+            ></app-nav-list>
         </div>
-
-        <mat-divider class="w-full"></mat-divider>
-
-        <app-nav-list [drawer]="drawer"></app-nav-list>
     </mat-drawer>
 
     <mat-drawer-content id="content">

@@ -6,6 +6,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const components = [
     RouterModule,
@@ -13,6 +15,8 @@ const components = [
     MatDividerModule,
     MatIconModule,
     MatButtonModule,
+    MatMenuModule,
+    FontAwesomeModule,
 ];
 
 @NgModule({
