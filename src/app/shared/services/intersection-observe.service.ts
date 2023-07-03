@@ -4,17 +4,21 @@ import {
     distinctUntilChanged,
     map,
     mergeMap,
+    of,
     shareReplay,
 } from 'rxjs';
-import { ElementRef, Injectable } from '@angular/core';
+import { ElementRef, Injectable, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
     providedIn: 'root',
 })
 export class IntersectionObserveService {
-    constructor() {}
+    private _platformId = inject(PLATFORM_ID);
 
     observe(element: ElementRef): Observable<boolean> {
+        if (!isPlatformBrowser(this._platformId)) return of(false);
+
         return new Observable(
             (observer: Subscriber<IntersectionObserverEntry[]>) => {
                 const intersectionObserver = new IntersectionObserver(

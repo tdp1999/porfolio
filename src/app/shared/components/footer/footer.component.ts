@@ -1,9 +1,11 @@
+import { isPlatformBrowser } from '@angular/common';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     OnDestroy,
     OnInit,
+    PLATFORM_ID,
     ViewChild,
     inject,
 } from '@angular/core';
@@ -31,6 +33,7 @@ const LANGUAGE_KEY = 'lang';
 export class FooterComponent implements OnInit, OnDestroy {
     currentYear = new Date().getFullYear();
 
+    private _platformId = inject(PLATFORM_ID);
     private _router = inject(Router);
     private _cdr = inject(ChangeDetectorRef);
     private _translocoService = inject(TranslocoService);
@@ -67,14 +70,17 @@ export class FooterComponent implements OnInit, OnDestroy {
     }
 
     loadReferredLanguage(): void {
-        const lang = localStorage.getItem(LANGUAGE_KEY);
+        if (!isPlatformBrowser(this._platformId)) return;
+        // const lang = localStorage.getItem(LANGUAGE_KEY);
+        const lang = 'en';
         this._translocoService.setActiveLang(lang ?? 'en');
     }
 
     selectLanguage(lang: string): void {
+        if (!isPlatformBrowser(this._platformId)) return;
         if (lang === this.currentLanguage?.id) return;
 
         this._translocoService.setActiveLang(lang);
-        localStorage.setItem(LANGUAGE_KEY, lang);
+        // localStorage.setItem(LANGUAGE_KEY, lang);
     }
 }
