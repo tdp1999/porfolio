@@ -6,6 +6,7 @@ import {
     Input,
     OnDestroy,
     OnInit,
+    PLATFORM_ID,
     inject,
 } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
@@ -29,10 +30,11 @@ import {
 } from 'rxjs';
 import { Language } from '../../types/language.type';
 import { ScrollService } from '../../services/scroll.service';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MENU_DATA } from '../../data/menu.data';
 import { ThemeService } from '../../services/theme.service';
+import { WindowRefService } from '../../services/window-ref.service';
 
 const LANGUAGE_KEY = 'lang';
 
@@ -54,6 +56,8 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private _document = inject(DOCUMENT);
     private _cdr = inject(ChangeDetectorRef);
+    private _platformId = inject(PLATFORM_ID);
+    // private _window = inject(WindowRefService);
     private _unsubscribeAll = new Subject<void>();
     private _scrollService = inject(ScrollService);
     private _translocoService = inject(TranslocoService);
@@ -128,25 +132,25 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
             });
 
         // Padding navbar animation on scroll
-        const scrollableElement =
-            this._document.querySelector('[id="content"]');
-        if (scrollableElement) {
-            this._scrollService
-                .observeElementScroll(scrollableElement)
-                .pipe(
-                    takeUntil(this._unsubscribeAll),
-                    debounceTime(150),
-                    tap(() => {
-                        if (!this.navbar || !this.navbar.nativeElement) return;
-                        this._scrollService.toggleScrolledClass(
-                            scrollableElement,
-                            window,
-                            this.navbar.nativeElement
-                        );
-                    })
-                )
-                .subscribe();
-        }
+        // const scrollableElement =
+        //     this._document.querySelector('[id="content"]');
+        // if (scrollableElement && isPlatformBrowser(this._platformId)) {
+        //     this._scrollService
+        //         .observeElementScroll(scrollableElement)
+        //         .pipe(
+        //             takeUntil(this._unsubscribeAll),
+        //             debounceTime(150),
+        //             tap(() => {
+        //                 if (!this.navbar || !this.navbar.nativeElement) return;
+        //                 this._scrollService.toggleScrolledClass(
+        //                     scrollableElement,
+        //                     this._window.nativeWindow,
+        //                     this.navbar.nativeElement
+        //                 );
+        //             })
+        //         )
+        //         .subscribe();
+        // }
 
         // Add active class while scrolling
         this._scrollService.activeSection$
@@ -168,16 +172,19 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     loadReferredLanguage(): void {
-        const lang = localStorage.getItem(LANGUAGE_KEY);
+        if (!isPlatformBrowser(this._platformId)) return;
+        // const lang = localStorage.getItem(LANGUAGE_KEY);
+        const lang = 'en'
         this._translocoService.setActiveLang(lang ?? 'en');
     }
 
     selectLanguage(lang: string): void {
         this.drawer?.close();
+        if (!isPlatformBrowser(this._platformId)) return;
         if (lang === this.currentLanguage?.id) return;
 
         this._translocoService.setActiveLang(lang);
-        localStorage.setItem(LANGUAGE_KEY, lang);
+        // localStorage.setItem(LANGUAGE_KEY, lang);
     }
 
     selectTheme(theme: string, currentTheme: string): void {

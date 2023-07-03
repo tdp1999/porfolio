@@ -62,7 +62,7 @@ const components = [
     declarations: [AppComponent],
     imports: [
         BrowserAnimationsModule,
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         AppRoutingModule,
         HttpClientModule,
         TranslocoRootModule,
