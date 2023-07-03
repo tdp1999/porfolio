@@ -1,5 +1,5 @@
 .primary-button {
-    @apply bg-theme-primary text-white py-2 px-4 rounded drop-shadow-sm hover:opacity-80 text-sm sm:text-base;
+    @apply bg-theme-primary py-2 px-4 rounded drop-shadow-sm hover:opacity-80 text-sm sm:text-base text-white #{!important};
 }
 
 .tab-button {
