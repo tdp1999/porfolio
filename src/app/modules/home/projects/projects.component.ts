@@ -14,6 +14,7 @@ export class ProjectsComponent implements OnInit {
 
     handleLinkClicked(item: any) {
         this._dialog.open(CarouselComponent, {
+            panelClass: 'default-dialog-class',
             data: {
                 test: 'hello world',
             },
