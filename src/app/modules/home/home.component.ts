@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -5,17 +6,14 @@ import {
     Component,
     ElementRef,
     OnDestroy,
-    OnInit,
     QueryList,
     Renderer2,
-    Type,
     ViewChild,
     ViewChildren,
     inject,
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
-import { AboutComponent } from './about/about.component';
 import {
     Subject,
     delay,
@@ -25,7 +23,9 @@ import {
     tap,
 } from 'rxjs';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
-import { DOCUMENT } from '@angular/common';
+import { AboutComponent } from './about/about.component';
+import { HomeSectionDirective } from './home-section.directive';
+import { IntersectionObserveService } from 'src/app/shared/services/intersection-observe.service';
 
 @Component({
     selector: 'app-home',
@@ -35,19 +35,20 @@ import { DOCUMENT } from '@angular/common';
 })
 export class HomeComponent implements OnDestroy, AfterViewInit {
     @ViewChild(AboutComponent, { static: true }) about!: AboutComponent;
+    @ViewChildren(HomeSectionDirective, { read: ElementRef })
+    sections!: QueryList<ElementRef>;
 
     private _route = inject(ActivatedRoute);
-    private _routeData = this._route.snapshot.data as {
-        lang: string;
-    };
-    private _document = inject(DOCUMENT);
-    private _renderer2 = inject(Renderer2);
-    private _cdr = inject(ChangeDetectorRef);
     private _unsubscribeAll = new Subject<void>();
     private _scrollService = inject(ScrollService);
-    private _translocoService = inject(TranslocoService);
+    private _intersectionService = inject(IntersectionObserveService);
 
     ngAfterViewInit(): void {
+        const sections = this.sections.toArray();
+        console.log('Section: ', sections);
+
+        // this._intersectionService.observe(sections).subscribe((entries) => {})
+
         // Scroll into section when fragment changes
         this._route.fragment
             .pipe(
