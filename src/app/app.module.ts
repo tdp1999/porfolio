@@ -39,7 +39,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MATERIAL_CONFIGURATIONS } from './app.token';
+import { DEFAULT_TOKENS, MATERIAL_CONFIGURATIONS } from './app.token';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { TranslocoRootModule } from './transloco-root.module';
@@ -68,7 +68,7 @@ const components = [
         TranslocoRootModule,
         ...components,
     ],
-    providers: [...MATERIAL_CONFIGURATIONS],
+    providers: [...MATERIAL_CONFIGURATIONS, ...DEFAULT_TOKENS],
     bootstrap: [AppComponent],
 })
 export class AppModule {

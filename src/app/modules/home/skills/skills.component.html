@@ -10,7 +10,6 @@
             class="col-auto md:col-span-3"
             [ngClass]="{ 'order-last': navPosition === 'right' }"
         >
-            <!-- Vertial Navigation -->
             <div
                 class="grid grid-cols-6 gap-2 sm:grid-cols-4 auto-rows-auto md:flex md:flex-col"
             >
@@ -33,7 +32,6 @@
             <mat-accordion
                 displayMode="flat"
                 togglePosition="after"
-                class="exclude-animation"
                 *ngIf="skillData$ | async as currentSkill"
             >
                 <mat-expansion-panel
@@ -93,7 +91,20 @@
                                 skill.certificates.length > 0
                             "
                         >
-                            Listing certificates here...
+                            <span>Certificates: </span>
+
+                            <div class="inline-flex items-center gap-2">
+                                <a
+                                    *ngFor="
+                                        let certificate of skill.certificates
+                                    "
+                                    class="link-primary"
+                                    [href]="certificate.url"
+                                    target="_blank"
+                                >
+                                    {{ certificate.name }}
+                                </a>
+                            </div>
                         </div>
 
                         <div

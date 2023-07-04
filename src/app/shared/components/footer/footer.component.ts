@@ -21,8 +21,8 @@ import {
     takeUntil,
     tap,
 } from 'rxjs';
-
-const LANGUAGE_KEY = 'lang';
+import { LS_LANGUAGE_KEY } from '../../tokens/local-storage.token';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
     selector: 'app-footer',
@@ -32,6 +32,9 @@ const LANGUAGE_KEY = 'lang';
 })
 export class FooterComponent implements OnInit, OnDestroy {
     currentYear = new Date().getFullYear();
+
+    private _languageKey = inject(LS_LANGUAGE_KEY);
+    private _localStorage = inject(LocalStorageService);
 
     private _platformId = inject(PLATFORM_ID);
     private _router = inject(Router);
@@ -70,17 +73,13 @@ export class FooterComponent implements OnInit, OnDestroy {
     }
 
     loadReferredLanguage(): void {
-        if (!isPlatformBrowser(this._platformId)) return;
-        const lang = localStorage.getItem(LANGUAGE_KEY);
-        // const lang = 'en';
-        this._translocoService.setActiveLang(lang ?? 'en');
+        const lang = this._localStorage.getItem(this._languageKey);
+        lang && this._translocoService.setActiveLang(lang);
     }
 
     selectLanguage(lang: string): void {
-        if (!isPlatformBrowser(this._platformId)) return;
         if (lang === this.currentLanguage?.id) return;
-
         this._translocoService.setActiveLang(lang);
-        localStorage.setItem(LANGUAGE_KEY, lang);
+        this._localStorage.setItem(this._languageKey, lang);
     }
 }

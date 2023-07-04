@@ -35,8 +35,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MENU_DATA } from '../../data/menu.data';
 import { ThemeService } from '../../services/theme.service';
 import { WindowRefService } from '../../services/window-ref.service';
-
-const LANGUAGE_KEY = 'lang';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { LS_LANGUAGE_KEY } from '../../tokens/local-storage.token';
 
 @Component({
     selector: 'app-nav-list',
@@ -54,6 +54,8 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
         fragment: 'exact',
     };
 
+    private _languageKey = inject(LS_LANGUAGE_KEY);
+    private _localStorage = inject(LocalStorageService);
     private _document = inject(DOCUMENT);
     private _cdr = inject(ChangeDetectorRef);
     private _platformId = inject(PLATFORM_ID);
@@ -172,19 +174,14 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     loadReferredLanguage(): void {
-        if (!isPlatformBrowser(this._platformId)) return;
-        const lang = localStorage.getItem(LANGUAGE_KEY);
-        // const lang = 'en';
-        this._translocoService.setActiveLang(lang ?? 'en');
+        const lang = this._localStorage.getItem(this._languageKey);
+        lang && this._translocoService.setActiveLang(lang);
     }
 
     selectLanguage(lang: string): void {
-        this.drawer?.close();
-        if (!isPlatformBrowser(this._platformId)) return;
         if (lang === this.currentLanguage?.id) return;
-
         this._translocoService.setActiveLang(lang);
-        localStorage.setItem(LANGUAGE_KEY, lang);
+        this._localStorage.setItem(this._languageKey, lang);
     }
 
     selectTheme(theme: string, currentTheme: string): void {
