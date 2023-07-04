@@ -8,7 +8,6 @@ import { CheckBrowser } from '../decorators/platform.decorator';
 export class LocalStorageService {
     private _platformId = inject(PLATFORM_ID);
 
-    // @CheckBrowser(this._platformId, null)
     getItem(key: string): any {
         if (!isPlatformBrowser(this._platformId)) return;
         const value = localStorage.getItem(key);
@@ -18,7 +17,6 @@ export class LocalStorageService {
     setItem(key: string, value: any): void {
         if (!value) return;
         if (!isPlatformBrowser(this._platformId)) return;
-        // localStorage.setItem(key, JSON.stringify(value));
         localStorage.setItem(key, value);
     }
 
