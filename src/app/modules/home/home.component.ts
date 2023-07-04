@@ -33,7 +33,7 @@ import { DOCUMENT } from '@angular/common';
     styleUrls: ['./home.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
+export class HomeComponent implements OnDestroy, AfterViewInit {
     @ViewChild(AboutComponent, { static: true }) about!: AboutComponent;
 
     private _route = inject(ActivatedRoute);
@@ -46,8 +46,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     private _unsubscribeAll = new Subject<void>();
     private _scrollService = inject(ScrollService);
     private _translocoService = inject(TranslocoService);
-
-    ngOnInit(): void {}
 
     ngAfterViewInit(): void {
         // Scroll into section when fragment changes

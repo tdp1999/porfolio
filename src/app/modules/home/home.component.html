@@ -13,7 +13,11 @@
 
     <!-- <div class="border"></div> -->
 
-    <app-about data-section id="about"></app-about>
+    <app-about
+        data-section
+        id="about"
+        (scrollTo)="scrollTo($event)"
+    ></app-about>
 
     <!-- <div class="border"></div> -->
 

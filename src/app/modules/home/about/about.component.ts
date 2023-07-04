@@ -2,14 +2,14 @@ import {
     ChangeDetectionStrategy,
     Component,
     ElementRef,
-    OnInit,
+    EventEmitter,
+    Output,
     inject,
 } from '@angular/core';
 import {
     Information,
     StatsInformation,
 } from 'src/app/shared/interfaces/general-entitly';
-import { IntersectionObserveService } from 'src/app/shared/services/intersection-observe.service';
 
 @Component({
     selector: 'app-about',
@@ -18,6 +18,8 @@ import { IntersectionObserveService } from 'src/app/shared/services/intersection
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {
+    @Output() scrollTo: EventEmitter<string> = new EventEmitter<string>();
+
     public elementRef = inject(ElementRef);
     personalInformation: Information[] = [
         {
@@ -35,17 +37,17 @@ export class AboutComponent {
             value: 'tdp99.business@gmail.com',
             templateRef: 'email',
         },
-        {
-            label: 'Phone',
-            value: '+84 783 995 295',
-            templateRef: 'phone',
-            metadata: {
-                value: '+84783995295',
-            },
-        },
+        // {
+        //     label: 'Phone',
+        //     value: '+84 783 995 295',
+        //     templateRef: 'phone',
+        //     metadata: {
+        //         value: '+84783995295',
+        //     },
+        // },
         {
             label: 'Locations',
-            value: 'Can Tho, HCM City, VN',
+            value: 'Can Tho, HCM City (VN)',
             templateRef: 'text',
         },
         {
@@ -55,7 +57,7 @@ export class AboutComponent {
         },
         {
             label: 'Education',
-            value: 'Bachelor of Computer Science, Can Tho University',
+            value: 'Bachelor of Engineer (Valedictorian) - Can Tho University',
             templateRef: 'text',
         },
     ];
@@ -70,6 +72,4 @@ export class AboutComponent {
             value: 5,
         },
     ];
-
-    private _intersectionService = inject(IntersectionObserveService);
 }
