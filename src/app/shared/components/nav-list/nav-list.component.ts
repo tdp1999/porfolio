@@ -136,7 +136,8 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
         // Padding navbar animation on scroll
         const scrollableElement =
             this._document.querySelector('[id="content"]');
-        if (scrollableElement && isPlatformBrowser(this._platformId)) {
+        const window = this._window.nativeWindow;
+        if (scrollableElement && window) {
             this._scrollService
                 .observeElementScroll(scrollableElement)
                 .pipe(
@@ -146,7 +147,7 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
                         if (!this.navbar || !this.navbar.nativeElement) return;
                         this._scrollService.toggleScrolledClass(
                             scrollableElement,
-                            this._window.nativeWindow,
+                            window,
                             this.navbar.nativeElement
                         );
                     })

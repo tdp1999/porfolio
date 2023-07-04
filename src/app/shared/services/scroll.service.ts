@@ -13,24 +13,10 @@ export class ScrollService {
     private _window = inject(WindowRefService);
     private _sectionChange = new BehaviorSubject<string | null>(null);
 
-    public windowScroll$ = iif(
-        () => isPlatformBrowser(this._platformId),
-        fromEvent(
-            this._document.body.firstElementChild ?? this._window.nativeWindow,
-            'scroll'
-        ).pipe(share()),
-        of(null)
-    );
-
-    public contentScroll$ = iif(
-        () => isPlatformBrowser(this._platformId),
-        fromEvent(
-            this._document.querySelector('mat-drawer-content') ??
-                this._window.nativeWindow,
-            'scroll'
-        ).pipe(share()),
-        of(null)
-    );
+    public contentScroll$ = fromEvent(
+        this._document.querySelector('mat-drawer-content') ?? [],
+        'scroll'
+    ).pipe(share());
 
     public activeSection$ = this._sectionChange.asObservable().pipe(share());
 
@@ -88,12 +74,13 @@ export class ScrollService {
 
     isElementInsideViewport(element: Element): boolean {
         const rect = element.getBoundingClientRect();
+        const window = this._window.nativeWindow;
+        if (!window) return false;
+
         const windowHeight =
-            this._window.nativeWindow.innerHeight ||
-            document.documentElement.clientHeight;
+            window.innerHeight || document.documentElement.clientHeight;
         const windowWidth =
-            this._window.nativeWindow.innerWidth ||
-            document.documentElement.clientWidth;
+            window.innerWidth || document.documentElement.clientWidth;
         const vertInView =
             rect.top <= windowHeight && rect.top + rect.height >= 0;
         const horInView =
@@ -102,8 +89,10 @@ export class ScrollService {
     }
 
     getVisibleHeight(element: Element): number {
+        const window = this._window.nativeWindow;
+        if (!window) return 0;
         const rect = element.getBoundingClientRect();
-        const windowHeight = this._window.nativeWindow.innerHeight;
+        const windowHeight = window.innerHeight;
         const visibleHeight =
             Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
         return Math.max(visibleHeight, 0);
