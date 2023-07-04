@@ -57,7 +57,7 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     private _document = inject(DOCUMENT);
     private _cdr = inject(ChangeDetectorRef);
     private _platformId = inject(PLATFORM_ID);
-    // private _window = inject(WindowRefService);
+    private _window = inject(WindowRefService);
     private _unsubscribeAll = new Subject<void>();
     private _scrollService = inject(ScrollService);
     private _translocoService = inject(TranslocoService);
@@ -132,25 +132,25 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
             });
 
         // Padding navbar animation on scroll
-        // const scrollableElement =
-        //     this._document.querySelector('[id="content"]');
-        // if (scrollableElement && isPlatformBrowser(this._platformId)) {
-        //     this._scrollService
-        //         .observeElementScroll(scrollableElement)
-        //         .pipe(
-        //             takeUntil(this._unsubscribeAll),
-        //             debounceTime(150),
-        //             tap(() => {
-        //                 if (!this.navbar || !this.navbar.nativeElement) return;
-        //                 this._scrollService.toggleScrolledClass(
-        //                     scrollableElement,
-        //                     this._window.nativeWindow,
-        //                     this.navbar.nativeElement
-        //                 );
-        //             })
-        //         )
-        //         .subscribe();
-        // }
+        const scrollableElement =
+            this._document.querySelector('[id="content"]');
+        if (scrollableElement && isPlatformBrowser(this._platformId)) {
+            this._scrollService
+                .observeElementScroll(scrollableElement)
+                .pipe(
+                    takeUntil(this._unsubscribeAll),
+                    debounceTime(150),
+                    tap(() => {
+                        if (!this.navbar || !this.navbar.nativeElement) return;
+                        this._scrollService.toggleScrolledClass(
+                            scrollableElement,
+                            this._window.nativeWindow,
+                            this.navbar.nativeElement
+                        );
+                    })
+                )
+                .subscribe();
+        }
 
         // Add active class while scrolling
         this._scrollService.activeSection$
@@ -173,8 +173,8 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
 
     loadReferredLanguage(): void {
         if (!isPlatformBrowser(this._platformId)) return;
-        // const lang = localStorage.getItem(LANGUAGE_KEY);
-        const lang = 'en'
+        const lang = localStorage.getItem(LANGUAGE_KEY);
+        // const lang = 'en';
         this._translocoService.setActiveLang(lang ?? 'en');
     }
 
@@ -184,7 +184,7 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
         if (lang === this.currentLanguage?.id) return;
 
         this._translocoService.setActiveLang(lang);
-        // localStorage.setItem(LANGUAGE_KEY, lang);
+        localStorage.setItem(LANGUAGE_KEY, lang);
     }
 
     selectTheme(theme: string, currentTheme: string): void {

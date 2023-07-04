@@ -8,7 +8,7 @@ import {
 import {
     Information,
     StatsInformation,
-} from 'src/app/shared/interfaces/information.interface';
+} from 'src/app/shared/interfaces/general-entitly';
 import { IntersectionObserveService } from 'src/app/shared/services/intersection-observe.service';
 
 @Component({
@@ -17,7 +17,7 @@ import { IntersectionObserveService } from 'src/app/shared/services/intersection
     styleUrls: ['./about.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
     public elementRef = inject(ElementRef);
     personalInformation: Information[] = [
         {
@@ -72,6 +72,4 @@ export class AboutComponent implements OnInit {
     ];
 
     private _intersectionService = inject(IntersectionObserveService);
-
-    ngOnInit(): void {}
 }

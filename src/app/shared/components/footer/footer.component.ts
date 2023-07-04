@@ -71,8 +71,8 @@ export class FooterComponent implements OnInit, OnDestroy {
 
     loadReferredLanguage(): void {
         if (!isPlatformBrowser(this._platformId)) return;
-        // const lang = localStorage.getItem(LANGUAGE_KEY);
-        const lang = 'en';
+        const lang = localStorage.getItem(LANGUAGE_KEY);
+        // const lang = 'en';
         this._translocoService.setActiveLang(lang ?? 'en');
     }
 
@@ -81,6 +81,6 @@ export class FooterComponent implements OnInit, OnDestroy {
         if (lang === this.currentLanguage?.id) return;
 
         this._translocoService.setActiveLang(lang);
-        // localStorage.setItem(LANGUAGE_KEY, lang);
+        localStorage.setItem(LANGUAGE_KEY, lang);
     }
 }

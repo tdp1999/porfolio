@@ -14,7 +14,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { ContactFormComponent } from 'src/app/shared/components/contact-form/contact-form.component';
 import { SocialLinkData } from 'src/app/shared/data/social-link.data';
-import { SocialLink } from 'src/app/shared/interfaces/social-link.interface';
+import { Link } from 'src/app/shared/interfaces/general-entitly';
 
 @Component({
     selector: 'app-contact',
@@ -23,7 +23,7 @@ import { SocialLink } from 'src/app/shared/interfaces/social-link.interface';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
-    socialLink: SocialLink[] = SocialLinkData;
+    socialLink: Link[] = SocialLinkData;
 
     private _dialog = inject(MatDialog);
 

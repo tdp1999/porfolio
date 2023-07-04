@@ -1,16 +1,11 @@
 import { SkillType as TSkillType } from './../types/skill.type';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { Certificate, Link } from './general-entitly';
 
 export interface SkillType {
     id: TSkillType;
     name: string;
     data: Skill[];
-}
-
-export interface Certificate {
-    name: string;
-    description?: string;
-    url: string;
 }
 
 export interface Skill {
@@ -22,7 +17,7 @@ export interface Skill {
     level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Not Rated';
     experience: number;
     subSkills: string[];
-    libraries: string[];
+    libraries: Link[];
     // yoe: number;
     tags?: string[];
     type: TSkillType;

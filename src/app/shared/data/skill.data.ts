@@ -28,7 +28,20 @@ export const TechnicalSkills: Skill[] = [
             'Handle HTTP Request (RESTful API) with HttpClient',
             'Understanding Data Sharing Between Components Using Binding, Service, DI and Store (NgRx)',
         ],
-        libraries: ['RxJS', 'NgRx', 'Angular Material'],
+        libraries: [
+            {
+                url: 'https://rxjs.dev/',
+                label: 'RxJS',
+            },
+            {
+                url: 'https://ngrx.io/',
+                label: 'NgRx',
+            },
+            {
+                url: 'https://material.angular.io/',
+                label: 'Angular Material',
+            },
+        ],
     },
     {
         id: 2,
@@ -44,7 +57,16 @@ export const TechnicalSkills: Skill[] = [
             'Using Generics',
             'Creating and Using Custom Decorators',
         ],
-        libraries: ['Lodash', 'class-transformer'],
+        libraries: [
+            {
+                url: 'https://lodash.com/',
+                label: 'Lodash',
+            },
+            {
+                url: 'https://github.com/typestack/class-transformer',
+                label: 'class-transformer',
+            },
+        ],
     },
     {
         id: 3,
@@ -68,7 +90,20 @@ export const TechnicalSkills: Skill[] = [
         level: 'Advanced',
         experience: 0,
         subSkills: ['SCSS', 'CSS Methodologies: BEM', 'Responsive'],
-        libraries: ['Tailwind', 'Bootstrap', 'Angular Material'],
+        libraries: [
+            {
+                url: 'https://tailwindcss.com/',
+                label: 'Tailwind',
+            },
+            {
+                url: 'https://getbootstrap.com/',
+                label: 'Bootstrap',
+            },
+            {
+                url: 'https://material.angular.io/',
+                label: 'Angular Material',
+            },
+        ],
     },
     {
         id: 11,
@@ -100,7 +135,20 @@ export const ToolSkills: Skill[] = [
             'Git Hooks',
             'Deployment',
         ],
-        libraries: ['Github', 'Gitlab', 'Bitbucket'],
+        libraries: [
+            {
+                url: 'https://github.com/',
+                label: 'Github',
+            },
+            {
+                url: 'https://about.gitlab.com/',
+                label: 'Gitlab',
+            },
+            {
+                url: 'https://bitbucket.org/',
+                label: 'Bitbucket',
+            },
+        ],
         hideDetail: true,
     },
     {

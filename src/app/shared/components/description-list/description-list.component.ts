@@ -9,4 +9,8 @@ import { DescriptionListData } from './description-list.type';
 })
 export class DescriptionListComponent {
     public data: DescriptionListData = inject(MAT_DIALOG_DATA);
+
+    keepOrder = (a: any, b: any) => {
+        return a.key;
+    };
 }

@@ -70,8 +70,8 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
 
-                    <div class="overflow-y-auto h-60">
-                        <p *ngIf="skill.experience">
+                    <div class="flex flex-col gap-2 overflow-y-auto h-60">
+                        <p *ngIf="skill.experience" class="subtitle">
                             Year of Experiences: {{ skill.experience }}
                         </p>
 
@@ -102,10 +102,23 @@
                             "
                         >
                             <span>Library used: </span>
-                            <ng-container
-                                *ngFor="let library of skill.libraries"
-                                >{{ library }}</ng-container
-                            >
+
+                            <div class="inline-flex items-center gap-2">
+                                <a
+                                    *ngFor="let library of skill.libraries"
+                                    [href]="library.url"
+                                    class="link-primary"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <fa-icon
+                                        *ngIf="library.icon"
+                                        [icon]="library.icon"
+                                        size="sm"
+                                    ></fa-icon>
+                                    {{ library.label }}
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </mat-expansion-panel>

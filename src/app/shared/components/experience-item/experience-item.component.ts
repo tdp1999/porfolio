@@ -6,9 +6,8 @@ import {
     OnInit,
     Output,
 } from '@angular/core';
-import { Experience } from '../../interfaces/information.interface';
-import { Experiences } from '../../data/experience.data';
 import { DatetimeFormat } from '../../constants/datetime.constant';
+import { Experience } from '../../interfaces/experience.interface';
 
 @Component({
     selector: 'app-experience-item',

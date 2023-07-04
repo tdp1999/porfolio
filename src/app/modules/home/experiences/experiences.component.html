@@ -1,5 +1,5 @@
 <div
-    class="flex flex-col items-center justify-center h-full gap-8 md:gap-12 xl:gap-20 px-10 sm:px-12 md:px-20 py-8 md:py-12 xl:py-20 theme--bg-secondary"
+    class="flex flex-col items-center justify-center h-full gap-8 px-10 py-8 md:gap-12 xl:gap-20 sm:px-12 md:px-20 md:py-12 xl:py-20 theme--bg-secondary"
 >
     <h2 class="">Experiences</h2>
 
@@ -42,16 +42,16 @@
         {{ d.description }}
     </p>
 
-    <p class="mt-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, placeat
-        beatae. Perferendis, ipsum! Molestias pariatur odit excepturi vero
-        aliquam enim quod accusantium ut facilis qui, alias quia dignissimos
-        quibusdam necessitatibus magnam. Sint beatae a quaerat deserunt, nihil
-        unde illum iste. Quod doloribus illum totam numquam, repudiandae a rem
-        maxime. Animi.
-    </p>
-
-    <!-- <mat-divider class="my-3"></mat-divider> -->
+    <div class="mt-3">
+        <p class="list-title">Responsibilities:</p>
+        <ul class="mt-2">
+            <li
+                *ngFor="let responsibility of d.responsibilities.slice(0, 4)"
+                [innerHTML]="responsibility"
+            ></li>
+            <li *ngIf="d.responsibilities.length > 4">...</li>
+        </ul>
+    </div>
 
     <div class="mt-3">
         <p class="list-title">Achievements:</p>
@@ -63,16 +63,7 @@
         </ul>
     </div>
 
-    <p class="mt-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, placeat
-        beatae. Perferendis, ipsum! Molestias pariatur odit excepturi vero
-        aliquam enim quod accusantium ut facilis qui, alias quia dignissimos
-        quibusdam necessitatibus magnam. Sint beatae a quaerat deserunt, nihil
-        unde illum iste. Quod doloribus illum totam numquam, repudiandae a rem
-        maxime. Animi.
-    </p>
-
-    <button class="link-primary" (click)="openMetadataDialog(d)">
+    <button class="mt-3 link-primary" (click)="openMetadataDialog(d)">
         See more
     </button>
 </ng-template>

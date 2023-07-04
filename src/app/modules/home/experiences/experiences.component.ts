@@ -13,7 +13,7 @@ import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.c
 import { Milestone } from 'src/app/shared/components/timeline/timeline.interface';
 import { DatetimeFormat } from 'src/app/shared/constants/datetime.constant';
 import { Experiences } from 'src/app/shared/data/experience.data';
-import { Experience } from 'src/app/shared/interfaces/information.interface';
+import { Experience } from 'src/app/shared/interfaces/experience.interface';
 
 @Component({
     selector: 'app-experiences',
@@ -59,8 +59,25 @@ export class ExperiencesComponent implements OnInit {
     }
 
     openMetadataDialog(item: Experience) {
+        const data = {
+            Description: item.description,
+            Technologies: item.technologies.join(', '),
+            'Client Location': item.clientLocation,
+            'Client Domain': item.clientDomain,
+            Responsibilities: item.responsibilities.join('<br><br>'),
+            'Team Size':
+                typeof item.teamSize === 'number'
+                    ? item.teamSize
+                    : `${item.teamSize[0]} - ${item.teamSize[1]}`,
+            Achievements: item.achievements.join('<br><br>'),
+        };
+
         this._dialog.open(DescriptionListComponent, {
-            data: item,
+            data: {
+                title: item.company,
+                subtitle: item.position,
+                data,
+            },
             panelClass: 'description-list-dialog',
         });
     }

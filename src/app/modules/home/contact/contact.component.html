@@ -1,16 +1,16 @@
 <div
-    class="relative flex flex-col items-center justify-center h-full gap-8 md:gap-12 xl:gap-20 px-10 sm:px-12 md:px-20 py-8 md:py-12 xl:py-20 theme--bg-secondary theme--text"
+    class="relative flex flex-col items-center justify-center h-full gap-8 px-10 py-8 md:gap-12 xl:gap-20 sm:px-12 md:px-20 md:py-12 xl:py-20 theme--bg-secondary theme--text"
 >
     <div
-        class="grid lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 auto-rows-auto w-full max-w-screen-lg gap-8 md:gap-12 lg:gap-16"
+        class="grid w-full max-w-screen-lg grid-cols-1 gap-8 lg:grid-cols-2 lg:grid-rows-1 auto-rows-auto md:gap-12 lg:gap-16"
     >
-        <div class="flex flex-col items-start gap-5 lg:gap-10 flex-grow">
+        <div class="flex flex-col items-start flex-grow gap-5 lg:gap-10">
             <h2 class="h2--start">{{ "contact.title" | transloco }}</h2>
 
             <p innerHTML="{{ 'contact.description' | transloco }}" class=""></p>
 
-            <div class="flex flex-col gap-2 md:gap-4 items-start">
-                <div class="flex gap-3 justify-center">
+            <div class="flex flex-col items-start gap-2 md:gap-4">
+                <div class="flex justify-center gap-3">
                     <fa-icon [icon]="['fas', 'location-dot']"></fa-icon>
                     <span>
                         <p>{{ "contact.address-1" | transloco }}</p>
@@ -18,12 +18,12 @@
                     </span>
                 </div>
 
-                <p class="flex gap-3 items-center justify-center">
+                <p class="flex items-center justify-center gap-3">
                     <fa-icon [icon]="['fas', 'phone']"></fa-icon>
                     <a href="tel:+84783995295">+84 783995295</a>
                 </p>
 
-                <p class="flex gap-3 items-center justify-center">
+                <p class="flex items-center justify-center gap-3">
                     <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
                     <a href="mailto:tdp99.business@gmail.com"
                         >tdp99.business@gmail.com</a
@@ -39,6 +39,7 @@
                     class="animation--scale"
                 >
                     <fa-icon
+                        *ngIf="link.icon"
                         [icon]="link.icon"
                         class="theme--text"
                         size="xl"
