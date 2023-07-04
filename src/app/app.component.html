@@ -1,4 +1,4 @@
-<mat-drawer-container>
+<mat-drawer-container class="h-full">
     <mat-drawer
         mode="over"
         position="end"
@@ -21,7 +21,7 @@
         </div>
     </mat-drawer>
 
-    <mat-drawer-content id="content">
+    <mat-drawer-content id="content" class="!flex flex-col h-full">
         <app-navbar></app-navbar>
 
         <router-outlet></router-outlet>
