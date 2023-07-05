@@ -28,15 +28,15 @@ export const Projects: Project[] = [
             label: 'thunderphong.com',
         },
         sourceCodeLink: {
-            url: 'https://google.com',
-            label: 'Google',
+            url: 'https://github.com/tdp1999/porfolio',
+            label: 'Github',
             hide: true,
         },
         // tags: ['Angular', 'Bootstrap 4', 'TypeScript'],
     },
     {
         id: 2,
-        name: 'Real Estate Agency Website',
+        name: 'Real Estate Agency ERP System',
         description:
             'Full scale ERP System for a large real estate agency in Singapore.',
         technologies: ['Angular', 'TailwindCSS', 'NestJS'],
@@ -62,7 +62,7 @@ export const Projects: Project[] = [
     },
     {
         id: 3,
-        name: 'Car Workshop Listing Website',
+        name: 'Car Workshop Listing Websites',
         description:
             'An automobile marketplace website for connecting car owners with workshops for car servicing and repairs in Australia.',
         technologies: ['Angular', 'Bootstrap 5'],
@@ -121,6 +121,14 @@ export const Projects: Project[] = [
         thumbnail: {
             url: 'assets/images/art.png',
             description: 'Portfolio',
+        },
+        demoLink: {
+            url: 'https://pp-food.netlify.app/',
+            label: 'Demo',
+        },
+        sourceCodeLink: {
+            url: 'https://github.com/tdp1999/PP-Food',
+            label: 'Github',
         },
     },
 ];

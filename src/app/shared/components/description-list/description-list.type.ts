@@ -1,3 +1,5 @@
+import { Link } from '../../interfaces/general-entitly';
+
 export interface DescriptionListData {
     title: string;
     subtitle: string;
@@ -6,4 +8,5 @@ export interface DescriptionListData {
         label: string;
         url: string;
     };
+    links?: Record<string, Link>;
 }

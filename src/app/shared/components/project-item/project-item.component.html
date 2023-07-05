@@ -1,25 +1,31 @@
 <div
-    class="flex flex-col sm:flex-row lg:flex-col h-full gap-4 md:gap-8 lg:gap-4 p-6 rounded-lg theme--bg theme--text"
+    class="flex flex-col h-full gap-4 p-6 rounded-lg sm:flex-row lg:flex-col md:gap-8 lg:gap-4 theme--bg theme--text"
 >
     <div
         class="w-full h-40 sm:h-full lg:h-52 sm:basis-2/5 lg:basis-auto bg-theme-white-80 rounded-xl"
     ></div>
 
-    <div class="flex flex-col gap-2 md:gap-4 basis-3/5 lg:basis-auto">
+    <div class="flex flex-col flex-grow gap-2 md:gap-4 basis-3/5 lg:basis-auto">
         <button class="flex" (click)="linkClicked.emit()">
-            <h4 class="text-theme-primary">Project Name</h4>
+            <h4 class="text-theme-primary text-start">{{ item?.name }}</h4>
         </button>
+
         <p class="flex-grow">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque sed
-            quam laborum, quis eos, quidem incidunt voluptas dolorem unde nam
-            consequuntur, minima commodi alias. Doloremque maiores facere
-            officia ab qui.
+            {{ item?.description }}
         </p>
 
         <div class="flex gap-2">
-            <span class="chip"> HTML </span>
-            <span class="chip"> CSS </span>
-            <span class="chip"> JS </span>
+            <span
+                class="p-1 text-xs font-normal align-middle border rounded-md drop-shadow-sm"
+                [ngClass]="{
+                    'text-theme-primary border-theme-primary':
+                        item?.projectType === 'Professional',
+                    'text-theme-accent border-theme-accent':
+                        item?.projectType === 'Personal'
+                }"
+            >
+                {{ item?.projectType }}
+            </span>
         </div>
     </div>
 </div>
