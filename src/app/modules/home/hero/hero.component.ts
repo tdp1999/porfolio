@@ -2,11 +2,8 @@ import {
     ChangeDetectionStrategy,
     Component,
     EventEmitter,
-    OnInit,
     Output,
-    inject,
 } from '@angular/core';
-import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
     selector: 'app-hero',

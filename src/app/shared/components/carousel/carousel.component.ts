@@ -35,7 +35,7 @@ export class CarouselComponent implements OnInit {
         },
     ];
 
-    currentIndex = 0;
+    public currentIndex = 0;
 
     ngOnInit(): void {}
 

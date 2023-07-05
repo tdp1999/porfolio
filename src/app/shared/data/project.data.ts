@@ -1,4 +1,4 @@
-import { Project } from '../interfaces/information.interface';
+import { Project } from '../interfaces/project.interface';
 
 export const Projects: Project[] = [
     {
@@ -25,11 +25,11 @@ export const Projects: Project[] = [
         },
         demoLink: {
             url: 'https://thunderphong.com',
-            title: 'thunderphong.com',
+            label: 'thunderphong.com',
         },
         sourceCodeLink: {
             url: 'https://google.com',
-            title: 'Google',
+            label: 'Google',
             hide: true,
         },
         // tags: ['Angular', 'Bootstrap 4', 'TypeScript'],

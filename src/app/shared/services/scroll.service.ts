@@ -7,10 +7,10 @@ import { WindowRefService } from './window-ref.service';
     providedIn: 'root',
 })
 export class ScrollService {
-    private _document = inject(DOCUMENT);
-    private _platformId = inject(PLATFORM_ID);
-    private _renderer2 = inject(Renderer2);
     private _window = inject(WindowRefService);
+    private _document = inject(DOCUMENT);
+    private _renderer2 = inject(Renderer2);
+    private _platformId = inject(PLATFORM_ID);
     private _sectionChange = new BehaviorSubject<string | null>(null);
 
     public contentScroll$ = fromEvent(

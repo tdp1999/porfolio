@@ -48,15 +48,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
     public cvUrl = CVURL.en;
     public items = MENU_DATA;
+
     public route = inject(ActivatedRoute);
     public currentActivatedRoute = this.route;
 
     private _cdr = inject(ChangeDetectorRef);
-    private _renderer2 = inject(Renderer2);
-    private _elementRef = inject(ElementRef);
-    private _themeService = inject(ThemeService);
     private _document = inject(DOCUMENT);
+    private _renderer2 = inject(Renderer2);
     private _menuService = inject(MenuService);
+    private _themeService = inject(ThemeService);
     private _titleService = inject(Title);
     private _translocoService = inject(TranslocoService);
 

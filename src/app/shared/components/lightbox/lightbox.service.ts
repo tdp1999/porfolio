@@ -20,6 +20,15 @@ export class LightboxService implements OnDestroy {
     private _overlayRef: OverlayRef | null = null;
     private _unsubscribeAll = new Subject<void>();
 
+    ngOnDestroy(): void {
+        this._unsubscribeAll.next();
+        this._unsubscribeAll.complete();
+    }
+
+    get overlayRef(): OverlayRef | null {
+        return this._overlayRef;
+    }
+
     open(templateRef: TemplateRef<any>) {
         const overlayConfig: OverlayConfig = {
             hasBackdrop: true,
@@ -53,14 +62,5 @@ export class LightboxService implements OnDestroy {
 
     close() {
         this._overlayRef?.dispose();
-    }
-
-    get overlayRef(): OverlayRef | null {
-        return this._overlayRef;
-    }
-
-    ngOnDestroy(): void {
-        this._unsubscribeAll.next();
-        this._unsubscribeAll.complete();
     }
 }

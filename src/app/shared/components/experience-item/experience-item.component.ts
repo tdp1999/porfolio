@@ -15,14 +15,9 @@ import { Experience } from '../../interfaces/experience.interface';
     styleUrls: ['./experience-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExperienceItemComponent implements OnInit {
+export class ExperienceItemComponent {
     @Input() data?: Experience;
-
     @Output() actionClick = new EventEmitter();
 
-    monthYearFormat = DatetimeFormat.monthYear;
-
-    constructor() {}
-
-    ngOnInit(): void {}
+    public monthYearFormat = DatetimeFormat.monthYear;
 }

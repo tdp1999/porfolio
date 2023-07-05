@@ -1,19 +1,15 @@
-import { DOCUMENT } from '@angular/common';
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
-    ChangeDetectorRef,
     Component,
     ElementRef,
     OnDestroy,
     QueryList,
-    Renderer2,
     ViewChild,
     ViewChildren,
     inject,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TranslocoService } from '@ngneat/transloco';
 import {
     Subject,
     delay,
@@ -22,10 +18,10 @@ import {
     takeUntil,
     tap,
 } from 'rxjs';
+import { IntersectionObserveService } from 'src/app/shared/services/intersection-observe.service';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
 import { AboutComponent } from './about/about.component';
 import { HomeSectionDirective } from './home-section.directive';
-import { IntersectionObserveService } from 'src/app/shared/services/intersection-observe.service';
 
 @Component({
     selector: 'app-home',
@@ -63,12 +59,12 @@ export class HomeComponent implements OnDestroy, AfterViewInit {
             .subscribe();
     }
 
-    scrollTo(fragment: string) {
-        this._scrollService.scrollToFragment(fragment);
-    }
-
     ngOnDestroy(): void {
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
+    }
+
+    scrollTo(fragment: string) {
+        this._scrollService.scrollToFragment(fragment);
     }
 }

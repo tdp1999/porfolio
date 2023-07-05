@@ -25,8 +25,7 @@ import { ThemeService } from '../../services/theme.service';
 export class NavbarComponent {
     @ViewChild('nav', { static: true }) navbar!: ElementRef;
 
+    public items = MENU_DATA;
     public menuService = inject(MenuService);
     public themeService = inject(ThemeService);
-
-    items = MENU_DATA;
 }

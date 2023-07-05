@@ -18,9 +18,7 @@ export class TimelineComponent implements OnInit {
     @Input() contentTemplate: TemplateRef<any> | undefined;
     @Input() defaultPoint: number = 0;
 
-    currentMilestone = 0;
-
-    constructor() {}
+    public currentMilestone = 0;
 
     ngOnInit(): void {
         this.currentMilestone = this.defaultPoint;

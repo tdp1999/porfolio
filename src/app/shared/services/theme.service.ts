@@ -1,9 +1,8 @@
-import { Injectable, PLATFORM_ID, Renderer2, inject } from '@angular/core';
-import { Theme } from '../types/theme.type';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { isPlatformBrowser } from '@angular/common';
-import { LocalStorageService } from './local-storage.service';
 import { LS_THEME_KEY } from '../tokens/local-storage.token';
+import { Theme } from '../types/theme.type';
+import { LocalStorageService } from './local-storage.service';
 @Injectable({
     providedIn: 'root',
 })
@@ -11,6 +10,7 @@ export class ThemeService {
     private _themeKey = inject(LS_THEME_KEY);
     private _platformId = inject(PLATFORM_ID);
     private _localStorage = inject(LocalStorageService);
+
     private currentTheme = new BehaviorSubject<Theme>('light');
     public currentTheme$ = this.currentTheme.asObservable();
 

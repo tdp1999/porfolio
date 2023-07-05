@@ -6,12 +6,11 @@ import {
     ElementRef,
     Input,
     OnDestroy,
-    OnInit,
     ViewChild,
     inject,
 } from '@angular/core';
-import { IntersectionObserveService } from '../../services/intersection-observe.service';
 import { Subject, delay, takeUntil } from 'rxjs';
+import { IntersectionObserveService } from '../../services/intersection-observe.service';
 
 @Component({
     selector: 'app-stats-item',
@@ -29,13 +28,14 @@ export class StatsItemComponent implements AfterViewInit, OnDestroy {
 
     @ViewChild('el') el!: ElementRef;
 
+    public currentValue = 0;
+    public showPlusSign = false;
+
     private _cdr = inject(ChangeDetectorRef);
-    private _unsubscribeAll = new Subject<void>();
     private _intersectionService = inject(IntersectionObserveService);
 
-    showPlusSign = false;
-    currentValue = 0;
-    intervalId!: any;
+    private _intervalId!: any;
+    private _unsubscribeAll = new Subject<void>();
 
     ngAfterViewInit(): void {
         this._intersectionService
@@ -49,7 +49,7 @@ export class StatsItemComponent implements AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        clearInterval(this.intervalId);
+        clearInterval(this._intervalId);
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
@@ -57,7 +57,7 @@ export class StatsItemComponent implements AfterViewInit, OnDestroy {
     startCounting() {
         const increment = Math.ceil((this.value - this.startFrom) / this.steps);
 
-        this.intervalId = setInterval(() => {
+        this._intervalId = setInterval(() => {
             this.currentValue += increment;
             this.showPlusSign = this.currentValue >= this.value;
             this._cdr.markForCheck();
@@ -65,7 +65,7 @@ export class StatsItemComponent implements AfterViewInit, OnDestroy {
             if (this.currentValue >= this.value) {
                 this.currentValue = this.value;
                 this._cdr.markForCheck();
-                clearInterval(this.intervalId);
+                clearInterval(this._intervalId);
             }
         }, this.duration / this.steps);
     }

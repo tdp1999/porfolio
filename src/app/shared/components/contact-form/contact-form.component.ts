@@ -1,14 +1,8 @@
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
-import {
-    FormBuilder,
-    FormGroup,
-    FormGroupDirective,
-    NgForm,
-    Validators,
-} from '@angular/forms';
-import { NetlifyService } from '../../services/netlify.service';
-import { ContactFormData } from '../../interfaces/contact-form.interface';
+import { Component, ViewChild, inject } from '@angular/core';
+import { FormBuilder, FormGroupDirective, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ContactFormData } from '../../interfaces/contact-form.interface';
+import { NetlifyService } from '../../services/netlify.service';
 
 @Component({
     selector: 'app-contact-form',

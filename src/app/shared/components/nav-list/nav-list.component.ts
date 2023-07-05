@@ -1,3 +1,5 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { DOCUMENT } from '@angular/common';
 import {
     AfterViewInit,
     ChangeDetectorRef,
@@ -6,18 +8,15 @@ import {
     Input,
     OnDestroy,
     OnInit,
-    PLATFORM_ID,
     inject,
 } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { Menu } from '../../interfaces/menu.interface';
 import {
     ActivatedRoute,
     IsActiveMatchOptions,
     NavigationEnd,
     Router,
 } from '@angular/router';
-import { CVURL } from '../../constants/url.constant';
 import { LangDefinition, TranslocoService } from '@ngneat/transloco';
 import {
     Subject,
@@ -28,15 +27,15 @@ import {
     takeUntil,
     tap,
 } from 'rxjs';
-import { Language } from '../../types/language.type';
-import { ScrollService } from '../../services/scroll.service';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { BreakpointObserver } from '@angular/cdk/layout';
+import { CVURL } from '../../constants/url.constant';
 import { MENU_DATA } from '../../data/menu.data';
+import { Menu } from '../../interfaces/menu.interface';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { ScrollService } from '../../services/scroll.service';
 import { ThemeService } from '../../services/theme.service';
 import { WindowRefService } from '../../services/window-ref.service';
-import { LocalStorageService } from '../../services/local-storage.service';
 import { LS_LANGUAGE_KEY } from '../../tokens/local-storage.token';
+import { Language } from '../../types/language.type';
 
 @Component({
     selector: 'app-nav-list',
@@ -47,6 +46,8 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() drawer?: MatDrawer;
     @Input() navbar?: ElementRef;
 
+    public cvUrl = CVURL.en;
+    public items: Menu[] = MENU_DATA;
     public linkActiveOptions: IsActiveMatchOptions = {
         matrixParams: 'exact',
         queryParams: 'exact',
@@ -54,34 +55,32 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
         fragment: 'exact',
     };
 
-    private _languageKey = inject(LS_LANGUAGE_KEY);
-    private _localStorage = inject(LocalStorageService);
-    private _document = inject(DOCUMENT);
-    private _cdr = inject(ChangeDetectorRef);
-    private _platformId = inject(PLATFORM_ID);
-    private _window = inject(WindowRefService);
-    private _unsubscribeAll = new Subject<void>();
-    private _scrollService = inject(ScrollService);
-    private _translocoService = inject(TranslocoService);
-
-    public cvUrl = CVURL.en;
-    public router = inject(Router);
-    public items: Menu[] = MENU_DATA;
-    public languageMenuOpen: boolean = false;
-    public themeMenuOpen: boolean = false;
     public route = inject(ActivatedRoute);
-    public currentActivatedRoute = this.route;
+    public router = inject(Router);
     public themeService = inject(ThemeService);
     public breakpointObserver = inject(BreakpointObserver);
+
+    public availableTheme = ['light', 'dark'];
+    public currentActivatedRoute = this.route;
+    public themeMenuOpen: boolean = false;
+    public languageMenuOpen: boolean = false;
+    public currentLanguage?: LangDefinition;
     public isNotLg$ = this.breakpointObserver
         .observe('(max-width: 1023.98px)')
         .pipe(map((state) => state.matches));
 
-    public currentLanguage?: LangDefinition;
+    private _cdr = inject(ChangeDetectorRef);
+    private _window = inject(WindowRefService);
+    private _document = inject(DOCUMENT);
+    private _languageKey = inject(LS_LANGUAGE_KEY);
+    private _localStorage = inject(LocalStorageService);
+    private _scrollService = inject(ScrollService);
+    private _translocoService = inject(TranslocoService);
+
+    private _unsubscribeAll = new Subject<void>();
+
     public availableLanguage: LangDefinition[] =
         this._translocoService.getAvailableLangs() as LangDefinition[];
-
-    public availableTheme = ['light', 'dark'];
 
     ngOnInit(): void {
         this.loadReferredLanguage();

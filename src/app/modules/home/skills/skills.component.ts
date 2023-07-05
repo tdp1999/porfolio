@@ -6,16 +6,12 @@ import {
     ChangeDetectorRef,
     Component,
     OnDestroy,
-    OnInit,
-    TemplateRef,
-    ViewChild,
     inject,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
-import { Experiences } from 'src/app/shared/data/experience.data';
-import { SkillTypes, TechnicalSkills } from 'src/app/shared/data/skill.data';
+import { SkillTypes } from 'src/app/shared/data/skill.data';
 import { Skill } from 'src/app/shared/interfaces/skill.interface';
 import { SkillType } from 'src/app/shared/types/skill.type';
 
@@ -36,10 +32,10 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
     public skillData$ = this._skillData.asObservable();
 
     private _cdr = inject(ChangeDetectorRef);
-    private _overlay = inject(Overlay);
     private _dialog = inject(MatDialog);
-    private _breakpointObserver = inject(BreakpointObserver);
+    private _overlay = inject(Overlay);
     private _unsubscribeAll$ = new Subject<void>();
+    private _breakpointObserver = inject(BreakpointObserver);
 
     ngAfterViewInit(): void {
         this._breakpointObserver
