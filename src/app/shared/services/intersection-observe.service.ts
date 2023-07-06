@@ -23,7 +23,7 @@ export class IntersectionObserveService {
             (observer: Subscriber<IntersectionObserverEntry[]>) => {
                 const intersectionObserver = new IntersectionObserver(
                     (entries) => observer.next(entries),
-                    { root: null, threshold: 0.5 }
+                    { root: null, threshold: 0.5 } // 0.5 = 50% of the element is visible. Beware the long element
                 );
                 intersectionObserver.observe(element.nativeElement);
                 return () => intersectionObserver.disconnect();

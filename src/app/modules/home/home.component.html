@@ -11,21 +11,25 @@
 >
     <app-hero
         id="hero"
-        appAnimateOnScrolls
+        appAnimateOnScroll
         (scrollTo)="scrollTo($event)"
     ></app-hero>
 
     <!-- <div class="border"></div> -->
 
-    <app-about appAnimateOnScrolls id="about"></app-about>
+    <app-about
+        appAnimateOnScroll
+        animateStart="animation--fade-right"
+        id="about"
+    ></app-about>
 
     <!-- <div class="border"></div> -->
 
-    <app-experiences appAnimateOnScrolls id="experiences"></app-experiences>
+    <app-experiences appAnimateOnScroll id="experiences"></app-experiences>
 
     <!-- <div class="border"></div> -->
 
-    <app-skills appAnimateOnScrolls id="skills"></app-skills>
+    <app-skills appAnimateOnScroll id="skills"></app-skills>
 
     <!-- <div class="border"></div> -->
 
@@ -33,5 +37,5 @@
 
     <!-- <div class="border"></div> -->
 
-    <app-contact appAnimateOnScrolls id="contact"></app-contact>
+    <app-contact appAnimateOnScroll id="contact"></app-contact>
 </div>

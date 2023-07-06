@@ -1,4 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    OnInit,
+    inject,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CarouselComponent } from 'src/app/shared/components/carousel/carousel.component';
 import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
@@ -9,6 +14,7 @@ import { Project } from 'src/app/shared/interfaces/project.interface';
     selector: 'app-projects',
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent implements OnInit {
     public projects = Projects;

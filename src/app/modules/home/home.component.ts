@@ -15,6 +15,7 @@ import {
     delay,
     distinctUntilChanged,
     filter,
+    take,
     takeUntil,
     tap,
 } from 'rxjs';
@@ -22,6 +23,7 @@ import { IntersectionObserveService } from 'src/app/shared/services/intersection
 import { ScrollService } from 'src/app/shared/services/scroll.service';
 import { AboutComponent } from './about/about.component';
 import { HomeSectionDirective } from './home-section.directive';
+import { ProjectsComponent } from './projects/projects.component';
 
 @Component({
     selector: 'app-home',
@@ -31,6 +33,8 @@ import { HomeSectionDirective } from './home-section.directive';
 })
 export class HomeComponent implements OnDestroy, AfterViewInit {
     @ViewChild(AboutComponent, { static: true }) about!: AboutComponent;
+    @ViewChild(ProjectsComponent, { static: true, read: ElementRef })
+    projects!: ElementRef;
 
     private _route = inject(ActivatedRoute);
     private _unsubscribeAll = new Subject<void>();

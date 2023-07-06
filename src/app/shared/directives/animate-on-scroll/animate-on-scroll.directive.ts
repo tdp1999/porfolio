@@ -29,11 +29,11 @@ export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
     get animateStart(): string {
         return this._animateStart;
     }
-    private _animateStart = 'animation--in';
+    private _animateStart = 'animation--fade';
 
     @Input() animationEnd = 'animate';
 
-    @HostBinding('class.animation--in') animate = true;
+    @HostBinding('class.animation--fade') animate = true;
 
     private _renderer = inject(Renderer2);
     private _elementRef = inject(ElementRef);
@@ -41,13 +41,12 @@ export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
     private _intersectionObserverService = inject(IntersectionObserveService);
 
     ngAfterViewInit(): void {
-        console.log('El', this._elementRef.nativeElement);
         this._intersectionObserverService
             .observe(this._elementRef)
             .pipe(
                 tap((value) => console.log('Value: ', value)),
                 filter((isIntersecting: boolean) => isIntersecting),
-                take(2),
+                take(1),
                 takeUntil(this._unsubscribeAll$)
             )
             .subscribe((isIntersecting: boolean) => {
