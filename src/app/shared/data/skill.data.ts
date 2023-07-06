@@ -107,7 +107,7 @@ export const TechnicalSkills: Skill[] = [
     },
     {
         id: 11,
-        name: 'NodeJS (ExpressJS, NestJS), MongoDB, PostgreSQL',
+        name: 'NodeJS (ExpressJS, NestJS)',
         icon: faNodeJs,
         type: 'technical',
         level: 'Intermediate',
@@ -252,7 +252,7 @@ export const SoftSkills: Skill[] = [
     },
     {
         id: 11,
-        name: 'Scrum / Kanban - Agile',
+        name: 'Scrum/Kanban - Agile',
         icon: null,
         type: 'soft',
         shortDescription: '(As a Member)',

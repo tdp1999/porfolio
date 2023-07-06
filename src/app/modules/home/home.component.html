@@ -9,25 +9,29 @@
         'app-contact'
     ]"
 >
-    <app-hero appHomeSection id="hero" (scrollTo)="scrollTo($event)"></app-hero>
+    <app-hero
+        id="hero"
+        appAnimateOnScrolls
+        (scrollTo)="scrollTo($event)"
+    ></app-hero>
 
     <!-- <div class="border"></div> -->
 
-    <app-about appHomeSection id="about"></app-about>
+    <app-about appAnimateOnScrolls id="about"></app-about>
 
     <!-- <div class="border"></div> -->
 
-    <app-experiences appHomeSection id="experiences"></app-experiences>
+    <app-experiences appAnimateOnScrolls id="experiences"></app-experiences>
 
     <!-- <div class="border"></div> -->
 
-    <app-skills appHomeSection id="skills"></app-skills>
+    <app-skills appAnimateOnScrolls id="skills"></app-skills>
 
     <!-- <div class="border"></div> -->
 
-    <app-projects appHomeSection id="projects"></app-projects>
+    <app-projects appAnimateOnScroll id="projects"></app-projects>
 
     <!-- <div class="border"></div> -->
 
-    <app-contact appHomeSection id="contact"></app-contact>
+    <app-contact appAnimateOnScrolls id="contact"></app-contact>
 </div>

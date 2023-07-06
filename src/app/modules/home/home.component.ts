@@ -31,20 +31,12 @@ import { HomeSectionDirective } from './home-section.directive';
 })
 export class HomeComponent implements OnDestroy, AfterViewInit {
     @ViewChild(AboutComponent, { static: true }) about!: AboutComponent;
-    @ViewChildren(HomeSectionDirective, { read: ElementRef })
-    sections!: QueryList<ElementRef>;
 
     private _route = inject(ActivatedRoute);
     private _unsubscribeAll = new Subject<void>();
     private _scrollService = inject(ScrollService);
-    private _intersectionService = inject(IntersectionObserveService);
 
     ngAfterViewInit(): void {
-        const sections = this.sections.toArray();
-        console.log('Section: ', sections);
-
-        // this._intersectionService.observe(sections).subscribe((entries) => {})
-
         // Scroll into section when fragment changes
         this._route.fragment
             .pipe(

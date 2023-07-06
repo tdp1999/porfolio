@@ -35,29 +35,4 @@ export class IntersectionObserveService {
             shareReplay({ bufferSize: 1, refCount: true })
         );
     }
-
-    // observeElement(element: ElementRef): Observable<string> {
-    //     if (!isPlatformBrowser(this._platformId)) return of('');
-
-    //     return new Observable((observer: Subscriber<string>) => {
-    //         const intersectionObserver = new IntersectionObserver(
-    //             ([entry]) => observer.next(entry.target.id),
-    //             { root: null, threshold: 0.5 }
-    //         );
-
-    //         intersectionObserver.observe(element.nativeElement);
-    //         return () => intersectionObserver.disconnect();
-    //     });
-    // }
-
-    // observeAll(elements: ElementRef[]): Observable<string[]> {
-    //     const observables = elements.map((element) =>
-    //         this.observeElement(element)
-    //     );
-
-    //     return mergeMap((...results) => results)(...observables).pipe(
-    //         distinctUntilChanged(),
-    //         shareReplay({ bufferSize: 1, refCount: true })
-    //     );
-    // }
 }
