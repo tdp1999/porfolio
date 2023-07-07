@@ -32,6 +32,12 @@ export class ScrollService {
         });
     }
 
+    scrollToTop() {
+        const scrollTarget = this._document.querySelector('mat-drawer-content');
+        if (!scrollTarget) return;
+        scrollTarget.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     observeElementScroll(el: Element) {
         return fromEvent(el, 'scroll').pipe(share());
     }

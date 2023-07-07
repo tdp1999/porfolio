@@ -16,14 +16,14 @@ import { isPlatformBrowser } from '@angular/common';
 export class IntersectionObserveService {
     private _platformId = inject(PLATFORM_ID);
 
-    observe(element: ElementRef): Observable<boolean> {
+    observe(element: ElementRef, threshold = 0.5): Observable<boolean> {
         if (!isPlatformBrowser(this._platformId)) return of(false);
 
         return new Observable(
             (observer: Subscriber<IntersectionObserverEntry[]>) => {
                 const intersectionObserver = new IntersectionObserver(
                     (entries) => observer.next(entries),
-                    { root: null, threshold: 0.5 } // 0.5 = 50% of the element is visible. Beware the long element
+                    { root: null, threshold } // 0.5 = 50% of the element is visible. Beware the long element
                 );
                 intersectionObserver.observe(element.nativeElement);
                 return () => intersectionObserver.disconnect();

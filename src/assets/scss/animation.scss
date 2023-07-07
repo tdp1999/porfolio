@@ -72,6 +72,18 @@
     transform: translateX(0);
 }
 
+.ainmation--fade-up-left {
+    opacity: 0;
+    transform: translate(-50px, 50px);
+    transition: opacity 1s ease, transform 0.5s ease;
+    // overflow: hidden;
+}
+
+.animation--fade-up-left.animate {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
 .animation--fade-up-right {
     opacity: 0;
     transform: translate(50px, -50px);
@@ -80,6 +92,18 @@
 }
 
 .animation--fade-up-right.animate {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.animation--fade-down-left {
+    opacity: 0;
+    transform: translate(-50px, -50px);
+    transition: opacity 1s ease, transform 0.5s ease;
+    // overflow: hidden;
+}
+
+.animation--fade-down-left.animate {
     opacity: 1;
     transform: translate(0, 0);
 }

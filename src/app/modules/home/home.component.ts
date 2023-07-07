@@ -32,10 +32,6 @@ import { ProjectsComponent } from './projects/projects.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnDestroy, AfterViewInit {
-    @ViewChild(AboutComponent, { static: true }) about!: AboutComponent;
-    @ViewChild(ProjectsComponent, { static: true, read: ElementRef })
-    projects!: ElementRef;
-
     private _route = inject(ActivatedRoute);
     private _unsubscribeAll = new Subject<void>();
     private _scrollService = inject(ScrollService);

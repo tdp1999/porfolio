@@ -1,5 +1,5 @@
 <div
-    class="flex flex-col"
+    class="flex flex-col overflow-x-hidden"
     appScrollspy
     [spiedTags]="[
         'app-about',
@@ -12,6 +12,7 @@
     <app-hero
         id="hero"
         appAnimateOnScroll
+        animateStart="animation--fade-left"
         (scrollTo)="scrollTo($event)"
     ></app-hero>
 
@@ -25,17 +26,31 @@
 
     <!-- <div class="border"></div> -->
 
-    <app-experiences appAnimateOnScroll id="experiences"></app-experiences>
+    <app-experiences
+        animateStart="animation--fade-left"
+        appAnimateOnScroll
+        id="experiences"
+    ></app-experiences>
 
     <!-- <div class="border"></div> -->
 
-    <app-skills appAnimateOnScroll id="skills"></app-skills>
+    <app-skills
+        animateStart="animation--fade-right"
+        appAnimateOnScroll
+        id="skills"
+    ></app-skills>
 
     <!-- <div class="border"></div> -->
 
-    <app-projects appAnimateOnScroll id="projects"></app-projects>
+    <app-projects
+        animateStart="animation--fade-left"
+        appAnimateOnScroll
+        id="projects"
+    ></app-projects>
 
     <!-- <div class="border"></div> -->
 
     <app-contact appAnimateOnScroll id="contact"></app-contact>
 </div>
+
+<app-scroll-to-top></app-scroll-to-top>

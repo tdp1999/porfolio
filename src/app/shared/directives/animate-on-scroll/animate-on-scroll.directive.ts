@@ -9,7 +9,16 @@ import {
     inject,
 } from '@angular/core';
 import { IntersectionObserveService } from '../../services/intersection-observe.service';
-import { Subject, filter, take, takeUntil, tap } from 'rxjs';
+import {
+    Subject,
+    filter,
+    switchMap,
+    take,
+    takeUntil,
+    tap,
+    withLatestFrom,
+} from 'rxjs';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Directive({
     selector: '[appAnimateOnScroll]',
@@ -38,19 +47,25 @@ export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
     private _renderer = inject(Renderer2);
     private _elementRef = inject(ElementRef);
     private _unsubscribeAll$ = new Subject<void>();
+    private _breakpointObserver = inject(BreakpointObserver);
     private _intersectionObserverService = inject(IntersectionObserveService);
 
     ngAfterViewInit(): void {
-        this._intersectionObserverService
-            .observe(this._elementRef)
+        this._breakpointObserver
+            .observe(['(min-width: 768px)'])
             .pipe(
-                tap((value) => console.log('Value: ', value)),
+                switchMap((result) => {
+                    const threshold = result.matches ? 0.5 : 0.3;
+                    return this._intersectionObserverService.observe(
+                        this._elementRef,
+                        threshold
+                    );
+                }),
                 filter((isIntersecting: boolean) => isIntersecting),
                 take(1),
                 takeUntil(this._unsubscribeAll$)
             )
             .subscribe((isIntersecting: boolean) => {
-                console.log('Intersected: ');
                 this._elementRef.nativeElement.classList.add(this.animationEnd);
             });
     }

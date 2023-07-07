@@ -26,6 +26,7 @@ import { HomeComponent } from './home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SkillsComponent } from './skills/skills.component';
 import { AnimateOnScrollModule } from 'src/app/shared/directives/animate-on-scroll/animate-on-scroll.module';
+import { ScrollToTopModule } from 'src/app/shared/components/scroll-to-top/scroll-to-top.module';
 
 const routes: Routes = [
     {
@@ -52,6 +53,7 @@ const components = [
     MatDividerModule,
     DescriptionListModule,
     AnimateOnScrollModule,
+    ScrollToTopModule,
 ];
 @NgModule({
     declarations: [
