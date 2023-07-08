@@ -9,6 +9,8 @@
         <div
             class="col-auto md:col-span-3"
             [ngClass]="{ 'order-last': navPosition === 'right' }"
+            animateStart="animation--fade-right"
+            appAnimateOnScroll
         >
             <div
                 class="grid grid-cols-6 gap-2 sm:grid-cols-4 auto-rows-auto md:flex md:flex-col"
@@ -28,6 +30,8 @@
 
         <div
             class="relative col-auto md:col-span-9 min-h-[512px] flex items-center"
+            animateStart="animation--fade-left"
+            appAnimateOnScroll
         >
             <mat-accordion
                 displayMode="flat"

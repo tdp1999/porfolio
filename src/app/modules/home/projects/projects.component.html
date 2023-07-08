@@ -6,9 +6,19 @@
     <div
         class="grid max-w-screen-lg grid-cols-1 gap-6 lg:grid-cols-2 md:gap-8 lg:gap-12 auto-rows-auto"
     >
-        <ng-container *ngFor="let project of projects | slice : 0 : 4">
+        <ng-container
+            *ngFor="
+                let project of projects | slice : 0 : 4;
+                let odd = odd;
+                let even = even
+            "
+        >
             <app-project-item
                 [item]="project"
+                [animateStart]="
+                    odd ? 'animation--fade-right' : 'animation--fade-left'
+                "
+                appAnimateOnScroll
                 (linkClicked)="openMetadataDialog(project)"
             ></app-project-item>
         </ng-container>
