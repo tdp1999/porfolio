@@ -20,7 +20,8 @@ export const Projects: Project[] = [
             'SEO',
         ],
         thumbnail: {
-            url: 'assets/images/art.png',
+            url: 'assets/images/projects/project-porfolio-250.webp',
+            srcset: 'assets/images/projects/project-porfolio-250.webp 250w, assets/images/projects/project-porfolio-315.webp 315w, assets/images/projects/project-porfolio-440.webp 440w, assets/images/projects/project-porfolio-575.webp 575w',
             description: 'Portfolio',
         },
         demoLink: {
@@ -32,7 +33,7 @@ export const Projects: Project[] = [
             label: 'Github',
             hide: true,
         },
-        // tags: ['Angular', 'Bootstrap 4', 'TypeScript'],
+        tags: ['Demo Available'],
     },
     {
         id: 2,
@@ -53,12 +54,13 @@ export const Projects: Project[] = [
             'Permission Management System (Role Management, User Management, etc.)',
             'Agent Portal (Agent Dashboard, Agent Profile, etc.)',
         ],
-        thumbnail: {
-            url: 'assets/images/art.png',
-            description: 'Portfolio',
-        },
         clientDomain: 'Real Estate',
         clientLocation: 'Singapore',
+        thumbnail: {
+            url: 'assets/images/projects/erp-250.webp',
+            srcset: 'assets/images/projects/erp-250.webp 250w, assets/images/projects/erp-315.webp 315w, assets/images/projects/erp-440.webp 440w, assets/images/projects/erp-575.webp 575w',
+            description: 'ERP System Websites',
+        },
     },
     {
         id: 3,
@@ -79,8 +81,9 @@ export const Projects: Project[] = [
             'Admin Portal (Dashboard, Provider Management, etc.)',
         ],
         thumbnail: {
-            url: 'assets/images/art.png',
-            description: 'Portfolio',
+            url: 'assets/images/projects/listing-250.webp',
+            srcset: 'assets/images/projects/listing-250.webp 250w, assets/images/projects/listing-315.webp 315w, assets/images/projects/listing-440.webp 440w, assets/images/projects/listing-575.webp 575w',
+            description: 'ERP System Websites',
         },
     },
     {
@@ -102,8 +105,9 @@ export const Projects: Project[] = [
             'Trader Portal',
         ],
         thumbnail: {
-            url: 'assets/images/art.png',
-            description: 'Portfolio',
+            url: 'assets/images/projects/website-250.webp',
+            srcset: 'assets/images/projects/website-250.webp 250w, assets/images/projects/website-315.webp 315w, assets/images/projects/website-440.webp 440w, assets/images/projects/website-575.webp 575w',
+            description: 'ERP System Websites',
         },
     },
     {
@@ -118,10 +122,6 @@ export const Projects: Project[] = [
         projectType: 'Personal',
         projectSize: 'Not Rated',
         mainFunctionality: ['Responsive Design'],
-        thumbnail: {
-            url: 'assets/images/art.png',
-            description: 'Portfolio',
-        },
         demoLink: {
             url: 'https://pp-food.netlify.app/',
             label: 'Demo',
@@ -130,5 +130,11 @@ export const Projects: Project[] = [
             url: 'https://github.com/tdp1999/PP-Food',
             label: 'Github',
         },
+        thumbnail: {
+            url: 'assets/images/projects/website-250.webp',
+            srcset: 'assets/images/projects/website-250.webp 250w, assets/images/projects/website-315.webp 315w, assets/images/projects/website-440.webp 440w, assets/images/projects/website-575.webp 575w',
+            description: 'ERP System Websites',
+        },
+        tags: ['Demo Available'],
     },
 ];

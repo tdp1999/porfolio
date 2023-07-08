@@ -20,7 +20,7 @@ export interface Project {
     clientDomain?: string;
     clientLocation?: string;
     tags?: string[];
-    thumbnail: Image;
+    thumbnail?: Image;
     images?: Image[] | null;
     demoLink?: Link;
     sourceCodeLink?: Link;

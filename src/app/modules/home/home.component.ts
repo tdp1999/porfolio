@@ -2,11 +2,7 @@ import {
     AfterViewInit,
     ChangeDetectionStrategy,
     Component,
-    ElementRef,
     OnDestroy,
-    QueryList,
-    ViewChild,
-    ViewChildren,
     inject,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -15,15 +11,10 @@ import {
     delay,
     distinctUntilChanged,
     filter,
-    take,
     takeUntil,
     tap,
 } from 'rxjs';
-import { IntersectionObserveService } from 'src/app/shared/services/intersection-observe.service';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
-import { AboutComponent } from './about/about.component';
-import { HomeSectionDirective } from './home-section.directive';
-import { ProjectsComponent } from './projects/projects.component';
 
 @Component({
     selector: 'app-home',

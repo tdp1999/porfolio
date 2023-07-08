@@ -9,11 +9,37 @@
         <div
             class="flex-auto flex-shrink-0 lg:w-64 lg:h-64 w-full h-80 about-block"
         >
-            <img
-                class=""
-                src="assets/images/portrait/portrait.jpg"
-                alt="Phuong Tran"
-            />
+            <picture>
+                <source
+                    media="(min-width: 1024px)"
+                    srcset="
+                        assets/images/portrait/portrait-square-250.webp 250w,
+                        assets/images/portrait/portrait-square-800.webp 800w
+                    "
+                    sizes="(min-width: 1024px) 250px, 800px"
+                />
+                <source
+                    media="(min-width: 640px)"
+                    srcset="
+                        assets/images/portrait/portrait-landscape-675.webp 675w,
+                        assets/images/portrait/portrait-landscape-900.webp 900w
+                    "
+                    sizes="(min-width: 640px) 100vw, 900px"
+                />
+                <source
+                    media="(min-width: 0px)"
+                    srcset="
+                        assets/images/portrait/portrait-square-250.webp 250w,
+                        assets/images/portrait/portrait-square-800.webp 800w
+                    "
+                    sizes="(min-width: 0px) 100vw, 800px"
+                />
+                <img
+                    src="assets/images/portrait/portrait-square.webp"
+                    alt="portrait"
+                    loading="lazy"
+                />
+            </picture>
         </div>
 
         <div>

@@ -46,6 +46,7 @@
             <img
                 *ngIf="i === currentIndex"
                 [src]="image.url"
+                loading="lazy"
                 class="absolute inset-0 object-cover object-center w-full h-full"
                 @carouselAnimation
             />

@@ -4,4 +4,7 @@ export interface Image {
     description?: string;
     tags?: string[];
     alt?: string;
+    srcset?: string;
+    width?: number;
+    height?: number;
 }
