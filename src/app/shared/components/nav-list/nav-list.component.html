@@ -12,7 +12,7 @@
             [ngClass]="{ 'link-active': item.active }"
             (click)="drawer?.toggle()"
         >
-            {{ item.label }}
+            {{ item.label | transloco }}
         </a>
 
         <ng-container *ngIf="isNotLg$ | async as isNotLg">

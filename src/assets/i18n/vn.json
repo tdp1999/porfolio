@@ -30,5 +30,36 @@
             "required": "Vui lòng nhập tin nhắn của bạn"
         },
         "submit": "Gửi"
-    }
+    },
+    "menu": {
+        "about": "Giới thiệu",
+        "experience": "Kinh nghiệm",
+        "skills": "Kỹ năng",
+        "projects": "Dự án",
+        "contact": "Liên hệ"
+    },
+    "credential": {
+        "label": {
+            "name": "Họ Tên",
+            "age": "Tuổi",
+            "email": "Email",
+            "location": "Nơi làm việc",
+            "language": "Ngôn ngữ",
+            "education": "Học vấn"
+        },
+        "value": {
+            "name": "Trần Đức Phương",
+            "age": "24",
+            "email": "tdp99.business@gmail.com",
+            "location": "Cần Thơ, TP. HCM",
+            "language": "Tiếng Việt, Tiếng Anh",
+            "education": "Cử nhân Kỹ thuật (Thủ Khoa Đầu Ra) - Đại học Cần Thơ"
+        }
+    },
+    "statData": {
+        "yoe": "Năm Kinh Nghiệm",
+        "projects": "Dự Án Đã Hoàn Thành"
+    },
+    "contact-info": "Thông Tin Liên Hệ",
+    "to-contact-info": "Đến Thông Tin Liên Hệ"
 }

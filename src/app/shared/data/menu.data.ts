@@ -4,7 +4,7 @@ import { Menu } from '../interfaces/menu.interface';
 export const MENU_DATA: Menu[] = [
     {
         id: 1,
-        label: 'About',
+        label: 'menu.about',
         icon: 'fas fa-info-circle',
         route: '',
         fragment: 'about',
@@ -12,7 +12,7 @@ export const MENU_DATA: Menu[] = [
     },
     {
         id: 2,
-        label: 'Experience',
+        label: 'menu.experience',
         icon: 'fas fa-briefcase',
         route: '',
         fragment: 'experiences',
@@ -20,7 +20,7 @@ export const MENU_DATA: Menu[] = [
     },
     {
         id: 3,
-        label: 'Skills',
+        label: 'menu.skills',
         icon: 'fas fa-laptop-code',
         route: '',
         fragment: 'skills',
@@ -28,7 +28,7 @@ export const MENU_DATA: Menu[] = [
     },
     {
         id: 4,
-        label: 'Projects',
+        label: 'menu.projects',
         icon: 'fas fa-briefcase',
         route: '',
         fragment: 'projects',
@@ -36,7 +36,7 @@ export const MENU_DATA: Menu[] = [
     },
     {
         id: 5,
-        label: 'Contact',
+        label: 'menu.contact',
         icon: 'fas fa-id-card',
         route: '',
         fragment: 'contact',

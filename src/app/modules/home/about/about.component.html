@@ -60,14 +60,17 @@
                 <div *ngFor="let item of personalInformation" class="flex">
                     <span
                         class="flex-grow-0 flex-shrink-0 font-semibold basis-32 caption"
-                        >{{ item.label }}</span
+                        >{{ item.label | transloco }}</span
                     >
 
                     <ng-container [ngSwitch]="item.templateRef">
                         <span class="caption-value">
                             <ng-container *ngSwitchCase="'email'">
-                                <a href="mailto:{{ item.value }}">
-                                    {{ item.value }}
+                                <a
+                                    class="primary-link"
+                                    href="mailto:{{ item.value | transloco }}"
+                                >
+                                    {{ item.value | transloco }}
                                 </a>
                             </ng-container>
 
@@ -79,12 +82,12 @@
                                             : ''
                                     }}"
                                 >
-                                    {{ item.value }}
+                                    {{ item.value | transloco }}
                                 </a>
                             </ng-container>
 
                             <ng-container *ngSwitchDefault>{{
-                                item.value
+                                item.value | transloco
                             }}</ng-container>
                         </span>
                     </ng-container>
@@ -93,17 +96,17 @@
                 <div class="flex">
                     <span
                         class="flex-grow-0 flex-shrink-0 font-semibold basis-32 caption"
-                        >Contact Info
+                        >{{ "contact-info" | transloco }}
                     </span>
 
                     <span class="caption-value">
                         <a
                             type="button"
-                            class="link-primary"
+                            class="primary-link"
                             routerLink="/"
                             fragment="contact"
                         >
-                            To Contact Info
+                            {{ "to-contact-info" | transloco }}
                         </a>
                     </span>
                 </div>

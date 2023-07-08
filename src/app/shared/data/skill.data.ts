@@ -264,32 +264,32 @@ export const SoftSkills: Skill[] = [
         libraries: [],
         hideDetail: true,
     },
-    {
-        id: 12,
-        name: 'Self Learning',
-        icon: null,
-        type: 'soft',
-        description:
-            'Self-learning is one of the most important skills that I have developed over the years. I am confident that I can learn any new technology or skill quickly.',
-        level: 'Not Rated',
-        experience: 0,
-        subSkills: [],
-        libraries: [],
-        hideDetail: true,
-    },
-    {
-        id: 13,
-        name: 'Problem Solving',
-        icon: null,
-        type: 'soft',
-        description:
-            'Problem-solving is one of the most important skills that I have developed over the years. I am confident that I can solve any problem that arises in my work.',
-        level: 'Not Rated',
-        experience: 0,
-        subSkills: [],
-        libraries: [],
-        hideDetail: true,
-    },
+    // {
+    //     id: 12,
+    //     name: 'Self Learning',
+    //     icon: null,
+    //     type: 'soft',
+    //     description:
+    //         'Self-learning is one of the most important skills that I have developed over the years. I am confident that I can learn any new technology or skill quickly.',
+    //     level: 'Not Rated',
+    //     experience: 0,
+    //     subSkills: [],
+    //     libraries: [],
+    //     hideDetail: true,
+    // },
+    // {
+    //     id: 13,
+    //     name: 'Problem Solving',
+    //     icon: null,
+    //     type: 'soft',
+    //     description:
+    //         'Problem-solving is one of the most important skills that I have developed over the years. I am confident that I can solve any problem that arises in my work.',
+    //     level: 'Not Rated',
+    //     experience: 0,
+    //     subSkills: [],
+    //     libraries: [],
+    //     hideDetail: true,
+    // },
 ];
 
 export const SkillTypes: SkillType[] = [

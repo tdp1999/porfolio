@@ -1,12 +1,12 @@
-<div class="flex justify-center px-10 sm:px-12 md:px-20 xl:py-4 py-2 theme--bg">
-    <div class="max-w-screen-lg flex justify-between items-center flex-grow">
+<div class="flex justify-center px-10 py-2 sm:px-12 md:px-20 xl:py-4 theme--bg">
+    <div class="flex items-center justify-between flex-grow max-w-screen-lg">
         <div class="py-4 whitespace-pre theme--bg theme--text body">
             Phuong <span class="text-theme-primary">Tran</span> -
             {{ currentYear }} - v1.0
         </div>
 
         <button
-            class="flex gap-1 primary-button"
+            class="hidden gap-1 lg:flex primary-button"
             [matMenuTriggerFor]="menu"
             (menuClosed)="menuOpen = false"
             (menuOpened)="menuOpen = true"

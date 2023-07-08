@@ -2,44 +2,44 @@ import { Information, StatsInformation } from '../interfaces/general-entitly';
 
 export const PersonalInformation: Information[] = [
     {
-        label: 'Name',
-        value: 'Tran Duc Phuong',
+        label: 'credential.label.name',
+        value: 'credential.value.name',
         templateRef: 'text',
     },
     {
-        label: 'Age',
-        value: '24',
+        label: 'credential.label.age',
+        value: 'credential.value.age',
         templateRef: 'text',
     },
     {
-        label: 'Email',
-        value: 'tdp99.business@gmail.com',
+        label: 'credential.label.email',
+        value: 'credential.value.email',
         templateRef: 'email',
     },
     {
-        label: 'Locations',
-        value: 'Can Tho, HCM City (VN)',
+        label: 'credential.label.location',
+        value: 'credential.value.location',
         templateRef: 'text',
     },
     {
-        label: 'Languages',
-        value: 'Vietnamese, English',
+        label: 'credential.label.language',
+        value: 'credential.value.language',
         templateRef: 'text',
     },
     {
-        label: 'Education',
-        value: 'Bachelor of Engineer (Valedictorian) - Can Tho University',
+        label: 'credential.label.education',
+        value: 'credential.value.education',
         templateRef: 'text',
     },
 ];
 
 export const StatsData: StatsInformation[] = [
     {
-        label: 'Years of Experience',
+        label: 'statData.yoe',
         value: 2,
     },
     {
-        label: 'Projects Completed',
+        label: 'statData.projects',
         value: 5,
     },
 ];

@@ -8,6 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslocoModule } from '@ngneat/transloco';
 
 const components = [
     RouterModule,
@@ -17,6 +18,7 @@ const components = [
     MatButtonModule,
     MatMenuModule,
     FontAwesomeModule,
+    TranslocoModule,
 ];
 
 @NgModule({

@@ -29,5 +29,36 @@
             "placeholder": "Enter your message",
             "required": "Please enter your message!"
         }
-    }
+    },
+    "menu": {
+        "about": "About",
+        "experience": "Experience",
+        "skills": "Skills",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "credential": {
+        "label": {
+            "name": "Name",
+            "age": "Age",
+            "email": "Email",
+            "location": "Location",
+            "language": "Language",
+            "education": "Education"
+        },
+        "value": {
+            "name": "Tran Duc Phuong",
+            "age": "24",
+            "email": "tdp99.business@gmail.com",
+            "location": "Can Tho, HCM City (VN)",
+            "language": "Vietnamese, English",
+            "education": "Bachelor of Engineer (Valedictorian) - Can Tho University"
+        }
+    },
+    "statData": {
+        "yoe": "Years of Experience",
+        "projects": "Projects Completed"
+    },
+    "contact-info": "Contact Info",
+    "to-contact-info": "To Contact Info"
 }
