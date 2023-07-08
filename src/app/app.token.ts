@@ -27,6 +27,7 @@ export const MATERIAL_CONFIGURATIONS: Provider[] = [
     //     provide: MAT_DIALOG_SCROLL_STRATEGY,
     //     useFactory: () => inject(Overlay).scrollStrategies.close(),
     // },
+
 ];
 
 export const DEFAULT_TOKENS: Provider[] = [
