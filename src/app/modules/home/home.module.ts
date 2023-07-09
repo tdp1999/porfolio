@@ -27,6 +27,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { SkillsComponent } from './skills/skills.component';
 import { AnimateOnScrollModule } from 'src/app/shared/directives/animate-on-scroll/animate-on-scroll.module';
 import { ScrollToTopModule } from 'src/app/shared/components/scroll-to-top/scroll-to-top.module';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
     {
@@ -36,24 +38,26 @@ const routes: Routes = [
 ];
 
 const components = [
-    ExperienceItemModule,
-    StatsItemModule,
-    SkillItemModule,
-    ProjectItemModule,
-    MatDialogModule,
-    LightboxModule,
-    FontAwesomeModule,
-    TranslocoModule,
-    CarouselModule,
-    MatExpansionModule,
-    ScrollspyModule,
-    TimelineModule,
-    MatTooltipModule,
-    ContactFormModule,
-    MatDividerModule,
-    DescriptionListModule,
     AnimateOnScrollModule,
+    CarouselModule,
+    ContactFormModule,
+    DescriptionListModule,
+    ExperienceItemModule,
+    FontAwesomeModule,
+    LightboxModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatTreeModule,
+    ProjectItemModule,
     ScrollToTopModule,
+    ScrollspyModule,
+    SkillItemModule,
+    StatsItemModule,
+    TimelineModule,
+    TranslocoModule,
 ];
 @NgModule({
     declarations: [

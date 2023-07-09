@@ -72,12 +72,14 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
 
-                    <div class="flex flex-col gap-2 overflow-y-auto h-60">
+                    <div
+                        class="flex flex-col gap-4 overflow-y-auto divide-y h-60"
+                    >
                         <p *ngIf="skill.experience" class="subtitle">
-                            Year of Experiences: {{ skill.experience }}
+                            Year of Experiences: {{ skill.experience }} year(s)
                         </p>
 
-                        <p *ngIf="skill.description">
+                        <p *ngIf="skill.description" class="pt-4 caption-value">
                             {{ skill.description }}
                         </p>
 
@@ -85,8 +87,17 @@
                             *ngIf="
                                 skill.subSkills && skill.subSkills.length > 0
                             "
+                            class="flex flex-col pt-4"
                         >
-                            Listing subskills here...
+                            <span class="mb-2 list-title"
+                                >Have A Solid Understanding Of:
+                            </span>
+                            <span
+                                class="caption-value"
+                                *ngFor="let skill of skill.subSkills"
+                            >
+                                {{ skill }}
+                            </span>
                         </div>
 
                         <div
@@ -94,6 +105,7 @@
                                 skill.certificates &&
                                 skill.certificates.length > 0
                             "
+                            class="pt-4"
                         >
                             <span>Certificates: </span>
 
@@ -115,6 +127,7 @@
                             *ngIf="
                                 skill.libraries && skill.libraries.length > 0
                             "
+                            class="pt-4"
                         >
                             <span>Library used: </span>
 

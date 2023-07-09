@@ -1,5 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Overlay } from '@angular/cdk/overlay';
+import { FlatTreeControl } from '@angular/cdk/tree';
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -9,11 +10,21 @@ import {
     inject,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import {
+    MatTreeFlatDataSource,
+    MatTreeFlattener,
+} from '@angular/material/tree';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
 import { SkillTypes } from 'src/app/shared/data/skill.data';
 import { Skill } from 'src/app/shared/interfaces/skill.interface';
 import { SkillType } from 'src/app/shared/types/skill.type';
+
+interface SkillNode {
+    name: string;
+    expandable: boolean;
+    level: number;
+}
 
 @Component({
     selector: 'app-skills',
