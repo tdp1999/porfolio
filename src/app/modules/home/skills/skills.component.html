@@ -22,7 +22,7 @@
                         [ngClass]="{ active: currentType === skill.id }"
                         (click)="goTo(skill.id)"
                     >
-                        {{ skill.name | uppercase }}
+                        {{ skill.name | transloco | uppercase }}
                     </button>
                 </ng-container>
             </div>
@@ -68,7 +68,7 @@
                             *ngIf="skill.shortDescription"
                             class="justify-end subtitle"
                         >
-                            {{ skill.shortDescription }}
+                            {{ skill.shortDescription | transloco }}
                         </mat-panel-description>
                     </mat-expansion-panel-header>
 
@@ -76,11 +76,11 @@
                         class="flex flex-col gap-4 overflow-y-auto divide-y h-60"
                     >
                         <p *ngIf="skill.experience" class="subtitle">
-                            Year of Experiences: {{ skill.experience }} year(s)
+                            {{ "yoe" | transloco }}: {{ skill.experience }}
                         </p>
 
                         <p *ngIf="skill.description" class="pt-4 caption-value">
-                            {{ skill.description }}
+                            {{ skill.description | transloco }}
                         </p>
 
                         <div
@@ -89,14 +89,14 @@
                             "
                             class="flex flex-col pt-4"
                         >
-                            <span class="mb-2 list-title"
-                                >Have A Solid Understanding Of:
+                            <span class="mb-2 list-title">
+                                {{ "haveSolidUnderstandingOf" | transloco }}:
                             </span>
                             <span
                                 class="caption-value"
                                 *ngFor="let skill of skill.subSkills"
                             >
-                                {{ skill }}
+                                {{ skill | transloco }}
                             </span>
                         </div>
 
@@ -107,7 +107,7 @@
                             "
                             class="pt-4"
                         >
-                            <span>Certificates: </span>
+                            <span>{{ "certificates" | transloco }}: </span>
 
                             <div class="inline-flex items-center gap-2">
                                 <a
@@ -129,7 +129,7 @@
                             "
                             class="pt-4"
                         >
-                            <span>Library used: </span>
+                            <span>{{ 'libraryUsed' | transloco }}: </span>
 
                             <div class="inline-flex items-center gap-2">
                                 <a

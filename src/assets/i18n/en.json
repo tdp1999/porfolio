@@ -55,10 +55,53 @@
             "education": "Bachelor of Engineer (Valedictorian) - Can Tho University"
         }
     },
+    "yoe": "Years of Experience",
     "statData": {
         "yoe": "Years of Experience",
         "projects": "Projects Completed"
     },
     "contact-info": "Contact Info",
-    "to-contact-info": "To Contact Info"
+    "to-contact-info": "To Contact Info",
+    "skillType": {
+        "technical": {
+            "label": "Technical",
+            "angular": {
+                "description": "I have been primarily using Angular as the main frontend framework for both corporate and personal projects. Over the past 1.5 years, it's safe to say that almost every week I have either been coding with Angular or deepening my understanding of it.",
+                "subSkills": {
+                    "1": "Implementing Basic & Reusable Building Block: Components, Directives, Pipes, etc ",
+                    "2": "Form Manipulation: Reactive Forms, Template Driven Forms",
+                    "3": "Dependency Injection Apply in Practice",
+                    "4": "Routing & Navigation",
+                    "5": "Handle HTTP Request (RESTful API) with HttpClient",
+                    "6": "Understanding Data Sharing Between Components Using Binding, Service, DI and Store (NgRx)"
+                }
+            },
+            "js": {
+                "description": "",
+                "subSkills": {
+                    "1": "DOM Manipulation",
+                    "2": "Interface, Type Alias and Enum",
+                    "3": "Using Generics",
+                    "4": "Creating and Using Custom Decorators"
+                }
+            }
+        },
+        "tool": {
+            "label": "Tools & Technologies"
+        },
+        "soft": {
+            "label": "Additional Skills",
+            "english": {
+                "shortDescription": "TOEIC 970, Good Conversational English",
+                "description": "For over two years, I have been utilizing English as my primary working language. I am comfortable communicating in English, both in written and spoken form, and I have a good grasp of reading and understanding English documents"
+            },
+            "agile": {
+                "shortDescription": "As a Member",
+                "description": "I have been working in an Agile environment for over two years. I am familiar with the Scrum framework and have been using it in my daily work. I also have a good understanding of Kanban and have used it in some of my projects."
+            }
+        }
+    },
+    "haveSolidUnderstandingOf": "Have A Solid Understanding Of",
+    "certificates": "Certificates",
+    "libraryUsed": "Library Used"
 }

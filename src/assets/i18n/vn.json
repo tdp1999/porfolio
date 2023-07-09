@@ -56,10 +56,53 @@
             "education": "Cử nhân Kỹ thuật (Thủ Khoa Đầu Ra) - Đại học Cần Thơ"
         }
     },
+    "yoe": "Năm Kinh Nghiệm",
     "statData": {
         "yoe": "Năm Kinh Nghiệm",
         "projects": "Dự Án Đã Hoàn Thành"
     },
     "contact-info": "Thông Tin Liên Hệ",
-    "to-contact-info": "Đến Thông Tin Liên Hệ"
+    "to-contact-info": "Đến Thông Tin Liên Hệ",
+    "skillType": {
+        "technical": {
+            "label": "Chuyên Môn",
+            "angular": {
+                "description": "Angular là framework frontend chính mà mình sử dụng, cả trong project của công ty và những project cá nhân. Có thể nói, trong 1.5 năm trở lại đây, hầu như tuần nào mình cũng code Angular, hoặc học về Angular.",
+                "subSkills": {
+                    "1": "Xây dựng các thành phần cơ bản và có thể tái sử dụng: Components, Directives, Pipes, etc ",
+                    "2": "Xử lý Form: Reactive Forms, Template Driven Forms",
+                    "3": "Dependency Injection trong thực tế",
+                    "4": "Routing & Navigation",
+                    "5": "Xử lý HTTP Request (RESTful API) với HttpClient",
+                    "6": "Hiểu về cách chia sẻ dữ liệu giữa các Components sử dụng Binding, Service, DI và Store (NgRx)"
+                }
+            },
+            "js": {
+                "description": "",
+                "subSkills": {
+                    "1": "DOM Manipulation",
+                    "2": "Interface, Type Alias và Enum",
+                    "3": "Sử dụng Generics",
+                    "4": "Tạo và Sử dụng Custom Decorators"
+                }
+            }
+        },
+        "tool": {
+            "label": "Công Cụ Hỗ Trợ"
+        },
+        "soft": {
+            "label": "Kỹ Năng Khác",
+            "english": {
+                "shortDescription": "TOEIC 970, Giao Tiếp Tốt",
+                "description": "Trong hơn 2 năm trở lại đây, mình đã sử dụng tiếng Anh như ngôn ngữ chính trong công việc. Mình có thể giao tiếp tiếng Anh tốt, cả ở viết và nói, và có thể đọc và hiểu tốt các tài liệu tiếng Anh."
+            },
+            "agile": {
+                "shortDescription": "Thành Viên",
+                "description": "Mình đã làm việc trong môi trường Agile hơn 2 năm. Mình quen thuộc với Scrum và đã sử dụng nó trong công việc hàng ngày. Mình cũng có hiểu biết về Kanban và đã sử dụng nó trong một số dự án."
+            }
+        }
+    },
+    "haveSolidUnderstandingOf": "Có hiểu biết về",
+    "certificates": "Chứng chỉ",
+    "libraryUsed": "Thư viện sử dụng"
 }

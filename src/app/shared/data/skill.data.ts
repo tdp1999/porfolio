@@ -15,18 +15,16 @@ export const TechnicalSkills: Skill[] = [
         name: 'Angular',
         icon: faAngular,
         type: 'technical',
-        // 'Angular là framework frontend chính mà mình sử dụng, cả trong project của công ty và những project cá nhân. Có thể nói, trong 1.5 năm trở lại đây, hầu như tuần nào mình cũng code Angular, hoặc học về Angular.',
-        description:
-            "I have been primarily using Angular as the main frontend framework for both corporate and personal projects. Over the past 1.5 years, it's safe to say that almost every week I have either been coding with Angular or deepening my understanding of it.",
+        description: 'skillType.technical.angular.description',
         level: 'Intermediate',
         experience: 2,
         subSkills: [
-            'Implementing Basic & Reusable Building Block: Components, Directives, Pipes, etc ',
-            'Form Manipulation: Reactive Forms, Template Driven Forms',
-            'Dependency Injection Apply in Practice',
-            'Routing & Navigation',
-            'Handle HTTP Request (RESTful API) with HttpClient',
-            'Understanding Data Sharing Between Components Using Binding, Service, DI and Store (NgRx)',
+            'skillType.technical.angular.subSkills.1',
+            'skillType.technical.angular.subSkills.2',
+            'skillType.technical.angular.subSkills.3',
+            'skillType.technical.angular.subSkills.4',
+            'skillType.technical.angular.subSkills.5',
+            'skillType.technical.angular.subSkills.6',
         ],
         libraries: [
             {
@@ -48,14 +46,13 @@ export const TechnicalSkills: Skill[] = [
         name: 'Javascript / Typescript',
         icon: faJsSquare,
         type: 'technical',
-        // Angular được xây dựng toàn bộ dựa typescript, do vậy việc sử dụng typescript với mình là điều bắt buộc.
         level: 'Intermediate',
         experience: 0,
         subSkills: [
-            'DOM Manipulation',
-            'Interface, Type Alias and Enum',
-            'Using Generics',
-            'Creating and Using Custom Decorators',
+            'skillType.technical.js.subSkills.1',
+            'skillType.technical.js.subSkills.2',
+            'skillType.technical.js.subSkills.3',
+            'skillType.technical.js.subSkills.4',
         ],
         libraries: [
             {
@@ -232,9 +229,8 @@ export const SoftSkills: Skill[] = [
         name: 'English',
         icon: null,
         type: 'soft',
-        shortDescription: '(TOEIC 970, Good Conversational English)',
-        description:
-            'For over two years, I have been utilizing English as my primary working language. I am comfortable communicating in English, both in written and spoken form, and I have a good grasp of reading and understanding English documents.',
+        shortDescription: 'skillType.soft.english.shortDescription',
+        description: 'skillType.soft.english.description',
         level: 'Not Rated',
         experience: 0,
         subSkills: [],
@@ -244,10 +240,10 @@ export const SoftSkills: Skill[] = [
                 name: 'TOEIC 970 (2022)',
                 url: 'assets/images/TOEIC-certificate.jpg',
             },
-            {
-                name: 'English Communication for Work (2023)',
-                url: 'assets/images/art.jpg',
-            },
+            // {
+            //     name: 'English Communication for Work (2023)',
+            //     url: 'assets/images/art.jpg',
+            // },
         ],
     },
     {
@@ -255,9 +251,8 @@ export const SoftSkills: Skill[] = [
         name: 'Scrum/Kanban - Agile',
         icon: null,
         type: 'soft',
-        shortDescription: '(As a Member)',
-        description:
-            'I have been working in an Agile environment for over 1.5 years. I have a good understanding of the Agile process and have applied it in my work.',
+        shortDescription: 'skillType.soft.agile.shortDescription',
+        description: 'skillType.soft.agile.description',
         level: 'Not Rated',
         experience: 0,
         subSkills: [],
@@ -295,17 +290,17 @@ export const SoftSkills: Skill[] = [
 export const SkillTypes: SkillType[] = [
     {
         id: 'technical',
-        name: 'Technicals',
+        name: 'skillType.technical.label',
         data: TechnicalSkills,
     },
     {
         id: 'tool',
-        name: 'Tool & Technologies',
+        name: 'skillType.tool.label',
         data: ToolSkills,
     },
     {
         id: 'soft',
-        name: 'Additional Skills',
+        name: 'skillType.soft.label',
         data: SoftSkills,
     },
 ];
