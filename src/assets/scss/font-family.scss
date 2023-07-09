@@ -70,6 +70,10 @@ p,
     @apply text-sm md:text-base font-semibold theme--text;
 }
 
+.list-value {
+    @apply text-sm md:text-base font-normal theme--text;
+}
+
 ul,
 ol,
 .ul,

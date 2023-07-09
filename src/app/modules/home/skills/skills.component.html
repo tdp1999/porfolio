@@ -79,7 +79,7 @@
                             {{ "yoe" | transloco }}: {{ skill.experience }}
                         </p>
 
-                        <p *ngIf="skill.description" class="pt-4 caption-value">
+                        <p *ngIf="skill.description" class="pt-4">
                             {{ skill.description | transloco }}
                         </p>
 
@@ -89,15 +89,25 @@
                             "
                             class="flex flex-col pt-4"
                         >
-                            <span class="mb-2 list-title">
+                            <!-- <span class="mb-2 list-title">
                                 {{ "haveSolidUnderstandingOf" | transloco }}:
                             </span>
                             <span
-                                class="caption-value"
+                                class="mb-1 list-value"
                                 *ngFor="let skill of skill.subSkills"
                             >
                                 {{ skill | transloco }}
-                            </span>
+                            </span> -->
+
+                            <p class="list-title">
+                                {{ "haveSolidUnderstandingOf" | transloco }}
+                            </p>
+                            <ul class="mt-1">
+                                <li
+                                    *ngFor="let skill of skill.subSkills"
+                                    [innerHTML]="skill | transloco"
+                                ></li>
+                            </ul>
                         </div>
 
                         <div
