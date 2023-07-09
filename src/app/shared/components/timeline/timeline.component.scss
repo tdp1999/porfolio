@@ -1,5 +1,5 @@
 .milestone {
-    @apply relative z-10 w-6 h-6 rounded-full cursor-pointer hover:scale-110 bg-theme-primary;
-    @apply after:bg-theme-white-90 dark:after:bg-theme-black-80 after:absolute after:inset-1 after:rounded-full after:transition-selected;
+    @apply relative z-10 w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 rounded-full cursor-pointer hover:scale-110 bg-theme-primary;
+    @apply after:bg-theme-white-90 dark:after:bg-theme-black-80 after:absolute after:inset-0.5 sm:after:inset-1 after:rounded-full after:transition-selected;
     @apply -translate-x-1/2;
 }

@@ -248,7 +248,7 @@ export const SoftSkills: Skill[] = [
     },
     {
         id: 11,
-        name: 'Scrum/Kanban - Agile',
+        name: 'Scrum - Agile',
         icon: null,
         type: 'soft',
         shortDescription: 'skillType.soft.agile.shortDescription',

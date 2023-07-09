@@ -63,18 +63,18 @@ p,
 }
 
 .subtitle {
-    @apply text-xs md:text-sm font-medium theme--text;
+    @apply text-sm md:text-base font-medium theme--text;
 }
 
 .list-title {
-    @apply text-xs md:text-sm font-semibold theme--text;
+    @apply text-sm md:text-base font-semibold theme--text;
 }
 
 ul,
 ol,
 .ul,
 .ol {
-    @apply list-disc list-inside flex flex-col gap-1 text-xs md:text-sm;
+    @apply list-disc list-inside flex flex-col gap-1 text-sm md:text-base leading-6;
 }
 
 strong {
