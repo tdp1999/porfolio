@@ -1,13 +1,13 @@
 <div
-    class="flex flex-col items-center justify-center h-full gap-8 md:gap-12 xl:gap-20 px-10 sm:px-12 md:px-20 py-8 md:py-12 xl:py-20 theme--bg-secondary"
+    class="flex flex-col items-center justify-center h-full gap-8 p-8 md:gap-12 xl:gap-20 sm:px-12 md:px-20 md:py-12 xl:py-20 theme--bg-secondary"
 >
     <h2 class="">About Me</h2>
 
     <div
-        class="flex flex-col lg:flex-row items-center justify-center max-w-screen-lg gap-8 md:gap-12"
+        class="flex flex-col items-center justify-center max-w-screen-lg gap-8 lg:flex-row md:gap-12"
     >
         <div
-            class="flex-auto flex-shrink-0 lg:w-64 lg:h-64 w-full h-80 about-block"
+            class="flex-auto flex-shrink-0 w-full lg:w-64 lg:h-64 h-80 about-block"
         >
             <picture>
                 <source
@@ -114,11 +114,13 @@
         </div>
     </div>
 
-    <div class="flex gap-10 p-7 theme--bg drop-shadow-md">
+    <div
+        class="flex w-full max-w-sm gap-4 p-4 md:gap-6 lg:gap-8 md:p-5 lg:p-6 theme--bg drop-shadow-md"
+    >
         <app-stats-item
             *ngFor="let info of statsInformation"
             [value]="info.value"
-            class="theme--text"
+            class="theme--text basis-1/2"
             [label]="info.label"
         ></app-stats-item>
     </div>
