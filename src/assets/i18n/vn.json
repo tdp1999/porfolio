@@ -1,6 +1,9 @@
 {
-    "hello": "Xin chào",
+    "headline": "Lập Trình Viên Angular",
     "skills": "Kỹ năng",
+    "aboutMeSection": "Giới thiệu",
+    "experiences": "Kinh nghiệm",
+    "projects": "Dự án",
     "contact": {
         "title": "Liên hệ",
         "description": "Cảm ơn bạn đã ghé thăm website của mình. Hiện tại, mình đang có một công việc toàn thời gian tại <a href='https://redoc.co/' target='_blank' rel='noopener noreferrer' class='link-primary'>Redoc.co</a>, nhưng mình luôn đón nhận những cơ hội mới.<br><br>Nếu bạn đang tìm kiếm một thành viên chăm chỉ, chuyên nghiệp và có đam mê, hãy liên hệ với mình. Mình rất mong muốn được tham gia vào các dự án thú vị và hợp tác cùng với các đồng nghiệp tài năng.<br><br>Hãy để lại tin nhắn cho mình với thông tin chi tiết về dự án, cơ hội công việc hoặc mọi thứ bạn muốn mình biết. Mình sẽ phản hồi lại sớm nhất có thể.",
@@ -104,5 +107,13 @@
     },
     "haveSolidUnderstandingOf": "Có hiểu biết về",
     "certificates": "Chứng chỉ",
-    "libraryUsed": "Thư viện sử dụng"
+    "libraryUsed": "Thư viện sử dụng",
+    "sendMessage": "Gửi tin nhắn",
+    "resume": "CV",
+    "aboutMe": "Xin chào! Mình là Đức Phương, một lập trình viên Front-End chuyên về Angular. Với hơn 2 năm kinh nghiệm làm việc trong lĩnh vực giao diện người dùng, mình rất may mắn đã có cơ hội làm việc tại nhiều công ty và môi trường chuyên nghiệp và năng động ở Cần Thơ và TP Hồ Chí Minh. Với mục tiêu chính của mình khi đến với nghề này là đóng góp vào việc tạo ra sản phẩm có giá trị thực sự cho người dùng, mình luôn không ngừng nâng cao kỹ năng và mong muốn học hỏi từ những người giỏi nhất. Nếu bạn đang tìm kiếm một lập trình viên Front-End có đam mê và cam kết đem lại giá trị cho dự án của bạn, hãy liên hệ với mình ngay bây giờ. Mình rất mong muốn có cơ hội hợp tác và góp phần vào sự thành công của bạn.",
+    "p404": {
+        "title": "Ooops... 404!",
+        "description": "Trang bạn yêu cầu không thể tìm thấy.",
+        "back": "Trở về Trang Chủ"
+    }
 }

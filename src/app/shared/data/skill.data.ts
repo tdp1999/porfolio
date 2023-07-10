@@ -252,7 +252,6 @@ export const SoftSkills: Skill[] = [
         icon: null,
         type: 'soft',
         shortDescription: 'skillType.soft.agile.shortDescription',
-        description: 'skillType.soft.agile.description',
         level: 'Not Rated',
         experience: 0,
         subSkills: [],
