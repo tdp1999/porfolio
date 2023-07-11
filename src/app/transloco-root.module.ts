@@ -37,6 +37,10 @@ export class TranslocoHttpLoader implements TranslocoLoader {
                         label: 'Vietnamese',
                     },
                 ],
+                missingHandler: {
+                    logMissingKey: false,
+                    allowEmpty: true,
+                },
                 defaultLang: 'en',
                 fallbackLang: ['en', 'vn'],
                 failedRetries: 2,

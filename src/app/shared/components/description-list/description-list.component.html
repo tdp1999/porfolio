@@ -21,11 +21,11 @@
             >
                 <dt
                     class="sticky top-0 text-sm font-bold leading-6"
-                    [innerHTML]="record.key"
+                    [innerHTML]="record.key | transloco"
                 ></dt>
                 <dd
                     class="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0"
-                    [innerHTML]="record.value"
+                    [innerHTML]="record.value | transloco"
                 ></dd>
             </div>
 

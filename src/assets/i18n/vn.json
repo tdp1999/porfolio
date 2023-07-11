@@ -115,5 +115,67 @@
         "title": "Ooops... 404!",
         "description": "Trang bạn yêu cầu không thể tìm thấy.",
         "back": "Trở về Trang Chủ"
-    }
+    },
+    "experienceData": {
+        "1": {
+            "description": "Làm việc như một lập trình viên Front-End cho dự án của một công ty bảo hiểm lớn, chi nhánh Việt Nam. Team chịu trách nhiệm phát triển và bảo trì ứng dụng web sử dụng Angular.",
+            "location": "Cần Thơ, TP. HCM",
+            "clientLocation": "Việt Nam",
+            "clientDomain": "Bảo Hiểm",
+            "responsibilities": {
+                "1": "Bảo trì và tối ưu codebase",
+                "2": "Đánh giá thiết kế và phát triển tính năng mới dựa trên thiết kế đó",
+                "3": "Tham gia vào họp hàng tuần với account manager để thảo luận về các vấn đề và đề xuất giải pháp"
+            },
+            "achievements": {
+                "1": "Thành công trong việc làm quen với công việc của một lập trình viên web.",
+                "2": "Thành công trong việc giúp đội hoàn thành 3 dự án đúng tiến độ và đáp ứng được yêu cầu của khách hàng.",
+                "3": "Thành công trong việc làm quen với framework Angular và một số công nghệ web khác như Bootstrap 4, RxJS, etc."
+            }
+        },
+        "2": {
+            "description": "Làm việc như một lập trình viên Front-End chính cho nhiều dự án của nhiều khách hàng tại Úc. Team chịu trách nhiệm phát triển và bảo trì ứng dụng web sử dụng Angular ở phía Front-End và Python ở phía Back-End.",
+            "location": "Cần Thơ, Việt Nam",
+            "clientLocation": "Úc",
+            "clientDomain": "Nhiều Lĩnh Vực",
+            "responsibilities": {
+                "1": "Nhận thiết kế từ designer, review và đưa ra feedback cho designer.",
+                "2": "Từ thiết kế, xây dựng các trang web sử dụng Angular.",
+                "3": "Xử lý tương tác từ người dùng và tích hợp API từ Back-End.",
+                "4": "Bảo trì và hỗ trợ nhiều dự án cùng lúc.",
+                "5": "Tham gia họp hàng ngày với team và PM để thảo luận về các vấn đề và đề xuất giải pháp."
+            },
+            "achievements": {
+                "1": "Làm quen với các kiến thức về Scrum - Kanban và quy trình phát triển ứng dụng web",
+                "2": "Cải thiện đáng kể kỹ năng giao tiếp, kỹ năng tự học và khả năng làm việc dưới áp lực."
+            }
+        },
+        "3": {
+            "description": "Làm việc như một lập trình viên Front-End cho nhiều dự án của khách hàng tại Singapore. Team chịu trách nhiệm phát triển và bảo trì ứng dụng web sử dụng Angular ở phía Front-End và NestJS ở phía Back-End.",
+            "location": "TP. HCM, Việt Nam",
+            "clientLocation": "Singapore",
+            "clientDomain": "Bất Động Sản",
+            "responsibilities": {
+                "1": "Xem xét design, tài liệu và yêu cầu kỹ thuật, đồng thời cung cấp phản hồi cho designer, BA nếu có bất kỳ vấn đề nào ",
+                "2": "Phát triển các module, component và thư viện UI dựa trên các yêu cầu được đề cập trong tài liệu trên",
+                "3": "Xử lý tương tác từ người dùng và tích hợp API từ Back-End.",
+                "4": "Thu thập phản hồi từ người dùng thực tế, thảo luận với nhóm và đề xuất giải pháp cho vấn đề",
+                "5": "Tham gia họp hàng ngày với team và PM để thảo luận về các vấn đề và đề xuất giải pháp.",
+                "6": "Giao tiếp với các đồng nghiệp BE, QC/Tester và BA để giải quyết các vấn đề phát sinh trong quá trình phát triển tính năng",
+                "7": "Sử dụng Angular và các thư viện trong hệ sinh thái Angular để phát triển các mô-đun CRUD, liên quan đến việc quản lý logic tương tác của người dùng và xác thực các cụm biểu mẫu phức tạp và phụ thuộc lẫn nhau (mỗi cụm bao gồm khoảng mười trường).",
+                "8": "Sử dụng HTML, SCSS và TypeScript để tạo một hệ thống mô-đun thân thiện với người dùng, phản hồi trên thiết bị di động và dễ dàng mở rộng",
+                "9": "Triển khai hệ thống cấp phép giao diện người dùng cho khoảng 100 mô-đun phụ trong dự án.",
+                "10": "Kết hợp thư viện Transloco để triển khai chức năng dịch thuật cho dự án.",
+                "11": "Phát triển các chỉ thị, đường dẫn và các thành phần giao diện người dùng có thể tái sử dụng để sử dụng trong suốt dự án."
+            },
+            "achievements": {
+                "1": "Đã <strong>tiến bộ đáng kể</strong> về kiến thức và kỹ năng liên quan đến các công nghệ và khuôn khổ mà tôi thường sử dụng, đặc biệt là <strong>Angular</strong> và <strong>TypeScript</strong>.",
+                "2": "Đã thể hiện <strong>sự cải thiện đáng kể</strong> về kỹ năng tự học, kỷ luật tự giác và khả năng làm việc dưới áp lực và môi trường khắc nghiệt.",
+                "3": "Phát triển tầm nhìn tốt hơn cho công việc và kế hoạch tương lai, đồng thời trau dồi thái độ tích cực hơn khi đối mặt với những vấn đề khó khăn."
+            }
+        }
+    },
+    "seeMore": "Xem thêm",
+    "achievements": "Thành Tựu",
+    "responsibilities": "Trách Nhiệm"
 }

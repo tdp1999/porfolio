@@ -47,12 +47,12 @@ export const Projects: Project[] = [
         projectType: 'Professional',
         projectSize: 'Large',
         mainFunctionality: [
-            'Human Resource Management System (Agent Management, Promotion, Recruitment, etc.)',
-            'Transaction Management System (Project Management, Resale Management, etc.)',
-            'Financial Management System (Account Receivable Management, Account Payable Management, Billing Management, etc.)',
-            'Reporting System (Finance Report, Agent Performance Report, etc.)',
-            'Permission Management System (Role Management, User Management, etc.)',
-            'Agent Portal (Agent Dashboard, Agent Profile, etc.)',
+            'Human Resource Management System (Agent Management, Promotion, Recruitment,...)',
+            'Transaction Management System (Project Management, Resale Management,...)',
+            'Financial Management System (Account Receivable Management, Account Payable Management, Billing Management,...)',
+            'Reporting System (Finance Report, Agent Performance Report,...)',
+            'Permission Management System (Role Management, User Management,...)',
+            'Agent Portal (Agent Dashboard, Agent Profile,...)',
         ],
         clientDomain: 'Real Estate',
         clientLocation: 'Singapore',
@@ -76,9 +76,9 @@ export const Projects: Project[] = [
         clientDomain: 'Automobile',
         clientLocation: 'Australia',
         mainFunctionality: [
-            'Landing Page (Responsive Design, Multi Filtering, SEO, etc.)',
-            'Provider Portal (Provider Dashboard, Provider Profile, etc.)',
-            'Admin Portal (Dashboard, Provider Management, etc.)',
+            'Landing Page (Responsive Design, Multi Filtering, SEO)',
+            'Provider Portal (Provider Dashboard, Provider Profile)',
+            'Admin Portal (Dashboard, Provider Management)',
         ],
         thumbnail: {
             url: 'assets/images/projects/listing-250.webp',
@@ -100,8 +100,8 @@ export const Projects: Project[] = [
         clientDomain: 'Solar Pool Heating',
         clientLocation: 'Australia',
         mainFunctionality: [
-            'Landing Page (Responsive Design, Multi Filtering, SEO, etc.)',
-            'Admin Portal (Dashboard, Product Management, etc.)',
+            'Landing Page (Responsive Design, Multi Filtering, SEO)',
+            'Admin Portal (Dashboard, Product Management)',
             'Trader Portal',
         ],
         thumbnail: {

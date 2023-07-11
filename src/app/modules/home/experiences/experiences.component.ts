@@ -8,6 +8,7 @@ import {
     inject,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { TranslocoService } from '@ngneat/transloco';
 import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
 import { Milestone } from 'src/app/shared/components/timeline/timeline.interface';
@@ -27,6 +28,7 @@ export class ExperiencesComponent implements OnInit {
 
     private _dialog = inject(MatDialog);
     private _datePipe = inject(DatePipe);
+    private _translocoService = inject(TranslocoService);
 
     public monthYearFormat = DatetimeFormat.monthYear;
     public experiences = Experiences.sort(
@@ -64,12 +66,16 @@ export class ExperiencesComponent implements OnInit {
             Technologies: item.technologies.join(', '),
             'Client Location': item.clientLocation,
             'Client Domain': item.clientDomain,
-            Responsibilities: item.responsibilities.join('<br><br>'),
+            Responsibilities: item.responsibilities
+                .map((item) => this._translocoService.translate(item))
+                .join('<br><br>'),
             'Team Size':
                 typeof item.teamSize === 'number'
                     ? item.teamSize
                     : `${item.teamSize[0]} - ${item.teamSize[1]}`,
-            Achievements: item.achievements.join('<br><br>'),
+            Achievements: item.achievements
+                .map((item) => this._translocoService.translate(item))
+                .join('<br><br>'),
         };
 
         this._dialog.open(DescriptionListComponent, {

@@ -126,7 +126,7 @@ export const ToolSkills: Skill[] = [
         level: 'Not Rated',
         experience: 2.5,
         subSkills: [
-            'Git Basic Command: Add, Commit, Push, Pull, Fetch, Merge, Rebase, etc',
+            'Git Basic Command: Add, Commit, Push, Pull, Fetch, Merge, Rebase',
             'Git Branching and Merging Strategies',
             'Git Flow',
             'Git Hooks',
