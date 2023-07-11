@@ -10,8 +10,12 @@
     <div
         class="sticky -top-0.5 px-4 sm:px-0 pb-4 dark:bg-[#424242] bg-[#f7f7f7] z-10"
     >
-        <h3 class="text-base font-semibold leading-7">{{ data.title }}</h3>
-        <p class="max-w-2xl mt-1 text-sm leading-6">{{ data.subtitle }}</p>
+        <h3 class="text-base font-semibold leading-7">
+            {{ data.title | transloco }}
+        </h3>
+        <p class="max-w-2xl mt-1 text-sm leading-6">
+            {{ data.subtitle | transloco }}
+        </p>
     </div>
     <div class="">
         <dl class="divide-y divide-gray-300">

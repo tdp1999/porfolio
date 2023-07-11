@@ -5,6 +5,7 @@ import {
     inject,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { TranslocoService } from '@ngneat/transloco';
 import { CarouselComponent } from 'src/app/shared/components/carousel/carousel.component';
 import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
 import { Projects } from 'src/app/shared/data/project.data';
@@ -20,6 +21,7 @@ export class ProjectsComponent implements OnInit {
     public projects = Projects;
 
     private _dialog = inject(MatDialog);
+    private _translocoService = inject(TranslocoService);
 
     ngOnInit(): void {}
 
@@ -33,7 +35,9 @@ export class ProjectsComponent implements OnInit {
             'Project Category': item.projectCategory,
             'Project Type': item.projectType,
             'Project Size': item.projectSize,
-            'Main Functionality': item.mainFunctionality.join('<br><br>'),
+            'Main Functionality': item.mainFunctionality
+                .map((item) => this._translocoService.translate(item))
+                .join('<br><br>'),
             'Client Location': item.clientLocation,
             'Client Domain': item.clientDomain,
         };

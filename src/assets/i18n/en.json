@@ -176,5 +176,76 @@
     },
     "seeMore": "See More",
     "achievements": "Achievements",
-    "responsibilities": "Responsibilities"
+    "responsibilities": "Responsibilities",
+    "projectData": {
+        "1": {
+            "name": "Portfolio",
+            "description": "My personal portfolio website (This site). Built with Angular 14.",
+            "mainFunctionality": {
+                "1": "Responsive design",
+                "2": "Multi-language support",
+                "3": "Dark mode support",
+                "4": "SEO friendly"
+            }
+        },
+        "2": {
+            "name": "Real Estate Agency ERP System",
+            "description": "Full scale ERP System for a large real estate agency in Singapore.",
+            "mainFunctionality": {
+                "1": "Human Resource Management System (Agent Management, Promotion, Recruitment,...)",
+                "2": "Transaction Management System (Project Management, Resale Management,...)",
+                "3": "Financial Management System (Account Receivable Management, Account Payable Management, Billing Management,...)",
+                "4": "Reporting System (Finance Report, Agent Performance Report,...)",
+                "5": "Permission Management System (Role Management, User Management,...)",
+                "6": "Agent Portal (Agent Dashboard, Agent Profile,...)"
+            }
+        },
+        "3": {
+            "name": "Car Workshop Listing Websites",
+            "description": "An automobile marketplace website for connecting car owners with workshops for car servicing and repairs in Australia.",
+            "mainFunctionality": {
+                "1": "Landing Page (Responsive Design, Multi Filtering, SEO)",
+                "2": "Provider Portal (Provider Dashboard, Provider Profile)",
+                "3": "Admin Portal (Dashboard, Provider Management)"
+            }
+        },
+        "4": {
+            "name": "Solar Pool Heating Company Websites",
+            "description": "A Product Management System and Landing Page for a Solar Pool Heating Company in Australia.",
+            "mainFunctionality": {
+                "1": "Landing Page (Responsive Design, Multi Filtering, SEO)",
+                "2": "Admin Portal (Dashboard, Product Management)",
+                "3": "Trader Portal"
+            }
+        },
+        "5": {
+            "name": "Resto. Restaurant Landing Page",
+            "description": "A Simple Landing Page for an imaginary Restaurant using HTML, CSS and JavaScript.",
+            "mainFunctionality": {
+                "1": "Responsive Design"
+            }
+        }
+    },
+    "Not Rated": "Not Rated",
+    "Small": "Small",
+    "Medium": "Medium",
+    "Large": "Large",
+    "Demo Available": "Demo Available",
+    "Personal": "Personal",
+    "Team": "Team",
+    "Start - End Date": "Start - End Date",
+    "Project Category": "Project Category",
+    "Project Size": "Project Size",
+    "Project Type": "Project Type",
+    "Main Functionality": "Main Functionality",
+    "Client Location": "Client Location",
+    "Client Domain": "Client Domain",
+    "Present": "Present",
+    "Technologies": "Technologies",
+    "Miscellaneous": "Miscellaneous",
+    "Automobile": "Automobile",
+    "Responsibilities": "Responsibilities",
+    "Description": "Description",
+    "Team Size": "Team Size",
+    "Achievements": "Achievements"
 }

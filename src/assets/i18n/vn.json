@@ -177,5 +177,76 @@
     },
     "seeMore": "Xem thêm",
     "achievements": "Thành Tựu",
-    "responsibilities": "Trách Nhiệm"
+    "responsibilities": "Trách Nhiệm",
+    "projectData": {
+        "1": {
+            "name": "Portfolio",
+            "description": "Trang web cá nhân của tôi (trang web này). Được xây dựng với Angular 14.",
+            "mainFunctionality": {
+                "1": "Responsive design",
+                "2": "Hỗ trợ đa ngôn ngữ",
+                "3": "Dark mode",
+                "4": "Tối ưu SEO"
+            }
+        },
+        "2": {
+            "name": "Hệ Thống ERP Công Ty Bất Động Sản",
+            "description": "Hệ thống ERP toàn diện cho một công ty bất động sản lớn tại Singapore.",
+            "mainFunctionality": {
+                "1": "Hệ Thống Quản Lý Nhân Sự (Quản Lý Đại Lý, Thăng Tiến, Tuyển Dụng,...)",
+                "2": "Hệ Thống Quản Lý Giao Dịch (Quản Lý Dự Án, Quản Lý Bán Lại,...)",
+                "3": "Hệ Thống Quản Lý Tài Chính (Quản Lý Tài Khoản Được Thu, Quản Lý Tài Khoản Được Trả, Quản Lý Hóa Đơn,...)",
+                "4": "Hệ Thống Báo Cáo (Báo Cáo Tài Chính, Báo Cáo Hiệu Suất Đại Lý,...)",
+                "5": "Hệ Thống Quản Lý Phân Quyền (Quản Lý Vai Trò, Quản Lý Người Dùng,...)",
+                "6": "Trang Cá Nhân Đại Lý (Bảng Điều Khiển Đại Lý, Hồ Sơ Đại Lý,...)"
+            }
+        },
+        "3": {
+            "name": "Trang Web Đăng Ký Xưởng Sửa Chữa Ô Tô",
+            "description": "Trang web thương mại điện tử cho phép người dùng đăng ký xưởng sửa chữa ô tô và tìm kiếm các xưởng sửa chữa ô tô gần nhất.",
+            "mainFunctionality": {
+                "1": "Trang Chủ (Thiết Kế Đáp Ứng, Lọc Nhiều Tiêu Chí, Tối Ưu SEO)",
+                "2": "Trang Cá Nhân Nhà Cung Cấp (Bảng Điều Khiển Nhà Cung Cấp, Hồ Sơ Nhà Cung Cấp)",
+                "3": "Trang Quản Trị (Bảng Điều Khiển, Quản Lý Nhà Cung Cấp)"
+            }
+        },
+        "4": {
+            "name": "Website cho Công Ty Lắp Đặt Hệ Thống Sưởi Hồ Bơi Bằng Năng Lượng Mặt Trời",
+            "description": "Hệ thống quản lý sản phẩm và trang đích cho một công ty sưởi ấm hồ bơi năng lượng mặt trời ở Úc.",
+            "mainFunctionality": {
+                "1": "Trang Chủ (Thiết Kế Đáp Ứng, Lọc Nhiều Tiêu Chí, Tối Ưu SEO)",
+                "2": "Trang Quản Trị (Bảng Điều Khiển, Quản Lý Sản Phẩm)",
+                "3": "Trang Cá Nhân Nhà Cung Cấp"
+            }
+        },
+        "5": {
+            "name": "Trang Web Nhà Hàng",
+            "description": "Trang web giới thiệu cho một nhà hàng ảo sử dụng HTML, CSS và JavaScript.",
+            "mainFunctionality": {
+                "1": "Responsive Design"
+            }
+        }
+    },
+    "Not Rated": "Không Đánh Giá",
+    "Small": "Nhỏ",
+    "Medium": "Trung Bình",
+    "Large": "Lớn",
+    "Demo Available": "Có Demo",
+    "Personal": "Cá Nhân",
+    "Team": "Nhóm / Công Ty",
+    "Start - End Date": "Thời Gian Thực Hiện",
+    "Project Category": "Phân Loại Dự Án",
+    "Project Size": "Quy Mô Dự Án",
+    "Project Type": "Loại Dự Án",
+    "Main Functionality": "Chức Năng Chính",
+    "Client Location": "Khách Hàng",
+    "Client Domain": "Lĩnh Vực",
+    "Technologies": "Công Nghệ",
+    "Present": "Hiện Tại",
+    "Miscellaneous": "Khác",
+    "Automobile": "Ô Tô",
+    "Responsibilities": "Trách Nhiệm",
+    "Description": "Mô Tả",
+    "Team Size": "Quy Mô Nhóm",
+    "Achievements": "Thành Tựu"
 }
