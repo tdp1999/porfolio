@@ -247,5 +247,6 @@
     "Responsibilities": "Responsibilities",
     "Description": "Description",
     "Team Size": "Team Size",
-    "Achievements": "Achievements"
+    "Achievements": "Achievements",
+    "projectSizeTooltip": "Based on <a href='https://uwaterloo.ca/ist-project-management-office/methodologies/project-sizing-and-complexity' target='_blank' rel='noopener noreferrer'>Project sizing and complexity</a>"
 }

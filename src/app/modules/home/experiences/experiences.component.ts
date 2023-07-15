@@ -61,22 +61,43 @@ export class ExperiencesComponent implements OnInit {
     }
 
     openMetadataDialog(item: Experience) {
-        const data = {
-            Description: item.description,
-            Technologies: item.technologies.join(', '),
-            'Client Location': item.clientLocation,
-            'Client Domain': item.clientDomain,
-            Responsibilities: item.responsibilities
-                .map((item) => this._translocoService.translate(item))
-                .join('<br><br>'),
-            'Team Size':
-                typeof item.teamSize === 'number'
-                    ? item.teamSize
-                    : `${item.teamSize[0]} - ${item.teamSize[1]}`,
-            Achievements: item.achievements
-                .map((item) => this._translocoService.translate(item))
-                .join('<br><br>'),
-        };
+        const data = [
+            {
+                title: 'Description',
+                value: item.description,
+            },
+            {
+                title: 'Technologies',
+                value: item.technologies.join(', '),
+            },
+            {
+                title: 'Client Location',
+                value: item.clientLocation,
+            },
+            {
+                title: 'Client Domain',
+                value: item.clientDomain,
+            },
+            {
+                title: 'Responsibilities',
+                value: item.responsibilities
+                    .map((item) => this._translocoService.translate(item))
+                    .join('<br><br>'),
+            },
+            {
+                title: 'Team Size',
+                value:
+                    typeof item.teamSize === 'number'
+                        ? item.teamSize
+                        : `${item.teamSize[0]} - ${item.teamSize[1]}`,
+            },
+            {
+                title: 'Achievements',
+                value: item.achievements
+                    .map((item) => this._translocoService.translate(item))
+                    .join('<br><br>'),
+            },
+        ];
 
         this._dialog.open(DescriptionListComponent, {
             data: {

@@ -33,7 +33,7 @@ export const Experiences: Experience[] = [
     },
     {
         id: 2,
-        company: 'App Core',
+        company: 'AppCore',
         position: 'Junior Software Engineer',
         startDate: new Date(2022, 0, 1),
         endDate: new Date(2022, 4, 1),
@@ -81,11 +81,6 @@ export const Experiences: Experience[] = [
             'experienceData.3.responsibilities.4',
             'experienceData.3.responsibilities.5',
             'experienceData.3.responsibilities.6',
-            'experienceData.3.responsibilities.7',
-            'experienceData.3.responsibilities.8',
-            'experienceData.3.responsibilities.9',
-            'experienceData.3.responsibilities.10',
-            'experienceData.3.responsibilities.11',
         ],
         teamSize: [10, 15],
         achievements: [

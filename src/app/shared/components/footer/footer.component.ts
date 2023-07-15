@@ -10,6 +10,7 @@ import { LangDefinition, TranslocoService } from '@ngneat/transloco';
 import { Subject, debounceTime, distinctUntilChanged, takeUntil } from 'rxjs';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { LS_LANGUAGE_KEY } from '../../tokens/local-storage.token';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
     selector: 'app-footer',
@@ -23,6 +24,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     public currentYear = new Date().getFullYear();
 
     private _cdr = inject(ChangeDetectorRef);
+    private _document = inject(DOCUMENT);
     private _languageKey = inject(LS_LANGUAGE_KEY);
     private _localStorage = inject(LocalStorageService);
     private _translocoService = inject(TranslocoService);
@@ -63,6 +65,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     selectLanguage(lang: string): void {
         if (lang === this.currentLanguage?.id) return;
         this._translocoService.setActiveLang(lang);
+        this._document.documentElement.lang = lang;
         this._localStorage.setItem(this._languageKey, lang);
     }
 }

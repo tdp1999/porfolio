@@ -6,11 +6,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslocoModule } from '@ngneat/transloco';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const components = [
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
+    MatTooltipModule,
     FontAwesomeModule,
     TranslocoModule,
 ];

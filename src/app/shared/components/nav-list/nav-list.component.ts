@@ -141,7 +141,7 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
                 .observeElementScroll(scrollableElement)
                 .pipe(
                     takeUntil(this._unsubscribeAll),
-                    debounceTime(150),
+                    // debounceTime(150),
                     tap(() => {
                         if (!this.navbar || !this.navbar.nativeElement) return;
                         this._scrollService.toggleScrolledClass(

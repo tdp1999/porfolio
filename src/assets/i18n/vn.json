@@ -6,7 +6,7 @@
     "projects": "Dự án",
     "contact": {
         "title": "Liên hệ",
-        "description": "Cảm ơn bạn đã ghé thăm website của mình. Hiện tại, mình đang có một công việc toàn thời gian tại <a href='https://redoc.co/' target='_blank' rel='noopener noreferrer' class='link-primary'>Redoc.co</a>, nhưng mình luôn đón nhận những cơ hội mới.<br><br>Nếu bạn đang tìm kiếm một thành viên chăm chỉ, chuyên nghiệp và có đam mê, hãy liên hệ với mình. Mình rất mong muốn được tham gia vào các dự án thú vị và hợp tác cùng với các đồng nghiệp tài năng.<br><br>Hãy để lại tin nhắn cho mình với thông tin chi tiết về dự án, cơ hội công việc hoặc mọi thứ bạn muốn mình biết. Mình sẽ phản hồi lại sớm nhất có thể.",
+        "description": "Cảm ơn bạn đã ghé thăm website của mình. Hiện tại, mình đang có một công việc toàn thời gian tại <a href='https://redoc.co/' target='_blank' rel='noopener noreferrer' class='primary-link'>Redoc.co</a>, nhưng mình luôn đón nhận những cơ hội mới.<br><br>Nếu bạn đang tìm kiếm một thành viên chăm chỉ, chuyên nghiệp và có đam mê, hãy liên hệ với mình. Mình rất mong muốn được tham gia vào các dự án thú vị và hợp tác cùng với các đồng nghiệp tài năng.<br><br>Hãy để lại tin nhắn cho mình với thông tin chi tiết về dự án, cơ hội công việc hoặc mọi thứ bạn muốn mình biết. Mình sẽ phản hồi lại sớm nhất có thể.",
         "address-1": "Quận 8, TPHCM",
         "address-2": "Ninh Kiều, TP. Cần Thơ"
     },
@@ -110,7 +110,7 @@
     "libraryUsed": "Thư viện sử dụng",
     "sendMessage": "Gửi tin nhắn",
     "resume": "CV",
-    "aboutMe": "Xin chào! Mình là Đức Phương, một lập trình viên Front-End chuyên về Angular. Với hơn 2 năm kinh nghiệm làm việc trong lĩnh vực giao diện người dùng, mình rất may mắn đã có cơ hội làm việc tại nhiều công ty và môi trường chuyên nghiệp và năng động ở Cần Thơ và TP Hồ Chí Minh. Với mục tiêu chính của mình khi đến với nghề này là đóng góp vào việc tạo ra sản phẩm có giá trị thực sự cho người dùng, mình luôn không ngừng nâng cao kỹ năng và mong muốn học hỏi từ những người giỏi nhất. Nếu bạn đang tìm kiếm một lập trình viên Front-End có đam mê và cam kết đem lại giá trị cho dự án của bạn, hãy liên hệ với mình ngay bây giờ. Mình rất mong muốn có cơ hội hợp tác và góp phần vào sự thành công của bạn.",
+    "aboutMe": "Xin chào! Mình là Đức Phương, một lập trình viên Front-End Angular. <br> Với hơn 2 năm kinh nghiệm làm một Front-End Dev, mình may mắn có cơ hội làm việc tại nhiều công ty, môi trường chuyên nghiệp và năng động ở Cần Thơ và TPHCM. <br> Mong muốn góp phần tạo ra sản phẩm có giá trị, mình không ngừng tự học và khao khát học từ những người giỏi nhất. Nếu bạn đang tìm kiếm một lập trình viên Front-End có đam mê, cam kết đem lại giá trị cho dự án, hãy liên hệ với mình. Mình rất mong muốn có cơ hội hợp tác và góp phần vào sự thành công chung của chúng ta.",
     "p404": {
         "title": "Ooops... 404!",
         "description": "Trang bạn yêu cầu không thể tìm thấy.",
@@ -118,29 +118,29 @@
     },
     "experienceData": {
         "1": {
-            "description": "Làm việc như một lập trình viên Front-End cho dự án của một công ty bảo hiểm lớn, chi nhánh Việt Nam. Team chịu trách nhiệm phát triển và bảo trì ứng dụng web sử dụng Angular.",
+            "description": "Thực tập sinh và lập trình viên Front-End bán thời gian cho dự án của một công ty bảo hiểm lớn, chi nhánh Việt Nam. Team chịu trách nhiệm phát triển và bảo trì ứng dụng web sử dụng Angular, Nx.",
             "location": "Cần Thơ, TP. HCM",
             "clientLocation": "Việt Nam",
             "clientDomain": "Bảo Hiểm",
             "responsibilities": {
                 "1": "Bảo trì và tối ưu codebase",
-                "2": "Đánh giá thiết kế và phát triển tính năng mới dựa trên thiết kế đó",
+                "2": "Đánh giá thiết kế và phát triển tính năng mới dựa trên thiết kế",
                 "3": "Tham gia vào họp hàng tuần với account manager để thảo luận về các vấn đề và đề xuất giải pháp"
             },
             "achievements": {
-                "1": "Thành công trong việc làm quen với công việc của một lập trình viên web.",
-                "2": "Thành công trong việc giúp đội hoàn thành 3 dự án đúng tiến độ và đáp ứng được yêu cầu của khách hàng.",
-                "3": "Thành công trong việc làm quen với framework Angular và một số công nghệ web khác như Bootstrap 4, RxJS, etc."
+                "1": "Làm quen với công việc của một lập trình viên web.",
+                "2": "Góp sức với team hoàn thành đúng tiến độ 3 dự án, đáp ứng được yêu cầu của khách hàng.",
+                "3": "Quen với framework Angular và một số library khác như Bootstrap 4, RxJS, etc."
             }
         },
         "2": {
-            "description": "Làm việc như một lập trình viên Front-End chính cho nhiều dự án của nhiều khách hàng tại Úc. Team chịu trách nhiệm phát triển và bảo trì ứng dụng web sử dụng Angular ở phía Front-End và Python ở phía Back-End.",
+            "description": "Lập trình viên Front-End chính trong nhiều dự án với khách hàng Úc. Team chịu trách nhiệm phát triển, bảo trì ứng dụng web sử dụng Angular phía Front-End và Python phía Back-End.",
             "location": "Cần Thơ, Việt Nam",
             "clientLocation": "Úc",
             "clientDomain": "Nhiều Lĩnh Vực",
             "responsibilities": {
                 "1": "Nhận thiết kế từ designer, review và đưa ra feedback cho designer.",
-                "2": "Từ thiết kế, xây dựng các trang web sử dụng Angular.",
+                "2": "Từ thiết kế, xây dựng web sử dụng Angular.",
                 "3": "Xử lý tương tác từ người dùng và tích hợp API từ Back-End.",
                 "4": "Bảo trì và hỗ trợ nhiều dự án cùng lúc.",
                 "5": "Tham gia họp hàng ngày với team và PM để thảo luận về các vấn đề và đề xuất giải pháp."
@@ -151,27 +151,22 @@
             }
         },
         "3": {
-            "description": "Làm việc như một lập trình viên Front-End cho nhiều dự án của khách hàng tại Singapore. Team chịu trách nhiệm phát triển và bảo trì ứng dụng web sử dụng Angular ở phía Front-End và NestJS ở phía Back-End.",
+            "description": "Lập trình viên Front-End chính trong nhiều dự án với khách hàng Singapore. Team chịu trách nhiệm phát triển, bảo trì ứng dụng web sử dụng Angular phía Front-End và NestJS phía Back-End.",
             "location": "TP. HCM, Việt Nam",
             "clientLocation": "Singapore",
             "clientDomain": "Bất Động Sản",
             "responsibilities": {
-                "1": "Xem xét design, tài liệu và yêu cầu kỹ thuật, đồng thời cung cấp phản hồi cho designer, BA nếu có bất kỳ vấn đề nào ",
-                "2": "Phát triển các module, component và thư viện UI dựa trên các yêu cầu được đề cập trong tài liệu trên",
-                "3": "Xử lý tương tác từ người dùng và tích hợp API từ Back-End.",
-                "4": "Thu thập phản hồi từ người dùng thực tế, thảo luận với nhóm và đề xuất giải pháp cho vấn đề",
-                "5": "Tham gia họp hàng ngày với team và PM để thảo luận về các vấn đề và đề xuất giải pháp.",
-                "6": "Giao tiếp với các đồng nghiệp BE, QC/Tester và BA để giải quyết các vấn đề phát sinh trong quá trình phát triển tính năng",
-                "7": "Sử dụng Angular và các thư viện trong hệ sinh thái Angular để phát triển các mô-đun CRUD, liên quan đến việc quản lý logic tương tác của người dùng và xác thực các cụm biểu mẫu phức tạp và phụ thuộc lẫn nhau (mỗi cụm bao gồm khoảng mười trường).",
-                "8": "Sử dụng HTML, SCSS và TypeScript để tạo một hệ thống mô-đun thân thiện với người dùng, phản hồi trên thiết bị di động và dễ dàng mở rộng",
-                "9": "Triển khai hệ thống cấp phép giao diện người dùng cho khoảng 100 mô-đun phụ trong dự án.",
-                "10": "Kết hợp thư viện Transloco để triển khai chức năng dịch thuật cho dự án.",
-                "11": "Phát triển các chỉ thị, đường dẫn và các thành phần giao diện người dùng có thể tái sử dụng để sử dụng trong suốt dự án."
+                "1": "Xem xét design, tài liệu và yêu cầu kỹ thuật, phản hồi cho designer, BA nếu có vấn đề",
+                "2": "Phát triển các module feature, xử lý các cụm form phức tạp và tích hợp API từ Back-End.",
+                "3": "Viết các directive, pipe, UI library có thể tái sử dụng trong suốt dự án.",
+                "4": "Triển khai hệ thống permission cho khoảng 100 module phụ trong dự án.",
+                "5": "Sử dụng thư viện Transloco để triển khai chức năng đa ngôn ngữ cho dự án.",
+                "6": "Tham gia họp hàng ngày với team và PM, cũng như thảo luận riêng với BE, BA, QC, Tester về các vấn đề và đề xuất giải pháp."
             },
             "achievements": {
-                "1": "Đã <strong>tiến bộ đáng kể</strong> về kiến thức và kỹ năng liên quan đến các công nghệ và khuôn khổ mà tôi thường sử dụng, đặc biệt là <strong>Angular</strong> và <strong>TypeScript</strong>.",
-                "2": "Đã thể hiện <strong>sự cải thiện đáng kể</strong> về kỹ năng tự học, kỷ luật tự giác và khả năng làm việc dưới áp lực và môi trường khắc nghiệt.",
-                "3": "Phát triển tầm nhìn tốt hơn cho công việc và kế hoạch tương lai, đồng thời trau dồi thái độ tích cực hơn khi đối mặt với những vấn đề khó khăn."
+                "1": "Tiến bộ đáng kể về kiến thức và kỹ năng liên quan đến các công nghệ thường sử dụng, đặc biệt là Angular và TypeScript.",
+                "2": "Cải thiện đáng kể kỹ năng tự học, kỷ luật và khả năng làm việc dưới áp lực.",
+                "3": "Phát triển tầm nhìn tốt hơn trong công việc và kế hoạch tương lai, đồng thời rèn luyện thái độ tích cực hơn khi đối mặt với những vấn đề khó khăn."
             }
         }
     },
@@ -181,7 +176,7 @@
     "projectData": {
         "1": {
             "name": "Portfolio",
-            "description": "Trang web cá nhân của tôi (trang web này). Được xây dựng với Angular 14.",
+            "description": "Trang web cá nhân của mình. Được xây dựng với Angular 14.",
             "mainFunctionality": {
                 "1": "Responsive design",
                 "2": "Hỗ trợ đa ngôn ngữ",
@@ -193,30 +188,30 @@
             "name": "Hệ Thống ERP Công Ty Bất Động Sản",
             "description": "Hệ thống ERP toàn diện cho một công ty bất động sản lớn tại Singapore.",
             "mainFunctionality": {
-                "1": "Hệ Thống Quản Lý Nhân Sự (Quản Lý Đại Lý, Thăng Tiến, Tuyển Dụng,...)",
-                "2": "Hệ Thống Quản Lý Giao Dịch (Quản Lý Dự Án, Quản Lý Bán Lại,...)",
-                "3": "Hệ Thống Quản Lý Tài Chính (Quản Lý Tài Khoản Được Thu, Quản Lý Tài Khoản Được Trả, Quản Lý Hóa Đơn,...)",
-                "4": "Hệ Thống Báo Cáo (Báo Cáo Tài Chính, Báo Cáo Hiệu Suất Đại Lý,...)",
-                "5": "Hệ Thống Quản Lý Phân Quyền (Quản Lý Vai Trò, Quản Lý Người Dùng,...)",
-                "6": "Trang Cá Nhân Đại Lý (Bảng Điều Khiển Đại Lý, Hồ Sơ Đại Lý,...)"
+                "1": "Agent Mananger - Quản Lý Nhân Sự",
+                "2": "Transactions - Quản Lý Giao Dịch",
+                "3": "Finances - Quản Lý Tài Chính",
+                "4": "Reports - Báo Cáo (Báo Cáo Tài Chính, Báo Cáo Hiệu Suất Đại Lý,...)",
+                "5": "Phân Quyền",
+                "6": "Agent Portal"
             }
         },
         "3": {
-            "name": "Trang Web Đăng Ký Xưởng Sửa Chữa Ô Tô",
-            "description": "Trang web thương mại điện tử cho phép người dùng đăng ký xưởng sửa chữa ô tô và tìm kiếm các xưởng sửa chữa ô tô gần nhất.",
+            "name": "Website Kết Nối Đại Lý Dịch Vụ Và Người Dùng Ô Tô",
+            "description": "Trang web thương mại điện tử cho phép đại lý đăng ký dịch vụ liên quan đến chăm sóc ô tô và cho phép người dùng tìm kiếm các dịch vụ ô tô gần nhất.",
             "mainFunctionality": {
-                "1": "Trang Chủ (Thiết Kế Đáp Ứng, Lọc Nhiều Tiêu Chí, Tối Ưu SEO)",
-                "2": "Trang Cá Nhân Nhà Cung Cấp (Bảng Điều Khiển Nhà Cung Cấp, Hồ Sơ Nhà Cung Cấp)",
-                "3": "Trang Quản Trị (Bảng Điều Khiển, Quản Lý Nhà Cung Cấp)"
+                "1": "Landing Page (Responsive Design, SEO)",
+                "2": "User Portal",
+                "3": "Admin Portal"
             }
         },
         "4": {
-            "name": "Website cho Công Ty Lắp Đặt Hệ Thống Sưởi Hồ Bơi Bằng Năng Lượng Mặt Trời",
-            "description": "Hệ thống quản lý sản phẩm và trang đích cho một công ty sưởi ấm hồ bơi năng lượng mặt trời ở Úc.",
+            "name": "Website Công Ty Sản Xuất Sưởi Hồ Bơi Bằng Năng Lượng Mặt Trời",
+            "description": "Hệ thống quản lý sản phẩm và trang đích cho một công ty sản xuất thiết bị sưởi ấm hồ bơi năng lượng mặt trời ở Úc.",
             "mainFunctionality": {
-                "1": "Trang Chủ (Thiết Kế Đáp Ứng, Lọc Nhiều Tiêu Chí, Tối Ưu SEO)",
-                "2": "Trang Quản Trị (Bảng Điều Khiển, Quản Lý Sản Phẩm)",
-                "3": "Trang Cá Nhân Nhà Cung Cấp"
+                "1": "Landing Page (Responsive Design, SEO)",
+                "2": "User Portal",
+                "3": "Admin Portal"
             }
         },
         "5": {
@@ -248,5 +243,6 @@
     "Responsibilities": "Trách Nhiệm",
     "Description": "Mô Tả",
     "Team Size": "Quy Mô Nhóm",
-    "Achievements": "Thành Tựu"
+    "Achievements": "Thành Tựu",
+    "projectSizeTooltip": "Theo <a href='https://uwaterloo.ca/ist-project-management-office/methodologies/project-sizing-and-complexity' target='_blank' rel='noopener noreferrer'>Project sizing and complexity</a>"
 }

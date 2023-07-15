@@ -26,21 +26,47 @@ export class ProjectsComponent implements OnInit {
     ngOnInit(): void {}
 
     openMetadataDialog(item: Project) {
-        const data = {
-            // Description: item.description,
-            Technologies: item.technologies.join(', '),
-            'Start - End Date': `${item.startDate.toLocaleDateString()} - ${
-                item.endDate ? item.endDate.toLocaleDateString() : 'Present'
-            }`,
-            'Project Category': item.projectCategory,
-            'Project Type': item.projectType,
-            'Project Size': item.projectSize,
-            'Main Functionality': item.mainFunctionality
-                .map((item) => this._translocoService.translate(item))
-                .join('<br><br>'),
-            'Client Location': item.clientLocation,
-            'Client Domain': item.clientDomain,
-        };
+        const data = [
+            {
+                title: 'Technologies',
+                value: item.technologies.join(', '),
+            },
+            {
+                title: 'Start - End Date',
+                value: `${item.startDate.toLocaleDateString()} - ${
+                    item.endDate
+                        ? item.endDate.toLocaleDateString()
+                        : this._translocoService.translate('Present')
+                }`,
+            },
+            {
+                title: 'Project Category',
+                value: item.projectCategory,
+            },
+            {
+                title: 'Project Type',
+                value: item.projectType,
+            },
+            {
+                title: 'Project Size',
+                value: item.projectSize,
+                tooltip: 'projectSizeTooltip',
+            },
+            {
+                title: 'Main Functionality',
+                value: item.mainFunctionality
+                    .map((item) => this._translocoService.translate(item))
+                    .join('<br><br>'),
+            },
+            {
+                title: 'Client Location',
+                value: item.clientLocation,
+            },
+            {
+                title: 'Client Domain',
+                value: item.clientDomain,
+            },
+        ];
 
         let links = undefined;
         if (

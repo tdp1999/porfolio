@@ -43,8 +43,8 @@
         </div>
 
         <div>
-            <p class="mb-4 md:mb-8">
-                {{ "aboutMe" | transloco }}
+            <p class="mb-4 md:mb-8" [innerHTML]="'aboutMe' | transloco">
+                <!-- {{ "aboutMe" | transloco }} -->
             </p>
 
             <div
