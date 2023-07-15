@@ -1,12 +1,12 @@
 {
-    "headline": "I build things on the internet.",
+    "headline": "Angular Developer.",
     "skills": "Skills",
     "aboutMeSection": "About Me",
     "experiences": "Experiences",
     "projects": "Projects",
     "contact": {
         "title": "Contact",
-        "description": "Thank you for visiting my portfolio! I am currently employed full-time as a middle front-end developer for <a href='https://redoc.co/' target='_blank' rel='noopener noreferrer' class='link-primary'>Redoc.co</a>, but I am always open to new opportunities and challenges. <br><br>If you have an exciting project or part-time opportunity related to my field, I would love to hear from you. I am passionate about expanding my skill set and contributing to valuable projects. Feel free to reach out and let's discuss how we can collaborate to create something great together!",
+        "description": "Thank you for visiting my portfolio! I am currently employed full-time as a middle front-end developer for <a href='https://redoc.co/' target='_blank' rel='noopener noreferrer' class='primary-link'>Redoc.co</a>, but I am always open to new opportunities and challenges. <br><br>If you have an exciting project or part-time opportunity related to my field, I would love to hear from you. I am passionate about expanding my skill set and contributing to valuable projects. Feel free to reach out and let's discuss how we can collaborate to create something great together!",
         "address-1": "District 8, Ho Chi Minh City",
         "address-2": "Ninh Kieu District, Can Tho City"
     },
@@ -109,7 +109,7 @@
     "libraryUsed": "Library Used",
     "sendMessage": "Send Message",
     "resume": "Resume",
-    "aboutMe": "Hello there! My name is Tran Duc Phuong, and I am an Angular front-end developer based in the beautiful cities of Can Tho and Ho Chi Minh City, Vietnam. I am truly humbled by the opportunity to work in this field, and my main goal is to contribute valuable and meaningful work to the industry. I am constantly striving to learn and grow, and I am excited to collaborate and create impactful digital experiences. Let's embark on this journey together and make a difference!",
+    "aboutMe": "Hello! I'm Duc Phuong, a Front-End Angular programmer. <br> With over 2 years of experience as a Front-End Dev, I have been fortunate to work in various professional and dynamic environments in Can Tho and Ho Chi Minh City. <br> I aspire to contribute to creating valuable products, continuously learning and seeking knowledge from the best. If you are seeking a passionate Front-End programmer committed to adding value to your project, please feel free to contact me. I am eager for the opportunity to collaborate and contribute to our mutual success.",
     "p404": {
         "title": "Ooops... 404!",
         "description": "The page you requested could not be found.",
@@ -117,7 +117,7 @@
     },
     "experienceData": {
         "1": {
-            "description": "Worked as a Frontend Developer for the project of a big insurance company, Vietnam branch. My team is responsible for developing and maintaining the web application using Angular.",
+            "description": "WIntern and Front-End programmer part-time for a project for a large insurance company, Vietnam branch. The team is responsible for the development and maintenance of the web application using Angular and Nx.",
             "location": "Can Tho, Vietnam",
             "clientLocation": "Vietnam",
             "clientDomain": "Insurance",
@@ -127,50 +127,45 @@
                 "3": "Participated in the weekly meeting with the account manager to discuss the issues and propose solutions"
             },
             "achievements": {
-                "1": "Successfully get acquainted with the job of a web developer.",
-                "2": "Successfully help the team to deliver 3 projects on time that meet the customer's requirements.",
-                "3": "Successfully accustomed to the Angular framework and some other web technologies such as Bootstrap 4, SwiperJS, etc."
+                "1": "Getting acquainted with the work of a web programmer.",
+                "2": "Contributing to the team's successful completion of 3 projects, meeting customer requirements on schedule.",
+                "3": "Familiarizing myself with Angular framework and various libraries like Bootstrap 4, RxJS, etc."
             }
         },
         "2": {
-            "description": "Worked as a main Frontend Developer for multiple projects of several client located in Australia. My team is responsible for developing and maintaining the web application using Angular in the frontend and Python in the backend.",
+            "description": "One of the primary Front-End programmers involved in various projects for clients from Australia. The team is responsible for developing and maintaining web applications using Angular on the Front-End and Python on the Back-End.",
             "location": "Can Tho, Vietnam",
             "clientLocation": "Australia",
             "clientDomain": "Miscellaneous",
             "responsibilities": {
-                "1": "Get design mockups, review them, and give feedback to the designer.",
-                "2": "From design, build SPA websites with reusable pages and components.",
-                "3": "Handle user interactions and integrate APIs from the Backend.",
-                "4": "Maintain and support multiple projects.",
-                "5": "Participated in the daily meeting with the team and PM to discuss the issues and propose solutions."
+                "1": "Received design from the designer, reviewed, and provided feedback to the designer.",
+                "2": "Built web applications using Angular based on the design.",
+                "3": "Handled user interactions and integrated APIs from the Back-End..",
+                "4": "Maintained and supported multiple projects simultaneously.",
+                "5": "Participated in daily meetings with the team and project manager to discuss issues and propose solutions."
             },
             "achievements": {
-                "1": "Get acquainted with the knowledge of Scrum - Kanban strategies, and the process of developing a web application.",
-                "2": "Significantly improve my communication skills, self-learning skills, and the ability to work under pressure."
+                "1": "Getting familiar with Scrum - Kanban methodologies and web application development processes..",
+                "2": "Significantly improving communication skills, self-learning abilities, and the capacity to work under pressure."
             }
         },
         "3": {
-            "description": "Worked as a Frontend Developer for multiple projects of several big real estate companies in Singapore. My team is responsible for developing and maintaining the ERP system for clients company using Angular in the frontend and NestJS in the backend.",
+            "description": "One of the primary Front-End programmers for multiple projects with Singaporean clients. The team is responsible for developing and maintaining web applications using Angular on the Front-End and NestJS on the Back-End.",
             "location": "HCM City, Vietnam",
             "clientLocation": "Singapore",
             "clientDomain": "Real Estate",
             "responsibilities": {
-                "1": "Review designs, documents, and technical requirements, and provide feedback to the creator if there are any issues.",
-                "2": "Develop UI modules, components, and libraries based on the specifications mentioned in the above documents.",
-                "3": "Handle user interactions and integrate APIs from the Backend.",
-                "4": "Gather feedback from actual users, discuss it with the team, and propose solutions to any problems.",
-                "5": "Communicate with backend colleagues, QC/Testers, and BAs to resolve issues that arise during feature development.",
-                "6": "Attend daily meetings with the project manager and CEO to provide updates on work progress, discuss work-related problems, and find solutions.",
-                "7": "Utilize Angular and the libraries within the Angular ecosystem to develop CRUD modules, which involve managing user interaction logic and validation of complex and interdependent form clusters (each cluster consists of approximately ten fields).",
-                "8": "Employ HTML, SCSS, and TypeScript to create a module system that is user-friendly, mobile responsive, and easily extensible.",
-                "9": "Implement the front-end permission system for approximately 100 sub-modules within the project.",
-                "10": "Incorporate the Transloco library to implement the translation functionality for the project.",
-                "11": "Develop reusable directives, pipes, and UI components to be utilized throughout the project."
+                "1": "Reviewed design, documentation, and technical requirements, providing feedback to designers and BAs if any issues arose.",
+                "2": "Developed feature modules, handled complex form clusters, and integrated APIs from the Back-End.",
+                "3": "Wrote reusable directives, pipes, and UI libraries throughout the project..",
+                "4": "Implemented permission system for around 100 sub-modules in the project.",
+                "5": "Utilized the Transloco library to implement multilingual functionality for the project.",
+                "6": "Participated in daily meetings with the team and PM, as well as held separate discussions with BE, BA, QC, and Testers to address issues and propose solutions."
             },
             "achievements": {
-                "1": "Made <strong>significant progress</strong> in knowledge and skills related to the technologies and frameworks I frequently utilize, particularly <strong>Angular</strong> and <strong>TypeScript</strong>.",
-                "2": "Demonstrated <strong>significant improvement</strong> in self-study skills, self-discipline, and ability to work under pressure and in intense environments.",
-                "3": "Developed a better vision for work and future plans, and cultivated a more positive attitude when facing challenging problems."
+                "1": "Making significant progress in knowledge and skills related to commonly used technologies, especially Angular and TypeScript",
+                "2": "Greatly improving self-learning skills, discipline, and the ability to work under pressure.",
+                "3": "Developing a better work vision and future planning, while cultivating a more positive attitude when facing challenging issues."
             }
         }
     },
@@ -192,12 +187,12 @@
             "name": "Real Estate Agency ERP System",
             "description": "Full scale ERP System for a large real estate agency in Singapore.",
             "mainFunctionality": {
-                "1": "Human Resource Management System (Agent Management, Promotion, Recruitment,...)",
-                "2": "Transaction Management System (Project Management, Resale Management,...)",
-                "3": "Financial Management System (Account Receivable Management, Account Payable Management, Billing Management,...)",
-                "4": "Reporting System (Finance Report, Agent Performance Report,...)",
-                "5": "Permission Management System (Role Management, User Management,...)",
-                "6": "Agent Portal (Agent Dashboard, Agent Profile,...)"
+                "1": "Agent Manangement",
+                "2": "Transactions ",
+                "3": "Finances",
+                "4": "Reporting System",
+                "5": "Permissions",
+                "6": "Agent Portal"
             }
         },
         "3": {

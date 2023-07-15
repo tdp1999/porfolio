@@ -50,7 +50,7 @@ export class ProjectsComponent implements OnInit {
             {
                 title: 'Project Size',
                 value: item.projectSize,
-                tooltip: 'projectSizeTooltip',
+                // tooltip: 'projectSizeTooltip',
             },
             {
                 title: 'Main Functionality',

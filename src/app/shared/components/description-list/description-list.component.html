@@ -24,10 +24,16 @@
                 class="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
             >
                 <dt
-                    class="sticky top-0 text-sm font-medium leading-6"
-                    [innerHTML]="record.title | transloco"
-                    [matTooltip]="record.tooltip | transloco"
-                ></dt>
+                    class="sticky top-0 flex items-center gap-2 text-sm font-medium leading-6"
+                >
+                    <span [innerHTML]="record.title | transloco"></span>
+                    <mat-icon
+                        *ngIf="record.tooltip"
+                        [matTooltip]="record.tooltip | transloco"
+                        class="text-base w-4 h-4"
+                        >info</mat-icon
+                    >
+                </dt>
                 <dd
                     class="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0"
                     [innerHTML]="record.value | transloco"

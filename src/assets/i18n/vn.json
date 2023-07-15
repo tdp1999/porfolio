@@ -188,7 +188,7 @@
             "name": "Hệ Thống ERP Công Ty Bất Động Sản",
             "description": "Hệ thống ERP toàn diện cho một công ty bất động sản lớn tại Singapore.",
             "mainFunctionality": {
-                "1": "Agent Mananger - Quản Lý Nhân Sự",
+                "1": "Agent Manangement - Quản Lý Nhân Sự",
                 "2": "Transactions - Quản Lý Giao Dịch",
                 "3": "Finances - Quản Lý Tài Chính",
                 "4": "Reports - Báo Cáo (Báo Cáo Tài Chính, Báo Cáo Hiệu Suất Đại Lý,...)",
@@ -201,7 +201,7 @@
             "description": "Trang web thương mại điện tử cho phép đại lý đăng ký dịch vụ liên quan đến chăm sóc ô tô và cho phép người dùng tìm kiếm các dịch vụ ô tô gần nhất.",
             "mainFunctionality": {
                 "1": "Landing Page (Responsive Design, SEO)",
-                "2": "User Portal",
+                "2": "Provider Portal",
                 "3": "Admin Portal"
             }
         },
