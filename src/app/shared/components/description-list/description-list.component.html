@@ -7,8 +7,11 @@
 </button>
 
 <div class="h-full overflow-auto theme--text">
-    <div
+    <!-- <div
         class="sticky -top-0.5 px-4 sm:px-0 pb-4 dark:bg-theme-black-88 bg-theme-white-90 z-10"
+    > -->
+    <div
+        class="sticky -top-0.5 px-4 sm:px-0 pb-4 dark:bg-[#424242] bg-[#f7f7f7] z-10"
     >
         <h3 class="text-base font-bold leading-7">
             {{ data.title | transloco }}
@@ -30,7 +33,7 @@
                     <mat-icon
                         *ngIf="record.tooltip"
                         [matTooltip]="record.tooltip | transloco"
-                        class="text-base w-4 h-4"
+                        class="w-4 h-4 text-base"
                         >info</mat-icon
                     >
                 </dt>
