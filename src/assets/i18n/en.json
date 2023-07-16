@@ -117,7 +117,7 @@
     },
     "experienceData": {
         "1": {
-            "description": "WIntern and Front-End programmer part-time for a project for a large insurance company, Vietnam branch. The team is responsible for the development and maintenance of the web application using Angular and Nx.",
+            "description": "Intern and Front-End programmer part-time for a project for a large insurance company, Vietnam branch. The team is responsible for the development and maintenance of the web application using Angular and Nx.",
             "location": "Can Tho, Vietnam",
             "clientLocation": "Vietnam",
             "clientDomain": "Insurance",
@@ -140,12 +140,12 @@
             "responsibilities": {
                 "1": "Received design from the designer, reviewed, and provided feedback to the designer.",
                 "2": "Built web applications using Angular based on the design.",
-                "3": "Handled user interactions and integrated APIs from the Back-End..",
+                "3": "Handled user interactions and integrated APIs from the Back-End.",
                 "4": "Maintained and supported multiple projects simultaneously.",
                 "5": "Participated in daily meetings with the team and project manager to discuss issues and propose solutions."
             },
             "achievements": {
-                "1": "Getting familiar with Scrum - Kanban methodologies and web application development processes..",
+                "1": "Getting familiar with Scrum - Kanban methodologies and web application development processes.",
                 "2": "Significantly improving communication skills, self-learning abilities, and the capacity to work under pressure."
             }
         },
@@ -157,7 +157,7 @@
             "responsibilities": {
                 "1": "Reviewed design, documentation, and technical requirements, providing feedback to designers and BAs if any issues arose.",
                 "2": "Developed feature modules, handled complex form clusters, and integrated APIs from the Back-End.",
-                "3": "Wrote reusable directives, pipes, and UI libraries throughout the project..",
+                "3": "Wrote reusable directives, pipes, and UI libraries throughout the project.",
                 "4": "Implemented permission system for around 100 sub-modules in the project.",
                 "5": "Utilized the Transloco library to implement multilingual functionality for the project.",
                 "6": "Participated in daily meetings with the team and PM, as well as held separate discussions with BE, BA, QC, and Testers to address issues and propose solutions."
