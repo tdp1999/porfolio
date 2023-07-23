@@ -24,6 +24,7 @@ import {
 export class ProjectsComponent implements OnInit {
     public tags = ProjectTags;
     public projects = Projects;
+    public choosedTag = ETag.allTag;
 
     private _dialog = inject(MatDialog);
     private _translocoService = inject(TranslocoService);
@@ -98,7 +99,7 @@ export class ProjectsComponent implements OnInit {
     }
 
     filterProjects(tag: ETag) {
-        console.log('Tag is: ', tag);
+        this.choosedTag = tag;
         tag === ETag.allTag
             ? (this.projects = Projects)
             : (this.projects = Projects.filter((item) => {
