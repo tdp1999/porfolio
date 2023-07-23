@@ -244,5 +244,21 @@
     "Description": "Mô Tả",
     "Team Size": "Quy Mô Nhóm",
     "Achievements": "Thành Tựu",
-    "projectSizeTooltip": "Theo <a href='https://uwaterloo.ca/ist-project-management-office/methodologies/project-sizing-and-complexity' target='_blank' rel='noopener noreferrer'>Project sizing and complexity</a>"
+    "projectSizeTooltip": "Theo <a href='https://uwaterloo.ca/ist-project-management-office/methodologies/project-sizing-and-complexity' target='_blank' rel='noopener noreferrer'>Project sizing and complexity</a>",
+    "experienceTooltip": "Có nhiều hơn 2 năm kinh nghiệm",
+    "projectTag": {
+        "personal": {
+            "label": "Cá Nhân",
+            "description": "Projects that I have done in my free time."
+        },
+        "professional": {
+            "label": "Nhóm / Công Ty",
+            "description": "Projects that I have done for clients."
+        },
+        "demoAvailable": {
+            "label": "Có Demo",
+            "description": "Projects that have a demo version available."
+        }
+    },
+    "allTag": "Tất Cả"
 }

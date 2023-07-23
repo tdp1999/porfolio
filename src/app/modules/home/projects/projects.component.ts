@@ -8,8 +8,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { TranslocoService } from '@ngneat/transloco';
 import { CarouselComponent } from 'src/app/shared/components/carousel/carousel.component';
 import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
-import { Projects } from 'src/app/shared/data/project.data';
-import { Project } from 'src/app/shared/interfaces/project.interface';
+import { ProjectTags, Projects } from 'src/app/shared/data/project.data';
+import { ETag } from 'src/app/shared/enums/tag.enum';
+import {
+    Project,
+    ProjectTagDescription,
+} from 'src/app/shared/interfaces/project.interface';
 
 @Component({
     selector: 'app-projects',
@@ -18,6 +22,7 @@ import { Project } from 'src/app/shared/interfaces/project.interface';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent implements OnInit {
+    public tags = ProjectTags;
     public projects = Projects;
 
     private _dialog = inject(MatDialog);
@@ -90,5 +95,15 @@ export class ProjectsComponent implements OnInit {
             },
             panelClass: 'description-list-dialog',
         });
+    }
+
+    filterProjects(tag: ETag) {
+        console.log('Tag is: ', tag);
+        tag === ETag.allTag
+            ? (this.projects = Projects)
+            : (this.projects = Projects.filter((item) => {
+                  const tags = item.tags?.map((item) => item.id);
+                  return tags?.includes(tag);
+              }));
     }
 }

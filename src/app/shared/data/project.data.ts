@@ -1,4 +1,34 @@
-import { Project } from '../interfaces/project.interface';
+import { ETag } from '../enums/tag.enum';
+import {
+    Project,
+    ProjectTagDescription,
+} from '../interfaces/project.interface';
+
+export const ProjectTags: Record<ETag, ProjectTagDescription> = {
+    [ETag.allTag]: {
+        id: ETag.allTag,
+        label: 'allTag',
+        description: 'All projects',
+    },
+    [ETag.personal]: {
+        id: ETag.personal,
+        label: 'projectTag.personal.label',
+        description: 'projectTag.personal.description',
+        class: 'text-theme-primary border-theme-primary',
+    },
+    [ETag.professional]: {
+        id: ETag.professional,
+        label: 'projectTag.professional.label',
+        description: 'projectTag.professional.description',
+        class: 'text-theme-accent border-theme-accent',
+    },
+    [ETag.demoAvailable]: {
+        id: ETag.demoAvailable,
+        label: 'projectTag.demoAvailable.label',
+        description: 'projectTag.demoAvailable.description',
+        class: 'text-theme-black-80 border-theme-black-80 dark:text-theme-white-80 dark:border-theme-white-80',
+    },
+};
 
 export const Projects: Project[] = [
     {
@@ -31,7 +61,20 @@ export const Projects: Project[] = [
             label: 'Github',
             hide: true,
         },
-        tags: ['Demo Available'],
+        tags: [
+            {
+                id: ETag.personal,
+                label: 'projectTag.personal.label',
+                description: 'projectTag.personal.description',
+                class: 'text-theme-primary border-theme-primary',
+            },
+            {
+                id: ETag.demoAvailable,
+                label: 'projectTag.demoAvailable.label',
+                description: 'projectTag.demoAvailable.description',
+                class: 'text-theme-black-80 border-theme-black-80 dark:text-theme-white-80 dark:border-theme-white-80',
+            },
+        ],
     },
     {
         id: 2,
@@ -58,6 +101,14 @@ export const Projects: Project[] = [
             srcset: 'assets/images/projects/erp-250.webp 250w, assets/images/projects/erp-315.webp 315w, assets/images/projects/erp-440.webp 440w, assets/images/projects/erp-575.webp 575w',
             description: 'ERP System Websites',
         },
+        tags: [
+            {
+                id: ETag.professional,
+                label: 'projectTag.professional.label',
+                description: 'projectTag.professional.description',
+                class: 'text-theme-accent border-theme-accent',
+            },
+        ],
     },
     {
         id: 3,
@@ -81,6 +132,14 @@ export const Projects: Project[] = [
             srcset: 'assets/images/projects/listing-250.webp 250w, assets/images/projects/listing-315.webp 315w, assets/images/projects/listing-440.webp 440w, assets/images/projects/listing-575.webp 575w',
             description: 'ERP System Websites',
         },
+        tags: [
+            {
+                id: ETag.professional,
+                label: 'projectTag.professional.label',
+                description: 'projectTag.professional.description',
+                class: 'text-theme-accent border-theme-accent',
+            },
+        ],
     },
     {
         id: 4,
@@ -104,6 +163,14 @@ export const Projects: Project[] = [
             srcset: 'assets/images/projects/website-250.webp 250w, assets/images/projects/website-315.webp 315w, assets/images/projects/website-440.webp 440w, assets/images/projects/website-575.webp 575w',
             description: 'ERP System Websites',
         },
+        tags: [
+            {
+                id: ETag.professional,
+                label: 'projectTag.professional.label',
+                description: 'projectTag.professional.description',
+                class: 'text-theme-accent border-theme-accent',
+            },
+        ],
     },
     {
         id: 5,
@@ -129,6 +196,19 @@ export const Projects: Project[] = [
             srcset: 'assets/images/projects/website-250.webp 250w, assets/images/projects/website-315.webp 315w, assets/images/projects/website-440.webp 440w, assets/images/projects/website-575.webp 575w',
             description: 'ERP System Websites',
         },
-        tags: ['Demo Available'],
+        tags: [
+            {
+                id: ETag.personal,
+                label: 'projectTag.personal.label',
+                description: 'projectTag.personal.description',
+                class: 'text-theme-primary border-theme-primary',
+            },
+            {
+                id: ETag.demoAvailable,
+                label: 'projectTag.demoAvailable.label',
+                description: 'projectTag.demoAvailable.description',
+                class: 'text-theme-black-80 border-theme-black-80 dark:text-theme-white-80 dark:border-theme-white-80',
+            },
+        ],
     },
 ];

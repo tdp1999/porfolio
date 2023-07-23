@@ -29,6 +29,7 @@ import { AnimateOnScrollModule } from 'src/app/shared/directives/animate-on-scro
 import { ScrollToTopModule } from 'src/app/shared/components/scroll-to-top/scroll-to-top.module';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
+import { TagModule } from 'src/app/shared/components/tag/tag.module';
 
 const routes: Routes = [
     {
@@ -58,6 +59,7 @@ const components = [
     StatsItemModule,
     TimelineModule,
     TranslocoModule,
+    TagModule,
 ];
 @NgModule({
     declarations: [

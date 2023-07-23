@@ -171,10 +171,14 @@ $dark-theme: mat.define-dark-theme(
     )
 );
 
-$modified-dark-theme: modify-background($dark-theme, #1F1F1F);
+$modified-dark-theme: modify-background($dark-theme, #1f1f1f);
 
 @include mat.all-component-themes($light-theme);
 
 body.dark {
     @include mat.all-component-colors($dark-theme);
+}
+
+.mat-focused .mat-form-field-required-marker {
+    color: mat.get-color-from-palette($my-app-primary);
 }

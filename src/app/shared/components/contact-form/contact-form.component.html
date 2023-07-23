@@ -1,6 +1,6 @@
 <form
     [formGroup]="form"
-    class="text-end grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 auto-rows-auto gap-y-1 gap-x-4 md:gap-8 lg:gap-4"
+    class="grid grid-cols-1 text-end sm:grid-cols-2 lg:grid-cols-1 auto-rows-auto gap-y-1 gap-x-4 md:gap-8 lg:gap-4"
     name="contactForm"
     (ngSubmit)="submit()"
 >
@@ -12,6 +12,7 @@
             formControlName="name"
             type="text"
             name="name"
+            trim
         />
         <mat-error *ngIf="form.get('name')?.hasError('required')">
             {{ "contact-form.name.required" | transloco }}
@@ -57,8 +58,10 @@
             formControlName="message"
             type="text"
             name="message"
+            class="max-h-28"
         >
         </textarea>
+
         <mat-error *ngIf="form.get('message')?.hasError('required')">
             {{ "contact-form.message.required" | transloco }}
         </mat-error>

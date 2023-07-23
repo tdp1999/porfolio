@@ -243,5 +243,21 @@
     "Description": "Description",
     "Team Size": "Team Size",
     "Achievements": "Achievements",
-    "projectSizeTooltip": "Based on <a href='https://uwaterloo.ca/ist-project-management-office/methodologies/project-sizing-and-complexity' target='_blank' rel='noopener noreferrer'>Project sizing and complexity</a>"
+    "projectSizeTooltip": "Based on <a href='https://uwaterloo.ca/ist-project-management-office/methodologies/project-sizing-and-complexity' target='_blank' rel='noopener noreferrer'>Project sizing and complexity</a>",
+    "experienceTooltip": "More than 2 years of experiences",
+    "projectTag": {
+        "personal": {
+            "label": "Personal",
+            "description": "Projects that I have done in my free time."
+        },
+        "professional": {
+            "label": "Team",
+            "description": "Projects that I have done for clients."
+        },
+        "demoAvailable": {
+            "label": "Demo Available",
+            "description": "Projects that have a demo version available."
+        }
+    },
+    "allTag": "All Tags"
 }

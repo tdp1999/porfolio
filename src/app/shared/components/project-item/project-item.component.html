@@ -29,23 +29,13 @@
         </p>
 
         <div class="flex gap-2">
-            <span
-                class="p-1 text-xs font-normal align-middle border rounded-md drop-shadow-sm"
-                [ngClass]="{
-                    'text-theme-primary border-theme-primary':
-                        item?.projectType === 'Team',
-                    'text-theme-accent border-theme-accent':
-                        item?.projectType === 'Personal'
-                }"
-            >
-                {{ item?.projectType | transloco }}
-            </span>
-            <span
-                class="p-1 text-xs font-normal align-middle border rounded-md drop-shadow-sm"
+            <app-tag *ngFor="let tag of item?.tags" [tag]="tag"> </app-tag>
+            <!-- <span
+                class="p-1 text-xs font-normal align-middle border rounded-md drop-shadow-sm text-theme-black-80 border-theme-black-80 dark:text-theme-white-80 dark:border-theme-white-80"
                 *ngFor="let tag of item?.tags"
             >
                 {{ tag | transloco }}
-            </span>
+            </span> -->
         </div>
     </div>
 </div>

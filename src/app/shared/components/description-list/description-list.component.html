@@ -1,27 +1,22 @@
-<button
-    mat-icon-button
-    mat-dialog-close
-    class="!absolute top-0 right-0 translate-x-1/2 -translate-y-1/2"
->
-    <mat-icon>close</mat-icon>
-</button>
-
-<div class="h-full overflow-auto theme--text">
-    <!-- <div
-        class="sticky -top-0.5 px-4 sm:px-0 pb-4 dark:bg-theme-black-88 bg-theme-white-90 z-10"
-    > -->
+<div class="h-full overflow-y-hidden theme--text">
     <div
-        class="sticky -top-0.5 px-4 sm:px-0 pb-4 dark:bg-[#424242] bg-[#f7f7f7] z-10"
+        class="sticky flex justify-between -top-0.5 px-4 sm:px-0 pb-4 dark:bg-[#424242] bg-[#f7f7f7] z-10"
     >
-        <h3 class="text-base font-bold leading-7">
-            {{ data.title | transloco }}
-        </h3>
-        <p class="max-w-2xl mt-1 text-sm leading-6">
-            {{ data.subtitle | transloco }}
-        </p>
+        <div>
+            <h3 class="text-base font-bold leading-7">
+                {{ data.title | transloco }}
+            </h3>
+            <p class="max-w-2xl mt-1 text-sm leading-6">
+                {{ data.subtitle | transloco }}
+            </p>
+        </div>
+
+        <button mat-icon-button mat-dialog-close class="">
+            <mat-icon>close</mat-icon>
+        </button>
     </div>
-    <div class="">
-        <dl class="divide-y divide-gray-300">
+    <div class="h-full">
+        <dl class="h-full pb-5 overflow-auto divide-y divide-gray-300">
             <div
                 *ngFor="let record of data.data"
                 class="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"

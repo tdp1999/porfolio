@@ -8,6 +8,7 @@ import {
 import { MENU_DATA } from '../../data/menu.data';
 import { MenuService } from '../../services/menu.service';
 import { ThemeService } from '../../services/theme.service';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
     selector: 'app-navbar',
@@ -28,4 +29,5 @@ export class NavbarComponent {
     public items = MENU_DATA;
     public menuService = inject(MenuService);
     public themeService = inject(ThemeService);
+    public scrollService = inject(ScrollService);
 }

@@ -1,3 +1,4 @@
+import { ETag } from '../enums/tag.enum';
 import {
     ProjectCategory,
     ProjectType,
@@ -5,6 +6,13 @@ import {
 } from '../types/software.type';
 import { Link } from './general-entitly';
 import { Image } from './image.interface';
+
+export interface ProjectTagDescription {
+    id: ETag;
+    label: string;
+    description?: string;
+    class?: string;
+}
 
 export interface Project {
     id: number;
@@ -19,7 +27,7 @@ export interface Project {
     mainFunctionality: string[];
     clientDomain?: string;
     clientLocation?: string;
-    tags?: string[];
+    tags?: ProjectTagDescription[];
     thumbnail?: Image;
     images?: Image[] | null;
     demoLink?: Link;

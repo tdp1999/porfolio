@@ -60,7 +60,7 @@
                             <fa-icon
                                 *ngIf="skill.experience > 2"
                                 [icon]="['far', 'circle-check']"
-                                matTooltip="More than 2 years of experiences"
+                                [matTooltip]="'experienceTooltip' | transloco"
                             ></fa-icon>
                         </mat-panel-title>
 
