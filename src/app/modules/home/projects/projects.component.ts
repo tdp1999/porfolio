@@ -1,19 +1,11 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    OnInit,
-    inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslocoService } from '@ngneat/transloco';
-import { CarouselComponent } from 'src/app/shared/components/carousel/carousel.component';
+import { Observable, Subject, map, of, startWith, switchMap } from 'rxjs';
 import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
 import { ProjectTags, Projects } from 'src/app/shared/data/project.data';
 import { ETag } from 'src/app/shared/enums/tag.enum';
-import {
-    Project,
-    ProjectTagDescription,
-} from 'src/app/shared/interfaces/project.interface';
+import { Project } from 'src/app/shared/interfaces/project.interface';
 
 @Component({
     selector: 'app-projects',
@@ -21,15 +13,35 @@ import {
     styleUrls: ['./projects.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectsComponent implements OnInit {
-    public tags = ProjectTags;
-    public projects = Projects;
-    public choosedTag = ETag.allTag;
+export class ProjectsComponent {
+    public tags$ = of(ProjectTags);
+    public filter = new Subject<ETag>();
+    public filter$ = this.filter.asObservable();
+
+    public tag$: Observable<ETag> = this.filter$.pipe(
+        startWith(ETag.allTag),
+        map(
+            (tag) =>
+                Object.values(ProjectTags).find((item) => item.id === tag)
+                    ?.id ?? ETag.allTag
+        )
+    );
+
+    public filteredProject$: Observable<Project[]> = this.filter$.pipe(
+        startWith(ETag.allTag),
+        switchMap((tag) => {
+            return tag === ETag.allTag
+                ? of(Projects)
+                : of(
+                      Projects.filter((item) =>
+                          item.tags?.map((item) => item.id)?.includes(tag)
+                      )
+                  );
+        })
+    );
 
     private _dialog = inject(MatDialog);
     private _translocoService = inject(TranslocoService);
-
-    ngOnInit(): void {}
 
     openMetadataDialog(item: Project) {
         const data = [
@@ -96,15 +108,5 @@ export class ProjectsComponent implements OnInit {
             },
             panelClass: 'description-list-dialog',
         });
-    }
-
-    filterProjects(tag: ETag) {
-        this.choosedTag = tag;
-        tag === ETag.allTag
-            ? (this.projects = Projects)
-            : (this.projects = Projects.filter((item) => {
-                  const tags = item.tags?.map((item) => item.id);
-                  return tags?.includes(tag);
-              }));
     }
 }
