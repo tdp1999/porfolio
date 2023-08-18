@@ -17,7 +17,7 @@
             >
                 <ng-container *ngIf="currentType$ | async as currentType">
                     <button
-                        *ngFor="let skill of skillTypes"
+                        *ngFor="let skill of skillTypes; ngForTrackById"
                         class="col-start-2 col-end-6 tab-button sm:col-end-4 md:col-start-auto md:col-auto"
                         [ngClass]="{ active: currentType === skill.id }"
                         (click)="goTo(skill.id)"

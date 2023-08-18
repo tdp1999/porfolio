@@ -7,6 +7,7 @@ import {
     OnDestroy,
     ViewChild,
     ChangeDetectorRef,
+    AfterViewInit,
 } from '@angular/core';
 import { ThemeService } from './shared/services/theme.service';
 import {
@@ -26,6 +27,7 @@ import { ActivatedRoute, IsActiveMatchOptions } from '@angular/router';
 import { CVURL } from './shared/constants/url.constant';
 import { TranslocoService } from '@ngneat/transloco';
 import { Language } from './shared/types/language.type';
+import { register } from 'swiper/element/bundle';
 
 @Component({
     selector: 'app-root',
@@ -36,7 +38,7 @@ import { Language } from './shared/types/language.type';
     // So we need provide the service in the component decorator.
     providers: [ScrollService],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     @ViewChild(MatDrawer, { static: true }) drawer!: MatDrawer;
 
     public linkActiveOptions: IsActiveMatchOptions = {
@@ -91,6 +93,10 @@ export class AppComponent implements OnInit, OnDestroy {
             .subscribe(() => {
                 this.drawer.toggle();
             });
+    }
+
+    ngAfterViewInit(): void {
+        register();
     }
 
     ngOnDestroy(): void {

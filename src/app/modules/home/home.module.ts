@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -30,6 +30,8 @@ import { ScrollToTopModule } from 'src/app/shared/components/scroll-to-top/scrol
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { TagModule } from 'src/app/shared/components/tag/tag.module';
+import { SwiperModule } from 'src/app/shared/directives/swiper/swiper.module';
+import { TrackByModule } from 'src/app/shared/directives/track-by/track-by.module';
 
 const routes: Routes = [
     {
@@ -60,7 +62,11 @@ const components = [
     TimelineModule,
     TranslocoModule,
     TagModule,
+    SwiperModule,
 ];
+
+const directives = [TrackByModule];
+
 @NgModule({
     declarations: [
         HomeComponent,
@@ -72,6 +78,12 @@ const components = [
         ProjectsComponent,
         HomeSectionDirective,
     ],
-    imports: [CommonModule, RouterModule.forChild(routes), ...components],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ...components,
+        ...directives,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule {}

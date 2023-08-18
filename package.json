@@ -38,6 +38,7 @@
     "express": "^4.15.2",
     "localstorage-polyfill": "^1.0.1",
     "rxjs": "~7.5.0",
+    "swiper": "^10.0.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
