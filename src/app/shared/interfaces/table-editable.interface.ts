@@ -21,3 +21,9 @@ export interface ITableEditableData {
     remarks: string;
     empty: string;
 }
+
+export interface ITableEditableColumn {
+    id: keyof ITableEditableData;
+    label: string;
+    index: number;
+}

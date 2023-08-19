@@ -7,16 +7,18 @@
             {{ i + 1 }}
         </td>
     </ng-container>
-    <!--
-    ondblclick="this.contentEditable = true;"
-            onblur="this.contentEditable = false;" -->
 
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.id">
         <th mat-header-cell *matHeaderCellDef>{{ column.label }}</th>
         <td
             mat-cell
             *matCellDef="let item; let i = index"
-            contenteditable="true"
+            contenteditable="false"
+            ondblclick="this.contentEditable = true;"
+            onblur="this.contentEditable = false;"
+            (mousedown)="onMouseDown(i, column.index)"
+            (mouseenter)="onMouseEnter(i, column.index)"
+            [class.selected]="isCellSelected(i, column.index)"
             (input)="
                 changeContent$$.next({
                     target: $event.target,

@@ -5,6 +5,10 @@
     table-layout: fixed;
     text-align: center;
 
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
     .mat-row {
         min-height: 2rem;
     }
@@ -33,5 +37,9 @@
     .mat-header-cell:not(.mat-column-sn) {
         // flex: 0 0 120px;
         // flex-grow: 1;
+    }
+
+    .selected {
+        background-color: #f0f0f0;
     }
 }

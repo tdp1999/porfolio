@@ -1,4 +1,7 @@
-import { ITableEditableData } from '../interfaces/table-editable.interface';
+import {
+    ITableEditableColumn,
+    ITableEditableData,
+} from '../interfaces/table-editable.interface';
 
 export const TableEditableData: ITableEditableData[] = [
     {
@@ -66,5 +69,103 @@ export const TableEditableData: ITableEditableData[] = [
         reference: '0003',
         remarks: 'Remarks 3',
         empty: 'false',
+    },
+];
+
+export const TableColumns: ITableEditableColumn[] = [
+    {
+        id: 'code',
+        label: 'Code',
+        index: 0,
+    },
+    {
+        id: 'name',
+        label: 'Name',
+        index: 1,
+    },
+    {
+        id: 'invoiceNo',
+        label: 'Invoice No',
+        index: 2,
+    },
+    {
+        id: 'invoiceDate',
+        label: 'Invoice Date',
+        index: 3,
+    },
+    {
+        id: 'creditTerm',
+        label: 'Credit Term',
+        index: 4,
+    },
+    {
+        id: 'gst',
+        label: 'GST',
+        index: 5,
+    },
+    {
+        id: 'gstAmount',
+        label: 'GST Amount',
+        index: 6,
+    },
+    {
+        id: 'itemNo',
+        label: 'Item No',
+        index: 7,
+    },
+    {
+        id: 'itemCode',
+        label: 'Item Code',
+        index: 8,
+    },
+    {
+        id: 'itemDescription',
+        label: 'Item Description',
+        index: 9,
+    },
+    {
+        id: 'itemAmount',
+        label: 'Item Amount',
+        index: 10,
+    },
+    {
+        id: 'creditAccount',
+        label: 'Credit Account',
+        index: 11,
+    },
+    {
+        id: 'debitAccount',
+        label: 'Debit Account',
+        index: 12,
+    },
+    {
+        id: 'profitCenter',
+        label: 'Profit Center',
+        index: 13,
+    },
+    {
+        id: 'costCenter',
+        label: 'Cost Center',
+        index: 14,
+    },
+    {
+        id: 'currency',
+        label: 'Currency',
+        index: 15,
+    },
+    {
+        id: 'currencyRate',
+        label: 'Currency Rate',
+        index: 16,
+    },
+    {
+        id: 'reference',
+        label: 'Reference',
+        index: 17,
+    },
+    {
+        id: 'remarks',
+        label: 'Remarks',
+        index: 18,
     },
 ];
