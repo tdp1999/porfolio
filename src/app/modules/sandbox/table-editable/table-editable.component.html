@@ -1,0 +1,35 @@
+<button mat-raised-button color="primary" (click)="submit()">Submit</button>
+
+<table mat-table class="stretch-table" matSort [dataSource]="items">
+    <ng-container matColumnDef="sn" sticky>
+        <th mat-header-cell *matHeaderCellDef>SN</th>
+        <td mat-cell *matCellDef="let row; let i = index">
+            {{ i + 1 }}
+        </td>
+    </ng-container>
+    <!--
+    ondblclick="this.contentEditable = true;"
+            onblur="this.contentEditable = false;" -->
+
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.id">
+        <th mat-header-cell *matHeaderCellDef>{{ column.label }}</th>
+        <td
+            mat-cell
+            *matCellDef="let item; let i = index"
+            contenteditable="true"
+            (input)="
+                changeContent$$.next({
+                    target: $event.target,
+                    rowIndex: i,
+                    column: column.id
+                })
+            "
+            (paste)="onPaste($event, i, column.id)"
+        >
+            <div class="text-b2">{{ item[column.id] }}</div>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

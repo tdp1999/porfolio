@@ -25,6 +25,13 @@ const routes: Routes = [
         redirectTo: 'home',
     },
     {
+        path: 'sandbox',
+        loadChildren: () =>
+            import('./modules/sandbox/sandbox.module').then(
+                (m) => m.SandboxModule
+            ),
+    },
+    {
         path: 'not-found',
         loadChildren: () =>
             import('./modules/p404/p404.module').then((m) => m.P404Module),
@@ -41,12 +48,12 @@ const routes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(routes, {
-    anchorScrolling: 'enabled',
-    onSameUrlNavigation: 'reload',
-    scrollPositionRestoration: 'enabled',
-    scrollOffset: [0, 64],
-    initialNavigation: 'enabledBlocking'
-}),
+            anchorScrolling: 'enabled',
+            onSameUrlNavigation: 'reload',
+            scrollPositionRestoration: 'enabled',
+            scrollOffset: [0, 64],
+            initialNavigation: 'enabledBlocking',
+        }),
     ],
     exports: [RouterModule],
 })
