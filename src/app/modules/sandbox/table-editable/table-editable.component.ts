@@ -213,9 +213,7 @@ export class TableEditableComponent {
                     item[column.id] = '';
                 });
 
-                if (deletingColumns.length === this.columns.length) {
-                    item.empty = 'true';
-                }
+                if (this.isRowEmpty(item)) item.empty = 'true';
             });
 
             items.splice(
@@ -250,6 +248,31 @@ export class TableEditableComponent {
         console.log(this._startRow, this._startCol, this._endRow, this._endCol);
         this.isSelecting$$.next(false);
         this._cdr.markForCheck();
+    }
+
+    isRowEmpty(row: ITableEditableData): boolean {
+        const checkingColumns: (keyof ITableEditableData)[] = [
+            'code',
+            'name',
+            'invoiceNo',
+            'invoiceDate',
+            'creditTerm',
+            'gst',
+            'gstAmount',
+            'itemNo',
+            'itemCode',
+            'itemDescription',
+            'itemAmount',
+            'creditAccount',
+            'debitAccount',
+            'profitCenter',
+            'costCenter',
+            'currency',
+            'currencyRate',
+            'reference',
+            'remarks',
+        ];
+        return checkingColumns.every((c) => row[c] === '');
     }
 
     isCellSelected(row: number, col: number): boolean {
