@@ -18,6 +18,7 @@ import {
     fromEvent,
     map,
     of,
+    sampleTime,
     tap,
     withLatestFrom,
 } from 'rxjs';
@@ -39,10 +40,9 @@ interface ISelectedCell {
     styleUrls: ['./table-editable.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableEditableComponent implements OnDestroy {
+export class TableEditableComponent {
     @ViewChild(MatTable, { static: true }) table!: MatTable<ITableEditableData>;
 
-    private _destroy$$ = new Subject<void>();
     private _document = inject(DOCUMENT);
     private _cdr = inject(ChangeDetectorRef);
     private _service = inject(TableEditableService);
@@ -120,26 +120,7 @@ export class TableEditableComponent implements OnDestroy {
         map((d) => {
             d.event.preventDefault();
             const clipboardData = d.event.clipboardData?.getData('text') ?? '';
-
-            // if no tabs or new lines, then it's just a single cell
-            if (
-                clipboardData.indexOf('\t') === -1 ||
-                clipboardData.indexOf('\n') === -1
-            ) {
-                return {
-                    rows: [clipboardData],
-                    rowIndex: d.rowIndex,
-                    column: d.column,
-                };
-            }
-
-            // otherwise, split into rows and columns
-            const rows = clipboardData
-                .split('\n') // split new lines
-                .map((r: any) => r.split('\t')) // split tabs
-                .map((r: any) => r.map((c: any) => c.trim())) // remove whitespace
-                .filter((r: any) => r.length > 1); // remove empty rows
-
+            const rows = this._service.parseClipboardData(clipboardData);
             return {
                 rows,
                 rowIndex: d.rowIndex,
@@ -156,7 +137,7 @@ export class TableEditableComponent implements OnDestroy {
                 (typeof rows[0] === 'string' ? 1 : rows[0].length);
             const changingColumns = this.columns.slice(firstColumn, lastColumn);
 
-            const itemsToBeAdded = rows.map((r: string[], i: number) => {
+            const itemsToBeAdded = rows.map((r, i: number) => {
                 const originalItem = items[rowIndex + i];
                 const item = { ...originalItem };
                 changingColumns.forEach((c, j) => {
@@ -187,7 +168,7 @@ export class TableEditableComponent implements OnDestroy {
         columnIndex: number;
     }>();
     public mouseMove$ = this.mouseMove$$.asObservable().pipe(
-        // debounceTime(40),
+        sampleTime(200),
         withLatestFrom(this.isSelecting$$),
         filter(([_, isSelecting]) => isSelecting),
         map(([d, _]) => d),
@@ -213,10 +194,10 @@ export class TableEditableComponent implements OnDestroy {
         tap((items) => {
             console.log('delete key');
             if (
-                !this._startCol ||
-                !this._endCol ||
-                !this._startRow ||
-                !this._endRow
+                this._startCol === null ||
+                this._endCol === null ||
+                this._startRow === null ||
+                this._endRow === null
             )
                 return;
 
@@ -246,18 +227,6 @@ export class TableEditableComponent implements OnDestroy {
             this.items$$.next(items);
         })
     );
-
-    public deleteRow$$ = new Subject<number>();
-
-    ngOnDestroy(): void {
-        this._destroy$$.next();
-        this._destroy$$.complete();
-    }
-
-    testPaste(event: any) {
-        event.preventDefault();
-        console.log(event.clipboardData.getData('text/plain'));
-    }
 
     submit() {
         const filteredItems = this.items$$
