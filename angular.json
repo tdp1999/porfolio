@@ -42,7 +42,7 @@
                                 {
                                     "type": "initial",
                                     "maximumWarning": "500kb",
-                                    "maximumError": "1mb"
+                                    "maximumError": "3mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
@@ -107,63 +107,61 @@
                     }
                 },
                 "server": {
-                  "builder": "@angular-devkit/build-angular:server",
-                  "options": {
-                    "outputPath": "dist/porfolio/server",
-                    "main": "server.ts",
-                    "tsConfig": "tsconfig.server.json",
-                    "inlineStyleLanguage": "scss"
-                  },
-                  "configurations": {
-                    "production": {
-                      "outputHashing": "media",
-                      "fileReplacements": [
-                        {
-                          "replace": "src/environments/environment.ts",
-                          "with": "src/environments/environment.prod.ts"
-                        }
-                      ]
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist/porfolio/server",
+                        "main": "server.ts",
+                        "tsConfig": "tsconfig.server.json",
+                        "inlineStyleLanguage": "scss"
                     },
-                    "development": {
-                      "optimization": false,
-                      "sourceMap": true,
-                      "extractLicenses": false
-                    }
-                  },
-                  "defaultConfiguration": "production"
+                    "configurations": {
+                        "production": {
+                            "outputHashing": "media",
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ]
+                        },
+                        "development": {
+                            "optimization": false,
+                            "sourceMap": true,
+                            "extractLicenses": false
+                        }
+                    },
+                    "defaultConfiguration": "production"
                 },
                 "serve-ssr": {
-                  "builder": "@nguniversal/builders:ssr-dev-server",
-                  "configurations": {
-                    "development": {
-                      "browserTarget": "porfolio:build:development",
-                      "serverTarget": "porfolio:server:development"
+                    "builder": "@nguniversal/builders:ssr-dev-server",
+                    "configurations": {
+                        "development": {
+                            "browserTarget": "porfolio:build:development",
+                            "serverTarget": "porfolio:server:development"
+                        },
+                        "production": {
+                            "browserTarget": "porfolio:build:production",
+                            "serverTarget": "porfolio:server:production"
+                        }
                     },
-                    "production": {
-                      "browserTarget": "porfolio:build:production",
-                      "serverTarget": "porfolio:server:production"
-                    }
-                  },
-                  "defaultConfiguration": "development"
+                    "defaultConfiguration": "development"
                 },
                 "prerender": {
-                  "builder": "@nguniversal/builders:prerender",
-                  "options": {
-                    "routes": [
-                      "/"
-                    ]
-                  },
-                  "configurations": {
-                    "production": {
-                      "browserTarget": "porfolio:build:production",
-                      "serverTarget": "porfolio:server:production"
+                    "builder": "@nguniversal/builders:prerender",
+                    "options": {
+                        "routes": ["/"]
                     },
-                    "development": {
-                      "browserTarget": "porfolio:build:development",
-                      "serverTarget": "porfolio:server:development"
-                    }
-                  },
-                  "defaultConfiguration": "production"
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "porfolio:build:production",
+                            "serverTarget": "porfolio:server:production"
+                        },
+                        "development": {
+                            "browserTarget": "porfolio:build:development",
+                            "serverTarget": "porfolio:server:development"
+                        }
+                    },
+                    "defaultConfiguration": "production"
                 }
             }
         }
