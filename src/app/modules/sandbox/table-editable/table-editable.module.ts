@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TableEditableService } from './table-editable.service';
 
 const components = [
     FormsModule,
@@ -29,5 +30,6 @@ const components = [
 @NgModule({
     declarations: [TableEditableComponent],
     imports: [CommonModule, TableEditableRoutingModule, ...components],
+    providers: [TableEditableService],
 })
 export class TableEditableModule {}
