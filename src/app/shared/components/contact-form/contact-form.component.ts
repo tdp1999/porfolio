@@ -1,6 +1,6 @@
 import { Component, ViewChild, inject } from '@angular/core';
 import { FormBuilder, FormGroupDirective, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { ContactFormData } from '../../interfaces/contact-form.interface';
 import { NetlifyService } from '../../services/netlify.service';
 

@@ -1,9 +1,9 @@
 import { Provider, inject } from '@angular/core';
 import {
-    MAT_DIALOG_DEFAULT_OPTIONS,
-    MAT_DIALOG_SCROLL_STRATEGY,
-    MatDialogConfig,
-} from '@angular/material/dialog';
+    MAT_LEGACY_DIALOG_DEFAULT_OPTIONS as MAT_DIALOG_DEFAULT_OPTIONS,
+    MAT_LEGACY_DIALOG_SCROLL_STRATEGY as MAT_DIALOG_SCROLL_STRATEGY,
+    MatLegacyDialogConfig as MatDialogConfig,
+} from '@angular/material/legacy-dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import {
     LS_LANGUAGE_KEY,
