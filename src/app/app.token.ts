@@ -1,21 +1,27 @@
-import { Provider, inject } from '@angular/core';
+import { Provider } from '@angular/core';
 import {
-    MAT_LEGACY_DIALOG_DEFAULT_OPTIONS as MAT_DIALOG_DEFAULT_OPTIONS,
-    MAT_LEGACY_DIALOG_SCROLL_STRATEGY as MAT_DIALOG_SCROLL_STRATEGY,
-    MatLegacyDialogConfig as MatDialogConfig,
-} from '@angular/material/legacy-dialog';
-import { Overlay } from '@angular/cdk/overlay';
+    MAT_DIALOG_DEFAULT_OPTIONS,
+    MatDialogConfig,
+} from '@angular/material/dialog';
 import {
-    LS_LANGUAGE_KEY,
-    LS_THEME_KEY,
-} from './shared/tokens/local-storage.token';
+    MAT_FORM_FIELD_DEFAULT_OPTIONS,
+    MatFormFieldDefaultOptions,
+} from '@angular/material/form-field';
 import {
     DEFAULT_LANGUAGE,
     DEFAULT_THEME,
 } from './shared/tokens/default-value.token';
+import {
+    LS_LANGUAGE_KEY,
+    LS_THEME_KEY,
+} from './shared/tokens/local-storage.token';
 
 const matDialogDefaultOption: MatDialogConfig<Record<string, any>> = {
     panelClass: 'default-dialog-class',
+};
+
+const matFormFieldDefaultOption: MatFormFieldDefaultOptions = {
+    appearance: 'fill',
 };
 
 export const MATERIAL_CONFIGURATIONS: Provider[] = [
@@ -23,11 +29,14 @@ export const MATERIAL_CONFIGURATIONS: Provider[] = [
         provide: MAT_DIALOG_DEFAULT_OPTIONS,
         useValue: matDialogDefaultOption,
     },
+    {
+        provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+        useValue: matFormFieldDefaultOption,
+    },
     // {
     //     provide: MAT_DIALOG_SCROLL_STRATEGY,
     //     useFactory: () => inject(Overlay).scrollStrategies.close(),
     // },
-
 ];
 
 export const DEFAULT_TOKENS: Provider[] = [

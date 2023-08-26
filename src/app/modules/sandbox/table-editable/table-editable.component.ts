@@ -8,7 +8,6 @@ import {
     ViewChild,
     inject,
 } from '@angular/core';
-import { MatLegacyTable as MatTable } from '@angular/material/legacy-table';
 import {
     BehaviorSubject,
     Subject,
@@ -28,6 +27,7 @@ import {
 } from 'src/app/shared/data/table-editable.data';
 import { ITableEditableData } from 'src/app/shared/interfaces/table-editable.interface';
 import { TableEditableService } from './table-editable.service';
+import { MatTable } from '@angular/material/table';
 
 interface ISelectedCell {
     rowIndex: number;

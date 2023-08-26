@@ -8,8 +8,9 @@
 //  If you don't need the default component typographies but still want the hierarchy styles,
 //  you can delete this line and instead use:
 //    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
-@include mat.all-legacy-component-typographies();
-@include mat.legacy-core();
+// @include mat.all-legacy-component-typographies();
+@include mat.core();
+// @include mat.all-component-typographies();
 
 @function modify-background($theme, $background-color) {
     // A theme is a map with the following structure:
@@ -167,6 +168,7 @@ $light-theme: mat.define-light-theme(
             accent: $my-app-accent,
             warn: $my-app-warn,
         ),
+        typography: mat.define-typography-config(),
     )
 );
 
@@ -177,17 +179,19 @@ $dark-theme: mat.define-dark-theme(
             accent: $my-app-accent,
             warn: $my-app-warn,
         ),
+        typography: mat.define-typography-config(),
     )
 );
 
 $modified-dark-theme: modify-background($dark-theme, #1f1f1f);
 
-@include mat.all-legacy-component-themes($light-theme);
+@include mat.all-component-themes($light-theme);
 
 body.dark {
-    @include mat.all-legacy-component-colors($dark-theme);
+    @include mat.all-component-colors($dark-theme);
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
 .mat-focused .mat-form-field-required-marker {
     color: mat.get-color-from-palette($my-app-primary);
 }

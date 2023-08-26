@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ContactFormComponent } from 'src/app/shared/components/contact-form/contact-form.component';
 import { SocialLinkData } from 'src/app/shared/data/social-link.data';
 import { Link } from 'src/app/shared/interfaces/general-entitly';

@@ -7,7 +7,7 @@ import {
     ViewChild,
     inject,
 } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { TranslocoService } from '@ngneat/transloco';
 import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
