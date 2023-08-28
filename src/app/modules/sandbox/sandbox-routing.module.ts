@@ -1,15 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
-    {
-        path: 'table-editable',
-        loadChildren: () =>
-            import('./table-editable/table-editable.module').then(
-                (m) => m.TableEditableModule
-            ),
-    },
-];
+const routes: Routes = [];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
