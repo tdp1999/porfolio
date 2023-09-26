@@ -73,7 +73,7 @@ const components = [
     providers: [
         ...MATERIAL_CONFIGURATIONS,
         ...DEFAULT_TOKENS,
-        // provideClientHydration()
+        provideClientHydration()
     ],
     bootstrap: [AppComponent],
 })
