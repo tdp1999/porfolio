@@ -168,7 +168,10 @@ $light-theme: mat.define-light-theme(
             accent: $my-app-accent,
             warn: $my-app-warn,
         ),
-        typography: mat.define-typography-config(),
+        typography:
+            mat.define-typography-config(
+                $font-family: '"Open Sans", sans-serif;',
+            ),
     )
 );
 
@@ -179,7 +182,10 @@ $dark-theme: mat.define-dark-theme(
             accent: $my-app-accent,
             warn: $my-app-warn,
         ),
-        typography: mat.define-typography-config(),
+        typography:
+            mat.define-typography-config(
+                $font-family: '"Open Sans", sans-serif;',
+            ),
     )
 );
 
