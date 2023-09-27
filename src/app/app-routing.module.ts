@@ -4,7 +4,8 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
     {
-        path: 'home',
+        // path: 'home',
+        path: '',
         loadChildren: () =>
             import('./modules/home/home.module').then((m) => m.HomeModule),
         data: {
@@ -19,11 +20,11 @@ const routes: Routes = [
     //         lang: 'vn',
     //     },
     // },
-    {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'home',
-    },
+    // {
+    //     path: '',
+    //     pathMatch: 'full',
+    //     redirectTo: 'home',
+    // },
     {
         path: 'sandbox',
         loadChildren: () =>
