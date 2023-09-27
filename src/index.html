@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="description" content="Portfolio of a web developer" />
-        <title>Porfolio</title>
+        <title>Phuong Tran | Porfolio</title>
         <base href="/" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -13,11 +13,83 @@
 
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
+        <!-- Prevent resources loading twice  -->
+        <link
+            rel="preload"
+            href="assets/fonts/subset-OpenSans-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="assets/fonts/subset-OpenSans-Italic.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="assets/fonts/subset-OpenSans-Light.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="assets/fonts/subset-OpenSans-LightItalic.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="assets/fonts/subset-OpenSans-Medium.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="assets/fonts/subset-OpenSans-MediumItalic.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="assets/fonts/subset-OpenSans-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="assets/fonts/subset-OpenSans-SemiBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/images/logo-200-100.webp"
+            width="56"
+            height="28"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="assets/images/portrait/avatar-130.webp"
+            imagesrcset="
+                assets/images/portrait/avatar-130.webp 130w,
+                assets/images/portrait/avatar-165.webp 165w,
+                assets/images/portrait/avatar-210.webp 210w
+            "
+            imagesizes="(max-width: 639px) 208px, (max-width: 767px) 128px, 160px"
+        />
+
         <link rel="canonical" href="https://thunderphong.com/home" />
-        <!-- <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"
-        /> -->
     </head>
     <body>
         <app-root></app-root>
