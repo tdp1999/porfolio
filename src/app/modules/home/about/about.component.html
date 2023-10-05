@@ -45,17 +45,18 @@
         <div>
             <p class="mb-4 md:mb-8" [innerHTML]="'aboutMe' | transloco"></p>
 
-            <div
+            <dl
                 class="grid grid-cols-1 md:grid-cols-2 auto-rows-auto md:gap-x-16 gap-y-2"
             >
                 <div *ngFor="let item of personalInformation" class="flex">
-                    <span
+                    <dt
                         class="flex-grow-0 flex-shrink-0 font-semibold basis-32 caption"
-                        >{{ item.label | transloco }}</span
                     >
+                        {{ item.label | transloco }}
+                    </dt>
 
                     <ng-container [ngSwitch]="item.templateRef">
-                        <span class="caption-value">
+                        <dd class="caption-value">
                             <ng-container *ngSwitchCase="'email'">
                                 <a
                                     class="primary-link"
@@ -80,7 +81,7 @@
                             <ng-container *ngSwitchDefault>{{
                                 item.value | transloco
                             }}</ng-container>
-                        </span>
+                        </dd>
                     </ng-container>
                 </div>
 
@@ -101,7 +102,7 @@
                         </a>
                     </span>
                 </div>
-            </div>
+            </dl>
         </div>
     </div>
 
