@@ -1,4 +1,4 @@
-import { Information, StatsInformation } from '../interfaces/general-entitly';
+import { Information, StatsInformation } from '../interfaces/general-entity';
 
 export const PersonalInformation: Information[] = [
     {

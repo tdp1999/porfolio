@@ -5,8 +5,13 @@
     <h4 class="mb-1 text-theme-primary">{{ data.position }}</h4>
     <p class="mb-5">
         <span class="font-semibold">{{ data.company }}</span> /
-        {{ data.startDate | date : monthYearFormat }} -
-        {{ (data.endDate | date : monthYearFormat) ?? "Current" }}
+        <time [dateTime]="data.startDate.semanticValue">
+            {{ data.startDate.value | date : monthYearFormat }}
+        </time>
+        -
+        <time [dateTime]="data.endDate?.semanticValue">
+            {{ (data.endDate?.value | date : monthYearFormat) ?? "Current" }}
+        </time>
     </p>
 
     <p class="flex-grow">{{ data.description }}</p>

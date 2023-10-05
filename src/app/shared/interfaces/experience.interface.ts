@@ -1,12 +1,13 @@
 import { Project } from './project.interface';
 import { Image } from './image.interface';
+import { Datetime } from './general-entity';
 
 export interface Experience {
     id: number;
     company: string;
     position: string;
-    startDate: Date;
-    endDate: Date | null;
+    startDate: Datetime;
+    endDate: Datetime | null;
     description: string;
     technologies: string[];
     location: string;

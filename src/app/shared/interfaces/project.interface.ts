@@ -4,7 +4,7 @@ import {
     ProjectType,
     ProjectSize,
 } from '../types/software.type';
-import { Link } from './general-entitly';
+import { Datetime, Link } from './general-entity';
 import { Image } from './image.interface';
 
 export interface ProjectTagDescription {
@@ -19,8 +19,8 @@ export interface Project {
     name: string;
     description: string;
     technologies: string[];
-    startDate: Date;
-    endDate: Date | null;
+    startDate: Datetime;
+    endDate: Datetime | null;
     projectCategory: ProjectCategory;
     projectType: ProjectType;
     projectSize: ProjectSize;

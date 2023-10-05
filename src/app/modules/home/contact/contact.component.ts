@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactFormComponent } from 'src/app/shared/components/contact-form/contact-form.component';
 import { SocialLinkData } from 'src/app/shared/data/social-link.data';
-import { Link } from 'src/app/shared/interfaces/general-entitly';
+import { Link } from 'src/app/shared/interfaces/general-entity';
 
 @Component({
     selector: 'app-contact',

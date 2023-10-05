@@ -5,7 +5,7 @@ import {
     faSquareFacebook,
     faSkype,
 } from '@fortawesome/free-brands-svg-icons';
-import { Link } from '../interfaces/general-entitly';
+import { Link } from '../interfaces/general-entity';
 
 export const SocialLinkData: Link[] = [
     {

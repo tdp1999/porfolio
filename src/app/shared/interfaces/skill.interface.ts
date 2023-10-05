@@ -1,6 +1,6 @@
 import { SkillType as TSkillType } from './../types/skill.type';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { Certificate, Link } from './general-entitly';
+import { Certificate, Link } from './general-entity';
 
 export interface SkillType {
     id: TSkillType;

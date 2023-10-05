@@ -13,8 +13,13 @@
 
 <ng-template #detail let-d>
     <p class="italic">
-        {{ d.startDate | date : monthYearFormat }} -
-        {{ (d.endDate | date : monthYearFormat) ?? "Current" }}
+        <time [dateTime]="d.startDate.semanticValue">
+            {{ d.startDate.value | date : monthYearFormat }}
+        </time>
+        -
+        <time [dateTime]="d.endDate?.semanticValue">
+            {{ (d.endDate?.value | date : monthYearFormat) ?? "Current" }}
+        </time>
     </p>
 
     <h3>{{ d.company | uppercase }}</h3>

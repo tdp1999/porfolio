@@ -26,3 +26,10 @@ export interface Certificate {
     description?: string;
     url: string;
 }
+
+export interface Datetime {
+    value: Date;
+
+    // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time#valid_datetime_values
+    semanticValue: string;
+}

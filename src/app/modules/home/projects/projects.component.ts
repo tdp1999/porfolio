@@ -51,9 +51,9 @@ export class ProjectsComponent {
             },
             {
                 title: 'Start - End Date',
-                value: `${item.startDate.toLocaleDateString()} - ${
+                value: `${item.startDate.value.toLocaleDateString()} - ${
                     item.endDate
-                        ? item.endDate.toLocaleDateString()
+                        ? item.endDate.value.toLocaleDateString()
                         : this._translocoService.translate('Present')
                 }`,
             },

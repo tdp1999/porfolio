@@ -32,12 +32,12 @@ export class ExperiencesComponent implements OnInit {
 
     public monthYearFormat = DatetimeFormat.monthYear;
     public experiences = Experiences.sort(
-        (a, b) => a.startDate.getTime() - b.startDate.getTime()
+        (a, b) => a.startDate.value.getTime() - b.startDate.value.getTime()
     );
     public milestones: Milestone[] = this.experiences.map((item) => ({
         id: item.id,
         tooltip:
-            this._datePipe.transform(item.startDate, this.monthYearFormat) ??
+            this._datePipe.transform(item.startDate.value, this.monthYearFormat) ??
             '',
         data: item,
     }));

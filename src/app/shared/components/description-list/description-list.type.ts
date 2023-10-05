@@ -1,4 +1,4 @@
-import { Link } from '../../interfaces/general-entitly';
+import { Link } from '../../interfaces/general-entity';
 
 export interface DescriptionListData {
     title: string;
