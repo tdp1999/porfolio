@@ -2,7 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {
     BrowserModule,
@@ -31,6 +30,7 @@ import {
     faChevronRight,
     faChevronUp,
     faCircleCheck as faCircleCheckSolid,
+    faCircleInfo,
     faCircle as faCircleSolid,
     faClose,
     faCoffee,
@@ -40,6 +40,7 @@ import {
     faMoon,
     faPhone,
     faSun,
+    faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -55,7 +56,6 @@ const components = [
     FontAwesomeModule,
     MatSidenavModule,
     MatDividerModule,
-    MatIconModule,
     MatButtonModule,
     NavListModule,
 ];
@@ -104,7 +104,9 @@ export class AppModule {
             faBars,
             faAnglesDown,
             faGitAlt,
-            faNodeJs
+            faNodeJs,
+            faXmark,
+            faCircleInfo
         );
     }
 }

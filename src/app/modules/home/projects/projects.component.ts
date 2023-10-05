@@ -60,6 +60,7 @@ export class ProjectsComponent {
             {
                 title: 'Project Category',
                 value: item.projectCategory,
+
             },
             {
                 title: 'Project Type',

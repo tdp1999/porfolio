@@ -12,7 +12,7 @@
         </div>
 
         <button mat-icon-button mat-dialog-close class="">
-            <mat-icon>close</mat-icon>
+            <fa-icon [icon]="['fas', 'xmark']"></fa-icon>
         </button>
     </div>
     <div class="h-full">
@@ -25,12 +25,11 @@
                     class="sticky top-0 flex items-center gap-2 text-sm font-medium leading-6"
                 >
                     <span [innerHTML]="record.title | transloco"></span>
-                    <mat-icon
+                    <fa-icon
                         *ngIf="record.tooltip"
                         [matTooltip]="record.tooltip | transloco"
-                        class="w-4 h-4 text-base"
-                        >info</mat-icon
-                    >
+                        [icon]="['fas', 'circle-info']"
+                    ></fa-icon>
                 </dt>
                 <dd
                     class="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0"
