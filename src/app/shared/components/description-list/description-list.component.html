@@ -1,6 +1,8 @@
-<div class="h-full overflow-y-hidden theme--text">
+<div
+    class="h-full overflow-y-hidden theme--text flex flex-col py-3 px-4 sm:px-8 sm:py-8"
+>
     <div
-        class="sticky flex justify-between -top-0.5 px-4 sm:px-0 pb-4 dark:bg-[#424242] bg-[#f7f7f7] z-10"
+        class="sticky flex justify-between -top-0.5 pb-4 dark:bg-[#424242] bg-[#f7f7f7] z-10 w-full"
     >
         <div>
             <h3 class="text-base font-bold leading-7">
@@ -15,14 +17,14 @@
             <fa-icon [icon]="['fas', 'xmark']"></fa-icon>
         </button>
     </div>
-    <div class="h-full">
+    <div class="h-full overflow-auto">
         <dl class="h-full pb-5 overflow-auto divide-y divide-gray-300">
             <div
                 *ngFor="let record of data.data"
-                class="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
+                class="py-3 sm:grid sm:grid-cols-3 sm:gap-4"
             >
                 <dt
-                    class="sticky top-0 flex items-center gap-2 text-sm font-medium leading-6"
+                    class="flex items-center gap-2 text-sm font-medium leading-6"
                 >
                     <span [innerHTML]="record.title | transloco"></span>
                     <fa-icon
@@ -40,7 +42,7 @@
             <ng-container *ngIf="data.links">
                 <div
                     *ngFor="let link of data.links | keyvalue : keepOrder"
-                    class="px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
+                    class="py-3 sm:grid sm:grid-cols-3 sm:gap-4"
                 >
                     <dt
                         class="text-sm font-medium leading-6"
