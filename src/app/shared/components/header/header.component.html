@@ -1,5 +1,5 @@
-<nav
-    #nav
+<header
+    #header
     class="flex items-center justify-between px-8 sm:px-12 md:px-20 xl:px-40 xl:py-4 py-2 theme--bg !transition-spacing drop-shadow-md"
 >
     <a class="w-14" routerLink="/" (click)="scrollService.scrollToTop()" title="Scroll To Top">
@@ -13,7 +13,7 @@
     </a>
 
     <div class="items-center hidden lg:flex gap-7">
-        <app-nav-list [navbar]="navbar"></app-nav-list>
+        <app-nav-list [containerRef]="headerRef"></app-nav-list>
 
         <div class="flex items-center justify-center w-6">
             <button
@@ -48,4 +48,4 @@
             class="text-theme-primary"
         ></fa-icon>
     </button>
-</nav>
+</header>

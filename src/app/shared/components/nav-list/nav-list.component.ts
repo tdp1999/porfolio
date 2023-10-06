@@ -44,7 +44,7 @@ import { Language } from '../../types/language.type';
 })
 export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() drawer?: MatDrawer;
-    @Input() navbar?: ElementRef;
+    @Input() containerRef?: ElementRef;
 
     public cvUrl = CVURL.en;
     public items: Menu[] = MENU_DATA;
@@ -132,7 +132,7 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
                 }
             });
 
-        // Padding navbar animation on scroll
+        // Padding containerRef animation on scroll
         const scrollableElement =
             this._document.querySelector('[id="content"]');
         const window = this._window.nativeWindow;
@@ -143,11 +143,12 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
                     takeUntil(this._unsubscribeAll),
                     // debounceTime(150),
                     tap(() => {
-                        if (!this.navbar || !this.navbar.nativeElement) return;
+                        if (!this.containerRef || !this.containerRef.nativeElement)
+                            return;
                         this._scrollService.toggleScrolledClass(
                             scrollableElement,
                             window,
-                            this.navbar.nativeElement
+                            this.containerRef.nativeElement
                         );
                     })
                 )

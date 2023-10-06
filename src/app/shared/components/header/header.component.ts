@@ -11,9 +11,9 @@ import { ThemeService } from '../../services/theme.service';
 import { ScrollService } from '../../services/scroll.service';
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss'],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     animations: [
         // trigger('iconChangeAnimation', [
@@ -23,8 +23,8 @@ import { ScrollService } from '../../services/scroll.service';
         // ]),
     ],
 })
-export class NavbarComponent {
-    @ViewChild('nav', { static: true }) navbar!: ElementRef;
+export class HeaderComponent {
+    @ViewChild('header', { static: true }) headerRef!: ElementRef;
 
     public items = MENU_DATA;
     public menuService = inject(MenuService);

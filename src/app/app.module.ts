@@ -47,11 +47,11 @@ import { AppComponent } from './app.component';
 import { DEFAULT_TOKENS, MATERIAL_CONFIGURATIONS } from './app.token';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { NavListModule } from './shared/components/nav-list/nav-list.module';
-import { NavbarModule } from './shared/components/navbar/navbar.module';
+import { HeaderModule } from './shared/components/header/header.module';
 import { TranslocoRootModule } from './transloco-root.module';
 
 const components = [
-    NavbarModule,
+    HeaderModule,
     FooterModule,
     FontAwesomeModule,
     MatSidenavModule,
