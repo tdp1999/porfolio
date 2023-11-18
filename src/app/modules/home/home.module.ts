@@ -22,6 +22,7 @@ import { AnimateOnScrollModule } from 'src/app/shared/directives/animate-on-scro
 import { ScrollspyModule } from 'src/app/shared/directives/scrollspy/scrollspy.module';
 import { SwiperModule } from 'src/app/shared/directives/swiper/swiper.module';
 import { TrackByModule } from 'src/app/shared/directives/track-by/track-by.module';
+import { ExpandableTextModule } from '../../shared/directives/expandable-text/expandable-text.module';
 import { ExperienceItemModule } from './../../shared/components/experience-item/experience-item.module';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
@@ -63,7 +64,7 @@ const components = [
     SwiperModule,
 ];
 
-const directives = [TrackByModule];
+const directives = [TrackByModule, ExpandableTextModule];
 
 @NgModule({
     declarations: [

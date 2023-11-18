@@ -62,6 +62,22 @@
         "hash": "8252982324677737136"
       },
       {
+        "file": ".nx/cache/file-map.json",
+        "hash": "7564401841113389619"
+      },
+      {
+        "file": ".nx/cache/lockfile.hash",
+        "hash": "11622868171445966756"
+      },
+      {
+        "file": ".nx/cache/parsed-lock-file.json",
+        "hash": "1053006420088560874"
+      },
+      {
+        "file": ".nx/cache/project-graph.json",
+        "hash": "12189820461906190743"
+      },
+      {
         "file": ".vscode/extensions.json",
         "hash": "11934160580685414355"
       },
