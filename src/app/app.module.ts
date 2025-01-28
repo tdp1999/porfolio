@@ -1,4 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
+import {
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -62,20 +65,20 @@ const components = [
 
 @NgModule({
     declarations: [AppComponent],
+    bootstrap: [AppComponent],
     imports: [
         BrowserAnimationsModule,
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
         AppRoutingModule,
-        HttpClientModule,
         TranslocoRootModule,
         ...components,
     ],
     providers: [
         ...MATERIAL_CONFIGURATIONS,
         ...DEFAULT_TOKENS,
-        provideClientHydration()
+        provideClientHydration(),
+        provideHttpClient(withInterceptorsFromDi()),
     ],
-    bootstrap: [AppComponent],
 })
 export class AppModule {
     constructor(public faLibrary: FaIconLibrary) {
