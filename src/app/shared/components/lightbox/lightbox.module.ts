@@ -13,8 +13,7 @@ const components = [
 ];
 
 @NgModule({
-    declarations: [LightboxComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, LightboxComponent],
     exports: [LightboxComponent],
     providers: [MatIconRegistry],
 })

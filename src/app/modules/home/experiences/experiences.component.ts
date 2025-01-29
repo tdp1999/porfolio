@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgFor, UpperCasePipe } from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -8,13 +8,14 @@ import {
     inject,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { TranslocoService } from '@ngneat/transloco';
+import { TranslocoService, TranslocoModule } from '@ngneat/transloco';
 import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
 import { Milestone } from 'src/app/shared/components/timeline/timeline.interface';
 import { DatetimeFormat } from 'src/app/shared/constants/datetime.constant';
 import { Experiences } from 'src/app/shared/data/experience.data';
 import { Experience } from 'src/app/shared/interfaces/experience.interface';
+import { TimelineComponent } from '../../../shared/components/timeline/timeline.component';
 
 @Component({
     selector: 'app-experiences',
@@ -22,7 +23,7 @@ import { Experience } from 'src/app/shared/interfaces/experience.interface';
     styleUrls: ['./experiences.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [DatePipe],
-    standalone: false
+    imports: [TimelineComponent, NgFor, UpperCasePipe, DatePipe, TranslocoModule]
 })
 export class ExperiencesComponent implements OnInit {
     @ViewChild('detail', { static: true }) detail!: TemplateRef<any>;

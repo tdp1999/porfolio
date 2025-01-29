@@ -16,8 +16,7 @@ const components = [
 ];
 
 @NgModule({
-    declarations: [DescriptionListComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, DescriptionListComponent],
     exports: [DescriptionListComponent],
 })
 export class DescriptionListModule {}

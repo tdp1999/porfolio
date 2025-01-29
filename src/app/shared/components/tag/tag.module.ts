@@ -6,8 +6,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 const components = [TranslocoModule];
 
 @NgModule({
-    declarations: [TagComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, TagComponent],
     exports: [TagComponent],
 })
 export class TagModule {}

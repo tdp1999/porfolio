@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslocoModule } from '@ngneat/transloco';
-import { TrimModule } from '../../directives/trim/trim.module';
+
 import { ContactFormComponent } from './contact-form.component';
 
 const components = [
@@ -15,11 +15,13 @@ const components = [
     TranslocoModule,
 ];
 
-const directives = [TrimModule];
-
 @NgModule({
-    declarations: [ContactFormComponent],
-    imports: [CommonModule, ReactiveFormsModule, ...components, ...directives],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        ...components,
+        ContactFormComponent,
+    ],
     exports: [ContactFormComponent],
 })
 export class ContactFormModule {}

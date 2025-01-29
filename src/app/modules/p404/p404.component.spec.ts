@@ -8,8 +8,8 @@ describe('P404Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ P404Component ]
-    })
+    imports: [P404Component]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(P404Component);

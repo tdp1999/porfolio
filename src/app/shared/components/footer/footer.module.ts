@@ -8,8 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 const components = [MatMenuModule, FontAwesomeModule, RouterModule];
 
 @NgModule({
-    declarations: [FooterComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, FooterComponent],
     exports: [FooterComponent],
 })
 export class FooterModule {}

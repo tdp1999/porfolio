@@ -14,10 +14,7 @@ import { ScrollService } from '../../services/scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { Subject, debounceTime, takeUntil } from 'rxjs';
 
-@Directive({
-    selector: '[appScrollspy]',
-    standalone: false
-})
+@Directive({ selector: '[appScrollspy]' })
 export class ScrollspyDirective implements AfterViewInit, OnDestroy {
     // TODO: Skipped for migration because:
     //  Accessor inputs cannot be migrated as they are too complex.

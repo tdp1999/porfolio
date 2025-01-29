@@ -7,10 +7,7 @@ import {
 } from '@angular/core';
 import { SwiperContainer } from 'swiper/element';
 
-@Directive({
-    selector: '[appSwiper]',
-    standalone: false
-})
+@Directive({ selector: '[appSwiper]' })
 export class SwiperDirective implements AfterViewInit {
     // @Input() swiperConfig?: SwiperOptions;
     // TODO: Skipped for migration because:

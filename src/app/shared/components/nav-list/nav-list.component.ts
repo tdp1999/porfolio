@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgFor, NgClass, NgIf, AsyncPipe, TitleCasePipe } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -11,13 +11,8 @@ import {
   input
 } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import {
-    ActivatedRoute,
-    IsActiveMatchOptions,
-    NavigationEnd,
-    Router,
-} from '@angular/router';
-import { LangDefinition, TranslocoService } from '@ngneat/transloco';
+import { ActivatedRoute, IsActiveMatchOptions, NavigationEnd, Router, RouterLinkActive, RouterLink } from '@angular/router';
+import { LangDefinition, TranslocoService, TranslocoModule } from '@ngneat/transloco';
 import {
     Subject,
     debounceTime,
@@ -36,12 +31,16 @@ import { ThemeService } from '../../services/theme.service';
 import { WindowRefService } from '../../services/window-ref.service';
 import { LS_LANGUAGE_KEY } from '../../tokens/local-storage.token';
 import { Language } from '../../types/language.type';
+import { MatNavList } from '@angular/material/list';
+import { MatDivider } from '@angular/material/divider';
+import { MatMenuTrigger, MatMenu, MatMenuItem } from '@angular/material/menu';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'app-nav-list',
     templateUrl: './nav-list.component.html',
     styleUrls: ['./nav-list.component.scss'],
-    standalone: false
+    imports: [MatNavList, NgFor, RouterLinkActive, RouterLink, NgClass, NgIf, MatDivider, MatMenuTrigger, FontAwesomeModule, MatMenu, MatMenuItem, AsyncPipe, TitleCasePipe, TranslocoModule]
 })
 export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     readonly drawer = input<MatDrawer>();

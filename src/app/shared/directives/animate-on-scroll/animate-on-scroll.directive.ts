@@ -20,10 +20,7 @@ import {
 } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
-@Directive({
-    selector: '[appAnimateOnScroll]',
-    standalone: false
-})
+@Directive({ selector: '[appAnimateOnScroll]' })
 export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
     // TODO: Skipped for migration because:
     //  Accessor inputs cannot be migrated as they are too complex.

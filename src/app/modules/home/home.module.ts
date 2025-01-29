@@ -18,12 +18,6 @@ import { SkillItemModule } from 'src/app/shared/components/skill-item/skill-item
 import { StatsItemModule } from 'src/app/shared/components/stats-item/stats-item.module';
 import { TagModule } from 'src/app/shared/components/tag/tag.module';
 import { TimelineModule } from 'src/app/shared/components/timeline/timeline.module';
-import { AnimateOnScrollModule } from 'src/app/shared/directives/animate-on-scroll/animate-on-scroll.module';
-import { ScrollspyModule } from 'src/app/shared/directives/scrollspy/scrollspy.module';
-import { SwiperModule } from 'src/app/shared/directives/swiper/swiper.module';
-import { TrackByModule } from 'src/app/shared/directives/track-by/track-by.module';
-import { ExpandableTextModule } from '../../shared/directives/expandable-text/expandable-text.module';
-import { ExperienceItemModule } from './../../shared/components/experience-item/experience-item.module';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ExperiencesComponent } from './experiences/experiences.component';
@@ -41,11 +35,9 @@ const routes: Routes = [
 ];
 
 const components = [
-    AnimateOnScrollModule,
     CarouselModule,
     ContactFormModule,
     DescriptionListModule,
-    ExperienceItemModule,
     FontAwesomeModule,
     LightboxModule,
     MatDialogModule,
@@ -55,19 +47,18 @@ const components = [
     MatTreeModule,
     ProjectItemModule,
     ScrollToTopModule,
-    ScrollspyModule,
     SkillItemModule,
     StatsItemModule,
     TimelineModule,
     TranslocoModule,
     TagModule,
-    SwiperModule,
 ];
 
-const directives = [TrackByModule, ExpandableTextModule];
-
 @NgModule({
-    declarations: [
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ...components,
         HomeComponent,
         HeroComponent,
         ExperiencesComponent,
@@ -76,12 +67,6 @@ const directives = [TrackByModule, ExpandableTextModule];
         ContactComponent,
         ProjectsComponent,
         HomeSectionDirective,
-    ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        ...components,
-        ...directives,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

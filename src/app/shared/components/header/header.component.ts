@@ -9,6 +9,10 @@ import { MENU_DATA } from '../../data/menu.data';
 import { MenuService } from '../../services/menu.service';
 import { ThemeService } from '../../services/theme.service';
 import { ScrollService } from '../../services/scroll.service';
+import { RouterLink } from '@angular/router';
+import { NavListComponent } from '../nav-list/nav-list.component';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'app-header',
@@ -22,7 +26,7 @@ import { ScrollService } from '../../services/scroll.service';
     //     transition(':enter', animate('200ms ease-in')),
     // ]),
     ],
-    standalone: false
+    imports: [RouterLink, NavListComponent, NgIf, FontAwesomeModule, AsyncPipe]
 })
 export class HeaderComponent {
     @ViewChild('header', { static: true }) headerRef!: ElementRef;

@@ -20,8 +20,7 @@ const components = [
 ];
 
 @NgModule({
-    declarations: [NavListComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, NavListComponent],
     exports: [NavListComponent],
 })
 export class NavListModule {}

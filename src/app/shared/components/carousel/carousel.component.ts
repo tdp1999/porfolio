@@ -1,6 +1,8 @@
 import { Component, OnInit, input } from '@angular/core';
 import { CarouselImage } from '../../interfaces/carousel.interface';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-carousel',
@@ -15,7 +17,11 @@ import { trigger, transition, style, animate } from '@angular/animations';
             transition('* => void', [animate('300ms', style({ opacity: 0 }))]),
         ]),
     ],
-    standalone: false,
+    imports: [
+        FontAwesomeModule,
+        NgFor,
+        NgIf,
+    ],
 })
 export class CarouselComponent implements OnInit {
     readonly images = input<CarouselImage[]>([

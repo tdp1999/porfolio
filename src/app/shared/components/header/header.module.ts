@@ -8,8 +8,7 @@ import { NavListModule } from '../nav-list/nav-list.module';
 const components = [RouterModule, FontAwesomeModule, NavListModule];
 
 @NgModule({
-    declarations: [HeaderComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, HeaderComponent],
     exports: [HeaderComponent],
 })
 export class HeaderModule {}

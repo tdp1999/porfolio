@@ -14,6 +14,12 @@ import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.c
 import { SkillTypes } from 'src/app/shared/data/skill.data';
 import { Skill } from 'src/app/shared/interfaces/skill.interface';
 import { SkillType } from 'src/app/shared/types/skill.type';
+import { AnimateOnScrollDirective } from '../../../shared/directives/animate-on-scroll/animate-on-scroll.directive';
+import { NgClass, NgIf, NgFor, AsyncPipe, UpperCasePipe } from '@angular/common';
+import { MatAccordion, MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, MatExpansionPanelDescription } from '@angular/material/expansion';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatTooltip } from '@angular/material/tooltip';
+import { TranslocoModule } from '@ngneat/transloco';
 
 interface SkillNode {
     name: string;
@@ -26,7 +32,7 @@ interface SkillNode {
     templateUrl: './skills.component.html',
     styleUrls: ['./skills.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    imports: [AnimateOnScrollDirective, NgClass, NgIf, NgFor, MatAccordion, MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, FontAwesomeModule, MatTooltip, MatExpansionPanelDescription, AsyncPipe, UpperCasePipe, TranslocoModule]
 })
 export class SkillsComponent implements AfterViewInit, OnDestroy {
     public skillTypes = SkillTypes;

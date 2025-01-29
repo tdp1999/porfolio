@@ -10,13 +10,15 @@ import {
 import { ProjectTagDescription } from '../../interfaces/project.interface';
 import { ETag } from '../../enums/tag.enum';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { NgClass } from '@angular/common';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
     selector: 'app-tag',
     templateUrl: './tag.component.html',
     styleUrls: ['./tag.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    imports: [NgClass, TranslocoModule]
 })
 export class TagComponent {
     readonly tag = input.required<ProjectTagDescription>();

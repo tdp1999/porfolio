@@ -6,8 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 const components = [FontAwesomeModule];
 
 @NgModule({
-    declarations: [ScrollToTopComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, ScrollToTopComponent],
     exports: [ScrollToTopComponent],
 })
 export class ScrollToTopModule {}

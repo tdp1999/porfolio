@@ -6,13 +6,15 @@ import {
   input
 } from '@angular/core';
 import { Milestone } from './timeline.interface';
+import { NgFor, NgClass, NgTemplateOutlet } from '@angular/common';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
     selector: 'app-timeline',
     templateUrl: './timeline.component.html',
     styleUrls: ['./timeline.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    imports: [NgFor, NgClass, MatTooltip, NgTemplateOutlet]
 })
 export class TimelineComponent implements OnInit {
     readonly milestones = input<Milestone[]>([]);

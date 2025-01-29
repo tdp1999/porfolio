@@ -7,8 +7,7 @@ import { TagModule } from '../tag/tag.module';
 const components = [TranslocoModule, TagModule];
 
 @NgModule({
-    declarations: [ProjectItemComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, ProjectItemComponent],
     exports: [ProjectItemComponent],
 })
 export class ProjectItemModule {}

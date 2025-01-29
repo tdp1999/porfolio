@@ -6,8 +6,7 @@ import { TimelineComponent } from './timeline.component';
 const components = [MatTooltipModule];
 
 @NgModule({
-    declarations: [TimelineComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, TimelineComponent],
     exports: [TimelineComponent],
 })
 export class TimelineModule {}

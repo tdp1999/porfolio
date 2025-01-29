@@ -1,15 +1,18 @@
+import { DOCUMENT } from '@angular/common';
 import {
-    Component,
-    ElementRef,
-    Renderer2,
-    inject,
-    OnInit,
-    OnDestroy,
-    ViewChild,
-    ChangeDetectorRef,
     AfterViewInit,
+    ChangeDetectorRef,
+    Component,
+    OnDestroy,
+    OnInit,
+    Renderer2,
+    ViewChild,
+    inject,
 } from '@angular/core';
-import { ThemeService } from './shared/services/theme.service';
+import { MatDrawer } from '@angular/material/sidenav';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, IsActiveMatchOptions } from '@angular/router';
+import { TranslocoService } from '@ngneat/transloco';
 import {
     Subject,
     debounceTime,
@@ -17,17 +20,13 @@ import {
     map,
     takeUntil,
 } from 'rxjs';
-import { DOCUMENT } from '@angular/common';
-import { ScrollService } from './shared/services/scroll.service';
-import { MenuService } from './shared/services/menu.service';
-import { MatDrawer } from '@angular/material/sidenav';
-import { Title } from '@angular/platform-browser';
-import { MENU_DATA } from './shared/data/menu.data';
-import { ActivatedRoute, IsActiveMatchOptions } from '@angular/router';
-import { CVURL } from './shared/constants/url.constant';
-import { TranslocoService } from '@ngneat/transloco';
-import { Language } from './shared/types/language.type';
 import { register } from 'swiper/element/bundle';
+import { CVURL } from './shared/constants/url.constant';
+import { MENU_DATA } from './shared/data/menu.data';
+import { MenuService } from './shared/services/menu.service';
+import { ScrollService } from './shared/services/scroll.service';
+import { ThemeService } from './shared/services/theme.service';
+import { Language } from './shared/types/language.type';
 
 @Component({
     selector: 'app-root',
@@ -36,7 +35,7 @@ import { register } from 'swiper/element/bundle';
     // Renderer2 can only be injected into the constructor of a directive or component.
     // So we need provide the service in the component decorator.
     providers: [ScrollService],
-    standalone: false
+    standalone: false,
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     @ViewChild(MatDrawer, { static: true }) drawer!: MatDrawer;

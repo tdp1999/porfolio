@@ -12,8 +12,7 @@ const components = [
 ];
 
 @NgModule({
-    declarations: [CarouselComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, CarouselComponent],
     exports: [CarouselComponent],
 })
 export class CarouselModule {}

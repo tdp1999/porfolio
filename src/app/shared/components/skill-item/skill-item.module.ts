@@ -6,8 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 const components = [FontAwesomeModule];
 
 @NgModule({
-    declarations: [SkillItemComponent],
-    imports: [CommonModule, ...components],
+    imports: [CommonModule, ...components, SkillItemComponent],
     exports: [SkillItemComponent],
 })
 export class SkillItemModule {}

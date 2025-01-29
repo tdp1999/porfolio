@@ -16,6 +16,15 @@ import {
     tap,
 } from 'rxjs';
 import { ScrollService } from 'src/app/shared/services/scroll.service';
+import { ScrollspyDirective } from '../../shared/directives/scrollspy/scrollspy.directive';
+import { HeroComponent } from './hero/hero.component';
+import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll/animate-on-scroll.directive';
+import { AboutComponent } from './about/about.component';
+import { ExperiencesComponent } from './experiences/experiences.component';
+import { SkillsComponent } from './skills/skills.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { ContactComponent } from './contact/contact.component';
+import { ScrollToTopComponent } from '../../shared/components/scroll-to-top/scroll-to-top.component';
 // import { SwiperOptions } from 'swiper/types';
 // import { A11y, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 // import { Navigation } from 'swiper/modules';
@@ -25,7 +34,7 @@ import { ScrollService } from 'src/app/shared/services/scroll.service';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    imports: [ScrollspyDirective, HeroComponent, AnimateOnScrollDirective, AboutComponent, ExperiencesComponent, SkillsComponent, ProjectsComponent, ContactComponent, ScrollToTopComponent]
 })
 export class HomeComponent implements OnDestroy, AfterViewInit {
     public sliders: string[] = [

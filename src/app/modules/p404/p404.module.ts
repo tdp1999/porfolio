@@ -14,7 +14,6 @@ const route: Routes = [
 const components = [TranslocoModule];
 
 @NgModule({
-    declarations: [P404Component],
-    imports: [CommonModule, RouterModule.forChild(route), ...components],
+    imports: [CommonModule, RouterModule.forChild(route), ...components, P404Component],
 })
 export class P404Module {}
