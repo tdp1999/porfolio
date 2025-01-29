@@ -1,5 +1,6 @@
 import {
     provideHttpClient,
+    withFetch,
     withInterceptorsFromDi,
 } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -49,8 +50,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DEFAULT_TOKENS, MATERIAL_CONFIGURATIONS } from './app.token';
 import { FooterModule } from './shared/components/footer/footer.module';
-import { NavListModule } from './shared/components/nav-list/nav-list.module';
 import { HeaderModule } from './shared/components/header/header.module';
+import { NavListModule } from './shared/components/nav-list/nav-list.module';
 import { TranslocoRootModule } from './transloco-root.module';
 
 const components = [
@@ -68,7 +69,6 @@ const components = [
     bootstrap: [AppComponent],
     imports: [
         BrowserAnimationsModule,
-        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         AppRoutingModule,
         TranslocoRootModule,
         ...components,
@@ -77,7 +77,7 @@ const components = [
         ...MATERIAL_CONFIGURATIONS,
         ...DEFAULT_TOKENS,
         provideClientHydration(),
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withInterceptorsFromDi(), withFetch()),
     ],
 })
 export class AppModule {

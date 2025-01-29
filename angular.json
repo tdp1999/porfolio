@@ -17,37 +17,31 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:application",
                     "options": {
-                      "outputPath": {
-                        "base": "dist/porfolio"
-                      },
-                      "index": "src/index.html",
-                      "polyfills": [
-                        "src/polyfills.ts"
-                      ],
-                      "tsConfig": "tsconfig.app.json",
-                      "inlineStyleLanguage": "scss",
-                      "assets": [
-                        "src/favicon.ico",
-                        "src/assets",
-                        {
-                          "glob": "_redirects",
-                          "input": "src",
-                          "output": "/"
+                        "outputPath": {
+                            "base": "dist/porfolio"
+                        },
+                        "index": "src/index.html",
+                        "polyfills": ["src/polyfills.ts"],
+                        "tsConfig": "tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets",
+                            {
+                                "glob": "_redirects",
+                                "input": "src",
+                                "output": "/"
+                            }
+                        ],
+                        "styles": ["src/styles.scss"],
+                        "scripts": [],
+                        "allowedCommonJsDependencies": ["flat"],
+                        "browser": "src/main.ts",
+                        "server": "src/main.server.ts",
+                        "prerender": true,
+                        "ssr": {
+                            "entry": "server.ts"
                         }
-                      ],
-                      "styles": [
-                        "src/styles.scss"
-                      ],
-                      "scripts": [],
-                      "allowedCommonJsDependencies": [
-                        "flat"
-                      ],
-                      "browser": "src/main.ts",
-                      "server": "src/main.server.ts",
-                      "prerender": true,
-                      "ssr": {
-                        "entry": "server.ts"
-                      }
                     },
                     "configurations": {
                         "production": {
@@ -72,7 +66,7 @@
                             "outputHashing": "all"
                         },
                         "development": {
-                          "optimization": false,
+                            "optimization": false,
                             "extractLicenses": false,
                             "sourceMap": true,
                             "namedChunks": true
@@ -84,10 +78,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                          "buildTarget": "porfolio:build:production"
+                            "buildTarget": "porfolio:build:production"
                         },
                         "development": {
-                          "buildTarget": "porfolio:build:development"
+                            "buildTarget": "porfolio:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -95,7 +89,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                      "buildTarget": "porfolio:build"
+                        "buildTarget": "porfolio:build"
                     }
                 },
                 "test": {

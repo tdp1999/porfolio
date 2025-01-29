@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./scss/index";
+@use "./scss/index";
 
 html {
     height: 100%;
