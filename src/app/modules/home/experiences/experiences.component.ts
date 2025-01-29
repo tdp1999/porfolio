@@ -22,6 +22,7 @@ import { Experience } from 'src/app/shared/interfaces/experience.interface';
     styleUrls: ['./experiences.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [DatePipe],
+    standalone: false
 })
 export class ExperiencesComponent implements OnInit {
     @ViewChild('detail', { static: true }) detail!: TemplateRef<any>;

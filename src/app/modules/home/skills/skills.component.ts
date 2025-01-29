@@ -26,6 +26,7 @@ interface SkillNode {
     templateUrl: './skills.component.html',
     styleUrls: ['./skills.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SkillsComponent implements AfterViewInit, OnDestroy {
     public skillTypes = SkillTypes;

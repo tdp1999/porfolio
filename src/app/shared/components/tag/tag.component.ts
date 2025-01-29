@@ -15,6 +15,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     templateUrl: './tag.component.html',
     styleUrls: ['./tag.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TagComponent {
     @Input() tag!: ProjectTagDescription;

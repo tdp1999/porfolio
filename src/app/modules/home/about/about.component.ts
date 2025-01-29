@@ -16,6 +16,7 @@ import {
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class AboutComponent {
     @Output() scrollTo: EventEmitter<string> = new EventEmitter<string>();

@@ -25,6 +25,7 @@ import { ScrollService } from 'src/app/shared/services/scroll.service';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class HomeComponent implements OnDestroy, AfterViewInit {
     public sliders: string[] = [

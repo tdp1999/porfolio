@@ -14,6 +14,7 @@ import { Experience } from '../../interfaces/experience.interface';
     templateUrl: './experience-item.component.html',
     styleUrls: ['./experience-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ExperienceItemComponent {
     @Input() data?: Experience;

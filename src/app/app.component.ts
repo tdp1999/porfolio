@@ -33,10 +33,10 @@ import { register } from 'swiper/element/bundle';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-
     // Renderer2 can only be injected into the constructor of a directive or component.
     // So we need provide the service in the component decorator.
     providers: [ScrollService],
+    standalone: false
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     @ViewChild(MatDrawer, { static: true }) drawer!: MatDrawer;

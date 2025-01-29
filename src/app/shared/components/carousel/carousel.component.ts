@@ -15,6 +15,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
             transition('* => void', [animate('300ms', style({ opacity: 0 }))]),
         ]),
     ],
+    standalone: false
 })
 export class CarouselComponent implements OnInit {
     @Input() images: CarouselImage[] = [

@@ -15,6 +15,7 @@ import { Project } from '../../interfaces/project.interface';
     templateUrl: './project-item.component.html',
     styleUrls: ['./project-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ProjectItemComponent {
     @Input() item?: Project;

@@ -7,6 +7,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
     templateUrl: './lightbox.component.html',
     styleUrls: ['./lightbox.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class LightboxComponent {
     public data: LightboxData = inject(MAT_DIALOG_DATA);

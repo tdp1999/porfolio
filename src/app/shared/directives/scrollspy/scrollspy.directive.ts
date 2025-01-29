@@ -16,6 +16,7 @@ import { Subject, debounceTime, takeUntil } from 'rxjs';
 
 @Directive({
     selector: '[appScrollspy]',
+    standalone: false
 })
 export class ScrollspyDirective implements AfterViewInit, OnDestroy {
     @Input() get spiedTags(): string[] {

@@ -22,6 +22,7 @@ import {
             multi: true,
         },
     ],
+    standalone: false
 })
 export class TrimDirective extends DefaultValueAccessor implements OnInit {
     private _injector = inject(Injector);

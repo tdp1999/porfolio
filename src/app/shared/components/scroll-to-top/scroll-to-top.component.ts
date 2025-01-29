@@ -5,6 +5,7 @@ import { ScrollService } from '../../services/scroll.service';
     selector: 'app-scroll-to-top',
     templateUrl: './scroll-to-top.component.html',
     styleUrls: ['./scroll-to-top.component.scss'],
+    standalone: false
 })
 export class ScrollToTopComponent {
     private _scrollService = inject(ScrollService);

@@ -22,6 +22,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Directive({
     selector: '[appAnimateOnScroll]',
+    standalone: false
 })
 export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
     @Input() set animateStart(value: string) {

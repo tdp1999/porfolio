@@ -16,12 +16,13 @@ import { ScrollService } from '../../services/scroll.service';
     styleUrls: ['./header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     animations: [
-        // trigger('iconChangeAnimation', [
-        //     state('void', style({ transform: 'rotate(0deg)' })),
-        //     state(':leave', style({ color: 'blue' })),
-        //     transition(':enter', animate('200ms ease-in')),
-        // ]),
+    // trigger('iconChangeAnimation', [
+    //     state('void', style({ transform: 'rotate(0deg)' })),
+    //     state(':leave', style({ color: 'blue' })),
+    //     transition(':enter', animate('200ms ease-in')),
+    // ]),
     ],
+    standalone: false
 })
 export class HeaderComponent {
     @ViewChild('header', { static: true }) headerRef!: ElementRef;

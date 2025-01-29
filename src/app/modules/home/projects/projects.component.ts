@@ -12,6 +12,7 @@ import { Project } from 'src/app/shared/interfaces/project.interface';
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ProjectsComponent {
     public tags$ = of(ProjectTags);

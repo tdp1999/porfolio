@@ -17,6 +17,7 @@ import { DOCUMENT } from '@angular/common';
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class FooterComponent implements OnInit, OnDestroy {
     public menuOpen: boolean = false;

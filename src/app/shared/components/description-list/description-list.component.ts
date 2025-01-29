@@ -6,6 +6,7 @@ import { DescriptionListData } from './description-list.type';
     selector: 'app-description-list',
     templateUrl: './description-list.component.html',
     styleUrls: ['./description-list.component.scss'],
+    standalone: false
 })
 export class DescriptionListComponent {
     public data: DescriptionListData = inject(MAT_DIALOG_DATA);

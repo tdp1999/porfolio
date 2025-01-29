@@ -17,6 +17,7 @@ import { IntersectionObserveService } from '../../services/intersection-observe.
     templateUrl: './stats-item.component.html',
     styleUrls: ['./stats-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class StatsItemComponent implements AfterViewInit, OnDestroy {
     @Input() startFrom = 0;

@@ -10,6 +10,7 @@ import {
     templateUrl: './hero.component.html',
     styleUrls: ['./hero.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class HeroComponent {
     @Output() scrollTo = new EventEmitter<string>();

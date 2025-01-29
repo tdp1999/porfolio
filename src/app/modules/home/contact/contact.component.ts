@@ -9,6 +9,7 @@ import { Link } from 'src/app/shared/interfaces/general-entity';
     templateUrl: './contact.component.html',
     styleUrls: ['./contact.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ContactComponent {
     public socialLink: Link[] = SocialLinkData;
