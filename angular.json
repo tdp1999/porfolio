@@ -155,10 +155,6 @@
     },
     "cli": {
         "analytics": "947b8c5a-a389-4d89-ae68-5e45c5fb6f5d",
-        "schematicCollections": [
-            "@cypress/schematic",
-            "@angular-eslint/schematics",
-            "@schematics/angular"
-        ]
+        "schematicCollections": ["@cypress/schematic", "@angular-eslint/schematics", "@schematics/angular"]
     }
 }

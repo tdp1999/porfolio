@@ -1,21 +1,8 @@
-import {
-    provideHttpClient,
-    withFetch,
-    withInterceptorsFromDi,
-} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {
-    BrowserModule,
-    provideClientHydration,
-} from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-    FaIconLibrary,
-    FontAwesomeModule,
-} from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
     faGitAlt,
     faLinkedin,
@@ -46,25 +33,14 @@ import {
     faSun,
     faXmark,
 } from '@fortawesome/free-solid-svg-icons';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { DEFAULT_TOKENS, MATERIAL_CONFIGURATIONS } from './app.token';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { HeaderModule } from './shared/components/header/header.module';
 import { NavListModule } from './shared/components/nav-list/nav-list.module';
-import { TranslocoRootModule } from './transloco-root.module';
 
-const components = [
-    HeaderModule,
-    FooterModule,
-    FontAwesomeModule,
-    MatSidenavModule,
-    MatDividerModule,
-    MatButtonModule,
-    NavListModule,
-];
+const components = [HeaderModule, FooterModule, FontAwesomeModule, MatSidenavModule, MatDividerModule, MatButtonModule, NavListModule];
 
-@NgModule({
+@NgModule(/* TODO(standalone-migration): clean up removed NgModule class manually.
+{
     declarations: [AppComponent],
     bootstrap: [AppComponent],
     imports: [
@@ -79,7 +55,7 @@ const components = [
         provideClientHydration(),
         provideHttpClient(withInterceptorsFromDi(), withFetch()),
     ],
-})
+} */)
 export class AppModule {
     constructor(public faLibrary: FaIconLibrary) {
         faLibrary.addIcons(

@@ -1,25 +1,10 @@
 import { DOCUMENT } from '@angular/common';
-import {
-    AfterViewInit,
-    ChangeDetectorRef,
-    Component,
-    OnDestroy,
-    OnInit,
-    Renderer2,
-    ViewChild,
-    inject,
-} from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, Renderer2, ViewChild, inject } from '@angular/core';
+import { MatDrawer, MatDrawerContainer, MatDrawerContent } from '@angular/material/sidenav';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, IsActiveMatchOptions } from '@angular/router';
+import { ActivatedRoute, IsActiveMatchOptions, RouterOutlet } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
-import {
-    Subject,
-    debounceTime,
-    distinctUntilChanged,
-    map,
-    takeUntil,
-} from 'rxjs';
+import { Subject, debounceTime, distinctUntilChanged, map, takeUntil } from 'rxjs';
 import { register } from 'swiper/element/bundle';
 import { CVURL } from './shared/constants/url.constant';
 import { MENU_DATA } from './shared/data/menu.data';
@@ -27,6 +12,12 @@ import { MenuService } from './shared/services/menu.service';
 import { ScrollService } from './shared/services/scroll.service';
 import { ThemeService } from './shared/services/theme.service';
 import { Language } from './shared/types/language.type';
+import { MatIconButton } from '@angular/material/button';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatDivider } from '@angular/material/divider';
+import { NavListComponent } from './shared/components/nav-list/nav-list.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @Component({
     selector: 'app-root',
@@ -35,7 +26,18 @@ import { Language } from './shared/types/language.type';
     // Renderer2 can only be injected into the constructor of a directive or component.
     // So we need provide the service in the component decorator.
     providers: [ScrollService],
-    standalone: false,
+    imports: [
+        MatDrawerContainer,
+        MatDrawer,
+        MatIconButton,
+        FontAwesomeModule,
+        MatDivider,
+        NavListComponent,
+        MatDrawerContent,
+        HeaderComponent,
+        RouterOutlet,
+        FooterComponent,
+    ],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     @ViewChild(MatDrawer, { static: true }) drawer!: MatDrawer;
@@ -71,27 +73,19 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
                 takeUntil(this._unsubscribeAll$)
             )
             .subscribe((isDark) => {
-                isDark
-                    ? this._renderer2.addClass(this._document.body, 'dark')
-                    : this._renderer2.removeClass(this._document.body, 'dark');
+                isDark ? this._renderer2.addClass(this._document.body, 'dark') : this._renderer2.removeClass(this._document.body, 'dark');
             });
 
         this._translocoService.langChanges$
-            .pipe(
-                debounceTime(300),
-                distinctUntilChanged(),
-                takeUntil(this._unsubscribeAll$)
-            )
+            .pipe(debounceTime(300), distinctUntilChanged(), takeUntil(this._unsubscribeAll$))
             .subscribe((lang) => {
                 this.cvUrl = CVURL[lang as Language];
                 this._cdr.markForCheck();
             });
 
-        this._menuService.menuState$
-            .pipe(takeUntil(this._unsubscribeAll$))
-            .subscribe(() => {
-                this.drawer.toggle();
-            });
+        this._menuService.menuState$.pipe(takeUntil(this._unsubscribeAll$)).subscribe(() => {
+            this.drawer.toggle();
+        });
     }
 
     ngAfterViewInit(): void {
