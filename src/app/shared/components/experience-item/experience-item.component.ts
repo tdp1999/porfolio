@@ -17,6 +17,9 @@ import { Experience } from '../../interfaces/experience.interface';
     standalone: false
 })
 export class ExperienceItemComponent {
+    // TODO: Skipped for migration because:
+    //  This input is used in a control flow expression (e.g. `@if` or `*ngIf`)
+    //  and migrating would break narrowing currently.
     @Input() data?: Experience;
     @Output() actionClick = new EventEmitter();
 

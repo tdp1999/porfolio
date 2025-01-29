@@ -19,6 +19,8 @@ import { Subject, debounceTime, takeUntil } from 'rxjs';
     standalone: false
 })
 export class ScrollspyDirective implements AfterViewInit, OnDestroy {
+    // TODO: Skipped for migration because:
+    //  Accessor inputs cannot be migrated as they are too complex.
     @Input() get spiedTags(): string[] {
         return this._spiedTags;
     }

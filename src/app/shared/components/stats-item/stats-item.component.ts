@@ -1,13 +1,13 @@
 import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    Input,
-    OnDestroy,
-    ViewChild,
-    inject,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+  inject,
+  input
 } from '@angular/core';
 import { Subject, delay, takeUntil } from 'rxjs';
 import { IntersectionObserveService } from '../../services/intersection-observe.service';
@@ -20,12 +20,12 @@ import { IntersectionObserveService } from '../../services/intersection-observe.
     standalone: false
 })
 export class StatsItemComponent implements AfterViewInit, OnDestroy {
-    @Input() startFrom = 0;
-    @Input() duration = 7000;
-    @Input() steps = 100;
+    readonly startFrom = input(0);
+    readonly duration = input(7000);
+    readonly steps = input(100);
 
-    @Input() value!: number;
-    @Input() label!: string;
+    readonly value = input.required<number>();
+    readonly label = input.required<string>();
 
     @ViewChild('el') el!: ElementRef;
 
@@ -56,18 +56,18 @@ export class StatsItemComponent implements AfterViewInit, OnDestroy {
     }
 
     startCounting() {
-        const increment = Math.ceil((this.value - this.startFrom) / this.steps);
+        const increment = Math.ceil((this.value() - this.startFrom()) / this.steps());
 
         this._intervalId = setInterval(() => {
             this.currentValue += increment;
-            this.showPlusSign = this.currentValue >= this.value;
+            this.showPlusSign = this.currentValue >= this.value();
             this._cdr.markForCheck();
 
-            if (this.currentValue >= this.value) {
-                this.currentValue = this.value;
+            if (this.currentValue >= this.value()) {
+                this.currentValue = this.value();
                 this._cdr.markForCheck();
                 clearInterval(this._intervalId);
             }
-        }, this.duration / this.steps);
+        }, this.duration() / this.steps());
     }
 }

@@ -25,6 +25,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
     standalone: false
 })
 export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
+    // TODO: Skipped for migration because:
+    //  Accessor inputs cannot be migrated as they are too complex.
     @Input() set animateStart(value: string) {
         const classes = this._elementRef.nativeElement.classList;
         if (classes.contains(this._animateStart)) return;
@@ -41,6 +43,9 @@ export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
     }
     private _animateStart = 'animation--fade';
 
+    // TODO: Skipped for migration because:
+    //  Class of this input is manually instantiated. This is discouraged and prevents
+    //  migration.
     @Input() animationEnd = 'animate';
 
     @HostBinding('class.animation--fade') animate = true;

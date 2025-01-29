@@ -18,6 +18,9 @@ import { Project } from '../../interfaces/project.interface';
     standalone: false
 })
 export class ProjectItemComponent {
+    // TODO: Skipped for migration because:
+    //  This input is used in a control flow expression (e.g. `@if` or `*ngIf`)
+    //  and migrating would break narrowing currently.
     @Input() item?: Project;
     @Output() linkClicked = new EventEmitter<void>();
 }

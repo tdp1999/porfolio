@@ -7,7 +7,7 @@
         >
             <div
                 *ngFor="
-                    let point of milestones;
+                    let point of milestones();
                     let first = first;
                     let last = last;
                     let index = index
@@ -35,8 +35,8 @@
         >
             <ng-container
                 *ngTemplateOutlet="
-                    contentTemplate || default;
-                    context: { $implicit: milestones[currentMilestone].data }
+                    contentTemplate() || default;
+                    context: { $implicit: milestones()[currentMilestone].data }
                 "
             ></ng-container>
         </div>

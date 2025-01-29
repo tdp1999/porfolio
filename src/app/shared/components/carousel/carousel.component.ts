@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, input } from '@angular/core';
 import { CarouselImage } from '../../interfaces/carousel.interface';
 import { trigger, transition, style, animate } from '@angular/animations';
 
@@ -15,10 +15,10 @@ import { trigger, transition, style, animate } from '@angular/animations';
             transition('* => void', [animate('300ms', style({ opacity: 0 }))]),
         ]),
     ],
-    standalone: false
+    standalone: false,
 })
 export class CarouselComponent implements OnInit {
-    @Input() images: CarouselImage[] = [
+    readonly images = input<CarouselImage[]>([
         {
             title: 'Image 1',
             alt: 'Image 1',
@@ -34,26 +34,26 @@ export class CarouselComponent implements OnInit {
             alt: 'Image 3',
             url: 'assets/images/carousel/carousel-3.jpg',
         },
-    ];
+    ]);
 
     public currentIndex = 0;
 
     ngOnInit(): void {}
 
     getCurrentSlideURL(): string {
-        return `url(${this.images[this.currentIndex].url})`;
+        return `url(${this.images()[this.currentIndex].url})`;
     }
 
     prevSlide() {
         this.currentIndex =
             this.currentIndex === 0
-                ? this.images.length - 1
+                ? this.images().length - 1
                 : this.currentIndex - 1;
     }
 
     nextSlide() {
         this.currentIndex =
-            this.currentIndex === this.images.length - 1
+            this.currentIndex === this.images().length - 1
                 ? 0
                 : this.currentIndex + 1;
     }

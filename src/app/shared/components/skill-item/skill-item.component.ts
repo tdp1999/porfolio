@@ -15,6 +15,9 @@ import { Skill } from '../../interfaces/skill.interface';
     standalone: false
 })
 export class SkillItemComponent {
+    // TODO: Skipped for migration because:
+    //  This input is used in a control flow expression (e.g. `@if` or `*ngIf`)
+    //  and migrating would break narrowing currently.
     @Input() skill!: Skill;
     @Output() actionClick = new EventEmitter();
 }

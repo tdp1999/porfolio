@@ -2,7 +2,7 @@
     type="button"
     class="p-1 text-xs font-normal align-middle border rounded-md drop-shadow-sm"
     [ngClass]="getCustomClass()"
-    (click)="onClick.emit(tag.id)"
+    (click)="onClick.emit(tag().id)"
 >
-    {{ tag.label | transloco }}
+    {{ tag().label | transloco }}
 </button>

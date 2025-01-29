@@ -13,6 +13,9 @@ import { SwiperContainer } from 'swiper/element';
 })
 export class SwiperDirective implements AfterViewInit {
     // @Input() swiperConfig?: SwiperOptions;
+    // TODO: Skipped for migration because:
+    //  Class of this input is manually instantiated. This is discouraged and prevents
+    //  migration.
     @Input() swiperConfig?: any;
 
     private _el = inject(ElementRef<SwiperContainer>);

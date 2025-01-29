@@ -1,10 +1,11 @@
 import {
-    ChangeDetectionStrategy,
-    Component,
-    EventEmitter,
-    Input,
-    OnInit,
-    Output,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  input
 } from '@angular/core';
 import { ProjectTagDescription } from '../../interfaces/project.interface';
 import { ETag } from '../../enums/tag.enum';
@@ -18,7 +19,9 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     standalone: false
 })
 export class TagComponent {
-    @Input() tag!: ProjectTagDescription;
+    readonly tag = input.required<ProjectTagDescription>();
+    // TODO: Skipped for migration because:
+    //  Accessor inputs cannot be migrated as they are too complex.
     @Input() get clickable(): boolean {
         return this._clickable;
     }
@@ -27,6 +30,8 @@ export class TagComponent {
     }
     public _clickable = false;
 
+    // TODO: Skipped for migration because:
+    //  Accessor inputs cannot be migrated as they are too complex.
     @Input() get choosed(): boolean {
         return this._choosed;
     }
@@ -47,7 +52,7 @@ export class TagComponent {
 
         customClass = customClass.concat(
             ' ',
-            this._decideColorClass(this.tag.class)
+            this._decideColorClass(this.tag().class)
         );
 
         return customClass;

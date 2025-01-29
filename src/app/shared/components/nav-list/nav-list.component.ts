@@ -1,14 +1,14 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { DOCUMENT } from '@angular/common';
 import {
-    AfterViewInit,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    Input,
-    OnDestroy,
-    OnInit,
-    inject,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  inject,
+  input
 } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import {
@@ -44,8 +44,8 @@ import { Language } from '../../types/language.type';
     standalone: false
 })
 export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
-    @Input() drawer?: MatDrawer;
-    @Input() containerRef?: ElementRef;
+    readonly drawer = input<MatDrawer>();
+    readonly containerRef = input<ElementRef>();
 
     public cvUrl = CVURL.en;
     public items: Menu[] = MENU_DATA;
@@ -144,12 +144,13 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
                     takeUntil(this._unsubscribeAll),
                     // debounceTime(150),
                     tap(() => {
-                        if (!this.containerRef || !this.containerRef.nativeElement)
+                        const containerRef = this.containerRef();
+                        if (!containerRef || !containerRef.nativeElement)
                             return;
                         this._scrollService.toggleScrolledClass(
                             scrollableElement,
                             window,
-                            this.containerRef.nativeElement
+                            containerRef.nativeElement
                         );
                     })
                 )
@@ -187,7 +188,7 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     selectTheme(theme: string, currentTheme: string): void {
-        this.drawer?.close();
+        this.drawer()?.close();
 
         if (currentTheme === theme) return;
         this.themeService.toggleTheme();

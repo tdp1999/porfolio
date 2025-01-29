@@ -10,7 +10,7 @@
             [fragment]="item.fragment"
             class="relative flex items-center ml-5 leading-6 dark:text-theme-white-90 animation--border-b lg:leading-8"
             [ngClass]="{ 'link-active': item.active }"
-            (click)="drawer?.toggle()"
+            (click)="drawer()?.toggle()"
         >
             {{ item.label | transloco }}
         </a>
