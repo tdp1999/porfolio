@@ -10,7 +10,7 @@ import { LangDefinition, TranslocoService } from '@ngneat/transloco';
 import { Subject, debounceTime, distinctUntilChanged, takeUntil } from 'rxjs';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { LS_LANGUAGE_KEY } from '../../tokens/local-storage.token';
-import { DOCUMENT, NgFor } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { MatMenuTrigger, MatMenu, MatMenuItem } from '@angular/material/menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -19,7 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatMenuTrigger, FontAwesomeModule, MatMenu, NgFor, MatMenuItem]
+    imports: [MatMenuTrigger, FontAwesomeModule, MatMenu, MatMenuItem]
 })
 export class FooterComponent implements OnInit, OnDestroy {
     public menuOpen: boolean = false;

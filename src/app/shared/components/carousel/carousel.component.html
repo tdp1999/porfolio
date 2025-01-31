@@ -1,116 +1,74 @@
-<div
-    class="grid h-full grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 gap-4"
->
+<div class="grid h-full grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 gap-4">
     <div class="relative w-full h-full">
         <div>
             <div class="absolute z-10 -translate-y-1/2 left-4 top-1/2">
-                <fa-icon
-                    icon="chevron-left"
-                    size="3x"
-                    class="opacity-50 cursor-pointer hover:opacity-100"
-                    (click)="prevSlide()"
-                ></fa-icon>
+                <fa-icon icon="chevron-left" size="3x" class="opacity-50 cursor-pointer hover:opacity-100" (click)="prevSlide()"></fa-icon>
             </div>
             <div class="absolute z-10 -translate-y-1/2 right-4 top-1/2">
-                <fa-icon
-                    icon="chevron-right"
-                    size="3x"
-                    class="opacity-50 cursor-pointer hover:opacity-100"
-                    (click)="nextSlide()"
-                ></fa-icon>
+                <fa-icon icon="chevron-right" size="3x" class="opacity-50 cursor-pointer hover:opacity-100" (click)="nextSlide()"></fa-icon>
             </div>
         </div>
 
-        <div
-            class="absolute z-10 -translate-x-1/2 bottom-1 left-1/2 flex gap-2 theme--text-reverse"
-        >
-            <ng-container *ngFor="let image of images(); let i = index">
-                <fa-icon
-                    (click)="gotoSlide(i)"
-                    class="cursor-pointer opacity-70 hover:opacity-100"
-                    [icon]="[i === currentIndex ? 'fas' : 'far', 'circle']"
-                    size="xs"
-                ></fa-icon>
-            </ng-container>
+        <div class="absolute z-10 -translate-x-1/2 bottom-1 left-1/2 flex gap-2 theme--text-reverse">
+            @for (image of images(); track image.url; let i = $index) {
+            <fa-icon
+                (click)="gotoSlide(i)"
+                class="cursor-pointer opacity-70 hover:opacity-100"
+                [icon]="[i === currentIndex ? 'fas' : 'far', 'circle']"
+                size="xs"
+            ></fa-icon>
+            }
         </div>
 
-        <ng-container *ngFor="let image of images(); let i = index">
-            <img
-                *ngIf="i === currentIndex"
-                [src]="image.url"
-                loading="lazy"
-                class="absolute inset-0 object-cover object-center w-full h-full"
-                @carouselAnimation
-            />
-        </ng-container>
+        @for (image of images(); track image.url; let i = $index) { @if (i === currentIndex) {
+        <img [src]="image.url" loading="lazy" class="absolute inset-0 object-cover object-center w-full h-full" @carouselAnimation />
+        } }
     </div>
 
     <div class="overflow-y-auto">
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-            ratione repudiandae impedit porro, iusto in delectus cumque
-            laboriosam soluta voluptas eaque eveniet accusamus expedita qui
-            numquam corporis nihil, magni aliquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate ratione repudiandae impedit porro, iusto in delectus cumque
+            laboriosam soluta voluptas eaque eveniet accusamus expedita qui numquam corporis nihil, magni aliquam.
         </p>
     </div>
 </div>

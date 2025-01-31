@@ -6,7 +6,7 @@ import { DescriptionListComponent } from 'src/app/shared/components/description-
 import { ProjectTags, Projects } from 'src/app/shared/data/project.data';
 import { ETag } from 'src/app/shared/enums/tag.enum';
 import { Project } from 'src/app/shared/interfaces/project.interface';
-import { NgIf, NgFor, AsyncPipe, SlicePipe, KeyValuePipe } from '@angular/common';
+import { AsyncPipe, SlicePipe, KeyValuePipe } from '@angular/common';
 import { TagComponent } from '../../../shared/components/tag/tag.component';
 import { ProjectItemComponent } from '../../../shared/components/project-item/project-item.component';
 import { AnimateOnScrollDirective } from '../../../shared/directives/animate-on-scroll/animate-on-scroll.directive';
@@ -16,7 +16,7 @@ import { AnimateOnScrollDirective } from '../../../shared/directives/animate-on-
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgIf, NgFor, TagComponent, ProjectItemComponent, AnimateOnScrollDirective, AsyncPipe, SlicePipe, KeyValuePipe, TranslocoModule]
+    imports: [TagComponent, ProjectItemComponent, AnimateOnScrollDirective, AsyncPipe, SlicePipe, KeyValuePipe, TranslocoModule]
 })
 export class ProjectsComponent {
     public tags$ = of(ProjectTags);

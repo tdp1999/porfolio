@@ -8,7 +8,7 @@ export interface Information {
 }
 
 export interface Link {
-    id?: number;
+    id: number;
     url: string;
     label: string;
     hide?: boolean;

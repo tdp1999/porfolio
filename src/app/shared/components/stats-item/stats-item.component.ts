@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { Subject, delay, takeUntil } from 'rxjs';
 import { IntersectionObserveService } from '../../services/intersection-observe.service';
-import { NgIf } from '@angular/common';
+
 import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
@@ -19,7 +19,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     templateUrl: './stats-item.component.html',
     styleUrls: ['./stats-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgIf, TranslocoModule]
+    imports: [TranslocoModule]
 })
 export class StatsItemComponent implements AfterViewInit, OnDestroy {
     readonly startFrom = input(0);

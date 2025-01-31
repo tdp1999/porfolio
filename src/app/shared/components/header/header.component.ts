@@ -11,7 +11,7 @@ import { ThemeService } from '../../services/theme.service';
 import { ScrollService } from '../../services/scroll.service';
 import { RouterLink } from '@angular/router';
 import { NavListComponent } from '../nav-list/nav-list.component';
-import { NgIf, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -26,7 +26,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     //     transition(':enter', animate('200ms ease-in')),
     // ]),
     ],
-    imports: [RouterLink, NavListComponent, NgIf, FontAwesomeModule, AsyncPipe]
+    imports: [RouterLink, NavListComponent, FontAwesomeModule, AsyncPipe]
 })
 export class HeaderComponent {
     @ViewChild('header', { static: true }) headerRef!: ElementRef;

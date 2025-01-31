@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { DOCUMENT, NgFor, NgClass, NgIf, AsyncPipe, TitleCasePipe } from '@angular/common';
+import { DOCUMENT, NgClass, AsyncPipe, TitleCasePipe } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -40,7 +40,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     selector: 'app-nav-list',
     templateUrl: './nav-list.component.html',
     styleUrls: ['./nav-list.component.scss'],
-    imports: [MatNavList, NgFor, RouterLinkActive, RouterLink, NgClass, NgIf, MatDivider, MatMenuTrigger, FontAwesomeModule, MatMenu, MatMenuItem, AsyncPipe, TitleCasePipe, TranslocoModule]
+    imports: [MatNavList, RouterLinkActive, RouterLink, NgClass, MatDivider, MatMenuTrigger, FontAwesomeModule, MatMenu, MatMenuItem, AsyncPipe, TitleCasePipe, TranslocoModule]
 })
 export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     readonly drawer = input<MatDrawer>();

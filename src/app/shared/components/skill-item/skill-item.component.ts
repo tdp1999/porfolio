@@ -6,7 +6,7 @@ import {
     Output,
 } from '@angular/core';
 import { Skill } from '../../interfaces/skill.interface';
-import { NgIf } from '@angular/common';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -14,7 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     templateUrl: './skill-item.component.html',
     styleUrls: ['./skill-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgIf, FontAwesomeModule]
+    imports: [FontAwesomeModule]
 })
 export class SkillItemComponent {
     // TODO: Skipped for migration because:

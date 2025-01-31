@@ -1,9 +1,8 @@
 <div #el class="flex flex-col items-center justify-center">
-    <span
-        class="mb-2 text-5xl font-extrabold lg:text-6xl text-theme-primary white"
-        >{{ currentValue }}<span *ngIf="showPlusSign">+</span></span
+    <span class="mb-2 text-5xl font-extrabold lg:text-6xl text-theme-primary white"
+        >{{ currentValue }}@if (showPlusSign) {
+        <span>+</span>
+        }</span
     >
-    <span class="text-sm text-center md:text-base">{{
-        label() | transloco
-    }}</span>
+    <span class="text-sm text-center md:text-base">{{ label() | transloco }}</span>
 </div>

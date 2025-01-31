@@ -1,17 +1,10 @@
-<div
-    class="flex flex-col items-center justify-center w-full h-full gap-20 theme--bg-secondary theme--text"
->
+<div class="flex flex-col items-center justify-center w-full h-full gap-20 theme--bg-secondary theme--text">
     <div class="grid w-full h-full grid-cols-8 grid-rows-1 md:grid-cols-6">
         <div
             class="relative flex flex-col items-start justify-between py-8 after:bg-theme-primary after:absolute after:top-4 after:bottom-4 after:w-0.5 after:-translate-x-1/2 timeline-container"
         >
+            @for ( point of milestones(); track point.id; let first = $first; let last = $last; let index = $index) {
             <div
-                *ngFor="
-                    let point of milestones();
-                    let first = first;
-                    let last = last;
-                    let index = index
-                "
                 class="relative flex justify-start w-full"
                 [ngClass]="{
                     'before:absolute before:h-[1px] before:bg-theme-primary before:right-0 before:left-0 before:top-1/2 before:-translate-y-1/2':
@@ -20,24 +13,18 @@
             >
                 <button
                     class="milestone"
-                    [ngClass]="{
-                        'after:!bg-theme-accent': currentMilestone === index
-                    }"
+                    [ngClass]="{ 'after:!bg-theme-accent': currentMilestone === index }"
                     [matTooltip]="point.tooltip"
                     matTooltipPosition="left"
                     (click)="selectMilestone(index)"
                 ></button>
             </div>
+            }
         </div>
 
-        <div
-            class="overflow-auto max-h-[80vh] sm:max-h-fit col-span-7 md:col-span-5 p-4 border rounded-lg border-theme-primary"
-        >
+        <div class="overflow-auto max-h-[80vh] sm:max-h-fit col-span-7 md:col-span-5 p-4 border rounded-lg border-theme-primary">
             <ng-container
-                *ngTemplateOutlet="
-                    contentTemplate() || default;
-                    context: { $implicit: milestones()[currentMilestone].data }
-                "
+                *ngTemplateOutlet="contentTemplate() || default; context: { $implicit: milestones()[currentMilestone].data }"
             ></ng-container>
         </div>
     </div>

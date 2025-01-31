@@ -1,7 +1,5 @@
-<div
-    *ngIf="data"
-    class="p-6 rounded-lg h-full flex flex-col items-start theme--bg theme--text"
->
+@if (data) {
+<div class="p-6 rounded-lg h-full flex flex-col items-start theme--bg theme--text">
     <h4 class="mb-1 text-theme-primary">{{ data.position }}</h4>
     <p class="mb-5">
         <span class="font-semibold">{{ data.company }}</span> /
@@ -13,10 +11,7 @@
             {{ (data.endDate?.value | date : monthYearFormat) ?? "Current" }}
         </time>
     </p>
-
     <p class="flex-grow">{{ data.description }}</p>
-
-    <button class="link-button mt-3" (click)="actionClick.emit()">
-        See more
-    </button>
+    <button class="link-button mt-3" (click)="actionClick.emit()">See more</button>
 </div>
+}

@@ -8,14 +8,14 @@ import {
 } from '@angular/core';
 import { DatetimeFormat } from '../../constants/datetime.constant';
 import { Experience } from '../../interfaces/experience.interface';
-import { NgIf, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @Component({
     selector: 'app-experience-item',
     templateUrl: './experience-item.component.html',
     styleUrls: ['./experience-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgIf, DatePipe]
+    imports: [DatePipe]
 })
 export class ExperienceItemComponent {
     // TODO: Skipped for migration because:

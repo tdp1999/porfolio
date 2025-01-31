@@ -9,7 +9,7 @@ import {
     ViewChild,
 } from '@angular/core';
 import { Project } from '../../interfaces/project.interface';
-import { NgIf, NgFor } from '@angular/common';
+
 import { TagComponent } from '../tag/tag.component';
 import { TranslocoModule } from '@ngneat/transloco';
 
@@ -18,7 +18,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     templateUrl: './project-item.component.html',
     styleUrls: ['./project-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgIf, NgFor, TagComponent, TranslocoModule]
+    imports: [TagComponent, TranslocoModule]
 })
 export class ProjectItemComponent {
     // TODO: Skipped for migration because:

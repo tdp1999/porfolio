@@ -6,14 +6,14 @@ import { NetlifyService } from '../../services/netlify.service';
 import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { TrimDirective } from '../../directives/trim/trim.directive';
-import { NgIf } from '@angular/common';
+
 import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
     selector: 'app-contact-form',
     templateUrl: './contact-form.component.html',
     styleUrls: ['./contact-form.component.scss'],
-    imports: [ReactiveFormsModule, MatFormField, MatLabel, MatInput, TrimDirective, NgIf, MatError, TranslocoModule],
+    imports: [ReactiveFormsModule, MatFormField, MatLabel, MatInput, TrimDirective, MatError, TranslocoModule],
 })
 export class ContactFormComponent {
     // @ViewChild(FormGroupDirective) formRef!: FormGroupDirective;

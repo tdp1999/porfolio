@@ -1,4 +1,4 @@
-import { DatePipe, NgFor, UpperCasePipe } from '@angular/common';
+import { DatePipe, UpperCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild, inject, viewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslocoService, TranslocoModule } from '@ngneat/transloco';
@@ -16,7 +16,7 @@ import { TimelineComponent } from '../../../shared/components/timeline/timeline.
     styleUrls: ['./experiences.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [DatePipe],
-    imports: [TimelineComponent, NgFor, UpperCasePipe, DatePipe, TranslocoModule],
+    imports: [TimelineComponent, UpperCasePipe, DatePipe, TranslocoModule],
 })
 export class ExperiencesComponent implements OnInit {
     detail = viewChild.required<TemplateRef<any>>('detail');

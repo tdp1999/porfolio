@@ -3,49 +3,26 @@
     class="flex items-center justify-between px-8 sm:px-12 md:px-20 xl:px-40 xl:py-4 py-2 theme--bg !transition-spacing drop-shadow-md"
 >
     <a class="w-14" routerLink="/" (click)="scrollService.scrollToTop()" title="Scroll To Top">
-        <img
-            src="assets/images/logo-200-100.webp"
-            alt="Logo"
-            loading="eager"
-            width="56"
-            height="28"
-        />
+        <img src="assets/images/logo-200-100.webp" alt="Logo" loading="eager" width="56" height="28" />
     </a>
 
     <div class="items-center hidden lg:flex gap-7">
         <app-nav-list [containerRef]="headerRef"></app-nav-list>
 
         <div class="flex items-center justify-center w-6">
-            <button
-                *ngIf="themeService.currentTheme$ | async as theme"
-                (click)="themeService.toggleTheme()"
-            >
-                <ng-container *ngIf="theme === 'light'; else dark">
-                    <fa-icon
-                        [icon]="['fas', 'sun']"
-                        size="xl"
-                        class="text-theme-primary"
-                        [spin]="false"
-                    ></fa-icon>
-                </ng-container>
-
-                <ng-template #dark>
-                    <fa-icon
-                        [icon]="['fas', 'moon']"
-                        class="text-theme-white-90"
-                        size="xl"
-                        [spin]="false"
-                    ></fa-icon>
-                </ng-template>
+            @if (themeService.currentTheme$ | async; as theme) {
+            <button (click)="themeService.toggleTheme()">
+                @if (theme === 'light') {
+                <fa-icon [icon]="['fas', 'sun']" size="xl" class="text-theme-primary" [spin]="false"></fa-icon>
+                } @else {
+                <fa-icon [icon]="['fas', 'moon']" class="text-theme-white-90" size="xl" [spin]="false"></fa-icon>
+                }
             </button>
+            }
         </div>
     </div>
 
     <button class="w-6 h-6 lg:hidden" (click)="menuService.toggleMenu()">
-        <fa-icon
-            [icon]="['fas', 'bars']"
-            size="lg"
-            class="text-theme-primary"
-        ></fa-icon>
+        <fa-icon [icon]="['fas', 'bars']" size="lg" class="text-theme-primary"></fa-icon>
     </button>
 </header>

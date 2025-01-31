@@ -1,9 +1,7 @@
 <section
     class="relative flex flex-col items-center justify-center h-full gap-8 p-8 md:gap-12 xl:gap-20 sm:px-12 md:px-20 md:py-12 xl:py-20 theme--bg-secondary theme--text"
 >
-    <div
-        class="grid w-full max-w-screen-lg grid-cols-1 gap-8 lg:grid-cols-2 lg:grid-rows-1 auto-rows-auto md:gap-12 lg:gap-16"
-    >
+    <div class="grid w-full max-w-screen-lg grid-cols-1 gap-8 lg:grid-cols-2 lg:grid-rows-1 auto-rows-auto md:gap-12 lg:gap-16">
         <div class="flex flex-col items-start flex-grow gap-5 lg:gap-10">
             <h2 class="h2--start">{{ "contact.title" | transloco }}</h2>
 
@@ -20,38 +18,23 @@
 
                 <p class="flex items-center justify-center gap-3">
                     <fa-icon [icon]="['fas', 'phone']"></fa-icon>
-                    <a
-                        href="tel:+84783995295"
-                        class="primary-link"
-                        title="My phone number"
-                        >+84 783995295</a
-                    >
+                    <a href="tel:+84783995295" class="primary-link" title="My phone number">+84 783995295</a>
                 </p>
 
                 <p class="flex items-center justify-center gap-3">
                     <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
-                    <a
-                        href="mailto:tdp99.business@gmail.com"
-                        class="primary-link"
-                        >tdp99.business&#64;gmail.com</a
-                    >
+                    <a href="mailto:tdp99.business@gmail.com" class="primary-link">tdp99.business&#64;gmail.com</a>
                 </p>
             </address>
 
             <div class="flex gap-4">
-                <a
-                    *ngFor="let link of socialLink"
-                    [href]="link.url"
-                    target="_blank"
-                    class="animation--scale"
-                >
-                    <fa-icon
-                        *ngIf="link.icon"
-                        [icon]="link.icon"
-                        class="theme--text"
-                        size="xl"
-                    ></fa-icon>
+                @for (link of socialLink; track link.id) {
+                <a [href]="link.url" target="_blank" class="animation--scale">
+                    @if (link.icon) {
+                    <fa-icon [icon]="link.icon" class="theme--text" size="xl"></fa-icon>
+                    }
                 </a>
+                }
             </div>
         </div>
 

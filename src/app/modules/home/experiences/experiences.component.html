@@ -35,14 +35,18 @@
     <div class="mt-4">
         <p class="list-title">{{ "responsibilities" | transloco }}:</p>
         <ul class="mt-1">
-            <li *ngFor="let responsibility of d.responsibilities.slice(0, 4)" [innerHTML]="responsibility | transloco"></li>
+            @for (responsibility of d.responsibilities.slice(0, 4); track responsibility) {
+            <li [innerHTML]="responsibility | transloco"></li>
+            }
         </ul>
     </div>
 
     <div class="mt-4">
         <p class="list-title">{{ "achievements" | transloco }}:</p>
         <ul class="mt-1">
-            <li *ngFor="let achieve of d.achievements" [innerHTML]="achieve | transloco"></li>
+            @for (achieve of d.achievements; track achieve) {
+            <li [innerHTML]="achieve | transloco"></li>
+            }
         </ul>
     </div>
 
