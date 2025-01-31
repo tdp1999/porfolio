@@ -24,11 +24,11 @@ export const routes: Routes = [
     // },
     {
         path: 'sandbox',
-        loadChildren: () => import('./modules/sandbox/sandbox.module').then((m) => m.SandboxModule),
+        loadComponent: () => import('./modules/sandbox/sandbox.component').then((m) => m.SandboxComponent),
     },
     {
         path: 'not-found',
-        loadChildren: () => import('./modules/p404/p404.module').then((m) => m.P404Module),
+        loadComponent: () => import('./modules/p404/p404.component').then((m) => m.P404Component),
         data: {
             noAnchor: true,
         },
