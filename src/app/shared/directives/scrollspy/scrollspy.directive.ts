@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output, inject } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnDestroy, OnInit, inject, output } from '@angular/core';
 import { ScrollService } from '../../services/scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { Subject, debounceTime, takeUntil } from 'rxjs';
@@ -15,7 +15,7 @@ export class ScrollspyDirective implements AfterViewInit, OnDestroy {
     }
     private _spiedTags: string[] = [];
 
-    @Output() sectionChange = new EventEmitter<string | null>();
+    readonly sectionChange = output<string | null>();
 
     private _activeSection!: string;
     private _unsubscribeAll$ = new Subject<void>();

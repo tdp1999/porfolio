@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, output } from '@angular/core';
 import { Skill } from '../../interfaces/skill.interface';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -15,5 +15,5 @@ export class SkillItemComponent {
     //  This input is used in a control flow expression (e.g. `@if` or `*ngIf`)
     //  and migrating would break narrowing currently.
     @Input() skill!: Skill;
-    @Output() actionClick = new EventEmitter();
+    readonly actionClick = output();
 }

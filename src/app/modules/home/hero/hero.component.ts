@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslocoModule } from '@ngneat/transloco';
 
@@ -10,5 +10,5 @@ import { TranslocoModule } from '@ngneat/transloco';
     imports: [FontAwesomeModule, TranslocoModule],
 })
 export class HeroComponent {
-    @Output() scrollTo = new EventEmitter<string>();
+    readonly scrollTo = output<string>();
 }

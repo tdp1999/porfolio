@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Output, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, output } from '@angular/core';
 import { PersonalInformation, StatsData } from 'src/app/shared/data/credential.data';
 import { NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -13,7 +13,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     imports: [NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault, RouterLink, StatsItemComponent, TranslocoModule],
 })
 export class AboutComponent {
-    @Output() scrollTo: EventEmitter<string> = new EventEmitter<string>();
+    readonly scrollTo = output<string>();
 
     public elementRef = inject(ElementRef);
 

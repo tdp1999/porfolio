@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, input, output } from '@angular/core';
 import { ProjectTagDescription } from '../../interfaces/project.interface';
 import { ETag } from '../../enums/tag.enum';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -34,7 +34,7 @@ export class TagComponent {
     }
     public _choosed = false;
 
-    @Output() userClick = new EventEmitter<ETag>();
+    readonly userClick = output<ETag>();
 
     getCustomClass(): string {
         const notClickableClass = 'cursor-default';
