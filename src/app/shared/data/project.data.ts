@@ -1,8 +1,5 @@
 import { ETag } from '../enums/tag.enum';
-import {
-    Project,
-    ProjectTagDescription,
-} from '../interfaces/project.interface';
+import { Project, ProjectTagDescription } from '../interfaces/project.interface';
 
 export const ProjectTags: Record<ETag, ProjectTagDescription> = {
     [ETag.allTag]: {
@@ -56,10 +53,12 @@ export const Projects: Project[] = [
             description: 'Portfolio',
         },
         demoLink: {
+            id: 1,
             url: 'https://thunderphong.com',
             label: 'thunderphong.com',
         },
         sourceCodeLink: {
+            id: 1,
             url: 'https://github.com/tdp1999/porfolio',
             label: 'Github',
             hide: true,
@@ -134,11 +133,7 @@ export const Projects: Project[] = [
         projectSize: 'Small',
         clientDomain: 'Automobile',
         clientLocation: 'Australia',
-        mainFunctionality: [
-            'projectData.3.mainFunctionality.1',
-            'projectData.3.mainFunctionality.2',
-            'projectData.3.mainFunctionality.3',
-        ],
+        mainFunctionality: ['projectData.3.mainFunctionality.1', 'projectData.3.mainFunctionality.2', 'projectData.3.mainFunctionality.3'],
         thumbnail: {
             url: 'assets/images/projects/listing-250.webp',
             srcset: 'assets/images/projects/listing-250.webp 250w, assets/images/projects/listing-315.webp 315w, assets/images/projects/listing-440.webp 440w, assets/images/projects/listing-575.webp 575w',
@@ -171,11 +166,7 @@ export const Projects: Project[] = [
         projectSize: 'Small',
         clientDomain: 'Solar Pool Heating',
         clientLocation: 'Australia',
-        mainFunctionality: [
-            'projectData.4.mainFunctionality.1',
-            'projectData.4.mainFunctionality.2',
-            'projectData.4.mainFunctionality.3',
-        ],
+        mainFunctionality: ['projectData.4.mainFunctionality.1', 'projectData.4.mainFunctionality.2', 'projectData.4.mainFunctionality.3'],
         thumbnail: {
             url: 'assets/images/projects/website-250.webp',
             srcset: 'assets/images/projects/website-250.webp 250w, assets/images/projects/website-315.webp 315w, assets/images/projects/website-440.webp 440w, assets/images/projects/website-575.webp 575w',
@@ -208,10 +199,12 @@ export const Projects: Project[] = [
         projectSize: 'Not Rated',
         mainFunctionality: ['projectData.5.mainFunctionality.1'],
         demoLink: {
+            id: 1,
             url: 'https://pp-food.netlify.app/',
             label: 'Demo',
         },
         sourceCodeLink: {
+            id: 1,
             url: 'https://github.com/tdp1999/PP-Food',
             label: 'Github',
         },

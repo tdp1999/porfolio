@@ -1,12 +1,4 @@
-import {
-    faAngular,
-    faCss3,
-    faCss3Alt,
-    faGitAlt,
-    faHtml5,
-    faJsSquare,
-    faNodeJs,
-} from '@fortawesome/free-brands-svg-icons';
+import { faAngular, faCss3, faCss3Alt, faGitAlt, faHtml5, faJsSquare, faNodeJs } from '@fortawesome/free-brands-svg-icons';
 import { Skill, SkillType } from '../interfaces/skill.interface';
 
 export const TechnicalSkills: Skill[] = [
@@ -28,14 +20,17 @@ export const TechnicalSkills: Skill[] = [
         ],
         libraries: [
             {
+                id: 1,
                 url: 'https://rxjs.dev/',
                 label: 'RxJS',
             },
             {
+                id: 2,
                 url: 'https://ngrx.io/',
                 label: 'NgRx',
             },
             {
+                id: 3,
                 url: 'https://material.angular.io/',
                 label: 'Angular Material',
             },
@@ -56,10 +51,12 @@ export const TechnicalSkills: Skill[] = [
         ],
         libraries: [
             {
+                id: 1,
                 url: 'https://lodash.com/',
                 label: 'Lodash',
             },
             {
+                id: 2,
                 url: 'https://github.com/typestack/class-transformer',
                 label: 'class-transformer',
             },
@@ -72,11 +69,7 @@ export const TechnicalSkills: Skill[] = [
         type: 'technical',
         level: 'Intermediate',
         experience: 0,
-        subSkills: [
-            'HTML Semantics',
-            'Search Engine Optimization (SEO)',
-            'Web Accessibility',
-        ],
+        subSkills: ['HTML Semantics', 'Search Engine Optimization (SEO)', 'Web Accessibility'],
         libraries: [],
     },
     {
@@ -89,14 +82,17 @@ export const TechnicalSkills: Skill[] = [
         subSkills: ['SCSS', 'CSS Methodologies: BEM', 'Responsive'],
         libraries: [
             {
+                id: 1,
                 url: 'https://tailwindcss.com/',
                 label: 'Tailwind',
             },
             {
+                id: 2,
                 url: 'https://getbootstrap.com/',
                 label: 'Bootstrap',
             },
             {
+                id: 3,
                 url: 'https://material.angular.io/',
                 label: 'Angular Material',
             },
@@ -134,14 +130,17 @@ export const ToolSkills: Skill[] = [
         ],
         libraries: [
             {
+                id: 1,
                 url: 'https://github.com/',
                 label: 'Github',
             },
             {
+                id: 2,
                 url: 'https://about.gitlab.com/',
                 label: 'Gitlab',
             },
             {
+                id: 3,
                 url: 'https://bitbucket.org/',
                 label: 'Bitbucket',
             },
@@ -157,13 +156,7 @@ export const ToolSkills: Skill[] = [
             'Figma is a vector graphics editor and prototyping tool which is primarily web-based, with additional offline features enabled by desktop applications for macOS and Windows.',
         level: 'Not Rated',
         experience: 2.5,
-        subSkills: [
-            'UI Design',
-            'Prototyping',
-            'Collaboration',
-            'Handoff',
-            'Design System',
-        ],
+        subSkills: ['UI Design', 'Prototyping', 'Collaboration', 'Handoff', 'Design System'],
         libraries: [],
         hideDetail: true,
     },
@@ -172,16 +165,10 @@ export const ToolSkills: Skill[] = [
         name: 'Postman',
         icon: null,
         type: 'tool',
-        description:
-            'Postman is a popular API client that makes it easy for developers to create, share, test and document APIs.',
+        description: 'Postman is a popular API client that makes it easy for developers to create, share, test and document APIs.',
         level: 'Not Rated',
         experience: 2.5,
-        subSkills: [
-            'API Testing',
-            'API Documentation',
-            'API Mocking',
-            'API Monitoring',
-        ],
+        subSkills: ['API Testing', 'API Documentation', 'API Mocking', 'API Monitoring'],
         libraries: [],
         hideDetail: true,
     },
@@ -194,12 +181,7 @@ export const ToolSkills: Skill[] = [
             'Jira is a proprietary issue tracking product developed by Atlassian that allows bug tracking and agile project management.',
         level: 'Not Rated',
         experience: 1,
-        subSkills: [
-            'Project Management',
-            'Issue Tracking',
-            'Bug Tracking',
-            'Agile Development',
-        ],
+        subSkills: ['Project Management', 'Issue Tracking', 'Bug Tracking', 'Agile Development'],
         libraries: [],
         hideDetail: true,
     },
@@ -212,12 +194,7 @@ export const ToolSkills: Skill[] = [
             'Notion is an application that provides components such as notes, databases, kanban boards, wikis, calendars and reminders.',
         level: 'Not Rated',
         experience: 2.5,
-        subSkills: [
-            'Note Taking',
-            'Project Management',
-            'Knowledge Management',
-            'Collaboration',
-        ],
+        subSkills: ['Note Taking', 'Project Management', 'Knowledge Management', 'Collaboration'],
         libraries: [],
         hideDetail: true,
     },
