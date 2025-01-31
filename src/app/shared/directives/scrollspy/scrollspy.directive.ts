@@ -1,20 +1,11 @@
-import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnDestroy, OnInit, inject, output } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnDestroy, OnInit, inject, input, output } from '@angular/core';
 import { ScrollService } from '../../services/scroll.service';
 import { DOCUMENT } from '@angular/common';
 import { Subject, debounceTime, takeUntil } from 'rxjs';
 
 @Directive({ selector: '[appScrollspy]' })
 export class ScrollspyDirective implements AfterViewInit, OnDestroy {
-    // TODO: Skipped for migration because:
-    //  Accessor inputs cannot be migrated as they are too complex.
-    @Input() get spiedTags(): string[] {
-        return this._spiedTags;
-    }
-    set spiedTags(val: string[]) {
-        this._spiedTags = val.map((v) => v.toUpperCase());
-    }
-    private _spiedTags: string[] = [];
-
+    readonly spiedTags = input([], { transform: (val: string[]) => val.map((v) => v.toUpperCase()) });
     readonly sectionChange = output<string | null>();
 
     private _activeSection!: string;
@@ -35,7 +26,7 @@ export class ScrollspyDirective implements AfterViewInit, OnDestroy {
             .subscribe((event: Event) => {
                 // Get all sections that spied by Scrollspy directive
                 const children = Array.from(this._elementRef.nativeElement.children as HTMLCollection).filter((child) => {
-                    return this.spiedTags.some((spiedTag) => spiedTag === child.tagName);
+                    return this.spiedTags().some((spiedTag) => spiedTag === child.tagName);
                 }) as HTMLElement[];
 
                 // Find all section that are inside the viewport

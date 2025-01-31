@@ -14,25 +14,8 @@ import { TranslocoModule } from '@ngneat/transloco';
 })
 export class TagComponent {
     readonly tag = input.required<ProjectTagDescription>();
-    // TODO: Skipped for migration because:
-    //  Accessor inputs cannot be migrated as they are too complex.
-    @Input() get clickable(): boolean {
-        return this._clickable;
-    }
-    set clickable(value: BooleanInput) {
-        this._clickable = coerceBooleanProperty(value);
-    }
-    public _clickable = false;
-
-    // TODO: Skipped for migration because:
-    //  Accessor inputs cannot be migrated as they are too complex.
-    @Input() get choosed(): boolean {
-        return this._choosed;
-    }
-    set choosed(value: BooleanInput) {
-        this._choosed = coerceBooleanProperty(value);
-    }
-    public _choosed = false;
+    readonly choosed = input(false, { transform: coerceBooleanProperty });
+    readonly clickable = input(false, { transform: coerceBooleanProperty });
 
     readonly userClick = output<ETag>();
 
@@ -49,7 +32,7 @@ export class TagComponent {
     }
 
     private _decideColorClass(customClass?: string): string {
-        if (this.choosed) return 'bg-theme-primary text-theme-white-90';
+        if (this.choosed()) return 'bg-theme-primary text-theme-white-90';
         if (customClass) return customClass;
         return 'text-theme-black-80 border-theme-black-80 dark:text-theme-white-80 dark:border-theme-white-80';
     }

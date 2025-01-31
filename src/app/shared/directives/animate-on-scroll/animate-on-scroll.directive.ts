@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, HostBinding, Input, OnDestroy, Renderer2, inject } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostBinding, Input, OnDestroy, Renderer2, inject, input } from '@angular/core';
 import { IntersectionObserveService } from '../../services/intersection-observe.service';
 import { Subject, filter, switchMap, take, takeUntil, tap, withLatestFrom } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -20,10 +20,7 @@ export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
     }
     private _animateStart = 'animation--fade';
 
-    // TODO: Skipped for migration because:
-    //  Class of this input is manually instantiated. This is discouraged and prevents
-    //  migration.
-    @Input() animationEnd = 'animate';
+    readonly animationEnd = input<string>('animate');
 
     @HostBinding('class.animation--fade') animate = true;
 
@@ -46,7 +43,7 @@ export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
                 takeUntil(this._unsubscribeAll$),
             )
             .subscribe((isIntersecting: boolean) => {
-                this._elementRef.nativeElement.classList.add(this.animationEnd);
+                this._elementRef.nativeElement.classList.add(this.animationEnd());
             });
     }
 

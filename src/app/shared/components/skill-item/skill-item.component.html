@@ -1,12 +1,12 @@
 <div class="flex flex-col items-start h-full gap-4 p-6 rounded-lg theme--bg theme--text">
     <div class="flex items-center w-20 h-20 rounded-xl">
-        @if (skill.icon) {
-            <fa-icon [icon]="skill.icon" class="animation--scale" size="5x"></fa-icon>
+        @if (skill().icon; as icon) {
+            <fa-icon [icon]="icon" class="animation--scale" size="5x"></fa-icon>
         }
     </div>
-    <h4 class="text-theme-primary">{{ skill.name }}</h4>
+    <h4 class="text-theme-primary">{{ skill().name }}</h4>
     <p class="flex-grow">
-        {{ skill.description }}
+        {{ skill().description }}
     </p>
     <button class="link-button" (click)="actionClick.emit()">See more</button>
 </div>

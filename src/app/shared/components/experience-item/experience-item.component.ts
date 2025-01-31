@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, Input, OnInit, output } from '@angular/core';
 import { DatetimeFormat } from '../../constants/datetime.constant';
 import { Experience } from '../../interfaces/experience.interface';
 import { DatePipe } from '@angular/common';
@@ -11,10 +11,7 @@ import { DatePipe } from '@angular/common';
     imports: [DatePipe],
 })
 export class ExperienceItemComponent {
-    // TODO: Skipped for migration because:
-    //  This input is used in a control flow expression (e.g. `@if` or `*ngIf`)
-    //  and migrating would break narrowing currently.
-    @Input() data?: Experience;
+    readonly data = input.required<Experience>();
     readonly actionClick = output();
 
     public monthYearFormat = DatetimeFormat.monthYear;
