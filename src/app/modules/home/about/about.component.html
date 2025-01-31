@@ -3,19 +3,12 @@
 >
     <h2 class="">{{ "aboutMeSection" | transloco }}</h2>
 
-    <div
-        class="flex flex-col items-center justify-center max-w-screen-lg gap-8 lg:flex-row md:gap-12"
-    >
-        <div
-            class="flex-auto flex-shrink-0 w-full lg:w-64 lg:h-64 h-80 about-block"
-        >
+    <div class="flex flex-col items-center justify-center max-w-screen-lg gap-8 lg:flex-row md:gap-12">
+        <div class="flex-auto flex-shrink-0 w-full lg:w-64 lg:h-64 h-80 about-block">
             <picture>
                 <source
                     media="(min-width: 1024px)"
-                    srcset="
-                        assets/images/portrait/portrait-square-250.webp 250w,
-                        assets/images/portrait/portrait-square-800.webp 800w
-                    "
+                    srcset="assets/images/portrait/portrait-square-250.webp 250w, assets/images/portrait/portrait-square-800.webp 800w"
                     sizes="(min-width: 1024px) 250px, 800px"
                 />
                 <source
@@ -28,76 +21,46 @@
                 />
                 <source
                     media="(min-width: 0px)"
-                    srcset="
-                        assets/images/portrait/portrait-square-250.webp 250w,
-                        assets/images/portrait/portrait-square-800.webp 800w
-                    "
+                    srcset="assets/images/portrait/portrait-square-250.webp 250w, assets/images/portrait/portrait-square-800.webp 800w"
                     sizes="(min-width: 0px) 100vw, 800px"
                 />
-                <img
-                    src="assets/images/portrait/portrait-square.webp"
-                    alt="portrait"
-                    loading="lazy"
-                />
+                <img src="assets/images/portrait/portrait-square.webp" alt="portrait" loading="lazy" />
             </picture>
         </div>
 
         <div>
             <p class="mb-4 md:mb-8" [innerHTML]="'aboutMe' | transloco"></p>
 
-            <dl
-                class="grid grid-cols-1 md:grid-cols-2 auto-rows-auto md:gap-x-16 gap-y-2"
-            >
+            <dl class="grid grid-cols-1 md:grid-cols-2 auto-rows-auto md:gap-x-16 gap-y-2">
                 <div *ngFor="let item of personalInformation" class="flex">
-                    <dt
-                        class="flex-grow-0 flex-shrink-0 font-semibold basis-32 caption"
-                    >
+                    <dt class="flex-grow-0 flex-shrink-0 font-semibold basis-32 caption">
                         {{ item.label | transloco }}
                     </dt>
 
                     <ng-container [ngSwitch]="item.templateRef">
                         <dd class="caption-value">
                             <ng-container *ngSwitchCase="'email'">
-                                <a
-                                    class="primary-link"
-                                    href="mailto:{{ item.value | transloco }}"
-                                >
+                                <a class="primary-link" href="mailto:{{ item.value | transloco }}">
                                     {{ item.value | transloco }}
                                 </a>
                             </ng-container>
 
                             <ng-container *ngSwitchCase="'phone'">
-                                <a
-                                    href="tel:{{
-                                        item.metadata
-                                            ? item.metadata['value']
-                                            : ''
-                                    }}"
-                                >
+                                <a href="tel:{{ item.metadata ? item.metadata['value'] : '' }}">
                                     {{ item.value | transloco }}
                                 </a>
                             </ng-container>
 
-                            <ng-container *ngSwitchDefault>{{
-                                item.value | transloco
-                            }}</ng-container>
+                            <ng-container *ngSwitchDefault>{{ item.value | transloco }}</ng-container>
                         </dd>
                     </ng-container>
                 </div>
 
                 <div class="flex">
-                    <span
-                        class="flex-grow-0 flex-shrink-0 font-semibold basis-32 caption"
-                        >{{ "contact-info" | transloco }}
-                    </span>
+                    <span class="flex-grow-0 flex-shrink-0 font-semibold basis-32 caption">{{ "contact-info" | transloco }} </span>
 
                     <span class="caption-value">
-                        <a
-                            type="button"
-                            class="primary-link"
-                            routerLink="/"
-                            fragment="contact"
-                        >
+                        <a type="button" class="primary-link" routerLink="/" fragment="contact">
                             {{ "to-contact-info" | transloco }}
                         </a>
                     </span>
@@ -106,9 +69,7 @@
         </div>
     </div>
 
-    <div
-        class="flex w-full max-w-sm gap-4 p-4 md:gap-6 lg:gap-8 md:p-5 lg:p-6 theme--bg drop-shadow-md"
-    >
+    <div class="flex w-full max-w-sm gap-4 p-4 md:gap-6 lg:gap-8 md:p-5 lg:p-6 theme--bg drop-shadow-md">
         <app-stats-item
             *ngFor="let info of statsInformation"
             [value]="info.value"

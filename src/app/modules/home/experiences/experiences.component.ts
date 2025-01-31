@@ -1,12 +1,5 @@
 import { DatePipe, NgFor, UpperCasePipe } from '@angular/common';
-import {
-    ChangeDetectionStrategy,
-    Component,
-    OnInit,
-    TemplateRef,
-    ViewChild,
-    inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild, inject, viewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslocoService, TranslocoModule } from '@ngneat/transloco';
 import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
@@ -23,24 +16,20 @@ import { TimelineComponent } from '../../../shared/components/timeline/timeline.
     styleUrls: ['./experiences.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [DatePipe],
-    imports: [TimelineComponent, NgFor, UpperCasePipe, DatePipe, TranslocoModule]
+    imports: [TimelineComponent, NgFor, UpperCasePipe, DatePipe, TranslocoModule],
 })
 export class ExperiencesComponent implements OnInit {
-    @ViewChild('detail', { static: true }) detail!: TemplateRef<any>;
+    detail = viewChild.required<TemplateRef<any>>('detail');
 
     private _dialog = inject(MatDialog);
     private _datePipe = inject(DatePipe);
     private _translocoService = inject(TranslocoService);
 
     public monthYearFormat = DatetimeFormat.monthYear;
-    public experiences = Experiences.sort(
-        (a, b) => a.startDate.value.getTime() - b.startDate.value.getTime()
-    );
+    public experiences = Experiences.sort((a, b) => a.startDate.value.getTime() - b.startDate.value.getTime());
     public milestones: Milestone[] = this.experiences.map((item) => ({
         id: item.id,
-        tooltip:
-            this._datePipe.transform(item.startDate.value, this.monthYearFormat) ??
-            '',
+        tooltip: this._datePipe.transform(item.startDate.value, this.monthYearFormat) ?? '',
         data: item,
     }));
 
@@ -57,7 +46,7 @@ export class ExperiencesComponent implements OnInit {
                     tags: ['art', 'painting', 'drawing'],
                     alt: 'Art',
                 },
-                detailTmpl: this.detail,
+                detailTmpl: this.detail(),
             },
         });
     }
@@ -82,22 +71,15 @@ export class ExperiencesComponent implements OnInit {
             },
             {
                 title: 'Responsibilities',
-                value: item.responsibilities
-                    .map((item) => this._translocoService.translate(item))
-                    .join('<br><br>'),
+                value: item.responsibilities.map((item) => this._translocoService.translate(item)).join('<br><br>'),
             },
             {
                 title: 'Team Size',
-                value:
-                    typeof item.teamSize === 'number'
-                        ? item.teamSize
-                        : `${item.teamSize[0]} - ${item.teamSize[1]}`,
+                value: typeof item.teamSize === 'number' ? item.teamSize : `${item.teamSize[0]} - ${item.teamSize[1]}`,
             },
             {
                 title: 'Achievements',
-                value: item.achievements
-                    .map((item) => this._translocoService.translate(item))
-                    .join('<br><br>'),
+                value: item.achievements.map((item) => this._translocoService.translate(item)).join('<br><br>'),
             },
         ];
 

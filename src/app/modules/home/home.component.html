@@ -1,13 +1,7 @@
 <main
     class="flex flex-col overflow-x-hidden"
     appScrollspy
-    [spiedTags]="[
-        'app-about',
-        'app-experiences',
-        'app-skills',
-        'app-projects',
-        'app-contact'
-    ]"
+    [spiedTags]="['app-about', 'app-experiences', 'app-skills', 'app-projects', 'app-contact']"
 >
     <!-- <swiper-container
         appSwiper
@@ -24,24 +18,11 @@
         </swiper-slide>
     </swiper-container> -->
 
-    <app-hero
-        id="hero"
-        appAnimateOnScroll
-        animateStart="animation--fade-left"
-        (scrollTo)="scrollTo($event)"
-    ></app-hero>
+    <app-hero id="hero" appAnimateOnScroll animateStart="animation--fade-left" (scrollTo)="scrollTo($event)"></app-hero>
 
-    <app-about
-        appAnimateOnScroll
-        animateStart="animation--fade-up"
-        id="about"
-    ></app-about>
+    <app-about appAnimateOnScroll animateStart="animation--fade-up" id="about"></app-about>
 
-    <app-experiences
-        animateStart="animation--fade-right"
-        appAnimateOnScroll
-        id="experiences"
-    ></app-experiences>
+    <app-experiences animateStart="animation--fade-right" appAnimateOnScroll id="experiences"></app-experiences>
 
     <app-skills id="skills"></app-skills>
 

@@ -1,6 +1,4 @@
-<section
-    class="relative flex items-center justify-center h-full px-8 theme--bg sm:px-12 lg:px-14"
->
+<section class="relative flex items-center justify-center h-full px-8 theme--bg sm:px-12 lg:px-14">
     <div class="flex flex-col items-center gap-8 sm:flex-row md:gap-12">
         <img
             src="assets/images/portrait/avatar-130.webp"
@@ -16,21 +14,12 @@
         />
 
         <div class="text-center theme--text sm:text-start">
-            <h1 class="h1--extra-bold">
-                Phuong <span class="text-theme-primary">Tran</span>
-            </h1>
+            <h1 class="h1--extra-bold">Phuong <span class="text-theme-primary">Tran</span></h1>
             <h4 class="h4--light">{{ "headline" | transloco }}</h4>
         </div>
     </div>
 
-    <button
-        class="absolute -translate-x-1/2 cursor-pointer bottom-20 left-1/2 animate-bounce"
-        (click)="scrollTo.emit('about')"
-    >
-        <fa-icon
-            [icon]="['fas', 'angles-down']"
-            size="xl"
-            class="text-theme-primary"
-        ></fa-icon>
+    <button class="absolute -translate-x-1/2 cursor-pointer bottom-20 left-1/2 animate-bounce" (click)="scrollTo.emit('about')">
+        <fa-icon [icon]="['fas', 'angles-down']" size="xl" class="text-theme-primary"></fa-icon>
     </button>
 </section>

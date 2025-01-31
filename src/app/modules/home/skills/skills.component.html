@@ -3,18 +3,14 @@
 >
     <h2 class="">{{ "skills" | transloco }}</h2>
 
-    <div
-        class="grid items-center w-full h-full max-w-screen-lg grid-cols-1 gap-8 md:grid-cols-12 auto-rows-auto md:grid-rows-1 lg:gap-12"
-    >
+    <div class="grid items-center w-full h-full max-w-screen-lg grid-cols-1 gap-8 md:grid-cols-12 auto-rows-auto md:grid-rows-1 lg:gap-12">
         <div
             class="col-auto md:col-span-3"
             [ngClass]="{ 'order-last': navPosition === 'right' }"
             animateStart="animation--fade-right"
             appAnimateOnScroll
         >
-            <div
-                class="grid grid-cols-6 gap-2 sm:grid-cols-4 auto-rows-auto md:flex md:flex-col"
-            >
+            <div class="grid grid-cols-6 gap-2 sm:grid-cols-4 auto-rows-auto md:flex md:flex-col">
                 <ng-container *ngIf="currentType$ | async as currentType">
                     <button
                         *ngFor="let skill of skillTypes; ngForTrackById"
@@ -28,34 +24,16 @@
             </div>
         </div>
 
-        <div
-            class="relative col-auto md:col-span-9 min-h-[512px] flex items-center"
-            animateStart="animation--fade-left"
-            appAnimateOnScroll
-        >
-            <mat-accordion
-                displayMode="flat"
-                togglePosition="after"
-                *ngIf="skillData$ | async as currentSkill"
-            >
+        <div class="relative col-auto md:col-span-9 min-h-[512px] flex items-center" animateStart="animation--fade-left" appAnimateOnScroll>
+            <mat-accordion displayMode="flat" togglePosition="after" *ngIf="skillData$ | async as currentSkill">
                 <mat-expansion-panel
-                    *ngFor="
-                        let skill of currentSkill;
-                        let first = first;
-                        let last = last;
-                        let index = index
-                    "
+                    *ngFor="let skill of currentSkill; let first = first; let last = last; let index = index"
                     class="theme--bg theme--text"
                     [expanded]="!!first && !skill.hideDetail"
                     [disabled]="skill.hideDetail"
                 >
-                    <mat-expansion-panel-header
-                        [ngClass]="{ 'cursor-default': skill.hideDetail }"
-                        [style]="{ color: 'unset' }"
-                    >
-                        <mat-panel-title
-                            class="flex items-center gap-1 font-bold theme--text"
-                        >
+                    <mat-expansion-panel-header [ngClass]="{ 'cursor-default': skill.hideDetail }" [style]="{ color: 'unset' }">
+                        <mat-panel-title class="flex items-center gap-1 font-bold theme--text">
                             <span>{{ skill.name }}</span>
                             <fa-icon
                                 *ngIf="skill.experience > 2"
@@ -64,56 +42,33 @@
                             ></fa-icon>
                         </mat-panel-title>
 
-                        <mat-panel-description
-                            *ngIf="skill.shortDescription"
-                            class="justify-end subtitle !flex-grow"
-                        >
+                        <mat-panel-description *ngIf="skill.shortDescription" class="justify-end subtitle !flex-grow">
                             {{ skill.shortDescription | transloco }}
                         </mat-panel-description>
                     </mat-expansion-panel-header>
 
-                    <div
-                        class="flex flex-col gap-4 overflow-y-auto divide-y h-60"
-                    >
-                        <p *ngIf="skill.experience" class="subtitle">
-                            {{ "yoe" | transloco }}: {{ skill.experience }}
-                        </p>
+                    <div class="flex flex-col gap-4 overflow-y-auto divide-y h-60">
+                        <p *ngIf="skill.experience" class="subtitle">{{ "yoe" | transloco }}: {{ skill.experience }}</p>
 
                         <p *ngIf="skill.description" class="pt-4">
                             {{ skill.description | transloco }}
                         </p>
 
-                        <div
-                            *ngIf="
-                                skill.subSkills && skill.subSkills.length > 0
-                            "
-                            class="flex flex-col pt-4"
-                        >
+                        <div *ngIf="skill.subSkills && skill.subSkills.length > 0" class="flex flex-col pt-4">
                             <p class="list-title">
                                 {{ "haveSolidUnderstandingOf" | transloco }}
                             </p>
                             <ul class="mt-1">
-                                <li
-                                    *ngFor="let skill of skill.subSkills"
-                                    [innerHTML]="skill | transloco"
-                                ></li>
+                                <li *ngFor="let skill of skill.subSkills" [innerHTML]="skill | transloco"></li>
                             </ul>
                         </div>
 
-                        <div
-                            *ngIf="
-                                skill.certificates &&
-                                skill.certificates.length > 0
-                            "
-                            class="pt-4"
-                        >
+                        <div *ngIf="skill.certificates && skill.certificates.length > 0" class="pt-4">
                             <span>{{ "certificates" | transloco }}: </span>
 
                             <div class="inline-flex items-center gap-2">
                                 <a
-                                    *ngFor="
-                                        let certificate of skill.certificates
-                                    "
+                                    *ngFor="let certificate of skill.certificates"
                                     class="primary-link"
                                     [href]="certificate.url"
                                     target="_blank"
@@ -123,12 +78,7 @@
                             </div>
                         </div>
 
-                        <div
-                            *ngIf="
-                                skill.libraries && skill.libraries.length > 0
-                            "
-                            class="pt-4"
-                        >
+                        <div *ngIf="skill.libraries && skill.libraries.length > 0" class="pt-4">
                             <span>{{ "libraryUsed" | transloco }}: </span>
 
                             <div class="inline-flex items-center gap-2">
@@ -139,11 +89,7 @@
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <fa-icon
-                                        *ngIf="library.icon"
-                                        [icon]="library.icon"
-                                        size="sm"
-                                    ></fa-icon>
+                                    <fa-icon *ngIf="library.icon" [icon]="library.icon" size="sm"></fa-icon>
                                     {{ library.label }}
                                 </a>
                             </div>
