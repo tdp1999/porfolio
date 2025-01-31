@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, Renderer2, ViewChild, inject } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, Renderer2, inject, viewChild } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { MatDrawer, MatDrawerContainer, MatDrawerContent } from '@angular/material/sidenav';
@@ -70,7 +70,7 @@ import {
     ],
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-    @ViewChild(MatDrawer, { static: true }) drawer!: MatDrawer;
+    readonly drawer = viewChild.required(MatDrawer);
 
     public linkActiveOptions: IsActiveMatchOptions = {
         matrixParams: 'exact',
@@ -120,7 +120,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
             });
 
         this._menuService.menuState$.pipe(takeUntil(this._unsubscribeAll$)).subscribe(() => {
-            this.drawer.toggle();
+            this.drawer().toggle();
         });
     }
 

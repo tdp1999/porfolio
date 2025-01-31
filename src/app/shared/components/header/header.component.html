@@ -7,7 +7,7 @@
     </a>
 
     <div class="items-center hidden lg:flex gap-7">
-        <app-nav-list [containerRef]="headerRef"></app-nav-list>
+        <app-nav-list [containerRef]="headerRef()"></app-nav-list>
 
         <div class="flex items-center justify-center w-6">
             @if (themeService.currentTheme$ | async; as theme) {

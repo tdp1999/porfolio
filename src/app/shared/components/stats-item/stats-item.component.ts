@@ -1,13 +1,13 @@
 import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    OnDestroy,
-    ViewChild,
-    inject,
-    input,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  inject,
+  input,
+  viewChild
 } from '@angular/core';
 import { Subject, delay, takeUntil } from 'rxjs';
 import { IntersectionObserveService } from '../../services/intersection-observe.service';
@@ -29,7 +29,7 @@ export class StatsItemComponent implements AfterViewInit, OnDestroy {
     readonly value = input.required<number>();
     readonly label = input.required<string>();
 
-    @ViewChild('el') el!: ElementRef;
+    readonly el = viewChild.required<ElementRef>('el');
 
     public currentValue = 0;
     public showPlusSign = false;
@@ -42,7 +42,7 @@ export class StatsItemComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this._intersectionService
-            .observe(this.el)
+            .observe(this.el())
             .pipe(takeUntil(this._unsubscribeAll), delay(300))
             .subscribe((isIntersecting) => {
                 if (isIntersecting) {

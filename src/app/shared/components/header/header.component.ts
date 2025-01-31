@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { MENU_DATA } from '../../data/menu.data';
 import { MenuService } from '../../services/menu.service';
 import { ThemeService } from '../../services/theme.service';
@@ -23,7 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     imports: [RouterLink, NavListComponent, FontAwesomeModule, AsyncPipe],
 })
 export class HeaderComponent {
-    @ViewChild('header', { static: true }) headerRef!: ElementRef;
+    readonly headerRef = viewChild.required<ElementRef>('header');
 
     public items = MENU_DATA;
     public menuService = inject(MenuService);
