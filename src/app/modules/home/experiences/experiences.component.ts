@@ -1,7 +1,7 @@
 import { DatePipe, UpperCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild, inject, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, TemplateRef, inject, viewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { TranslocoService, TranslocoModule } from '@ngneat/transloco';
+import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { DescriptionListComponent } from 'src/app/shared/components/description-list/description-list.component';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
 import { Milestone } from 'src/app/shared/components/timeline/timeline.interface';
@@ -18,7 +18,7 @@ import { TimelineComponent } from '../../../shared/components/timeline/timeline.
     providers: [DatePipe],
     imports: [TimelineComponent, UpperCasePipe, DatePipe, TranslocoModule],
 })
-export class ExperiencesComponent implements OnInit {
+export class ExperiencesComponent {
     detail = viewChild.required<TemplateRef<any>>('detail');
 
     private _dialog = inject(MatDialog);
@@ -32,8 +32,6 @@ export class ExperiencesComponent implements OnInit {
         tooltip: this._datePipe.transform(item.startDate.value, this.monthYearFormat) ?? '',
         data: item,
     }));
-
-    ngOnInit(): void {}
 
     handleActionClick(item: Experience) {
         this._dialog.open(LightboxComponent, {

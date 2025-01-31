@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  input
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, input } from '@angular/core';
 import { ProjectTagDescription } from '../../interfaces/project.interface';
 import { ETag } from '../../enums/tag.enum';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -18,7 +10,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     templateUrl: './tag.component.html',
     styleUrls: ['./tag.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgClass, TranslocoModule]
+    imports: [NgClass, TranslocoModule],
 })
 export class TagComponent {
     readonly tag = input.required<ProjectTagDescription>();
@@ -42,20 +34,16 @@ export class TagComponent {
     }
     public _choosed = false;
 
-    @Output() onClick = new EventEmitter<ETag>();
+    @Output() userClick = new EventEmitter<ETag>();
 
     getCustomClass(): string {
         const notClickableClass = 'cursor-default';
 
         let customClass: string = '';
 
-        !this.clickable &&
-            (customClass = customClass.concat(notClickableClass));
+        !this.clickable && (customClass = customClass.concat(notClickableClass));
 
-        customClass = customClass.concat(
-            ' ',
-            this._decideColorClass(this.tag().class)
-        );
+        customClass = customClass.concat(' ', this._decideColorClass(this.tag().class));
 
         return customClass;
     }

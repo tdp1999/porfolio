@@ -1,19 +1,8 @@
-import {
-    Directive,
-    HostListener,
-    Injector,
-    OnInit,
-    forwardRef,
-    inject,
-} from '@angular/core';
-import {
-    ControlValueAccessor,
-    DefaultValueAccessor,
-    NG_VALUE_ACCESSOR,
-    NgControl,
-} from '@angular/forms';
+import { Directive, HostListener, Injector, OnInit, forwardRef, inject } from '@angular/core';
+import { DefaultValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 
 @Directive({
+    /* eslint-disable @angular-eslint/directive-selector */
     selector: 'input[trim], textarea[trim]',
     providers: [
         {
@@ -21,7 +10,7 @@ import {
             useExisting: forwardRef(() => TrimDirective),
             multi: true,
         },
-    ]
+    ],
 })
 export class TrimDirective extends DefaultValueAccessor implements OnInit {
     private _injector = inject(Injector);

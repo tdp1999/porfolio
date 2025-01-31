@@ -3,25 +3,19 @@ import { CarouselImage } from '../../interfaces/carousel.interface';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
 @Component({
     selector: 'app-carousel',
     templateUrl: './carousel.component.html',
     styleUrls: ['./carousel.component.scss'],
     animations: [
         trigger('carouselAnimation', [
-            transition('void => *', [
-                style({ opacity: 0 }),
-                animate('300ms', style({ opacity: 1 })),
-            ]),
+            transition('void => *', [style({ opacity: 0 }), animate('300ms', style({ opacity: 1 }))]),
             transition('* => void', [animate('300ms', style({ opacity: 0 }))]),
         ]),
     ],
-    imports: [
-    FontAwesomeModule
-],
+    imports: [FontAwesomeModule],
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent {
     readonly images = input<CarouselImage[]>([
         {
             title: 'Image 1',
@@ -42,24 +36,16 @@ export class CarouselComponent implements OnInit {
 
     public currentIndex = 0;
 
-    ngOnInit(): void {}
-
     getCurrentSlideURL(): string {
         return `url(${this.images()[this.currentIndex].url})`;
     }
 
     prevSlide() {
-        this.currentIndex =
-            this.currentIndex === 0
-                ? this.images().length - 1
-                : this.currentIndex - 1;
+        this.currentIndex = this.currentIndex === 0 ? this.images().length - 1 : this.currentIndex - 1;
     }
 
     nextSlide() {
-        this.currentIndex =
-            this.currentIndex === this.images().length - 1
-                ? 0
-                : this.currentIndex + 1;
+        this.currentIndex = this.currentIndex === this.images().length - 1 ? 0 : this.currentIndex + 1;
     }
 
     gotoSlide(index: number) {

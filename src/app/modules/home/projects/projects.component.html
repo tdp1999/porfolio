@@ -1,22 +1,27 @@
 @if ({ tags: tags$ | async, choosedTag: tag$ | async, projects: filteredProject$ | async }; as data) {
-<section
-    class="flex flex-col items-center justify-center h-full gap-8 p-8 md:gap-12 sm:px-12 md:px-20 md:py-12 xl:py-20 theme--bg-secondary"
->
-    <h2 class="">{{ "projects" | transloco }}</h2>
-    <div class="flex justify-center gap-3">
-        @for (tag of data.tags | keyvalue; track tag.key) {
-        <app-tag [tag]="tag.value" [choosed]="data.choosedTag === tag.value.id" clickable (onClick)="filter.next(tag.value.id)"></app-tag>
-        }
-    </div>
-    <div class="grid max-w-screen-lg grid-cols-1 gap-6 lg:grid-cols-2 md:gap-8 lg:gap-12 auto-rows-auto">
-        @for ( project of data.projects | slice : 0 : 4; track project.id; let odd = $odd; let even = $even) {
-        <app-project-item
-            [item]="project"
-            [animateStart]="odd ? 'animation--fade-right' : 'animation--fade-left'"
-            appAnimateOnScroll
-            (linkClicked)="openMetadataDialog(project)"
-        ></app-project-item>
-        }
-    </div>
-</section>
+    <section
+        class="flex flex-col items-center justify-center h-full gap-8 p-8 md:gap-12 sm:px-12 md:px-20 md:py-12 xl:py-20 theme--bg-secondary"
+    >
+        <h2 class="">{{ "projects" | transloco }}</h2>
+        <div class="flex justify-center gap-3">
+            @for (tag of data.tags | keyvalue; track tag.key) {
+                <app-tag
+                    [tag]="tag.value"
+                    [choosed]="data.choosedTag === tag.value.id"
+                    clickable
+                    (userClick)="filter.next(tag.value.id)"
+                ></app-tag>
+            }
+        </div>
+        <div class="grid max-w-screen-lg grid-cols-1 gap-6 lg:grid-cols-2 md:gap-8 lg:gap-12 auto-rows-auto">
+            @for (project of data.projects | slice: 0 : 4; track project.id; let odd = $odd; let even = $even) {
+                <app-project-item
+                    [item]="project"
+                    [animateStart]="odd ? 'animation--fade-right' : 'animation--fade-left'"
+                    appAnimateOnScroll
+                    (linkClicked)="openMetadataDialog(project)"
+                ></app-project-item>
+            }
+        </div>
+    </section>
 }
