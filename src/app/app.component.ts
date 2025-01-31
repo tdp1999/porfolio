@@ -1,23 +1,53 @@
 import { DOCUMENT } from '@angular/common';
 import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, Renderer2, ViewChild, inject } from '@angular/core';
+import { MatIconButton } from '@angular/material/button';
+import { MatDivider } from '@angular/material/divider';
 import { MatDrawer, MatDrawerContainer, MatDrawerContent } from '@angular/material/sidenav';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, IsActiveMatchOptions, RouterOutlet } from '@angular/router';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslocoService } from '@ngneat/transloco';
 import { Subject, debounceTime, distinctUntilChanged, map, takeUntil } from 'rxjs';
 import { register } from 'swiper/element/bundle';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { NavListComponent } from './shared/components/nav-list/nav-list.component';
 import { CVURL } from './shared/constants/url.constant';
 import { MENU_DATA } from './shared/data/menu.data';
 import { MenuService } from './shared/services/menu.service';
 import { ScrollService } from './shared/services/scroll.service';
 import { ThemeService } from './shared/services/theme.service';
 import { Language } from './shared/types/language.type';
-import { MatIconButton } from '@angular/material/button';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MatDivider } from '@angular/material/divider';
-import { NavListComponent } from './shared/components/nav-list/nav-list.component';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
+import {
+    faLinkedin,
+    faSkype,
+    faSquareFacebook,
+    faSquareGithub,
+    faSquareTwitter,
+    faGitAlt,
+    faNodeJs,
+} from '@fortawesome/free-brands-svg-icons';
+import { faCircle, faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import {
+    faClose,
+    faMoon,
+    faSun,
+    faCoffee,
+    faChevronDown,
+    faChevronUp,
+    faChevronLeft,
+    faChevronRight,
+    faCircle as faCircleSolid,
+    faCircleCheck as faCircleCheckSolid,
+    faEarthAsia,
+    faPhone,
+    faEnvelope,
+    faLocationDot,
+    faBars,
+    faAnglesDown,
+    faXmark,
+    faCircleInfo,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-root',
@@ -63,7 +93,13 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private _titleService = inject(Title);
     private _translocoService = inject(TranslocoService);
 
+    private _faLibrary = inject(FaIconLibrary);
+
     private _unsubscribeAll$ = new Subject<void>();
+
+    constructor() {
+        this.registerIcons();
+    }
 
     ngOnInit(): void {
         this._titleService.setTitle('Phuong Tran | Portfolio');
@@ -95,5 +131,37 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     ngOnDestroy(): void {
         this._unsubscribeAll$.next();
         this._unsubscribeAll$.complete();
+    }
+
+    registerIcons(): void {
+        this._faLibrary.addIcons(
+            faLinkedin,
+            faSkype,
+            faSquareFacebook,
+            faSquareGithub,
+            faSquareTwitter,
+            faClose,
+            faMoon,
+            faSun,
+            faCoffee,
+            faChevronDown,
+            faChevronUp,
+            faChevronLeft,
+            faChevronRight,
+            faCircleSolid,
+            faCircle,
+            faCircleCheck,
+            faCircleCheckSolid,
+            faEarthAsia,
+            faPhone,
+            faEnvelope,
+            faLocationDot,
+            faBars,
+            faAnglesDown,
+            faGitAlt,
+            faNodeJs,
+            faXmark,
+            faCircleInfo
+        );
     }
 }
