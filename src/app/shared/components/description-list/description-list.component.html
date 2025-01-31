@@ -16,28 +16,32 @@
     <div class="h-full overflow-auto">
         <dl class="h-full pb-5 overflow-auto divide-y divide-gray-300">
             @for (record of data.data; track record.value) {
-            <div class="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
-                <dt class="flex items-center gap-2 text-sm font-medium leading-6">
-                    <span [innerHTML]="record.title | transloco"></span>
-                    @if (record.tooltip) {
-                    <fa-icon [matTooltip]="record.tooltip | transloco" [icon]="['fas', 'circle-info']"></fa-icon>
-                    }
-                </dt>
-                <dd class="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0" [innerHTML]="record.value | transloco"></dd>
-            </div>
-            } @if (data.links) { @for (link of data.links | keyvalue : keepOrder; track link.key) {
-            <div class="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
-                <dt class="text-sm font-medium leading-6" [innerHTML]="link.key"></dt>
-                <dd class="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                    <a [href]="link.value.url" target="_blank " rel="noopener noreferrer" class="primary-link">
-                        @if (link.value.icon) {
-                        <fa-icon [icon]="link.value.icon" [ngClass]="link.value.iconClass"></fa-icon>
+                <div class="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
+                    <dt class="flex items-center gap-2 text-sm font-medium leading-6">
+                        <span [innerHTML]="record.title | transloco"></span>
+                        @if (record.tooltip) {
+                            <fa-icon [matTooltip]="record.tooltip | transloco" [icon]="['fas', 'circle-info']"></fa-icon>
                         }
-                        {{ link.value.label }}
-                    </a>
-                </dd>
-            </div>
-            } }
+                    </dt>
+                    <dd class="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0" [innerHTML]="record.value | transloco"></dd>
+                </div>
+            }
+
+            @if (data.links) {
+                @for (link of data.links | keyvalue: keepOrder; track link.key) {
+                    <div class="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium leading-6" [innerHTML]="link.key"></dt>
+                        <dd class="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
+                            <a [href]="link.value.url" target="_blank " rel="noopener noreferrer" class="primary-link">
+                                @if (link.value.icon) {
+                                    <fa-icon [icon]="link.value.icon" [ngClass]="link.value.iconClass"></fa-icon>
+                                }
+                                {{ link.value.label }}
+                            </a>
+                        </dd>
+                    </div>
+                }
+            }
         </dl>
     </div>
 </div>

@@ -1,28 +1,28 @@
 <div class="flex flex-col h-full gap-4 p-4 rounded-lg md:p-6 sm:flex-row lg:flex-col md:gap-8 lg:gap-4 theme--bg theme--text">
     <div class="w-full h-40 cursor-pointer sm:h-full lg:h-52 sm:basis-2/5 lg:basis-auto rounded-xl" (click)="linkClicked.emit()">
         @if (item?.thumbnail) {
-        <img
-            [src]="item?.thumbnail?.url"
-            alt="placeholder"
-            loading="lazy"
-            [srcset]="item?.thumbnail?.srcset"
-            sizes="(max-width: 639px) 572px, (max-width: 767px) 250px, (max-width: 1023px) 315px, 440px"
-            class="object-cover w-full h-full"
-        />
+            <img
+                [src]="item?.thumbnail?.url"
+                alt="placeholder"
+                loading="lazy"
+                [srcset]="item?.thumbnail?.srcset"
+                sizes="(max-width: 639px) 572px, (max-width: 767px) 250px, (max-width: 1023px) 315px, 440px"
+                class="object-cover w-full h-full"
+            />
         } @else {
-        <img
-            src="assets/images/placeholders/placeholder-250.webp"
-            alt="placeholder"
-            loading="lazy"
-            srcset="
-                assets/images/placeholders/placeholder-250.webp 250w,
-                assets/images/placeholders/placeholder-315.webp 315w,
-                assets/images/placeholders/placeholder-440.webp 440w,
-                assets/images/placeholders/placeholder-575.webp 575w
-            "
-            sizes="(max-width: 639px) 572px, (max-width: 767px) 250px, (max-width: 1023px) 315px, 440px"
-            class="object-cover w-full h-full"
-        />
+            <img
+                src="assets/images/placeholders/placeholder-250.webp"
+                alt="placeholder"
+                loading="lazy"
+                srcset="
+                    assets/images/placeholders/placeholder-250.webp 250w,
+                    assets/images/placeholders/placeholder-315.webp 315w,
+                    assets/images/placeholders/placeholder-440.webp 440w,
+                    assets/images/placeholders/placeholder-575.webp 575w
+                "
+                sizes="(max-width: 639px) 572px, (max-width: 767px) 250px, (max-width: 1023px) 315px, 440px"
+                class="object-cover w-full h-full"
+            />
         }
     </div>
 
@@ -39,7 +39,7 @@
 
         <div class="flex gap-2">
             @for (tag of item?.tags; track tag.id) {
-            <app-tag [tag]="tag"> </app-tag>
+                <app-tag [tag]="tag"> </app-tag>
             }
         </div>
     </div>

@@ -1,57 +1,59 @@
 <mat-nav-list class="!flex flex-col lg:flex-row items-start lg:items-center gap-5 !py-5 lg:!py-0 h-full">
     @for (item of items; track item.id) {
-    <a
-        [routerLink]="[item.route]"
-        [relativeTo]="currentActivatedRoute"
-        routerLinkActive="link-active"
-        [routerLinkActiveOptions]="linkActiveOptions"
-        [fragment]="item.fragment"
-        class="relative flex items-center ml-5 leading-6 dark:text-theme-white-90 animation--border-b lg:leading-8"
-        [ngClass]="{ 'link-active': item.active }"
-        (click)="drawer()?.toggle()"
-    >
-        {{ item.label | transloco }}
-    </a>
-    @if (isNotLg$ | async; as isNotLg) {
-    <mat-divider class="w-full"></mat-divider>
-    } }
+        <a
+            [routerLink]="[item.route]"
+            [relativeTo]="currentActivatedRoute"
+            routerLinkActive="link-active"
+            [routerLinkActiveOptions]="linkActiveOptions"
+            [fragment]="item.fragment"
+            class="relative flex items-center ml-5 leading-6 dark:text-theme-white-90 animation--border-b lg:leading-8"
+            [ngClass]="{ 'link-active': item.active }"
+            (click)="drawer()?.toggle()"
+        >
+            {{ item.label | transloco }}
+        </a>
+
+        @if (isNotLg$ | async; as isNotLg) {
+            <mat-divider class="w-full"></mat-divider>
+        }
+    }
 
     <a [href]="cvUrl" class="ml-5 lg:ml-0 primary-button" target="_blank" rel="noopener noreferrer">{{ "resume" | transloco }}</a>
 </mat-nav-list>
 
 @if (isNotLg$ | async; as isNotLg) {
-<div class="flex flex-col gap-3 mt-auto">
-    <mat-divider class="w-full"></mat-divider>
-    <div class="flex items-center justify-between mx-5">
-        <span>Language</span>
-        <button
-            class="flex justify-between gap-2 primary-button basis-28"
-            [matMenuTriggerFor]="languageMenu"
-            (menuClosed)="languageMenuOpen = false"
-            (menuOpened)="languageMenuOpen = true"
-        >
-            <span>{{ currentLanguage?.label }}</span>
-            <fa-icon [icon]="['fas', languageMenuOpen ? 'chevron-down' : 'chevron-up']" size="sm"></fa-icon>
-        </button>
-        <mat-menu #languageMenu="matMenu">
-            @for (language of availableLanguage; track language.id) {
-            <button mat-menu-item (click)="selectLanguage(language.id)">
-                {{ language.label }}
+    <div class="flex flex-col gap-3 mt-auto">
+        <mat-divider class="w-full"></mat-divider>
+        <div class="flex items-center justify-between mx-5">
+            <span>Language</span>
+            <button
+                class="flex justify-between gap-2 primary-button basis-28"
+                [matMenuTriggerFor]="languageMenu"
+                (menuClosed)="languageMenuOpen = false"
+                (menuOpened)="languageMenuOpen = true"
+            >
+                <span>{{ currentLanguage?.label }}</span>
+                <fa-icon [icon]="['fas', languageMenuOpen ? 'chevron-down' : 'chevron-up']" size="sm"></fa-icon>
             </button>
-            }
-        </mat-menu>
-    </div>
-    @if (themeService.currentTheme$ | async; as currentTheme) {
-    <div class="flex items-center justify-between mx-5">
-        <span>Theme</span>
-        <button
-            class="flex justify-between gap-2 primary-button basis-28"
-            [matMenuTriggerFor]="themeMenu"
-            (menuClosed)="themeMenuOpen = false"
-            (menuOpened)="themeMenuOpen = true"
-        >
-            <span>{{ currentTheme | titlecase }}</span>
-            <!-- <fa-icon
+            <mat-menu #languageMenu="matMenu">
+                @for (language of availableLanguage; track language.id) {
+                    <button mat-menu-item (click)="selectLanguage(language.id)">
+                        {{ language.label }}
+                    </button>
+                }
+            </mat-menu>
+        </div>
+        @if (themeService.currentTheme$ | async; as currentTheme) {
+            <div class="flex items-center justify-between mx-5">
+                <span>Theme</span>
+                <button
+                    class="flex justify-between gap-2 primary-button basis-28"
+                    [matMenuTriggerFor]="themeMenu"
+                    (menuClosed)="themeMenuOpen = false"
+                    (menuOpened)="themeMenuOpen = true"
+                >
+                    <span>{{ currentTheme | titlecase }}</span>
+                    <!-- <fa-icon
                 [icon]="
                     currentTheme === 'light' ? ['fas', 'sun'] : ['fas', 'moon']
                 "
@@ -63,16 +65,16 @@
             class="text-theme-primary"
             [spin]="false"
           ></fa-icon> -->
-            <fa-icon [icon]="['fas', themeMenuOpen ? 'chevron-down' : 'chevron-up']" size="sm"></fa-icon>
-        </button>
-        <mat-menu #themeMenu="matMenu">
-            @for (theme of availableTheme; track theme) {
-            <button mat-menu-item (click)="selectTheme(theme, currentTheme)">
-                {{ theme | titlecase }}
-            </button>
-            }
-        </mat-menu>
+                    <fa-icon [icon]="['fas', themeMenuOpen ? 'chevron-down' : 'chevron-up']" size="sm"></fa-icon>
+                </button>
+                <mat-menu #themeMenu="matMenu">
+                    @for (theme of availableTheme; track theme) {
+                        <button mat-menu-item (click)="selectTheme(theme, currentTheme)">
+                            {{ theme | titlecase }}
+                        </button>
+                    }
+                </mat-menu>
+            </div>
+        }
     </div>
-    }
-</div>
 }
