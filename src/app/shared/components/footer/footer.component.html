@@ -16,9 +16,9 @@
 
         <mat-menu #menu="matMenu">
             @for (language of availableLanguage; track language.id) {
-            <button mat-menu-item (click)="selectLanguage(language.id)">
-                {{ language.label }}
-            </button>
+                <button mat-menu-item (click)="selectLanguage(language.id)">
+                    {{ language.label }}
+                </button>
             }
         </mat-menu>
     </div>

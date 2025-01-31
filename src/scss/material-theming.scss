@@ -170,8 +170,7 @@ $light-theme: mat.m2-define-light-theme(
             accent: $my-app-accent,
             warn: $my-app-warn,
         ),
-        typography:
-            mat.m2-define-typography-config(
+        typography: mat.m2-define-typography-config(
                 $font-family: '"Open Sans", sans-serif;',
             ),
     )
@@ -184,8 +183,7 @@ $dark-theme: mat.m2-define-dark-theme(
             accent: $my-app-accent,
             warn: $my-app-warn,
         ),
-        typography:
-            mat.m2-define-typography-config(
+        typography: mat.m2-define-typography-config(
                 $font-family: '"Open Sans", sans-serif;',
             ),
     )

@@ -29,7 +29,7 @@ export const appConfig = {
             withComponentInputBinding(),
             withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
             withRouterConfig({ onSameUrlNavigation: 'reload' }),
-            withEnabledBlockingInitialNavigation()
+            withEnabledBlockingInitialNavigation(),
         ),
         importProvidersFrom(TranslocoRootModule, ...components),
         ...MATERIAL_CONFIGURATIONS,

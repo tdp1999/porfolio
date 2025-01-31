@@ -106,7 +106,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         this._themeService.currentTheme$
             .pipe(
                 map((value) => value === 'dark'),
-                takeUntil(this._unsubscribeAll$)
+                takeUntil(this._unsubscribeAll$),
             )
             .subscribe((isDark) => {
                 isDark ? this._renderer2.addClass(this._document.body, 'dark') : this._renderer2.removeClass(this._document.body, 'dark');
@@ -161,7 +161,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
             faGitAlt,
             faNodeJs,
             faXmark,
-            faCircleInfo
+            faCircleInfo,
         );
     }
 }

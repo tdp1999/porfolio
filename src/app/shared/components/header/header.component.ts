@@ -1,10 +1,4 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    ElementRef,
-    ViewChild,
-    inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { MENU_DATA } from '../../data/menu.data';
 import { MenuService } from '../../services/menu.service';
 import { ThemeService } from '../../services/theme.service';
@@ -20,13 +14,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     styleUrls: ['./header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     animations: [
-    // trigger('iconChangeAnimation', [
-    //     state('void', style({ transform: 'rotate(0deg)' })),
-    //     state(':leave', style({ color: 'blue' })),
-    //     transition(':enter', animate('200ms ease-in')),
-    // ]),
+        // trigger('iconChangeAnimation', [
+        //     state('void', style({ transform: 'rotate(0deg)' })),
+        //     state(':leave', style({ color: 'blue' })),
+        //     transition(':enter', animate('200ms ease-in')),
+        // ]),
     ],
-    imports: [RouterLink, NavListComponent, FontAwesomeModule, AsyncPipe]
+    imports: [RouterLink, NavListComponent, FontAwesomeModule, AsyncPipe],
 })
 export class HeaderComponent {
     @ViewChild('header', { static: true }) headerRef!: ElementRef;

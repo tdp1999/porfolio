@@ -7,20 +7,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslocoModule } from '@ngneat/transloco';
 import { ContactFormComponent } from './contact-form.component';
 
-const components = [
-    MatFormFieldModule,
-    MatInputModule,
-    MatSnackBarModule,
-    TranslocoModule,
-];
+const components = [MatFormFieldModule, MatInputModule, MatSnackBarModule, TranslocoModule];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        ...components,
-        ContactFormComponent,
-    ],
+    imports: [CommonModule, ReactiveFormsModule, ...components, ContactFormComponent],
     exports: [ContactFormComponent],
 })
 export class ContactFormModule {}

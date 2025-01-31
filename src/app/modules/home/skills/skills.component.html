@@ -11,84 +11,94 @@
             appAnimateOnScroll
         >
             <div class="grid grid-cols-6 gap-2 sm:grid-cols-4 auto-rows-auto md:flex md:flex-col">
-                @if (currentType$ | async; as currentType) { @for (skill of skillTypes; track skill.id) {
-                <button
-                    class="col-start-2 col-end-6 tab-button sm:col-end-4 md:col-start-auto md:col-auto"
-                    [ngClass]="{ active: currentType === skill.id }"
-                    (click)="goTo(skill.id)"
-                >
-                    {{ skill.name | transloco | uppercase }}
-                </button>
-                } }
+                @if (currentType$ | async; as currentType) {
+                    @for (skill of skillTypes; track skill.id) {
+                        <button
+                            class="col-start-2 col-end-6 tab-button sm:col-end-4 md:col-start-auto md:col-auto"
+                            [ngClass]="{ active: currentType === skill.id }"
+                            (click)="goTo(skill.id)"
+                        >
+                            {{ skill.name | transloco | uppercase }}
+                        </button>
+                    }
+                }
             </div>
         </div>
 
         <div class="relative col-auto md:col-span-9 min-h-[512px] flex items-center" animateStart="animation--fade-left" appAnimateOnScroll>
             @if (skillData$ | async; as currentSkill) {
-            <mat-accordion displayMode="flat" togglePosition="after">
-                @for (skill of currentSkill; track skill.id; let first = $first; let last = $last; let index = $index) {
-                <mat-expansion-panel class="theme--bg theme--text" [expanded]="!!first && !skill.hideDetail" [disabled]="skill.hideDetail">
-                    <mat-expansion-panel-header [ngClass]="{ 'cursor-default': skill.hideDetail }" [style]="{ color: 'unset' }">
-                        <mat-panel-title class="flex items-center gap-1 font-bold theme--text">
-                            <span>{{ skill.name }}</span>
-                            @if (skill.experience > 2) {
-                            <fa-icon [icon]="['far', 'circle-check']" [matTooltip]="'experienceTooltip' | transloco"></fa-icon>
-                            }
-                        </mat-panel-title>
-                        @if (skill.shortDescription) {
-                        <mat-panel-description class="justify-end subtitle !flex-grow">
-                            {{ skill.shortDescription | transloco }}
-                        </mat-panel-description>
-                        }
-                    </mat-expansion-panel-header>
-                    <div class="flex flex-col gap-4 overflow-y-auto divide-y h-60">
-                        @if (skill.experience) {
-                        <p class="subtitle">{{ "yoe" | transloco }}: {{ skill.experience }}</p>
-                        } @if (skill.description) {
-                        <p class="pt-4">
-                            {{ skill.description | transloco }}
-                        </p>
-                        } @if (skill.subSkills && skill.subSkills.length > 0) {
-                        <div class="flex flex-col pt-4">
-                            <p class="list-title">
-                                {{ "haveSolidUnderstandingOf" | transloco }}
-                            </p>
-                            <ul class="mt-1">
-                                @for (skill of skill.subSkills; track skill) {
-                                <li [innerHTML]="skill | transloco"></li>
-                                }
-                            </ul>
-                        </div>
-                        } @if (skill.certificates && skill.certificates.length > 0) {
-                        <div class="pt-4">
-                            <span>{{ "certificates" | transloco }}: </span>
-                            <div class="inline-flex items-center gap-2">
-                                @for (certificate of skill.certificates; track certificate.name) {
-                                <a class="primary-link" [href]="certificate.url" target="_blank">
-                                    {{ certificate.name }}
-                                </a>
-                                }
-                            </div>
-                        </div>
-                        } @if (skill.libraries && skill.libraries.length > 0) {
-                        <div class="pt-4">
-                            <span>{{ "libraryUsed" | transloco }}: </span>
-                            <div class="inline-flex items-center gap-2">
-                                @for (library of skill.libraries; track library.id) {
-                                <a [href]="library.url" class="primary-link" target="_blank" rel="noopener noreferrer">
-                                    @if (library.icon) {
-                                    <fa-icon [icon]="library.icon" size="sm"></fa-icon>
+                <mat-accordion displayMode="flat" togglePosition="after">
+                    @for (skill of currentSkill; track skill.id; let first = $first; let last = $last; let index = $index) {
+                        <mat-expansion-panel
+                            class="theme--bg theme--text"
+                            [expanded]="!!first && !skill.hideDetail"
+                            [disabled]="skill.hideDetail"
+                        >
+                            <mat-expansion-panel-header [ngClass]="{ 'cursor-default': skill.hideDetail }" [style]="{ color: 'unset' }">
+                                <mat-panel-title class="flex items-center gap-1 font-bold theme--text">
+                                    <span>{{ skill.name }}</span>
+                                    @if (skill.experience > 2) {
+                                        <fa-icon [icon]="['far', 'circle-check']" [matTooltip]="'experienceTooltip' | transloco"></fa-icon>
                                     }
-                                    {{ library.label }}
-                                </a>
+                                </mat-panel-title>
+                                @if (skill.shortDescription) {
+                                    <mat-panel-description class="justify-end subtitle !flex-grow">
+                                        {{ skill.shortDescription | transloco }}
+                                    </mat-panel-description>
+                                }
+                            </mat-expansion-panel-header>
+                            <div class="flex flex-col gap-4 overflow-y-auto divide-y h-60">
+                                @if (skill.experience) {
+                                    <p class="subtitle">{{ "yoe" | transloco }}: {{ skill.experience }}</p>
+                                }
+                                @if (skill.description) {
+                                    <p class="pt-4">
+                                        {{ skill.description | transloco }}
+                                    </p>
+                                }
+                                @if (skill.subSkills && skill.subSkills.length > 0) {
+                                    <div class="flex flex-col pt-4">
+                                        <p class="list-title">
+                                            {{ "haveSolidUnderstandingOf" | transloco }}
+                                        </p>
+                                        <ul class="mt-1">
+                                            @for (skill of skill.subSkills; track skill) {
+                                                <li [innerHTML]="skill | transloco"></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                                @if (skill.certificates && skill.certificates.length > 0) {
+                                    <div class="pt-4">
+                                        <span>{{ "certificates" | transloco }}: </span>
+                                        <div class="inline-flex items-center gap-2">
+                                            @for (certificate of skill.certificates; track certificate.name) {
+                                                <a class="primary-link" [href]="certificate.url" target="_blank">
+                                                    {{ certificate.name }}
+                                                </a>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                                @if (skill.libraries && skill.libraries.length > 0) {
+                                    <div class="pt-4">
+                                        <span>{{ "libraryUsed" | transloco }}: </span>
+                                        <div class="inline-flex items-center gap-2">
+                                            @for (library of skill.libraries; track library.id) {
+                                                <a [href]="library.url" class="primary-link" target="_blank" rel="noopener noreferrer">
+                                                    @if (library.icon) {
+                                                        <fa-icon [icon]="library.icon" size="sm"></fa-icon>
+                                                    }
+                                                    {{ library.label }}
+                                                </a>
+                                            }
+                                        </div>
+                                    </div>
                                 }
                             </div>
-                        </div>
-                        }
-                    </div>
-                </mat-expansion-panel>
-                }
-            </mat-accordion>
+                        </mat-expansion-panel>
+                    }
+                </mat-accordion>
             }
         </div>
     </div>

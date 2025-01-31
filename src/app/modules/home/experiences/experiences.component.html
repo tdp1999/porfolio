@@ -14,11 +14,11 @@
 <ng-template #detail let-d>
     <p class="italic">
         <time [dateTime]="d.startDate.semanticValue">
-            {{ d.startDate.value | date : monthYearFormat }}
+            {{ d.startDate.value | date: monthYearFormat }}
         </time>
         -
         <time [dateTime]="d.endDate?.semanticValue">
-            {{ (d.endDate?.value | date : monthYearFormat) ?? "Current" }}
+            {{ (d.endDate?.value | date: monthYearFormat) ?? "Current" }}
         </time>
     </p>
 
@@ -36,7 +36,7 @@
         <p class="list-title">{{ "responsibilities" | transloco }}:</p>
         <ul class="mt-1">
             @for (responsibility of d.responsibilities.slice(0, 4); track responsibility) {
-            <li [innerHTML]="responsibility | transloco"></li>
+                <li [innerHTML]="responsibility | transloco"></li>
             }
         </ul>
     </div>
@@ -45,7 +45,7 @@
         <p class="list-title">{{ "achievements" | transloco }}:</p>
         <ul class="mt-1">
             @for (achieve of d.achievements; track achieve) {
-            <li [innerHTML]="achieve | transloco"></li>
+                <li [innerHTML]="achieve | transloco"></li>
             }
         </ul>
     </div>

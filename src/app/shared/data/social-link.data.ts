@@ -1,10 +1,4 @@
-import {
-    faSquareGithub,
-    faLinkedin,
-    faSquareTwitter,
-    faSquareFacebook,
-    faSkype,
-} from '@fortawesome/free-brands-svg-icons';
+import { faSquareGithub, faLinkedin, faSquareTwitter, faSquareFacebook, faSkype } from '@fortawesome/free-brands-svg-icons';
 import { Link } from '../interfaces/general-entity';
 
 export const SocialLinkData: Link[] = [

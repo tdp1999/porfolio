@@ -1,20 +1,8 @@
 import { Provider } from '@angular/core';
-import {
-    MAT_DIALOG_DEFAULT_OPTIONS,
-    MatDialogConfig,
-} from '@angular/material/dialog';
-import {
-    MAT_FORM_FIELD_DEFAULT_OPTIONS,
-    MatFormFieldDefaultOptions,
-} from '@angular/material/form-field';
-import {
-    DEFAULT_LANGUAGE,
-    DEFAULT_THEME,
-} from './shared/tokens/default-value.token';
-import {
-    LS_LANGUAGE_KEY,
-    LS_THEME_KEY,
-} from './shared/tokens/local-storage.token';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogConfig } from '@angular/material/dialog';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
+import { DEFAULT_LANGUAGE, DEFAULT_THEME } from './shared/tokens/default-value.token';
+import { LS_LANGUAGE_KEY, LS_THEME_KEY } from './shared/tokens/local-storage.token';
 
 const matDialogDefaultOption: MatDialogConfig<Record<string, any>> = {
     panelClass: 'default-dialog-class',

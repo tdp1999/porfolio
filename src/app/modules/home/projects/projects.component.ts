@@ -16,7 +16,7 @@ import { AnimateOnScrollDirective } from '../../../shared/directives/animate-on-
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [TagComponent, ProjectItemComponent, AnimateOnScrollDirective, AsyncPipe, SlicePipe, KeyValuePipe, TranslocoModule]
+    imports: [TagComponent, ProjectItemComponent, AnimateOnScrollDirective, AsyncPipe, SlicePipe, KeyValuePipe, TranslocoModule],
 })
 export class ProjectsComponent {
     public tags$ = of(ProjectTags);
@@ -25,24 +25,14 @@ export class ProjectsComponent {
 
     public tag$: Observable<ETag> = this.filter$.pipe(
         startWith(ETag.allTag),
-        map(
-            (tag) =>
-                Object.values(ProjectTags).find((item) => item.id === tag)
-                    ?.id ?? ETag.allTag
-        )
+        map((tag) => Object.values(ProjectTags).find((item) => item.id === tag)?.id ?? ETag.allTag),
     );
 
     public filteredProject$: Observable<Project[]> = this.filter$.pipe(
         startWith(ETag.allTag),
         switchMap((tag) => {
-            return tag === ETag.allTag
-                ? of(Projects)
-                : of(
-                      Projects.filter((item) =>
-                          item.tags?.map((item) => item.id)?.includes(tag)
-                      )
-                  );
-        })
+            return tag === ETag.allTag ? of(Projects) : of(Projects.filter((item) => item.tags?.map((item) => item.id)?.includes(tag)));
+        }),
     );
 
     private _dialog = inject(MatDialog);
@@ -57,15 +47,12 @@ export class ProjectsComponent {
             {
                 title: 'Start - End Date',
                 value: `${item.startDate.value.toLocaleDateString()} - ${
-                    item.endDate
-                        ? item.endDate.value.toLocaleDateString()
-                        : this._translocoService.translate('Present')
+                    item.endDate ? item.endDate.value.toLocaleDateString() : this._translocoService.translate('Present')
                 }`,
             },
             {
                 title: 'Project Category',
                 value: item.projectCategory,
-
             },
             {
                 title: 'Project Type',
@@ -78,9 +65,7 @@ export class ProjectsComponent {
             },
             {
                 title: 'Main Functionality',
-                value: item.mainFunctionality
-                    .map((item) => this._translocoService.translate(item))
-                    .join('<br><br>'),
+                value: item.mainFunctionality.map((item) => this._translocoService.translate(item)).join('<br><br>'),
             },
             {
                 title: 'Client Location',
@@ -93,12 +78,7 @@ export class ProjectsComponent {
         ];
 
         let links = undefined;
-        if (
-            item.demoLink &&
-            item.demoLink.url &&
-            item.sourceCodeLink &&
-            item.sourceCodeLink.url
-        ) {
+        if (item.demoLink && item.demoLink.url && item.sourceCodeLink && item.sourceCodeLink.url) {
             links = {
                 Demo: item.demoLink,
                 'Source Code': item.sourceCodeLink,

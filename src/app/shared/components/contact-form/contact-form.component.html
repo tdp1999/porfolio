@@ -7,24 +7,25 @@
     <mat-form-field class="w-full">
         <mat-label>{{ "contact-form.name.label" | transloco }}</mat-label>
         <input matInput [placeholder]="'contact-form.name.placeholder' | transloco" formControlName="name" type="text" name="name" trim />
-        @if (form.get('name')?.hasError('required')) {
-        <mat-error>
-            {{ "contact-form.name.required" | transloco }}
-        </mat-error>
+        @if (form.get("name")?.hasError("required")) {
+            <mat-error>
+                {{ "contact-form.name.required" | transloco }}
+            </mat-error>
         }
     </mat-form-field>
 
     <mat-form-field class="w-full">
         <mat-label>{{ "contact-form.email.label" | transloco }}</mat-label>
         <input matInput [placeholder]="'contact-form.email.placeholder' | transloco" formControlName="email" type="email" name="email" />
-        @if (form.get('email')?.hasError('required')) {
-        <mat-error>
-            {{ "contact-form.email.required" | transloco }}
-        </mat-error>
-        } @if (form.get('email')?.hasError('email')) {
-        <mat-error>
-            {{ "contact-form.email.invalid" | transloco }}
-        </mat-error>
+        @if (form.get("email")?.hasError("required")) {
+            <mat-error>
+                {{ "contact-form.email.required" | transloco }}
+            </mat-error>
+        }
+        @if (form.get("email")?.hasError("email")) {
+            <mat-error>
+                {{ "contact-form.email.invalid" | transloco }}
+            </mat-error>
         }
     </mat-form-field>
 
@@ -37,10 +38,10 @@
             type="text"
             name="company"
         />
-        @if (form.get('company')?.hasError('required')) {
-        <mat-error>
-            {{ "contact-form.company.required" | transloco }}
-        </mat-error>
+        @if (form.get("company")?.hasError("required")) {
+            <mat-error>
+                {{ "contact-form.company.required" | transloco }}
+            </mat-error>
         }
     </mat-form-field>
 
@@ -56,10 +57,10 @@
         >
         </textarea>
 
-        @if (form.get('message')?.hasError('required')) {
-        <mat-error>
-            {{ "contact-form.message.required" | transloco }}
-        </mat-error>
+        @if (form.get("message")?.hasError("required")) {
+            <mat-error>
+                {{ "contact-form.message.required" | transloco }}
+            </mat-error>
         }
     </mat-form-field>
 

@@ -11,13 +11,13 @@
 
         <div class="flex items-center justify-center w-6">
             @if (themeService.currentTheme$ | async; as theme) {
-            <button (click)="themeService.toggleTheme()">
-                @if (theme === 'light') {
-                <fa-icon [icon]="['fas', 'sun']" size="xl" class="text-theme-primary" [spin]="false"></fa-icon>
-                } @else {
-                <fa-icon [icon]="['fas', 'moon']" class="text-theme-white-90" size="xl" [spin]="false"></fa-icon>
-                }
-            </button>
+                <button (click)="themeService.toggleTheme()">
+                    @if (theme === "light") {
+                        <fa-icon [icon]="['fas', 'sun']" size="xl" class="text-theme-primary" [spin]="false"></fa-icon>
+                    } @else {
+                        <fa-icon [icon]="['fas', 'moon']" class="text-theme-white-90" size="xl" [spin]="false"></fa-icon>
+                    }
+                </button>
             }
         </div>
     </div>

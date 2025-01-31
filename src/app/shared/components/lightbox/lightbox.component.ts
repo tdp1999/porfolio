@@ -10,7 +10,7 @@ import { NgTemplateOutlet } from '@angular/common';
     templateUrl: './lightbox.component.html',
     styleUrls: ['./lightbox.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatIconButton, MatDialogClose, FontAwesomeModule, NgTemplateOutlet]
+    imports: [MatIconButton, MatDialogClose, FontAwesomeModule, NgTemplateOutlet],
 })
 export class LightboxComponent {
     public data: LightboxData = inject(MAT_DIALOG_DATA);

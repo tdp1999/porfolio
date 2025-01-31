@@ -27,7 +27,7 @@ export class NetlifyService {
             .pipe(
                 catchError((err) => {
                     throw err;
-                })
+                }),
             );
     }
 }

@@ -1,27 +1,10 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { DOCUMENT, NgClass, AsyncPipe, TitleCasePipe } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  inject,
-  input
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, inject, input } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { ActivatedRoute, IsActiveMatchOptions, NavigationEnd, Router, RouterLinkActive, RouterLink } from '@angular/router';
 import { LangDefinition, TranslocoService, TranslocoModule } from '@ngneat/transloco';
-import {
-    Subject,
-    debounceTime,
-    distinctUntilChanged,
-    filter,
-    map,
-    takeUntil,
-    tap,
-} from 'rxjs';
+import { Subject, debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs';
 import { CVURL } from '../../constants/url.constant';
 import { MENU_DATA } from '../../data/menu.data';
 import { Menu } from '../../interfaces/menu.interface';
@@ -40,7 +23,20 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     selector: 'app-nav-list',
     templateUrl: './nav-list.component.html',
     styleUrls: ['./nav-list.component.scss'],
-    imports: [MatNavList, RouterLinkActive, RouterLink, NgClass, MatDivider, MatMenuTrigger, FontAwesomeModule, MatMenu, MatMenuItem, AsyncPipe, TitleCasePipe, TranslocoModule]
+    imports: [
+        MatNavList,
+        RouterLinkActive,
+        RouterLink,
+        NgClass,
+        MatDivider,
+        MatMenuTrigger,
+        FontAwesomeModule,
+        MatMenu,
+        MatMenuItem,
+        AsyncPipe,
+        TitleCasePipe,
+        TranslocoModule,
+    ],
 })
 export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     readonly drawer = input<MatDrawer>();
@@ -65,9 +61,7 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
     public themeMenuOpen: boolean = false;
     public languageMenuOpen: boolean = false;
     public currentLanguage?: LangDefinition;
-    public isNotLg$ = this.breakpointObserver
-        .observe('(max-width: 1023.98px)')
-        .pipe(map((state) => state.matches));
+    public isNotLg$ = this.breakpointObserver.observe('(max-width: 1023.98px)').pipe(map((state) => state.matches));
 
     private _cdr = inject(ChangeDetectorRef);
     private _window = inject(WindowRefService);
@@ -79,22 +73,15 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private _unsubscribeAll = new Subject<void>();
 
-    public availableLanguage: LangDefinition[] =
-        this._translocoService.getAvailableLangs() as LangDefinition[];
+    public availableLanguage: LangDefinition[] = this._translocoService.getAvailableLangs() as LangDefinition[];
 
     ngOnInit(): void {
         this.loadReferredLanguage();
 
         this._translocoService.langChanges$
-            .pipe(
-                debounceTime(300),
-                distinctUntilChanged(),
-                takeUntil(this._unsubscribeAll)
-            )
+            .pipe(debounceTime(300), distinctUntilChanged(), takeUntil(this._unsubscribeAll))
             .subscribe((lang) => {
-                this.currentLanguage = this.availableLanguage.find(
-                    (langDef) => langDef.id === lang
-                );
+                this.currentLanguage = this.availableLanguage.find((langDef) => langDef.id === lang);
 
                 this._cdr.markForCheck();
             });
@@ -102,11 +89,7 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this._translocoService.langChanges$
-            .pipe(
-                debounceTime(300),
-                distinctUntilChanged(),
-                takeUntil(this._unsubscribeAll)
-            )
+            .pipe(debounceTime(300), distinctUntilChanged(), takeUntil(this._unsubscribeAll))
             .subscribe((lang) => {
                 this.cvUrl = CVURL[lang as Language];
                 this._cdr.markForCheck();
@@ -115,12 +98,9 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
         // Remove active class on route changes
         this.router.events
             .pipe(
-                filter(
-                    (event): event is NavigationEnd =>
-                        event instanceof NavigationEnd
-                ),
+                filter((event): event is NavigationEnd => event instanceof NavigationEnd),
                 debounceTime(100),
-                takeUntil(this._unsubscribeAll)
+                takeUntil(this._unsubscribeAll),
             )
             .subscribe((event: NavigationEnd) => {
                 if (event.urlAfterRedirects.includes('not-found')) {
@@ -133,8 +113,7 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
             });
 
         // Padding containerRef animation on scroll
-        const scrollableElement =
-            this._document.querySelector('[id="content"]');
+        const scrollableElement = this._document.querySelector('[id="content"]');
         const window = this._window.nativeWindow;
         if (scrollableElement && window) {
             this._scrollService
@@ -144,30 +123,21 @@ export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {
                     // debounceTime(150),
                     tap(() => {
                         const containerRef = this.containerRef();
-                        if (!containerRef || !containerRef.nativeElement)
-                            return;
-                        this._scrollService.toggleScrolledClass(
-                            scrollableElement,
-                            window,
-                            containerRef.nativeElement
-                        );
-                    })
+                        if (!containerRef || !containerRef.nativeElement) return;
+                        this._scrollService.toggleScrolledClass(scrollableElement, window, containerRef.nativeElement);
+                    }),
                 )
                 .subscribe();
         }
 
         // Add active class while scrolling
-        this._scrollService.activeSection$
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((sectionId) => {
-                this.items = this.items.map((item) => {
-                    item.fragment === sectionId
-                        ? (item.active = true)
-                        : (item.active = false);
-                    return item;
-                });
-                this._cdr.markForCheck();
+        this._scrollService.activeSection$.pipe(takeUntil(this._unsubscribeAll)).subscribe((sectionId) => {
+            this.items = this.items.map((item) => {
+                item.fragment === sectionId ? (item.active = true) : (item.active = false);
+                return item;
             });
+            this._cdr.markForCheck();
+        });
     }
 
     ngOnDestroy(): void {

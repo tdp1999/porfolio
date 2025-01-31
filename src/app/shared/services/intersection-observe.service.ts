@@ -1,12 +1,4 @@
-import {
-    Observable,
-    Subscriber,
-    distinctUntilChanged,
-    map,
-    mergeMap,
-    of,
-    shareReplay,
-} from 'rxjs';
+import { Observable, Subscriber, distinctUntilChanged, map, mergeMap, of, shareReplay } from 'rxjs';
 import { ElementRef, Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -19,20 +11,18 @@ export class IntersectionObserveService {
     observe(element: ElementRef, threshold = 0.5): Observable<boolean> {
         if (!isPlatformBrowser(this._platformId)) return of(false);
 
-        return new Observable(
-            (observer: Subscriber<IntersectionObserverEntry[]>) => {
-                const intersectionObserver = new IntersectionObserver(
-                    (entries) => observer.next(entries),
-                    { root: null, threshold } // 0.5 = 50% of the element is visible. Beware the long element
-                );
-                intersectionObserver.observe(element.nativeElement);
-                return () => intersectionObserver.disconnect();
-            }
-        ).pipe(
+        return new Observable((observer: Subscriber<IntersectionObserverEntry[]>) => {
+            const intersectionObserver = new IntersectionObserver(
+                (entries) => observer.next(entries),
+                { root: null, threshold }, // 0.5 = 50% of the element is visible. Beware the long element
+            );
+            intersectionObserver.observe(element.nativeElement);
+            return () => intersectionObserver.disconnect();
+        }).pipe(
             mergeMap((entries: IntersectionObserverEntry[]) => entries),
             map((entry: IntersectionObserverEntry) => entry.isIntersecting),
             distinctUntilChanged(),
-            shareReplay({ bufferSize: 1, refCount: true })
+            shareReplay({ bufferSize: 1, refCount: true }),
         );
     }
 }

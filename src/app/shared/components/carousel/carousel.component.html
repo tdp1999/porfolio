@@ -11,18 +11,25 @@
 
         <div class="absolute z-10 -translate-x-1/2 bottom-1 left-1/2 flex gap-2 theme--text-reverse">
             @for (image of images(); track image.url; let i = $index) {
-            <fa-icon
-                (click)="gotoSlide(i)"
-                class="cursor-pointer opacity-70 hover:opacity-100"
-                [icon]="[i === currentIndex ? 'fas' : 'far', 'circle']"
-                size="xs"
-            ></fa-icon>
+                <fa-icon
+                    (click)="gotoSlide(i)"
+                    class="cursor-pointer opacity-70 hover:opacity-100"
+                    [icon]="[i === currentIndex ? 'fas' : 'far', 'circle']"
+                    size="xs"
+                ></fa-icon>
             }
         </div>
 
-        @for (image of images(); track image.url; let i = $index) { @if (i === currentIndex) {
-        <img [src]="image.url" loading="lazy" class="absolute inset-0 object-cover object-center w-full h-full" @carouselAnimation />
-        } }
+        @for (image of images(); track image.url; let i = $index) {
+            @if (i === currentIndex) {
+                <img
+                    [src]="image.url"
+                    loading="lazy"
+                    class="absolute inset-0 object-cover object-center w-full h-full"
+                    @carouselAnimation
+                />
+            }
+        }
     </div>
 
     <div class="overflow-y-auto">

@@ -1,23 +1,6 @@
-import {
-    AfterViewInit,
-    Directive,
-    ElementRef,
-    HostBinding,
-    Input,
-    OnDestroy,
-    Renderer2,
-    inject,
-} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostBinding, Input, OnDestroy, Renderer2, inject } from '@angular/core';
 import { IntersectionObserveService } from '../../services/intersection-observe.service';
-import {
-    Subject,
-    filter,
-    switchMap,
-    take,
-    takeUntil,
-    tap,
-    withLatestFrom,
-} from 'rxjs';
+import { Subject, filter, switchMap, take, takeUntil, tap, withLatestFrom } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Directive({ selector: '[appAnimateOnScroll]' })
@@ -28,10 +11,7 @@ export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
         const classes = this._elementRef.nativeElement.classList;
         if (classes.contains(this._animateStart)) return;
 
-        this._renderer.removeClass(
-            this._elementRef.nativeElement,
-            this._animateStart
-        );
+        this._renderer.removeClass(this._elementRef.nativeElement, this._animateStart);
         this._renderer.addClass(this._elementRef.nativeElement, value);
         this._animateStart = value;
     }
@@ -59,14 +39,11 @@ export class AnimateOnScrollDirective implements AfterViewInit, OnDestroy {
             .pipe(
                 switchMap((result) => {
                     const threshold = result.matches ? 0.5 : 0.3;
-                    return this._intersectionObserverService.observe(
-                        this._elementRef,
-                        threshold
-                    );
+                    return this._intersectionObserverService.observe(this._elementRef, threshold);
                 }),
                 filter((isIntersecting: boolean) => isIntersecting),
                 take(1),
-                takeUntil(this._unsubscribeAll$)
+                takeUntil(this._unsubscribeAll$),
             )
             .subscribe((isIntersecting: boolean) => {
                 this._elementRef.nativeElement.classList.add(this.animationEnd);

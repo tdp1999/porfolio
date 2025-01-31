@@ -7,13 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-const components = [
-    MatButtonModule,
-    MatDialogModule,
-    MatTooltipModule,
-    FontAwesomeModule,
-    TranslocoModule,
-];
+const components = [MatButtonModule, MatDialogModule, MatTooltipModule, FontAwesomeModule, TranslocoModule];
 
 @NgModule({
     imports: [CommonModule, ...components, DescriptionListComponent],

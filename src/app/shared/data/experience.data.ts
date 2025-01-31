@@ -25,11 +25,7 @@ export const Experiences: Experience[] = [
             'experienceData.1.responsibilities.3',
         ],
         teamSize: 5,
-        achievements: [
-            'experienceData.1.achievements.1',
-            'experienceData.1.achievements.2',
-            'experienceData.1.achievements.3',
-        ],
+        achievements: ['experienceData.1.achievements.1', 'experienceData.1.achievements.2', 'experienceData.1.achievements.3'],
         image: {
             url: 'assets/images/carousel/carousel-1.jpg',
             description: 'Art',
@@ -63,10 +59,7 @@ export const Experiences: Experience[] = [
             'experienceData.2.responsibilities.5',
         ],
         teamSize: 7,
-        achievements: [
-            'experienceData.2.achievements.1',
-            'experienceData.2.achievements.2',
-        ],
+        achievements: ['experienceData.2.achievements.1', 'experienceData.2.achievements.2'],
         image: {
             url: 'assets/images/carousel/carousel-1.jpg',
             description: 'Art',
@@ -98,11 +91,7 @@ export const Experiences: Experience[] = [
             'experienceData.3.responsibilities.6',
         ],
         teamSize: [10, 15],
-        achievements: [
-            'experienceData.3.achievements.1',
-            'experienceData.3.achievements.2',
-            'experienceData.3.achievements.3',
-        ],
+        achievements: ['experienceData.3.achievements.1', 'experienceData.3.achievements.2', 'experienceData.3.achievements.3'],
         image: {
             url: 'assets/images/carousel/carousel-1.jpg',
             description: 'Art',

@@ -41,7 +41,7 @@ export class HomeComponent implements OnDestroy, AfterViewInit {
                 filter((fragment) => !!fragment),
                 delay(100),
                 tap((fragment) => this._scrollService.scrollToFragment(fragment ?? '')),
-                takeUntil(this._unsubscribeAll)
+                takeUntil(this._unsubscribeAll),
             )
             .subscribe();
     }

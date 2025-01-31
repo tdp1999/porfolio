@@ -1,9 +1,5 @@
 import { ETag } from '../enums/tag.enum';
-import {
-    ProjectCategory,
-    ProjectType,
-    ProjectSize,
-} from '../types/software.type';
+import { ProjectCategory, ProjectType, ProjectSize } from '../types/software.type';
 import { Datetime, Link } from './general-entity';
 import { Image } from './image.interface';
 

@@ -1,13 +1,13 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  OnDestroy,
-  ViewChild,
-  inject,
-  input
+    AfterViewInit,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    OnDestroy,
+    ViewChild,
+    inject,
+    input,
 } from '@angular/core';
 import { Subject, delay, takeUntil } from 'rxjs';
 import { IntersectionObserveService } from '../../services/intersection-observe.service';
@@ -19,7 +19,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     templateUrl: './stats-item.component.html',
     styleUrls: ['./stats-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [TranslocoModule]
+    imports: [TranslocoModule],
 })
 export class StatsItemComponent implements AfterViewInit, OnDestroy {
     readonly startFrom = input(0);

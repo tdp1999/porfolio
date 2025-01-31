@@ -4,7 +4,9 @@
     font-weight: 300;
     font-stretch: 100%;
     font-display: swap;
-    src: local("Open Sans Bold"), local("OpenSans-Bold"),
+    src:
+        local("Open Sans Bold"),
+        local("OpenSans-Bold"),
         url("/assets/fonts/subset-OpenSans-LightItalic.woff2") format("woff2");
 }
 
@@ -14,7 +16,9 @@
     font-weight: 400;
     font-stretch: 100%;
     font-display: swap;
-    src: local("Open Sans Italic"), local("OpenSans-Italic"),
+    src:
+        local("Open Sans Italic"),
+        local("OpenSans-Italic"),
         url("/assets/fonts/subset-OpenSans-Italic.woff2") format("woff2");
 }
 
@@ -24,7 +28,9 @@
     font-weight: 500;
     font-stretch: 100%;
     font-display: swap;
-    src: local("Open Sans Medium Italic"), local("OpenSans-MediumItalic"),
+    src:
+        local("Open Sans Medium Italic"),
+        local("OpenSans-MediumItalic"),
         url("/assets/fonts/subset-OpenSans-MediumItalic.woff2") format("woff2");
 }
 
@@ -34,7 +40,9 @@
     font-weight: 300;
     font-stretch: 100%;
     font-display: swap;
-    src: local("Open Sans Light"), local("OpenSans-Light"),
+    src:
+        local("Open Sans Light"),
+        local("OpenSans-Light"),
         url("/assets/fonts/subset-OpenSans-Light.woff2") format("woff2");
 }
 
@@ -44,7 +52,9 @@
     font-weight: 400;
     font-stretch: 100%;
     font-display: swap;
-    src: local("Open Sans Regular"), local("OpenSans-Regular"),
+    src:
+        local("Open Sans Regular"),
+        local("OpenSans-Regular"),
         url("/assets/fonts/subset-OpenSans-Regular.woff2") format("woff2");
 }
 
@@ -54,7 +64,9 @@
     font-weight: 500;
     font-stretch: 100%;
     font-display: swap;
-    src: local("Open Sans Medium"), local("OpenSans-Medium"),
+    src:
+        local("Open Sans Medium"),
+        local("OpenSans-Medium"),
         url("/assets/fonts/subset-OpenSans-Medium.woff2") format("woff2");
 }
 
@@ -64,7 +76,9 @@
     font-weight: 600;
     font-stretch: 100%;
     font-display: swap;
-    src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"),
+    src:
+        local("Open Sans SemiBold"),
+        local("OpenSans-SemiBold"),
         url("/assets/fonts/subset-OpenSans-SemiBold.woff2") format("woff2");
 }
 
@@ -74,6 +88,8 @@
     font-weight: 700;
     font-stretch: 100%;
     font-display: swap;
-    src: local("Open Sans Bold"), local("OpenSans-Bold"),
+    src:
+        local("Open Sans Bold"),
+        local("OpenSans-Bold"),
         url("/assets/fonts/subset-OpenSans-Bold.woff2") format("woff2");
 }

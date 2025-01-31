@@ -5,11 +5,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarouselComponent } from './carousel.component';
 
-const components = [
-    FontAwesomeModule,
-    MatButtonModule,
-    MatDialogModule,
-];
+const components = [FontAwesomeModule, MatButtonModule, MatDialogModule];
 
 @NgModule({
     imports: [CommonModule, ...components, CarouselComponent],

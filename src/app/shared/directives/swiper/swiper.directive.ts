@@ -1,10 +1,4 @@
-import {
-    AfterViewInit,
-    Directive,
-    ElementRef,
-    Input,
-    inject,
-} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, inject } from '@angular/core';
 import { SwiperContainer } from 'swiper/element';
 
 @Directive({ selector: '[appSwiper]' })

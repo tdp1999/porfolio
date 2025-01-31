@@ -9,15 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslocoModule } from '@ngneat/transloco';
 import { NavListComponent } from './nav-list.component';
 
-const components = [
-    RouterModule,
-    MatListModule,
-    MatDividerModule,
-    MatButtonModule,
-    MatMenuModule,
-    FontAwesomeModule,
-    TranslocoModule,
-];
+const components = [RouterModule, MatListModule, MatDividerModule, MatButtonModule, MatMenuModule, FontAwesomeModule, TranslocoModule];
 
 @NgModule({
     imports: [CommonModule, ...components, NavListComponent],

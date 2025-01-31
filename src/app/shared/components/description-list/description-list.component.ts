@@ -11,7 +11,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     selector: 'app-description-list',
     templateUrl: './description-list.component.html',
     styleUrls: ['./description-list.component.scss'],
-    imports: [MatIconButton, MatDialogClose, FontAwesomeModule, MatTooltip, NgClass, KeyValuePipe, TranslocoModule]
+    imports: [MatIconButton, MatDialogClose, FontAwesomeModule, MatTooltip, NgClass, KeyValuePipe, TranslocoModule],
 })
 export class DescriptionListComponent {
     public data: DescriptionListData = inject(MAT_DIALOG_DATA);

@@ -1,13 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Overlay } from '@angular/cdk/overlay';
-import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    OnDestroy,
-    inject,
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { LightboxComponent } from 'src/app/shared/components/lightbox/lightbox.component';
@@ -16,7 +9,13 @@ import { Skill } from 'src/app/shared/interfaces/skill.interface';
 import { SkillType } from 'src/app/shared/types/skill.type';
 import { AnimateOnScrollDirective } from '../../../shared/directives/animate-on-scroll/animate-on-scroll.directive';
 import { NgClass, AsyncPipe, UpperCasePipe } from '@angular/common';
-import { MatAccordion, MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, MatExpansionPanelDescription } from '@angular/material/expansion';
+import {
+    MatAccordion,
+    MatExpansionPanel,
+    MatExpansionPanelHeader,
+    MatExpansionPanelTitle,
+    MatExpansionPanelDescription,
+} from '@angular/material/expansion';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatTooltip } from '@angular/material/tooltip';
 import { TranslocoModule } from '@ngneat/transloco';
@@ -32,7 +31,20 @@ interface SkillNode {
     templateUrl: './skills.component.html',
     styleUrls: ['./skills.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [AnimateOnScrollDirective, NgClass, MatAccordion, MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, FontAwesomeModule, MatTooltip, MatExpansionPanelDescription, AsyncPipe, UpperCasePipe, TranslocoModule]
+    imports: [
+        AnimateOnScrollDirective,
+        NgClass,
+        MatAccordion,
+        MatExpansionPanel,
+        MatExpansionPanelHeader,
+        MatExpansionPanelTitle,
+        FontAwesomeModule,
+        MatTooltip,
+        MatExpansionPanelDescription,
+        AsyncPipe,
+        UpperCasePipe,
+        TranslocoModule,
+    ],
 })
 export class SkillsComponent implements AfterViewInit, OnDestroy {
     public skillTypes = SkillTypes;
@@ -55,9 +67,7 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
             .observe(['(min-width: 768px)'])
             .pipe(takeUntil(this._unsubscribeAll$))
             .subscribe((result) => {
-                result.matches
-                    ? (this.navPosition = 'right')
-                    : (this.navPosition = 'left');
+                result.matches ? (this.navPosition = 'right') : (this.navPosition = 'left');
                 this._cdr.markForCheck();
             });
     }

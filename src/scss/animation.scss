@@ -17,7 +17,9 @@
 .animation--fade {
     opacity: 0;
     // transform: translateX(50px);
-    transition: opacity 1s ease, transform 0.5s ease;
+    transition:
+        opacity 1s ease,
+        transform 0.5s ease;
     // overflow: hidden;
 }
 
@@ -29,7 +31,9 @@
 .animation--fade-up {
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity 1s ease, transform 0.5s ease;
+    transition:
+        opacity 1s ease,
+        transform 0.5s ease;
     // overflow: hidden;
 }
 
@@ -41,7 +45,9 @@
 .animation--fade-down {
     opacity: 0;
     transform: translateY(-50px);
-    transition: opacity 1s ease, transform 0.5s ease;
+    transition:
+        opacity 1s ease,
+        transform 0.5s ease;
     // overflow: hidden;
 }
 
@@ -53,7 +59,9 @@
 .animation--fade-left {
     opacity: 0;
     transform: translateX(-50px);
-    transition: opacity 1s ease, transform 0.5s ease;
+    transition:
+        opacity 1s ease,
+        transform 0.5s ease;
     // overflow: hidden;
 }
 
@@ -65,7 +73,9 @@
 .animation--fade-right {
     opacity: 0;
     transform: translateX(50px);
-    transition: opacity 1s ease, transform 0.5s ease;
+    transition:
+        opacity 1s ease,
+        transform 0.5s ease;
 }
 
 .animation--fade-right.animate {
@@ -76,7 +86,9 @@
 .ainmation--fade-up-left {
     opacity: 0;
     transform: translate(-50px, 50px);
-    transition: opacity 1s ease, transform 0.5s ease;
+    transition:
+        opacity 1s ease,
+        transform 0.5s ease;
     // overflow: hidden;
 }
 
@@ -88,7 +100,9 @@
 .animation--fade-up-right {
     opacity: 0;
     transform: translate(50px, -50px);
-    transition: opacity 1s ease, transform 0.5s ease;
+    transition:
+        opacity 1s ease,
+        transform 0.5s ease;
     // overflow: hidden;
 }
 
@@ -100,7 +114,9 @@
 .animation--fade-down-left {
     opacity: 0;
     transform: translate(-50px, -50px);
-    transition: opacity 1s ease, transform 0.5s ease;
+    transition:
+        opacity 1s ease,
+        transform 0.5s ease;
     // overflow: hidden;
 }
 

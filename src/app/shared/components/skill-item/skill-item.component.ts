@@ -1,10 +1,4 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    EventEmitter,
-    Input,
-    Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Skill } from '../../interfaces/skill.interface';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,7 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     templateUrl: './skill-item.component.html',
     styleUrls: ['./skill-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [FontAwesomeModule]
+    imports: [FontAwesomeModule],
 })
 export class SkillItemComponent {
     // TODO: Skipped for migration because:

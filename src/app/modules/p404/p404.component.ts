@@ -6,6 +6,6 @@ import { TranslocoModule } from '@ngneat/transloco';
     selector: 'app-p404',
     templateUrl: './p404.component.html',
     styleUrls: ['./p404.component.scss'],
-    imports: [RouterLink, TranslocoModule]
+    imports: [RouterLink, TranslocoModule],
 })
 export class P404Component {}

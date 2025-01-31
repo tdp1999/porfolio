@@ -3,22 +3,22 @@
         <div
             class="relative flex flex-col items-start justify-between py-8 after:bg-theme-primary after:absolute after:top-4 after:bottom-4 after:w-0.5 after:-translate-x-1/2 timeline-container"
         >
-            @for ( point of milestones(); track point.id; let first = $first; let last = $last; let index = $index) {
-            <div
-                class="relative flex justify-start w-full"
-                [ngClass]="{
-                    'before:absolute before:h-[1px] before:bg-theme-primary before:right-0 before:left-0 before:top-1/2 before:-translate-y-1/2':
-                        currentMilestone === index
-                }"
-            >
-                <button
-                    class="milestone"
-                    [ngClass]="{ 'after:!bg-theme-accent': currentMilestone === index }"
-                    [matTooltip]="point.tooltip"
-                    matTooltipPosition="left"
-                    (click)="selectMilestone(index)"
-                ></button>
-            </div>
+            @for (point of milestones(); track point.id; let first = $first; let last = $last; let index = $index) {
+                <div
+                    class="relative flex justify-start w-full"
+                    [ngClass]="{
+                        'before:absolute before:h-[1px] before:bg-theme-primary before:right-0 before:left-0 before:top-1/2 before:-translate-y-1/2':
+                            currentMilestone === index,
+                    }"
+                >
+                    <button
+                        class="milestone"
+                        [ngClass]="{ 'after:!bg-theme-accent': currentMilestone === index }"
+                        [matTooltip]="point.tooltip"
+                        matTooltipPosition="left"
+                        (click)="selectMilestone(index)"
+                    ></button>
+                </div>
             }
         </div>
 

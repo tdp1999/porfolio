@@ -13,7 +13,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     templateUrl: './contact.component.html',
     styleUrls: ['./contact.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [FontAwesomeModule, ContactFormComponent_1, TranslocoModule]
+    imports: [FontAwesomeModule, ContactFormComponent_1, TranslocoModule],
 })
 export class ContactComponent {
     public socialLink: Link[] = SocialLinkData;

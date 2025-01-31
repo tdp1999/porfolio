@@ -10,19 +10,14 @@
 // have to load a single css file for Angular Material in your app.
 
 $fontConfig: (
-    display-4:
-        mat.m2-define-typography-level(112px, 112px, 300, "Roboto", -0.0134em),
-    display-3:
-        mat.m2-define-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
+    display-4: mat.m2-define-typography-level(112px, 112px, 300, "Roboto", -0.0134em),
+    display-3: mat.m2-define-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
     display-2: mat.m2-define-typography-level(45px, 48px, 400, "Roboto", 0em),
-    display-1:
-        mat.m2-define-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
+    display-1: mat.m2-define-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
     headline: mat.m2-define-typography-level(24px, 32px, 400, "Roboto", 0em),
     title: mat.m2-define-typography-level(20px, 32px, 500, "Roboto", 0.0075em),
-    subheading-2:
-        mat.m2-define-typography-level(16px, 28px, 400, "Roboto", 0.0094em),
-    subheading-1:
-        mat.m2-define-typography-level(15px, 24px, 500, "Roboto", 0.0067em),
+    subheading-2: mat.m2-define-typography-level(16px, 28px, 400, "Roboto", 0.0094em),
+    subheading-1: mat.m2-define-typography-level(15px, 24px, 500, "Roboto", 0.0067em),
     body-2: mat.m2-define-typography-level(14px, 24px, 500, "Roboto", 0.0179em),
     body-1: mat.m2-define-typography-level(14px, 20px, 400, "Roboto", 0.0179em),
     button: mat.m2-define-typography-level(14px, 14px, 500, "Roboto", 0.0893em),
@@ -172,8 +167,7 @@ $mat-primary: (
     darker: #3f79d8,
     200: #5a96e3,
     // For slide toggle,
-    contrast:
-        (
+    contrast: (
             main: $dark-primary-text,
             lighter: $dark-primary-text,
             darker: $light-primary-text,
@@ -195,8 +189,7 @@ $mat-accent: (
     darker: #ff793c,
     200: #ff9657,
     // For slide toggle,
-    contrast:
-        (
+    contrast: (
             main: $dark-primary-text,
             lighter: $dark-primary-text,
             darker: $dark-primary-text,
@@ -218,8 +211,7 @@ $mat-warn: (
     darker: #ff0000,
     200: #ff0000,
     // For slide toggle,
-    contrast:
-        (
+    contrast: (
             main: $light-primary-text,
             lighter: $dark-primary-text,
             darker: $light-primary-text,
