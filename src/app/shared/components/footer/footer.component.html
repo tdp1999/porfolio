@@ -4,22 +4,6 @@
             Phuong <span class="text-theme-primary">Tran</span> - {{ currentYear }} - v1.0
         </div>
 
-        <button
-            class="hidden gap-1 lg:flex primary-button"
-            [matMenuTriggerFor]="menu"
-            (menuClosed)="menuOpen = false"
-            (menuOpened)="menuOpen = true"
-        >
-            <span>{{ currentLanguage?.label }}</span>
-            <fa-icon [icon]="['fas', menuOpen ? 'chevron-down' : 'chevron-up']" size="sm"></fa-icon>
-        </button>
-
-        <mat-menu #menu="matMenu">
-            @for (language of availableLanguage; track language.id) {
-                <button mat-menu-item (click)="selectLanguage(language.id)">
-                    {{ language.label }}
-                </button>
-            }
-        </mat-menu>
+        <div>Build ID: {{ buildId }}</div>
     </div>
 </footer>

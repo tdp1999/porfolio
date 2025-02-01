@@ -1,23 +1,23 @@
+import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LangDefinition, TranslocoService } from '@ngneat/transloco';
 import { Subject, debounceTime, distinctUntilChanged, takeUntil } from 'rxjs';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { LS_LANGUAGE_KEY } from '../../tokens/local-storage.token';
-import { DOCUMENT } from '@angular/common';
-import { MatMenuTrigger, MatMenu, MatMenuItem } from '@angular/material/menu';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatMenuTrigger, FontAwesomeModule, MatMenu, MatMenuItem],
+    imports: [FontAwesomeModule],
 })
 export class FooterComponent implements OnInit, OnDestroy {
     public menuOpen: boolean = false;
     public currentLanguage?: LangDefinition;
     public currentYear = new Date().getFullYear();
+    public buildId: string = '';
 
     private _cdr = inject(ChangeDetectorRef);
     private _document = inject(DOCUMENT);
@@ -31,6 +31,12 @@ export class FooterComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.loadReferredLanguage();
+
+        try {
+            this.buildId = process?.env?.['BUILD_ID'] ?? 'local';
+        } catch (e) {
+            this.buildId = 'local';
+        }
 
         this._translocoService.langChanges$
             .pipe(debounceTime(300), distinctUntilChanged(), takeUntil(this._unsubscribeAll))

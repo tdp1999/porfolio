@@ -18,7 +18,7 @@ import { NavListComponent } from '../nav-list/nav-list.component';
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
-    // host: { ngSkipHydration: 'true' },
+    host: { ngSkipHydration: 'true' },
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterLink, NavListComponent, FontAwesomeModule, MatMenuModule],
 })
