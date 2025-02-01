@@ -9,16 +9,40 @@
     <div class="items-center hidden lg:flex gap-7">
         <app-nav-list [containerRef]="headerRef()"></app-nav-list>
 
-        <div class="flex items-center justify-center w-6">
-            @if (themeService.currentTheme$ | async; as theme) {
-                <button (click)="themeService.toggleTheme()">
-                    @if (theme === "light") {
-                        <fa-icon [icon]="['fas', 'sun']" size="xl" class="text-theme-primary" [spin]="false"></fa-icon>
-                    } @else {
-                        <fa-icon [icon]="['fas', 'moon']" class="text-theme-white-90" size="xl" [spin]="false"></fa-icon>
-                    }
+        <button
+            class="hidden gap-1 lg:flex primary-button"
+            [matMenuTriggerFor]="menu"
+            (menuClosed)="toggleMenuButton()"
+            (menuOpened)="toggleMenuButton()"
+        >
+            <span class="mr-1">{{ currentLanguage()?.label }}</span>
+            <fa-icon [icon]="['fas', languageMenuOpen() ? 'chevron-down' : 'chevron-up']" size="sm"></fa-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            @for (language of availableLanguage; track language.id) {
+                <button mat-menu-item (click)="selectLanguage(language.id)">
+                    {{ language.label }}
                 </button>
             }
+        </mat-menu>
+
+        <div class="flex items-center justify-center w-6">
+            <button (click)="themeService.toggleTheme()">
+                @switch (currentTheme()) {
+                    @case ("light") {
+                        <fa-icon [icon]="['fas', 'sun']" size="xl" class="text-theme-primary" [spin]="false"></fa-icon>
+                    }
+
+                    @case ("dark") {
+                        <fa-icon [icon]="['fas', 'moon']" class="text-theme-white-90" size="xl" [spin]="false"></fa-icon>
+                    }
+
+                    @default {
+                        Loading...
+                    }
+                }
+            </button>
         </div>
     </div>
 
