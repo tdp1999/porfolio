@@ -47,6 +47,7 @@ import {
     faAnglesDown,
     faXmark,
     faCircleInfo,
+    faArrowUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -162,6 +163,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
             faNodeJs,
             faXmark,
             faCircleInfo,
+            faArrowUpRightFromSquare,
         );
     }
 }

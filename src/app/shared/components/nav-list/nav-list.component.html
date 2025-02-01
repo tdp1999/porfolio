@@ -18,7 +18,12 @@
         }
     }
 
-    <a [href]="cvUrl" class="ml-5 lg:ml-0 primary-button" target="_blank" rel="noopener noreferrer">{{ "resume" | transloco }}</a>
+    <div class="ml-5">
+        <a [href]="cvUrl" class="primary-link no-underline" target="_blank" rel="noopener noreferrer">
+            {{ "resume" | transloco }}
+            <fa-icon [icon]="['fas', 'arrow-up-right-from-square']" size="sm" class="ml-1"></fa-icon>
+        </a>
+    </div>
 </mat-nav-list>
 
 @if (isNotLg$ | async; as isNotLg) {
@@ -53,20 +58,20 @@
                     (menuOpened)="themeMenuOpen = true"
                 >
                     <span>{{ currentTheme | titlecase }}</span>
+
                     <!-- <fa-icon
-                [icon]="
-                    currentTheme === 'light' ? ['fas', 'sun'] : ['fas', 'moon']
-                "
-            size="xl"
-                [ngClass]="{
-                    'text-theme-primary': currentTheme === 'light',
-                    'text-theme-white-90': currentTheme === 'dark'
-                }"
-            class="text-theme-primary"
-            [spin]="false"
-          ></fa-icon> -->
+                        [icon]="currentTheme === 'light' ? ['fas', 'sun'] : ['fas', 'moon']"
+                        size="xl"
+                        [ngClass]="{
+                            'text-theme-primary': currentTheme === 'light',
+                            'text-theme-white-90': currentTheme === 'dark',
+                        }"
+                        class="text-theme-primary"
+                        [spin]="false"
+                    ></fa-icon> -->
                     <fa-icon [icon]="['fas', themeMenuOpen ? 'chevron-down' : 'chevron-up']" size="sm"></fa-icon>
                 </button>
+
                 <mat-menu #themeMenu="matMenu">
                     @for (theme of availableTheme; track theme) {
                         <button mat-menu-item (click)="selectTheme(theme, currentTheme)">

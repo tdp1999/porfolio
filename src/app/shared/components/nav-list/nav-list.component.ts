@@ -1,9 +1,14 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { DOCUMENT, NgClass, AsyncPipe, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, DOCUMENT, NgClass, TitleCasePipe } from '@angular/common';
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, inject, input } from '@angular/core';
+import { MatDivider } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatNavList } from '@angular/material/list';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDrawer } from '@angular/material/sidenav';
-import { ActivatedRoute, IsActiveMatchOptions, NavigationEnd, Router, RouterLinkActive, RouterLink } from '@angular/router';
-import { LangDefinition, TranslocoService, TranslocoModule } from '@ngneat/transloco';
+import { ActivatedRoute, IsActiveMatchOptions, NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LangDefinition, TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { Subject, debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs';
 import { CVURL } from '../../constants/url.constant';
 import { MENU_DATA } from '../../data/menu.data';
@@ -14,10 +19,6 @@ import { ThemeService } from '../../services/theme.service';
 import { WindowRefService } from '../../services/window-ref.service';
 import { LS_LANGUAGE_KEY } from '../../tokens/local-storage.token';
 import { Language } from '../../types/language.type';
-import { MatNavList } from '@angular/material/list';
-import { MatDivider } from '@angular/material/divider';
-import { MatMenuTrigger, MatMenu, MatMenuItem } from '@angular/material/menu';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'app-nav-list',
@@ -36,6 +37,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         AsyncPipe,
         TitleCasePipe,
         TranslocoModule,
+        MatIconModule,
     ],
 })
 export class NavListComponent implements OnInit, AfterViewInit, OnDestroy {

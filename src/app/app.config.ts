@@ -15,10 +15,9 @@ import {
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { routes } from './app.route';
 import { DEFAULT_TOKENS, MATERIAL_CONFIGURATIONS } from './app.token';
-import { NavListModule } from './shared/components/nav-list/nav-list.module';
 import { TranslocoRootModule } from './transloco-root.module';
 
-const components = [FontAwesomeModule, MatSidenavModule, MatDividerModule, MatButtonModule, NavListModule];
+const components = [FontAwesomeModule, MatSidenavModule, MatDividerModule, MatButtonModule];
 
 export const appConfig = {
     providers: [

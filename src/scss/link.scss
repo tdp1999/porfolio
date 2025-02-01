@@ -1,5 +1,8 @@
 .primary-link {
     @apply text-theme-primary font-medium;
-    @apply hover:underline;
     @apply visited:opacity-80;
+
+    &:not(.no-underline) {
+        @apply hover:underline;
+    }
 }

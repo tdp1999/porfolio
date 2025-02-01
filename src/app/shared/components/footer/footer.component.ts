@@ -17,8 +17,6 @@ export class FooterComponent implements OnInit, OnDestroy {
     public menuOpen: boolean = false;
     public currentLanguage?: LangDefinition;
     public currentYear = new Date().getFullYear();
-    public buildId: string = '';
-
     private _cdr = inject(ChangeDetectorRef);
     private _document = inject(DOCUMENT);
     private _languageKey = inject(LS_LANGUAGE_KEY);
@@ -31,13 +29,6 @@ export class FooterComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.loadReferredLanguage();
-
-        try {
-            this.buildId = process?.env?.['BUILD_ID'] ?? 'local';
-        } catch (e) {
-            this.buildId = 'local';
-        }
-
         this._translocoService.langChanges$
             .pipe(debounceTime(300), distinctUntilChanged(), takeUntil(this._unsubscribeAll))
             .subscribe((lang) => {
