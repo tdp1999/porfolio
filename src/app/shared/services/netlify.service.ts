@@ -41,7 +41,7 @@ export class NetlifyService {
         formData.append('company', payload.company || '');
         formData.append('message', payload.message);
 
-        this._http.post<{ success: boolean; message: string }>('/api/submit', formData).pipe(
+        this._http.post<{ success: boolean; message: string }>('submit', formData).pipe(
             catchError((err) => {
                 console.error('Error submitting form to Cloudflare function:', err);
                 throw err;
