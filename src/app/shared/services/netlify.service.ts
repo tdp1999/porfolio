@@ -41,23 +41,11 @@ export class NetlifyService {
         formData.append('company', payload.company || '');
         formData.append('message', payload.message);
 
-        this._http.post<{ success: boolean; message: string }>('submit', formData).pipe(
+        return this._http.post<{ success: boolean; message: string }>('submit', formData).pipe(
             catchError((err) => {
                 console.error('Error submitting form to Cloudflare function:', err);
                 throw err;
             }),
         );
-
-        return of({ success: true, message: 'Form submitted successfully' });
-
-        // Use environment variable for Cloudflare function URL
-        // const cloudflareFunctionUrl = environment.cloudflareFunctionUrl;
-
-        // return this._http.post<{ success: boolean; message: string }>(cloudflareFunctionUrl, formData).pipe(
-        //     catchError((err) => {
-        //         console.error('Error submitting form to Cloudflare function:', err);
-        //         throw err;
-        //     }),
-        // );
     }
 }

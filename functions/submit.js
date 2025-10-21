@@ -127,6 +127,7 @@ export async function onRequest(ctx) {
         );
     }
 }
+
 /**
  * Example function to send email notification
  * Uncomment and modify based on your email service provider

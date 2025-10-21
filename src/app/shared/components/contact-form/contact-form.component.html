@@ -2,6 +2,7 @@
     [formGroup]="form"
     class="grid grid-cols-1 text-end sm:grid-cols-2 lg:grid-cols-1 auto-rows-auto gap-y-1 gap-x-4 md:gap-8 lg:gap-4"
     name="contactForm"
+    #formRef="ngForm"
     (ngSubmit)="submit()"
 >
     <mat-form-field class="w-full">
