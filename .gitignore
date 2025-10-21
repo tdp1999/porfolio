@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 .wrangler
+wrangler.toml
 
 # Node
 /node_modules
