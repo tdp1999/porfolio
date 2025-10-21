@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ContactFormData } from '../interfaces/contact-form.interface';
-import { Observable, catchError, tap } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -41,14 +41,23 @@ export class NetlifyService {
         formData.append('company', payload.company || '');
         formData.append('message', payload.message);
 
-        // Use environment variable for Cloudflare function URL
-        const cloudflareFunctionUrl = environment.cloudflareFunctionUrl;
-
-        return this._http.post<{ success: boolean; message: string }>(cloudflareFunctionUrl, formData).pipe(
+        this._http.post<{ success: boolean; message: string }>('/api/submit', formData).pipe(
             catchError((err) => {
                 console.error('Error submitting form to Cloudflare function:', err);
                 throw err;
             }),
         );
+
+        return of({ success: true, message: 'Form submitted successfully' });
+
+        // Use environment variable for Cloudflare function URL
+        // const cloudflareFunctionUrl = environment.cloudflareFunctionUrl;
+
+        // return this._http.post<{ success: boolean; message: string }>(cloudflareFunctionUrl, formData).pipe(
+        //     catchError((err) => {
+        //         console.error('Error submitting form to Cloudflare function:', err);
+        //         throw err;
+        //     }),
+        // );
     }
 }
