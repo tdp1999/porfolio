@@ -35,13 +35,20 @@ export class ContactFormComponent {
         if (this.form.invalid) return;
 
         this._netlifyService.submitForm(this.form.value as ContactFormData).subscribe({
-            next: () => {
+            next: (response) => {
+                // Handle successful response from Cloudflare function
                 this.formRef().resetForm();
                 this._snackbar.open('Your message has been sent! Thank you!', 'Dismiss', {
                     duration: 3000,
                 });
             },
-            error: (err: any) => console.log('Error: ', err),
+            error: (err: any) => {
+                console.error('Error submitting form:', err);
+                // Show error message to user
+                this._snackbar.open('Failed to send message. Please try again.', 'Dismiss', {
+                    duration: 5000,
+                });
+            },
         });
     }
 }

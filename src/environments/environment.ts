@@ -6,6 +6,8 @@ export const environment = {
     baseUrl: 'http://localhost:4200',
     largeMediaUrl: 'http://localhost:4200/assets',
     production: false,
+    // Cloudflare function URL for contact form submissions
+    cloudflareFunctionUrl: 'https://thunderthunderphong.workers.dev',
 };
 
 /*
