@@ -4,39 +4,26 @@
  * save to database, or integrate with other services
  */
 
-interface ContactFormData {
-    name: string;
-    email: string;
-    company: string;
-    message: string;
-}
-
-interface Env {
-    // Add environment variables here if needed
-    // For example: EMAIL_SERVICE_API_KEY: string;
-    // DATABASE_URL: string;
-}
-
 export default {
-    async fetch(request: Request, env: Env, ctx: any): Promise<Response> {
+    async fetch(request, env, ctx) {
         // Handle CORS preflight requests
-        if (request.method === 'OPTIONS') {
+        if (request.method === "OPTIONS") {
             return new Response(null, {
                 status: 200,
                 headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type',
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "POST, OPTIONS",
+                    "Access-Control-Allow-Headers": "Content-Type",
                 },
             });
         }
 
         // Only allow POST requests
-        if (request.method !== 'POST') {
-            return new Response('Method not allowed', {
+        if (request.method !== "POST") {
+            return new Response("Method not allowed", {
                 status: 405,
                 headers: {
-                    'Access-Control-Allow-Origin': '*',
+                    "Access-Control-Allow-Origin": "*",
                 },
             });
         }
@@ -46,24 +33,24 @@ export default {
             const formData = await request.formData();
 
             // Extract form fields
-            const contactData: ContactFormData = {
-                name: (formData.get('name') as string) || '',
-                email: (formData.get('email') as string) || '',
-                company: (formData.get('company') as string) || '',
-                message: (formData.get('message') as string) || '',
+            const contactData = {
+                name: formData.get("name") || "",
+                email: formData.get("email") || "",
+                company: formData.get("company") || "",
+                message: formData.get("message") || "",
             };
 
             // Validate required fields
             if (!contactData.name || !contactData.email || !contactData.message) {
                 return new Response(
                     JSON.stringify({
-                        error: 'Missing required fields: name, email, and message are required',
+                        error: "Missing required fields: name, email, and message are required",
                     }),
                     {
                         status: 400,
                         headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': '*',
+                            "Content-Type": "application/json",
+                            "Access-Control-Allow-Origin": "*",
                         },
                     },
                 );
@@ -74,20 +61,20 @@ export default {
             if (!emailRegex.test(contactData.email)) {
                 return new Response(
                     JSON.stringify({
-                        error: 'Invalid email format',
+                        error: "Invalid email format",
                     }),
                     {
                         status: 400,
                         headers: {
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': '*',
+                            "Content-Type": "application/json",
+                            "Access-Control-Allow-Origin": "*",
                         },
                     },
                 );
             }
 
             // Log the form submission (you can replace this with actual processing)
-            console.log('Contact form submission received:', {
+            console.log("Contact form submission received:", {
                 name: contactData.name,
                 email: contactData.email,
                 company: contactData.company,
@@ -112,28 +99,28 @@ export default {
             return new Response(
                 JSON.stringify({
                     success: true,
-                    message: 'Form submitted successfully',
+                    message: "Form submitted successfully",
                 }),
                 {
                     status: 200,
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': '*',
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "*",
                     },
                 },
             );
         } catch (error) {
-            console.error('Error processing contact form:', error);
+            console.error("Error processing contact form:", error);
 
             return new Response(
                 JSON.stringify({
-                    error: 'Internal server error',
+                    error: "Internal server error",
                 }),
                 {
                     status: 500,
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': '*',
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "*",
                     },
                 },
             );
@@ -146,7 +133,7 @@ export default {
  * Uncomment and modify based on your email service provider
  */
 /*
-async function sendEmailNotification(data: ContactFormData, env: Env): Promise<void> {
+async function sendEmailNotification(data, env) {
   // Example using SendGrid
   const emailData = {
     to: 'your-email@example.com',
@@ -182,7 +169,7 @@ async function sendEmailNotification(data: ContactFormData, env: Env): Promise<v
  * Uncomment and modify based on your database provider
  */
 /*
-async function saveToDatabase(data: ContactFormData, env: Env): Promise<void> {
+async function saveToDatabase(data, env) {
   // Example using D1 database
   const stmt = env.DB.prepare(`
     INSERT INTO contact_submissions (name, email, company, message, created_at)
