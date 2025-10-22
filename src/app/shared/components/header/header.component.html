@@ -31,11 +31,11 @@
             <button (click)="themeService.toggleTheme()">
                 @switch (currentTheme()) {
                     @case ("light") {
-                        <fa-icon [icon]="['fas', 'sun']" size="xl" class="text-theme-primary" [spin]="false"></fa-icon>
+                        <fa-icon [icon]="['fas', 'sun']" size="xl" class="text-theme-primary"></fa-icon>
                     }
 
                     @case ("dark") {
-                        <fa-icon [icon]="['fas', 'moon']" class="text-theme-white-90" size="xl" [spin]="false"></fa-icon>
+                        <fa-icon [icon]="['fas', 'moon']" class="text-theme-white-90" size="xl"></fa-icon>
                     }
 
                     @default {
