@@ -1,6 +1,6 @@
-import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnDestroy, OnInit, inject, input, output } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnDestroy, OnInit, inject, input, output, DOCUMENT } from '@angular/core';
 import { ScrollService } from '../../services/scroll.service';
-import { DOCUMENT } from '@angular/common';
+
 import { Subject, debounceTime, takeUntil } from 'rxjs';
 
 @Directive({ selector: '[appScrollspy]' })

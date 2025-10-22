@@ -6,7 +6,7 @@
  * available, such as `@angular/elements`.
  */
 import { enableProdMode } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { bootstrapApplication, BootstrapContext } from '@angular/platform-browser';
 import '@angular/platform-server/init';
 import { AppComponent } from './app/app.component';
 import { config } from './app/app.server.config';
@@ -16,5 +16,5 @@ if (environment.production) {
     enableProdMode();
 }
 
-const bootstrap = () => bootstrapApplication(AppComponent, config);
+const bootstrap = (context: BootstrapContext) => bootstrapApplication(AppComponent, config, context);
 export default bootstrap;

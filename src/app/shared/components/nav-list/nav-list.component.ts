@@ -1,6 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AsyncPipe, DOCUMENT, NgClass, TitleCasePipe } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, inject, input } from '@angular/core';
+import { AsyncPipe, NgClass, TitleCasePipe } from '@angular/common';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, inject, input, DOCUMENT } from '@angular/core';
 import { MatDivider } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatNavList } from '@angular/material/list';

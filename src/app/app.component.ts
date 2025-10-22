@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, Renderer2, inject, viewChild } from '@angular/core';
+
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, Renderer2, inject, viewChild, DOCUMENT } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { MatDrawer, MatDrawerContainer, MatDrawerContent } from '@angular/material/sidenav';

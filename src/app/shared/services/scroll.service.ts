@@ -1,5 +1,5 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Injectable, PLATFORM_ID, Renderer2, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Injectable, PLATFORM_ID, Renderer2, inject, DOCUMENT } from '@angular/core';
 import { BehaviorSubject, debounceTime, fromEvent, iif, of, share } from 'rxjs';
 import { WindowRefService } from './window-ref.service';
 
